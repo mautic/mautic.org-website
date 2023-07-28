@@ -1,17 +1,17 @@
 name: Gitlab Mirroring
 
-on: [push, pull_request, create, delete]
+on: [ push, pull_request, create, delete ]
 
 jobs:
   sync:
     name: Gitlab Mirroring
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-      with:
-        fetch-depth: 0
-     - uses: action-pack/gitlab-sync@v3
-      with:
-        username: ${{ github.actor }}
-        url: https://gitlab.com/${{ github.repository }}.git
-        token: ${{ secrets.GITLAB_MIRRORING_TOKEN }}
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: action-pack/gitlab-sync@v3
+        with:
+          username: ${{ github.actor }}
+          url: https://gitlab.dropsolid.com/project/mauticorg.git
+          token: ${{ secrets.GITLAB_MIRRORING_TOKEN }}
