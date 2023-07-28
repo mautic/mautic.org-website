@@ -1,0 +1,198 @@
+uuid: 24f2c3eb-b0d9-468b-b1fe-93619d6ad4c3
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.image_overlay_text
+    - field.field.block_content.image_overlay_text.body
+    - field.field.block_content.image_overlay_text.field_background_image
+    - field.field.block_content.image_overlay_text.field_block_1_title
+    - field.field.block_content.image_overlay_text.field_block_2_description
+    - field.field.block_content.image_overlay_text.field_block_2_title
+    - field.field.block_content.image_overlay_text.field_block_3_description
+    - field.field.block_content.image_overlay_text.field_block_3_title
+    - field.field.block_content.image_overlay_text.field_block_description
+    - field.field.block_content.image_overlay_text.field_full_width_block
+    - image.style.thumbnail
+  module:
+    - field_group
+    - image
+    - text
+third_party_settings:
+  field_group:
+    group_blocks:
+      children:
+        - group_block_1
+        - group_block_2
+        - group_block_3
+      label: Blocks
+      region: content
+      parent_name: ''
+      weight: 4
+      format_type: html_element
+      format_settings:
+        classes: ''
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+        required_fields: true
+    group_block_1:
+      children:
+        - field_block_1_title
+        - field_block_description
+      label: 'Block 1'
+      region: content
+      parent_name: group_blocks
+      weight: 20
+      format_type: html_element
+      format_settings:
+        classes: ''
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+        required_fields: true
+    group_block_2:
+      children:
+        - field_block_2_title
+        - field_block_2_description
+      label: 'Block 2'
+      region: content
+      parent_name: group_blocks
+      weight: 21
+      format_type: html_element
+      format_settings:
+        classes: ''
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+        required_fields: true
+    group_block_3:
+      children:
+        - field_block_3_title
+        - field_block_3_description
+      label: 'Block 3'
+      region: content
+      parent_name: group_blocks
+      weight: 22
+      format_type: html_element
+      format_settings:
+        classes: ''
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+        required_fields: true
+id: block_content.image_overlay_text.default
+targetEntityType: block_content
+bundle: image_overlay_text
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 2
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+  field_background_image:
+    type: image_image
+    weight: 0
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_block_1_title:
+    type: string_textfield
+    weight: 21
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_block_2_description:
+    type: text_textarea
+    weight: 24
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_block_2_title:
+    type: string_textfield
+    weight: 23
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_block_3_description:
+    type: text_textarea
+    weight: 26
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_block_3_title:
+    type: string_textfield
+    weight: 25
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_block_description:
+    type: text_textarea
+    weight: 22
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_full_width_block:
+    type: boolean_checkbox
+    weight: 27
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  info:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

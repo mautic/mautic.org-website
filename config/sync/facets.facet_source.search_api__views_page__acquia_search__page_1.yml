@@ -1,0 +1,9 @@
+uuid: 1a8661b6-3021-4934-a0b7-0f6b9005b2b1
+langcode: en
+status: true
+dependencies: {  }
+id: search_api__views_page__acquia_search__page_1
+name: 'search_api:views_page__acquia_search__page_1'
+filter_key: null
+url_processor: query_string
+breadcrumb: {  }

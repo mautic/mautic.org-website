@@ -1,0 +1,15 @@
+uuid: b53fb494-7edf-46cc-944f-024263661803
+langcode: en
+status: true
+dependencies: {  }
+name: small_highlight_239_x_113_
+label: 'Small highlight (239 x 113)'
+effects:
+  586a6b05-bd79-4bb1-89b9-aba981c2c4e5:
+    uuid: 586a6b05-bd79-4bb1-89b9-aba981c2c4e5
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 239
+      height: 113
+      anchor: center-center

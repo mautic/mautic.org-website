@@ -1,0 +1,22 @@
+diff --git a/src/Controller/AuthController.php b/src/Controller/AuthController.php
+index 08b3604..0654852 100644
+--- a/src/Controller/AuthController.php
++++ b/src/Controller/AuthController.php
+@@ -659,7 +659,7 @@ protected function signupUser(array $userInfo, $idToken = '') {
+       // there is a user to join with. The isDatabase is because we don't want
+       // to allow database user creation if there is an existing one with no
+       // verified email.
+-      if ($userInfo['email_verified'] || $isDatabaseUser) {
++      if (isset($userInfo['email_verified']) || $isDatabaseUser) {
+         $joinUser = user_load_by_mail($userInfo['email']);
+       }
+     }
+@@ -795,7 +795,7 @@ protected function auth0UpdateFields(array $userInfo, User $user, array &$edit)
+       ];
+ 
+       foreach ($mappings as $mapping) {
+-        $this->auth0Logger->notice('mapping ' . $mapping);
++        $this->auth0Logger->notice('mapping ' . $mapping[1]);
+ 
+         $key = $mapping[1];
+         if (in_array($key, $skip_mappings)) {

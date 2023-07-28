@@ -1,0 +1,7 @@
+
+
+tagclouds.admin.tagclouds:
+  title: TagClouds configuration
+  parent: system.admin_config_content
+  description: Configure the tag clouds. Set the order, the number of tags, and the depth of the clouds.
+  route_name: tagclouds.admin_page

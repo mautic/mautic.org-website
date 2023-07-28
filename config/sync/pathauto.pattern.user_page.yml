@@ -1,0 +1,14 @@
+uuid: 62186103-a751-4542-9bd5-0e6d99dadcea
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+id: user_page
+label: 'User page'
+type: 'canonical_entities:user'
+pattern: 'author/[user:name]'
+selection_criteria: {  }
+selection_logic: and
+weight: 0
+relationships: {  }

@@ -1,0 +1,20 @@
+uuid: c15f62e3-1ed7-4ef5-acde-d5e27e9c32ac
+langcode: en
+status: true
+dependencies:
+  module:
+    - mauticorg_core
+  theme:
+    - mauticorg_base
+id: copyrightcontentblock
+theme: mauticorg_base
+region: footer
+weight: -11
+provider: null
+plugin: copyright_content_block
+settings:
+  id: copyright_content_block
+  label: 'Copyright Content Block'
+  label_display: '0'
+  provider: mauticorg_core
+visibility: {  }

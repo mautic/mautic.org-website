@@ -1,0 +1,8 @@
+sort_order: 'title,asc'
+display_type: style
+display_node_link: false
+display_more_link: true
+page_amount: '60'
+levels: 6
+language_separation: 0
+language_separation_radios: 0

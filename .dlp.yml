@@ -1,0 +1,6 @@
+service_settings:
+  php_version: "8.0"
+services:
+  - https
+  - memcached
+  - solr

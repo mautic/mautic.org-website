@@ -1,0 +1,21 @@
+uuid: 15c683ea-622b-4224-9c07-c690cfdbf190
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_disable_sidebar
+    - node.type.landing_page
+id: node.landing_page.field_disable_sidebar
+field_name: field_disable_sidebar
+entity_type: node
+bundle: landing_page
+label: 'Disable Sidebar'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

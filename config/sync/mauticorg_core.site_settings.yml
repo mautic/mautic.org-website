@@ -1,0 +1,9 @@
+copyright_content:
+  value: "<p><a href=\"http://creativecommons.org/licenses/by-sa/4.0/\"><img alt=\"Creative Commons Licence\" src=\"https://i.creativecommons.org/l/by-sa/4.0/88x31.png\" /></a>This work is licensed under a <a href=\"http://creativecommons.org/licenses/by-sa/4.0/\">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br />\r\nMAUTIC is a trademark of the Mautic project of the Open Source Collective.</p>\r\n"
+  format: basic_html
+bottom_block_content_page_404:
+  value: "<p>The page you are trying to reach does not exist, or has been moved. Please use the menus or the search box to find what you are looking for. If you are looking for the Mautic Community Forums, please head to&nbsp;<a href=\"https://forum.mautic.org/\">https://forum.mautic.org</a></p>\r\n"
+  format: basic_html
+bottom_block_content_page_403:
+  value: ''
+  format: basic_html

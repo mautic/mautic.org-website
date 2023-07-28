@@ -1,0 +1,11 @@
+core: 8.x
+core_version_requirement: ^8 || ^9
+description: Adds hreflang link elements to the header of each page.
+name: Hreflang
+package: Multilingual
+type: module
+
+# Information added by Drupal.org packaging script on 2021-03-07
+version: '8.x-1.4'
+project: 'hreflang'
+datestamp: 1615098970

@@ -1,0 +1,6 @@
+# Scheduled content routing definition
+moderation_scheduler.content:
+  title: 'Scheduled content'
+  route_name: 'view.moderation_scheduler_content.page_1'
+  base_route: system.admin_content
+  weight: 99

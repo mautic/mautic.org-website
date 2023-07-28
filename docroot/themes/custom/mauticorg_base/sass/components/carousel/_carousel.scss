@@ -1,0 +1,99 @@
+.slick--view--banner-blog-carousel {
+  position: relative;
+  margin: 1.875rem 0;
+  padding-bottom: 1.875rem;
+  border-bottom: 1px solid $gainsboro-light;
+
+  a {
+    display: block;
+  }
+}
+
+.blog--list-category {
+  margin-right: 0.375rem;
+
+  h2 {
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-family: $primary-font;
+  }
+
+  a:hover {
+    color: $grey;
+  }
+
+  .field--name-field-nicename {
+    display: none;
+  }
+}
+
+.slick-slide {
+  outline: none;
+
+  img {
+    width: 100%;
+  }
+
+  .views-field-field-featured-image {
+    margin-bottom: 1rem;
+  }
+
+  .views-field-title {
+    margin-bottom: 0.625rem;
+    line-height: 1.2;
+
+    a {
+      font-size: 1.75rem;
+      color: $grey;
+      font-family: $secondary-font;
+      letter-spacing: -0.7px;
+
+      &:focus,
+      &:hover {
+        color: $cornflower-blue;
+      }
+
+      @include breakpoint($tablet-devices) {
+        font-size: 2.125rem;
+      }
+    }
+  }
+
+  .views-field-body {
+    color: $brownish-grey;
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+
+  &:focus,
+  &:hover {
+    img {
+      opacity: 0.9;
+    }
+
+    .views-field-title a {
+      color: $cornflower-blue;
+    }
+  }
+}
+
+.slide__description {
+  position: relative;
+
+  .views-field-comment-count {
+    @include comment-bubble;
+  }
+}
+
+.blog--list-category-date {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 0.25rem;
+  color: $brownish-grey;
+  text-transform: uppercase;
+  font-weight: 400;
+}

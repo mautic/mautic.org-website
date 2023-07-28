@@ -1,0 +1,88 @@
+.block-language {
+  .links {
+    @include clean-list;
+
+    display: flex;
+  }
+
+  a {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    padding: 0.9375rem 0.5rem;
+    font-weight: 600;
+
+    @include breakpoint($desktop-devices) {
+      font-size: 0.875rem;
+    }
+  }
+
+  li {
+    position: relative;
+
+    &::after {
+      content: "|";
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      line-height: 1;
+    }
+
+    &:last-child {
+      &::after {
+        content: none;
+      }
+    }
+  }
+}
+
+.dropdown-language-item {
+  position: absolute;
+  min-width: 6.25rem;
+  right: 0;
+  top: -1.625rem;
+
+  .dropbutton-arrow {
+    top: 1.625rem;
+    right: 0.625rem;
+  }
+
+  &:hover {
+    background-color: $black-transparent;
+  }
+
+  .dropbutton-toggle {
+    position: static;
+  }
+
+  .dropbutton-action {
+    cursor: pointer;
+
+    span {
+      padding: 1.1rem 1.5rem 0.9rem 0.625rem;
+    }
+
+    span,
+    a {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      display: block;
+    }
+  }
+
+  .secondary-action {
+    a {
+      padding: 0.625rem;
+      background-color: $calypso;
+    }
+  }
+}
+
+.dropbutton-multiple {
+  &.open {
+    .dropbutton-arrow {
+      top: 1.325rem;
+    }
+  }
+}

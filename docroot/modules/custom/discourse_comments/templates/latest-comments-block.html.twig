@@ -1,0 +1,39 @@
+{#
+/**
+* @file
+* Default theme implementation to display a block.
+*
+* @see template_preprocess_block()
+*
+* @ingroup themeable
+*/
+#}
+{% set classes = [
+  'clear-both',
+  'discourse__comments--wrapper'
+] %}
+<article{{ attributes.addClass(classes) }}>
+  {% if count > 0 %}
+    {% for key, post in content %}
+      <div class="latest__discourse--comment view-blog-recent-comments">
+        <div class="views-field-user-picture">
+          <a href="{{ post.comment_url }}" target="_blank">
+            <img src="{{ post.avatar_template }}" alt="{{ post.username ~ '\'s avatar' }}" title="{{ post.username ~ '\'s avatar' }}">
+          </a>
+        </div>
+        <div class="recent--comment-details">
+          <span class="comment__username comment__submitted recent--comment-username">
+            {{ post.username }} {{ "says:"|t }}
+          </span>
+          <div class="field--name-comment-body recent--comment-text">
+            <a class="recent--comment-text" href="{{ post.comment_url }}">
+              {{ post.post_content|raw }}
+            </a>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  {% else %}
+    <div class="no-comments">{{ "No comments found at the moment."|t }}</div>
+  {% endif %}
+</article>

@@ -1,0 +1,73 @@
+.menu-item--expanded {
+  &.show > .menu {
+    @include breakpoint($upto-desktop) {
+      max-height: 18.75rem;
+      opacity: 1;
+      display: block;
+    }
+  }
+
+  .menu--level-1 {
+    @include breakpoint($upto-desktop) {
+      display: none;
+    }
+
+    .menu-item a {
+      @include breakpoint($upto-desktop) {
+        padding-left: 2.5rem;
+      }
+    }
+  }
+
+  .menu--level-2 {
+    .menu-item a {
+      @include breakpoint($upto-desktop) {
+        padding-left: 4.5rem;
+      }
+    }
+  }
+}
+
+.region-secondary-menu,
+.region-primary-menu {
+  @include breakpoint($upto-desktop) {
+    display: none;
+  }
+}
+
+.show--menu {
+  @include breakpoint($upto-desktop) {
+    opacity: 1;
+    max-height: calc(100vh - 3.125rem);
+    overflow: auto;
+    position: fixed;
+    width: 100%;
+    background: $purple-shadow;
+    top: 3.125rem;
+    bottom: 0;
+  }
+
+  .region-secondary-menu,
+  .region-primary-menu {
+    display: block;
+  }
+}
+
+.toolbar-fixed,
+.toolbar-vertical {
+  .show--menu {
+    @include breakpoint($upto-desktop) {
+      max-height: calc(100vh - 5.5625rem);
+      top: 5.5625rem;
+    }
+  }
+}
+
+.toolbar-tray-open {
+  .show--menu {
+    @include breakpoint($upto-desktop) {
+      max-height: calc(100vh - 8rem);
+      top: 8rem;
+    }
+  }
+}

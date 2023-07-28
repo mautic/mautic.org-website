@@ -1,0 +1,4 @@
+services:
+  discourse_comments.discourse_api_client:
+    class: Drupal\discourse_comments\DiscourseApiClient
+    arguments: ['@http_client_factory', '@config.factory', '@cache.default', '@datetime.time', '@entity_type.manager', '@database']

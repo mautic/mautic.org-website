@@ -1,0 +1,140 @@
+.see--all-event {
+  .view-content {
+    margin-left: 0;
+  }
+
+  .views-field.views-field-title {
+    font-size: 2.625rem;
+    color: $grey;
+    letter-spacing: -1px;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+  }
+
+  .views-field-recurring-event {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+
+    span {
+      font-size: 1rem;
+    }
+
+    &::before {
+      @include font-icon;
+
+      content: "\f01e";
+      margin-right: 0.25rem;
+    }
+
+    a {
+      padding-left: 0.125rem;
+    }
+  }
+
+  .views-row {
+    padding-bottom: 0;
+  }
+
+  .view-footer {
+    a {
+      &::before {
+        @include font-icon;
+
+        content: "\f133";
+        margin-right: 0.4rem;
+      }
+    }
+  }
+}
+
+.views-field-all-events {
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+
+  .fa {
+    font-size: 1rem;
+  }
+}
+
+.node--type-event {
+  .field--name-field-event-date {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+
+    .date-recur-date {
+      &::before {
+        @include font-icon;
+
+        content: "\f073";
+        margin-right: 0.25rem;
+      }
+    }
+
+    .date-recur-interpretaton {
+      font-size: 0.875rem;
+      color: $space-grey;
+      display: block;
+      margin-top: 0.25rem;
+
+      &::before {
+        content: "\0028";
+      }
+
+      &::after {
+        content: "\0029";
+      }
+    }
+  }
+
+  .field--name-field-event-website,
+  .field--name-field-event-tags {
+    display: flex;
+    margin-bottom: 1rem;
+    font-weight: 600;
+
+    .field__label {
+      font-size: 0.875rem;
+      color: $brownish-grey;
+      margin-right: 0.5rem;
+
+      &::after {
+        content: "\003A";
+      }
+    }
+  }
+
+  .field--name-field-event-venue {
+    display: flex;
+    font-weight: bold;
+    font-size: 0.875rem;
+
+    .field__label {
+      margin-right: 0.625rem;
+
+      &::before {
+        @include font-icon;
+
+        content: "\f041";
+        margin-right: 0.5rem;
+      }
+
+      &::after {
+        content: "\003A";
+      }
+    }
+  }
+
+  .field--type-image {
+    margin: 1rem 0;
+  }
+
+  .field--name-field-event-website {
+    .field__item {
+      font-size: 0.875rem;
+    }
+  }
+}

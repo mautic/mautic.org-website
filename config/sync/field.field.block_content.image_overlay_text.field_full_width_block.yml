@@ -1,0 +1,23 @@
+uuid: 52dffa77-77d2-4f4e-b8bd-f250e6131d17
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.image_overlay_text
+    - field.storage.block_content.field_full_width_block
+id: block_content.image_overlay_text.field_full_width_block
+field_name: field_full_width_block
+entity_type: block_content
+bundle: image_overlay_text
+label: 'Full width block'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

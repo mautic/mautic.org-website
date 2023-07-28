@@ -1,0 +1,19 @@
+fonts:
+  version: VERSION
+  css:
+    theme:
+      "//fonts.googleapis.com/css?family=Roboto:300,400,500,700|Titillium+Web:400,600,700": { type: external }
+      "//stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css": { type: external }
+
+global:
+  version: VERSION
+  css:
+    theme:
+      dist/css/reset.css: {}
+      dist/css/styles.css: {}
+  js:
+    dist/js/menu.js: {}
+    dist/js/back-to-top.js: {}
+    dist/js/sidebar-toggle.js: {}
+  dependencies:
+    - core/jquery

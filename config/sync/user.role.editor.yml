@@ -1,0 +1,86 @@
+uuid: c3594284-7d4f-4525-893b-24c7228d7212
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_display.node.blog.default
+    - core.entity_view_display.node.landing_page.default
+    - filter.format.full_html
+    - media.type.image
+    - media.type.remote_video
+    - node.type.blog
+    - node.type.event
+    - node.type.landing_page
+    - workflows.workflow.content_workflow
+  module:
+    - content_moderation
+    - filter
+    - layout_builder
+    - media
+    - moderation_scheduler
+    - node
+    - quickedit
+    - system
+    - toolbar
+id: editor
+label: Editor
+weight: -7
+is_admin: null
+permissions:
+  - 'access content overview'
+  - 'access in-place editing'
+  - 'access media overview'
+  - 'access toolbar'
+  - 'configure editable blog node layout overrides'
+  - 'configure editable landing_page node layout overrides'
+  - 'create and edit custom blocks'
+  - 'create blog content'
+  - 'create event content'
+  - 'create image media'
+  - 'create landing_page content'
+  - 'create remote_video media'
+  - 'delete all revisions'
+  - 'delete any blog content'
+  - 'delete any event content'
+  - 'delete any image media'
+  - 'delete any landing_page content'
+  - 'delete any remote_video media'
+  - 'delete blog revisions'
+  - 'delete event revisions'
+  - 'delete landing_page revisions'
+  - 'delete own blog content'
+  - 'delete own event content'
+  - 'delete own image media'
+  - 'delete own landing_page content'
+  - 'delete own remote_video media'
+  - 'edit any blog content'
+  - 'edit any event content'
+  - 'edit any image media'
+  - 'edit any landing_page content'
+  - 'edit any remote_video media'
+  - 'edit moderation scheduler field'
+  - 'edit own blog content'
+  - 'edit own event content'
+  - 'edit own image media'
+  - 'edit own landing_page content'
+  - 'edit own remote_video media'
+  - 'revert all revisions'
+  - 'revert blog revisions'
+  - 'revert event revisions'
+  - 'revert landing_page revisions'
+  - 'use content_workflow transition create_new_draft'
+  - 'use content_workflow transition send_to_draft'
+  - 'use content_workflow transition send_to_publish'
+  - 'use content_workflow transition send_to_review'
+  - 'use content_workflow transition send_to_unpublish'
+  - 'use text format full_html'
+  - 'view all media revisions'
+  - 'view all revisions'
+  - 'view any unpublished content'
+  - 'view blog revisions'
+  - 'view event revisions'
+  - 'view landing_page revisions'
+  - 'view latest version'
+  - 'view own unpublished content'
+  - 'view own unpublished media'
+  - 'view the administration theme'

@@ -1,0 +1,9 @@
+name: Mautic Blog
+description: Customizations for the Mautic blog.
+type: module
+core_version_requirement: ^8.9 || ^9
+package: Mautic
+
+dependencies:
+  - drupal:node
+  - drupal:rest

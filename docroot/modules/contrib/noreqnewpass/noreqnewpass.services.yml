@@ -1,0 +1,5 @@
+services:
+  noreqnewpass.route_subscriber:
+    class: Drupal\noreqnewpass\Routing\RouteSubscriber
+    tags:
+      - { name: event_subscriber }

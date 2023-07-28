@@ -1,0 +1,82 @@
+<?php
+
+/**
+ * @file
+ * Installation file for the auth0 module.
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function auth0_schema() {
+  $schema['auth0_user'] = array(
+    'description' => 'Joins Auth0 users with Drupal users.',
+    'fields' => array(
+      'auth0_id' => array(
+        'description' => 'The user id on Auth0',
+        'type' => 'varchar',
+        'length' => 100,
+        'not null' => TRUE,
+      ),
+      'drupal_id' => array(
+        'description' => 'The user id on Drupal',
+        'type' => 'int',
+        'not null' => TRUE,
+      ),
+      'auth0_object' => array(
+        'description' => 'A serialized version of the Auth0 user',
+        'type' => 'text',
+        'not null' => TRUE,
+      ),
+    ),
+    'indexes' => array(
+      'drupal_id' => ['drupal_id'],
+    ),
+    'primary key' => ['auth0_id'],
+  );
+
+  return $schema;
+}
+
+/**
+ * Implements hook_install().
+ */
+function auth0_install() {
+  $css = "
+#a0-widget .a0-panel {
+    min-width: 90%;
+    padding: 5%;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+#a0-widget .a0-panel {
+    background-color: #f6f6f2;
+    border-color: #f9f9f9;
+}";
+
+  $config = \Drupal::service('config.factory')->getEditable('auth0.settings');
+  $config->set('auth0_form_title', 'Sign In')
+    ->set('auth0_allow_signup', TRUE)
+    ->set('auth0_allow_offline_access', FALSE)
+    ->set('auth0_redirect_for_sso', TRUE)
+    ->set('auth0_widget_cdn', '//cdn.auth0.com/js/lock/11.15/lock.min.js')
+    ->set('auth0_requires_verified_email', TRUE)
+    ->set('auth0_join_user_by_mail_enabled', TRUE)
+    ->set('auth0_username_claim', 'nickname')
+    ->set('auth0_login_css', $css)
+    ->set('auth0_auto_register', FALSE)
+    ->set('auth0_lock_extra_settings', '')
+    ->set('auth0_claim_mapping', '')
+    ->set('auth0_claim_to_use_for_role', '')
+    ->set('auth0_role_mapping', '')
+    ->save();
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function auth0_uninstall() {
+  $config = \Drupal::service('config.factory');
+  $auth0_config = $config->getEditable('auth0.settings');
+  $auth0_config->delete();
+}

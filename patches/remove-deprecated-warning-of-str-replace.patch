@@ -1,0 +1,14 @@
+diff --git a/src/DateRecurViewsHooks.php b/src/DateRecurViewsHooks.php
+index a066a20..deecaa2 100644
+--- a/src/DateRecurViewsHooks.php
++++ b/src/DateRecurViewsHooks.php
+@@ -226,9 +226,6 @@ class DateRecurViewsHooks implements ContainerInjectionInterface {
+     $occurrenceTableName = DateRecurOccurrences::getOccurrenceCacheStorageTableName($fieldDefinition);
+     if ($this->database->schema()->tableExists($occurrenceTableName)) {
+       $occurrenceTable = $originalTable;
+-      // Remove the automatic join, requires site builders to use relationship
+-      // plugin.
+-      unset($occurrenceTable['table']['join']);
+       // Unset some irrelevant fields.
+       foreach (array_keys($occurrenceTable) as $fieldId) {
+         $fieldId = (string) $fieldId;

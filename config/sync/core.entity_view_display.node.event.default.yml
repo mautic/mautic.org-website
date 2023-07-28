@@ -1,0 +1,239 @@
+uuid: 9170e6d3-0ceb-464c-bfe6-e3c36dbe7db9
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.date_format.medium
+    - date_recur.interpreter.default_interpreter
+    - field.field.node.event.body
+    - field.field.node.event.field_event_category
+    - field.field.node.event.field_event_date
+    - field.field.node.event.field_event_tags
+    - field.field.node.event.field_event_venue
+    - field.field.node.event.field_event_website
+    - field.field.node.event.field_featured_image
+    - field.field.node.event.field_meta_tag
+    - node.type.event
+  module:
+    - date_recur
+    - layout_builder
+    - layout_discovery
+    - link
+    - metatag
+    - text
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: false
+    sections:
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+          context_mapping: {  }
+        components:
+          3ac483e0-8909-4d75-aa13-91078c65e9e4:
+            uuid: 3ac483e0-8909-4d75-aa13-91078c65e9e4
+            region: content
+            configuration:
+              id: 'extra_field_block:node:event:content_moderation_control'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+            weight: -8
+            additional: {  }
+          f1f92b6a-8752-400c-83b6-897bb7707aa0:
+            uuid: f1f92b6a-8752-400c-83b6-897bb7707aa0
+            region: content
+            configuration:
+              id: 'field_block:node:event:body'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: text_default
+                label: hidden
+                settings: {  }
+                third_party_settings: {  }
+            weight: -6
+            additional: {  }
+          09a39c75-c430-4dcc-bcb1-40fd641bc7be:
+            uuid: 09a39c75-c430-4dcc-bcb1-40fd641bc7be
+            region: content
+            configuration:
+              id: 'field_block:node:event:field_event_website'
+              label: Website
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: link
+                label: inline
+                settings:
+                  trim_length: 80
+                  url_only: false
+                  url_plain: false
+                  rel: '0'
+                  target: _blank
+                third_party_settings: {  }
+            weight: -5
+            additional: {  }
+          4bcd7899-ea46-46f4-be4a-37c674cb5a04:
+            uuid: 4bcd7899-ea46-46f4-be4a-37c674cb5a04
+            region: content
+            configuration:
+              id: 'field_block:node:event:field_meta_tag'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: metatag_empty_formatter
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+            weight: -4
+            additional: {  }
+          67c3cbe0-dd24-4d93-b724-aea920900233:
+            uuid: 67c3cbe0-dd24-4d93-b724-aea920900233
+            region: content
+            configuration:
+              id: 'field_block:node:event:field_event_date'
+              label: Date
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: date_recur_basic_formatter
+                label: hidden
+                settings:
+                  timezone_override: America/New_York
+                  format_type: mautic_event_date
+                  separator: '- '
+                  show_next: 5
+                  count_per_item: true
+                  occurrence_format_type: mautic_event_date
+                  same_end_date_format_type: mautic_event_date
+                  interpreter: default_interpreter
+                third_party_settings: {  }
+            weight: -7
+            additional: {  }
+          bf911341-d4a9-4519-83f5-7c5eda60dcc8:
+            uuid: bf911341-d4a9-4519-83f5-7c5eda60dcc8
+            region: content
+            configuration:
+              id: 'field_block:node:event:title'
+              label: Title
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: string
+                label: hidden
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+            weight: -10
+            additional: {  }
+          2133876f-552b-40d9-a8af-d4067044f3cb:
+            uuid: 2133876f-552b-40d9-a8af-d4067044f3cb
+            region: content
+            configuration:
+              id: 'field_block:node:event:field_event_venue'
+              label: Venue
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: basic_string
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+            weight: -3
+            additional: {  }
+        third_party_settings: {  }
+id: node.event.default
+targetEntityType: node
+bundle: event
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_event_date:
+    type: date_recur_basic_formatter
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: medium
+      separator: '-'
+      show_next: 12
+      count_per_item: true
+      occurrence_format_type: medium
+      same_end_date_format_type: medium
+      interpreter: default_interpreter
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_event_tags:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_event_venue:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_event_website:
+    type: link
+    label: inline
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: _blank
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_meta_tag:
+    type: metatag_empty_formatter
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  field_event_category: true
+  field_featured_image: true
+  langcode: true
+  layout_builder__layout: true
+  search_api_excerpt: true

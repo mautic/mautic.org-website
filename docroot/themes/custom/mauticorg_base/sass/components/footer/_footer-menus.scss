@@ -1,0 +1,80 @@
+.layout-post-content {
+  background: $white;
+
+  @include breakpoint($tablet-devices) {
+    padding-top: 1.25rem;
+  }
+}
+
+.region-post-content {
+  @include container;
+
+  @include breakpoint($tablet-devices) {
+    display: flex;
+    padding: 1.875rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    line-height: 2.1875rem;
+    text-transform: uppercase;
+    font-weight: 300;
+    margin: 0 0 0.375rem;
+    color: $nero;
+  }
+
+  nav {
+    flex: 1;
+    padding-bottom: 1.875rem;
+
+    a::before {
+      @include dashed-link-icon;
+    }
+  }
+
+  a {
+    color: $brownish-grey;
+    text-decoration: none;
+    padding: 0.625rem 0;
+    padding-left: 1.25rem;
+    border-bottom: 1px solid $gainsboro-light;
+    font-size: 0.9375rem;
+    font-weight: 300;
+    display: block;
+    position: relative;
+
+    &:focus,
+    &:hover {
+      text-decoration: underline;
+      color: $space-grey;
+    }
+  }
+
+  ul {
+    @include clean-list;
+  }
+
+  .views-element-container {
+    flex: 2;
+    padding-bottom: 1.875rem;
+
+    @include breakpoint($tablet-devices) {
+      margin: 0 3.2%;
+    }
+
+    a::before {
+      @include font-icon;
+
+      content: "\f017";
+      font-weight: 400;
+      font-size: 0.75rem;
+      margin-right: 0.375rem;
+      color: $brownish-grey;
+      display: inline-block;
+      width: 0.75rem;
+      position: absolute;
+      left: 0;
+      top: 0.75rem;
+    }
+  }
+}

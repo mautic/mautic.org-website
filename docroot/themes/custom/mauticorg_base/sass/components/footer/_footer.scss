@@ -1,0 +1,32 @@
+.page__footer {
+  background-color: $shark;
+  position: relative;
+}
+
+.region-footer {
+  @include container;
+
+  color: $white-smoke;
+  padding-top: 3.125rem;
+  padding-bottom: 2.5rem;
+  text-align: center;
+
+  @include breakpoint($tablet-devices) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 1.875rem;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .menu--social-follow {
+    justify-content: center;
+
+    @include breakpoint($tablet-devices) {
+      justify-content: unset;
+    }
+  }
+}

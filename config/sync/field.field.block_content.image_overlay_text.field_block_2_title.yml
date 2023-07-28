@@ -1,0 +1,19 @@
+uuid: c38f1b44-53f1-4e39-abf4-63dea324a6e7
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.image_overlay_text
+    - field.storage.block_content.field_block_2_title
+id: block_content.image_overlay_text.field_block_2_title
+field_name: field_block_2_title
+entity_type: block_content
+bundle: image_overlay_text
+label: 'Block 2 Title'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,6 @@
+auth0.settings:
+  title: "Auth0"
+  parent: system.admin_config_system
+  description: "Auth0 settings"
+  route_name: auth0.settings
+  weight: 100

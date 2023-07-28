@@ -1,0 +1,35 @@
+.tabsbar.quicktabs-wrapper {
+  padding-bottom: 2rem;
+}
+.tabsbar ul.quicktabs-tabs {
+  border-bottom: 1px solid #dee2e6;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin-top: 20px;
+  margin-bottom: 1rem;
+}
+.tabsbar ul.quicktabs-tabs li {
+  margin-bottom: -1px;
+}
+.tabsbar .quicktabs-tabs > li > a {
+  border: 1px solid transparent;
+  border-top-left-radius: .25rem;
+  border-top-right-radius: .25rem;
+  display: block;
+  padding: .5rem 1rem;
+}
+.tabsbar .quicktabs-tabs > li > a:hover {
+
+}
+.tabsbar .quicktabs-tabs > li.active > a,
+.tabsbar .quicktabs-tabs > li.active > a:hover,
+.tabsbar .quicktabs-tabs > li.active > a:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: #dee2e6 #dee2e6 #fff;
+}
+.tabsbar .quicktabs-main {
+  padding: 1rem;
+  padding-top: 2rem;
+}

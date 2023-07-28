@@ -1,0 +1,19 @@
+{#
+/**
+ * @file
+ * Theme for Quick Tabs module's block content.
+ *
+ * Available variables:
+ * - title: the title of the block
+ * - block: the render array of block content
+ * - classes: the class attribute
+ * - id: the id attribute
+ * - tabid: The id of the tab which activates this panel.
+ *
+ * @ingroup themeable
+ */
+#}
+<div id="{{ id }}" class="{{ classes }}" role="tabpanel" aria-labelledby="{{ tabid }}" tabindex="0">
+<div class="quicktabs-block-title">{{ title }}</div>
+{{ block }}
+</div>

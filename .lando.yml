@@ -1,0 +1,40 @@
+name: mautic
+recipe: drupal8
+
+config:
+  php: "8.1"
+  webroot: docroot
+
+services:
+  appserver:
+    build:
+      - cd $LANDO_MOUNT && composer install
+
+  nodejs:
+    type: node:12
+    globals:
+      gulp-cli: latest
+    build:
+      - cd $LANDO_MOUNT/docroot/themes/custom/mauticorg_base && npm install
+      - cd $LANDO_MOUNT/docroot/themes/custom/mauticorg_base && gulp
+
+  phpmyadmin:
+    type: phpmyadmin
+
+tooling:
+  gulp:
+    service: nodejs
+  node:
+    service: nodejs
+  npm:
+    service: nodejs
+  phpunit:
+    service: appserver
+    cmd: vendor/bin/phpunit
+  phpcs:
+    service: appserver
+    cmd: vendor/bin/phpcs
+
+events:
+  post-db-import:
+    - appserver: cd $LANDO_WEBROOT && drush cache-rebuild --yes

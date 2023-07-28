@@ -1,0 +1,54 @@
+<?php
+
+/**
+ * @file
+ * The discourse_comments install file.
+ */
+
+use Drupal\field\Entity\FieldStorageConfig;
+use Drupal\field\Entity\FieldConfig;
+
+/**
+ * Implements hook_install().
+ */
+function discourse_comments_install() {
+  $field_name = 'field_discourse';
+  if (empty(FieldStorageConfig::loadByName('node', $field_name))) {
+    $fieldStorage = FieldStorageConfig::create([
+      'field_name'             => $field_name,
+      'langcode'               => 'en',
+      'entity_type'            => 'node',
+      'type'                   => 'discourse_field',
+      'locked'                 => FALSE,
+      'cardinality'            => 1,
+      'translatable'           => TRUE,
+      'persist_with_no_fields' => TRUE,
+      'custom_storage'         => FALSE,
+    ]);
+    $fieldStorage->save();
+  }
+
+  $field_manager = \Drupal::service('entity_field.manager');
+  $field_storage_manager = \Drupal::service('field_storage_definition.listener');
+  $definition = $field_manager->getFieldStorageDefinitions('node')['field_discourse'];
+  $field_storage_manager->onFieldStorageDefinitionCreate($definition);
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function discourse_comments_uninstall() {
+  $types = \Drupal::entityTypeManager()
+    ->getStorage('node_type')
+    ->loadMultiple();
+  foreach ($types as $name => $content_type) {
+    // Deleting field.
+    $field = FieldConfig::loadByName('node', $name, 'field_discourse');
+    if (!empty($field)) {
+      $field->delete();
+    }
+  }
+
+  // Deleting field storage.
+  FieldStorageConfig::loadByName('node', 'field_discourse')->delete();
+}

@@ -1,0 +1,150 @@
+quicktabs.quicktabs_instance.*:
+  type: config_entity
+  label: 'Quick Tabs settings'
+  mapping:
+    id:
+      type: string
+      label: ID
+    label:
+      type: string
+      label: Label
+    uuid:
+      type: string
+      label: UUID
+    status:
+      type: boolean
+      label: Status
+    renderer:
+      type: string
+      label: Renderer
+    hide_empty_tabs:
+      type: boolean
+      label: 'Hide Empty Tabs'
+    default_tab:
+      type: integer
+      label: 'Default Tab'
+    dependencies:
+      type: sequence
+      label: Dependencies
+    options:
+      type: sequence
+      label: Options
+      sequence:
+        type: quicktabs.options.[%key]
+    configuration_data:
+      type: sequence
+      label: 'Configuration Data'
+      sequence:
+        type: mapping
+        label: 'Configuration Item'
+        mapping:
+          title:
+            type: text
+            label: Title
+          weight:
+            type: integer
+            label: Weight
+          type:
+            type: string
+            label: Type
+          content:
+            type: sequence
+            label: Content
+            sequence:
+              type: quicktabs.configuration_data.[%key]
+
+# Accordion Tabs Renderer Plugin
+quicktabs.options.accordion_tabs:
+  type: mapping
+  label: 'Accordion Tabs Options'
+  mapping:
+    jquery_ui:
+      type: mapping
+      label: 'jQuery UI'
+      mapping:
+        collapsible:
+          type: boolean
+          label: Collapsible
+        heightStyle:
+          type: string
+          label: 'Height Style'
+
+# Quick Tabs Renderer Plugin
+quicktabs.options.quick_tabs:
+  type: mapping
+  label: 'Quick Tabs Options'
+  mapping:
+    ajax:
+      type: boolean
+      label: Ajax
+
+
+# Block Tab Type Plugin
+quicktabs.configuration_data.block_content:
+  type: mapping
+  label: 'Block Content'
+  mapping:
+    options:
+      type: mapping
+      label: Options
+      mapping:
+        bid:
+          type: string
+          label: nid
+        block_title:
+          type: string
+          label: 'Block Title'
+        display_title:
+          type: boolean
+          label: 'Display Title'
+
+# Node Tab Type Plugin
+quicktabs.configuration_data.node_content:
+  type: mapping
+  label: 'Node Content'
+  mapping:
+    options:
+      type: mapping
+      label: Options
+      mapping:
+        nid:
+          type: string
+          label: nid
+        view_mode:
+          type: string
+          label: 'View Mode'
+        hide_title:
+          type: boolean
+          label: 'Hide Title'
+
+# Quick Tabs Type Plugin
+quicktabs.configuration_data.qtabs_content:
+  type: mapping
+  label: 'Quick Tabs Content'
+  mapping:
+    options:
+      type: mapping
+      label: Options
+      mapping:
+        machine_name:
+          type: string
+          label: 'Machine Name'
+
+# View Tab Type Plugin
+quicktabs.configuration_data.view_content:
+  type: mapping
+  label: 'View Content'
+  mapping:
+    options:
+      type: mapping
+      label: Options
+      mapping:
+        vid:
+          type: string
+          label: vid
+        display:
+          type: string
+          label: Display
+        args:
+          type: string
+          label: Arguments

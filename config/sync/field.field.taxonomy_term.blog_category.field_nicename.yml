@@ -1,0 +1,19 @@
+uuid: e0f62383-6cf4-4c61-9785-b47535991a60
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_nicename
+    - taxonomy.vocabulary.blog_category
+id: taxonomy_term.blog_category.field_nicename
+field_name: field_nicename
+entity_type: taxonomy_term
+bundle: blog_category
+label: Nicename
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

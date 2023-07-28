@@ -1,0 +1,150 @@
+_core:
+  default_config_hash: f4sH8CGbEMFQXKFoGeaHbmIP_f6cOTi02EeFhHSbYyo
+langcode: en
+page_title: Sitemap
+message:
+  value: ''
+  format: basic_html
+plugins:
+  frontpage:
+    enabled: false
+    weight: -50
+    settings:
+      title: 'Front page'
+      rss: /rss.xml
+  'menu:footer':
+    enabled: true
+    weight: -50
+    settings:
+      title: Footer
+      show_disabled: false
+  'menu:footer-links':
+    enabled: true
+    weight: -50
+    settings:
+      title: Links
+      show_disabled: false
+  'menu:main':
+    enabled: true
+    weight: -50
+    settings:
+      title: 'Main navigation'
+      show_disabled: false
+  'menu:social-follow':
+    enabled: true
+    weight: -50
+    settings:
+      title: Follow
+      show_disabled: false
+  'menu:account':
+    enabled: false
+    weight: -50
+    settings:
+      title: 'User account menu'
+      show_disabled: false
+  'menu:admin':
+    enabled: false
+    weight: -50
+    settings:
+      title: Administration
+      show_disabled: false
+  'menu:blog-category-menu':
+    enabled: false
+    weight: -50
+    settings:
+      title: 'Blog Category Menu'
+      show_disabled: false
+  'menu:footer-help':
+    enabled: false
+    weight: -50
+    settings:
+      title: Help
+      show_disabled: false
+  'menu:secondary-menu':
+    enabled: false
+    weight: -50
+    settings:
+      title: 'Secondary Menu'
+      show_disabled: false
+  'menu:tools':
+    enabled: false
+    weight: -50
+    settings:
+      title: Tools
+      show_disabled: false
+  'vocabulary:blog_category':
+    enabled: false
+    weight: -50
+    settings:
+      title: 'Blog Category'
+      show_description: true
+      show_count: true
+      term_depth: 9
+      term_count_threshold: 0
+      customize_link: false
+      term_link: entity.taxonomy_term.canonical|taxonomy_term
+      always_link: false
+      enable_rss: true
+      rss_link: view.taxonomy_term.feed_1|arg_0
+      rss_depth: 9
+  'vocabulary:event_category':
+    enabled: false
+    weight: -50
+    settings:
+      title: 'Event Category'
+      show_description: true
+      show_count: true
+      term_depth: 9
+      term_count_threshold: 0
+      customize_link: false
+      term_link: entity.taxonomy_term.canonical|taxonomy_term
+      always_link: false
+      enable_rss: true
+      rss_link: view.taxonomy_term.feed_1|arg_0
+      rss_depth: 9
+  'vocabulary:event_tags':
+    enabled: false
+    weight: -50
+    settings:
+      title: 'Event Tags'
+      show_description: true
+      show_count: true
+      term_depth: 9
+      term_count_threshold: 0
+      customize_link: false
+      term_link: entity.taxonomy_term.canonical|taxonomy_term
+      always_link: false
+      enable_rss: true
+      rss_link: view.taxonomy_term.feed_1|arg_0
+      rss_depth: 9
+  'vocabulary:event_venues':
+    enabled: false
+    weight: -50
+    settings:
+      title: 'Event Venues'
+      show_description: true
+      show_count: true
+      term_depth: 9
+      term_count_threshold: 0
+      customize_link: false
+      term_link: entity.taxonomy_term.canonical|taxonomy_term
+      always_link: false
+      enable_rss: true
+      rss_link: view.taxonomy_term.feed_1|arg_0
+      rss_depth: 9
+  'vocabulary:tags':
+    enabled: false
+    weight: -50
+    settings:
+      title: Tags
+      show_description: true
+      show_count: true
+      term_depth: 9
+      term_count_threshold: 0
+      customize_link: false
+      term_link: entity.taxonomy_term.canonical|taxonomy_term
+      always_link: false
+      enable_rss: true
+      rss_link: view.taxonomy_term.feed_1|arg_0
+      rss_depth: 9
+include_css: true

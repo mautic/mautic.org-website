@@ -1,0 +1,6 @@
+mauticorg_core.mauticorg_site_config:
+  title: 'MauticOrg Site Settings'
+  route_name: mauticorg_core.mauticorg_site_config
+  description: 'Configuration of Mauticorg Form'
+  parent: system.admin_config_system
+  weight: 99

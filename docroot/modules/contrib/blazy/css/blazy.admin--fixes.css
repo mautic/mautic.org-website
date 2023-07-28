@@ -1,0 +1,246 @@
+/**
+ * @file
+ *
+ * Temporary fixes till further extensive updates.
+ */
+
+.form--slick .form-item--label,
+.form--slick .form-item.form-type--vertical-tabs,
+.form--slick .form-item.js-form-type-vertical-tabs {
+  border: 0;
+}
+
+/* Gin compat. */
+[data-gin-accent] .form--slick .form-type--boolean .form-boolean {
+  min-height: 100%;
+  top: 0;
+  transform: none;
+}
+
+/* Fixed weird Gin zoom in out button sizes at Gridstack form. */
+.form--slick .form-actions button {
+  padding: 0 10px 1px;
+}
+
+.field-plugin-settings-editing .form--slick {
+  padding-top: 0;
+}
+
+.form--slick .fieldset__description {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Off-canvas. */
+#drupal-off-canvas .form--slick.form--half,
+#drupal-off-canvas .form--slick .form-item { /* csslint allow: ids */
+  height: auto;
+  min-width: 100%;
+  max-width: 100%;
+  width: 100%;
+}
+
+#drupal-off-canvas .form--slick.form--half { /* csslint allow: ids */
+  padding: 1rem;
+}
+
+#drupal-off-canvas .form--slick .form-item { /* csslint allow: ids */
+  border: 0;
+  float: none;
+  margin: 10px 0;
+  min-height: 22px;
+  padding: 0;
+}
+
+#drupal-off-canvas .form--slick .form-item.is-hovered,
+#drupal-off-canvas .form--slick .form-item.is-selected { /* csslint allow: ids */
+  z-index: 9;
+}
+
+#drupal-off-canvas .form--slick .form-item div[class*=description] { /* csslint allow: ids */
+  display: none;
+}
+
+#drupal-off-canvas .form--slick .form-item.is-hovered div[class*=description],
+#drupal-off-canvas .form--slick .form-item.is-selected div[class*=description] { /* csslint allow: ids */
+  display: block;
+}
+
+#drupal-off-canvas .form--slick select:not([multiple]) { /* csslint allow: ids */
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+#drupal-off-canvas .form-item .b-hint { /* csslint allow: ids */
+  background: #828282;
+  border-radius: 50%;
+  color: #fff;
+  content: '?';
+  font-family: sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  margin: 0;
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  right: 5px;
+  text-align: center;
+  top: 5px;
+  z-index: 8;
+}
+
+#drupal-off-canvas .has-tooltip .form-item > .description,
+#drupal-off-canvas .has-tooltip .form-composite > .fieldset-wrapper > .description { /* csslint allow: ids */
+  background: #000;
+}
+
+#drupal-off-canvas .form--slick .form-item--style { /* csslint allow: ids */
+  position: relative;
+  top: 0;
+}
+
+#drupal-off-canvas .form--slick .form-checkboxes { /* csslint allow: ids */
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#drupal-off-canvas .form--slick .form-checkboxes .form-item { /* csslint allow: ids */
+  margin-bottom: 0;
+  min-width: 48.999%;
+  width: 48.999%;
+}
+
+#drupal-off-canvas .form--vanilla div[class*="-vanilla"] { /* csslint allow: ids */
+  position: relative;
+}
+
+#drupal-off-canvas .form--slick input[type="checkbox"] { /* csslint allow: ids */
+  float: left;
+  margin-top: 10px;
+}
+
+/* Views UI. */
+.ui-dialog-content .form--slick .form-item {
+  margin: 0;
+}
+
+/** Fixed for things beyond Blazy. */
+.form--media-switch-lightbox .form-item--box-style,
+.form--media-switch-lightbox .form-item--box-media-style {
+  display: block !important; /* csslint allow: known-properties, important */
+}
+
+@media screen and (min-width: 760px) {
+  .form--slick.form--blazy .vertical-tabs__menu {
+    width: 190px;
+  }
+
+  .form--slick.form--blazy .vertical-tabs__items {
+    margin-left: 180px;
+  }
+
+  .form--slick.form--blazy .vertical-tabs__panes {
+    margin-left: 188px;
+  }
+
+  .form--slick .form-item label,
+  .form--optionset .vertical-tabs__panes .form-item label {
+    max-width: 49%;
+    overflow: hidden;
+    position: relative;
+    width: 49%;
+  }
+
+  .form--slick .form__header .form-item label {
+    max-width: none;
+    width: auto;
+  }
+
+  .form--slick .form-item input,
+  .form--slick .form-item select {
+    max-width: 40%;
+  }
+
+  [data-gin-accent] .form--slick .vertical-tabs .claro-details__content--vertical-tabs-item {
+    margin: 1.5rem auto;
+  }
+
+  [data-gin-accent] .form--slick.slick-form .vertical-tabs .claro-details .details-wrapper {
+    top: -42px;
+  }
+
+  [data-gin-accent] .form--slick.slick-form .vertical-tabs .claro-details .details-wrapper .details-wrapper {
+    top: 0;
+  }
+
+  [data-gin-accent] .form--slick .vertical-tabs .details--responsive .form-item input,
+  [data-gin-accent] .form--slick .vertical-tabs .details--responsive .form-item select {
+    max-width: 80px;
+    min-width: 80px;
+  }
+
+  [data-gin-accent] .form--slick .vertical-tabs__menu-link {
+    padding-left: 10px;
+    padding-right: 40px;
+  }
+
+  .form--slick .td__range {
+    max-width: 120px;
+  }
+
+  .form--slick .td__range input {
+    max-width: 100%;
+  }
+
+  .form--half.form--slick div[class*="grid"] {
+    width: 49.9999%;
+  }
+
+  .form--half.form--slick .form-item--grid.form-item {
+    border-top: 1px solid #dadada;
+    clear: both;
+    float: none;
+    width: 100%;
+  }
+
+  .form--half.form--slick .form-item--grid.form-item label {
+    max-width: 32%;
+  }
+
+  .form--half.form--slick .form-item--grid.form-item input {
+    max-width: 60%;
+  }
+
+  .ui-dialog-content .form--vanilla .form__header {
+    font-size: 17px;
+    min-height: 82px;
+  }
+
+  .views-ui-dialog .form--vanilla div[class*="-vanilla"] {
+    position: absolute !important; /* csslint allow: known-properties, important */
+    top: 0;
+  }
+
+  #drupal-off-canvas .form--vanilla div[class*="-vanilla"] { /* csslint allow: ids */
+    top: 0;
+  }
+
+  .views-ui-dialog .form--vanilla div[class*="-vanilla"] label {
+    margin-left: 15px;
+    width: auto;
+  }
+
+  #field-display-overview .field-plugin-settings-edit-form .form--slick .form-item--style,
+  #field-display-overview .field-plugin-settings-edit-form .form--slick div[class*="-vanilla"] {  /* csslint allow: ids */
+    height: 42px;
+    margin-top: -42px;
+    min-height: 42px;
+    min-width: 48.999%;
+    padding: 0;
+    top: 0;
+    width: 48.999%;
+  }
+
+}

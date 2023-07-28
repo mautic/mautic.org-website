@@ -1,0 +1,25 @@
+uuid: ffdb5de9-5d15-43e3-9461-4b47e1f71f08
+langcode: en
+status: true
+dependencies: {  }
+id: blacklist
+label: Blacklist
+description: ''
+weight: 0
+folder: null
+module: {  }
+theme: {  }
+blacklist:
+  - 'webform.*'
+  - 'system.action.webform_*'
+  - simple_sitemap.custom_links.default
+  - simple_recaptcha.config
+  - simple_sitemap.settings
+  - 'image.style.drimage_*'
+  - simple_recaptcha.config
+  - cookie_content_blocker.settings
+  - cookie_content_blocker_media.settings
+  - unomi.settings
+graylist: {  }
+graylist_dependents: true
+graylist_skip_equal: false

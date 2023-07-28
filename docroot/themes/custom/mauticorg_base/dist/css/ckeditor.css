@@ -1,0 +1,302 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "monaco";
+  src: url("../../fonts/Monaco.ttf?2pxs5l") format("truetype"), url("../../fonts/Monaco.woff?2pxs5l") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.fa,
+.fab,
+.fas {
+  font-family: FontAwesome;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  outline: 0;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+}
+
+.btn,
+.button--main {
+  background-color: #4e5e9e;
+  border: none;
+  border-radius: 0.25rem;
+  color: #fff;
+  display: inline-block;
+  letter-spacing: 0.025rem;
+  font-size: 1rem;
+  line-height: 1;
+  font-weight: 900;
+  margin: 0;
+  padding: 0.75rem 1.25rem;
+  text-align: center;
+  text-decoration: none;
+  margin-right: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.btn:hover,
+.button--main:hover {
+  text-decoration: none;
+}
+
+.button--gold {
+  background-color: #ffb900;
+  color: #444;
+}
+
+.button--gold:hover {
+  background-color: #ffc733;
+}
+
+.button--teal {
+  background-color: #00bf9a;
+  color: #333;
+}
+
+.button--teal:hover {
+  background: #00cca4;
+}
+
+.button--purple {
+  background-color: #4e5e9e;
+}
+
+.button--purple:hover {
+  background: #425090;
+}
+
+.button__purple--border {
+  font-size: 0.8125rem;
+  font-weight: 300;
+  position: relative;
+  padding: 0.4rem 1rem 0.54rem;
+  border: 1px solid #3f4c7f;
+  letter-spacing: 0;
+}
+
+.button__purple--border::before, .button__purple--border::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 1.25rem;
+  border-radius: 0.3125rem;
+  border-top: 1px solid #848fbc;
+}
+
+.button__purple--border::after {
+  bottom: 0;
+  top: 1.25rem;
+  border-top: 0;
+  border-bottom: 1px solid #848fbc;
+}
+
+.purple__background {
+  background-color: #4e5e9e;
+  color: #fff;
+  padding: 0.9375rem 0.9375rem 1.5625rem;
+  font-size: 0.9375rem;
+}
+
+.purple__background h1,
+.purple__background h2,
+.purple__background h3,
+.purple__background h4,
+.purple__background h5,
+.purple__background h6 {
+  color: #fff;
+  font-weight: 600;
+  padding: 0.625rem 0 1.25rem;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.purple__background blockquote {
+  color: #fff;
+}
+
+.purple__background p {
+  margin-top: 0;
+}
+
+.purple__background strong {
+  color: #00bf9a;
+}
+
+.quote__wrapper {
+  font-size: 1.5rem;
+  line-height: 2.1875rem;
+  font-family: "Titillium Web", sans-serif;
+  margin: auto;
+  padding: 0 0.9375rem;
+}
+
+@media (min-width: 768px) {
+  .quote__wrapper {
+    max-width: 75%;
+  }
+}
+
+.quote__wrapper img {
+  border-radius: 100%;
+  width: 8.75rem;
+  height: 8.75rem;
+  display: inline-block;
+  margin: 0 0 1.5rem 0;
+}
+
+.quote__wrapper .field--name-field-media-image {
+  display: inline-block;
+  position: relative;
+  font-family: "Roboto", sans-serif;
+}
+
+.quote__wrapper .field--name-field-media-image::before, .quote__wrapper .field--name-field-media-image::after {
+  font-size: 4.5rem;
+  color: #00bf9a;
+  font-weight: 600;
+  position: absolute;
+  line-height: 3.5rem;
+  vertical-align: text-bottom;
+  top: 3.75rem;
+}
+
+.quote__wrapper .field--name-field-media-image::before {
+  content: "“";
+  left: -3.75rem;
+}
+
+.quote__wrapper .field--name-field-media-image::after {
+  content: "”";
+  right: -3.75rem;
+}
+
+.quote__author {
+  margin-top: 1rem;
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.quote__author::before {
+  content: "▼";
+  display: block;
+  color: #00bf9a;
+  -webkit-transform: scaleX(1.8);
+          transform: scaleX(1.8);
+  margin: 0 0 0.75rem 0;
+}
+
+.purple__text-box {
+  border: 2px solid #1b2b6b;
+  border-radius: 3px;
+  padding: 1.125rem;
+}
+
+.purple__text-box p:first-child {
+  background-color: #4e5e9e;
+  color: #fff;
+  display: block;
+  padding: 0.5em 1em;
+  font-weight: 700;
+  font-size: 1.125em;
+  margin: -1.125rem -1.125rem 1.125rem;
+}
+
+.purple__text-box p:last-child {
+  margin-bottom: 0;
+}
+
+figcaption {
+  color: #999;
+  font-size: 0.9375rem;
+  padding: 0.625rem;
+  background-color: #f1f1f1;
+  font-style: italic;
+  text-align: center;
+}
+
+.cke_panel_listItem a {
+  font-size: 0.75rem;
+}
+
+.cke_panel_listItem div {
+  font-weight: normal;
+  font-size: 0.75rem;
+  color: #000;
+  padding: 0.3125rem;
+  line-height: 1;
+}
+
+.cke_panel_listItem div.quote__author {
+  text-align: left;
+  padding: 0.3125rem;
+}
+
+.cke_panel_listItem div.quote__author::before {
+  display: none;
+}
+
+.no__borders {
+  display: block;
+  border: none;
+}
+
+.no__borders tr,
+.no__borders thead {
+  display: -webkit-box;
+  display: flex;
+}
+
+.no__borders td,
+.no__borders th {
+  padding: 0.3125rem;
+  display: block;
+  -webkit-box-flex: 1;
+          flex: 1;
+  border: none;
+}
+
+.purple__cell {
+  background-color: #4e5e9e;
+}
+
+.grey__background,
+.jumbotron {
+  padding: 1.875rem 0.9375rem;
+  background-color: #eee;
+  border-radius: 0.375rem;
+  color: #666;
+  margin-bottom: 1.875rem;
+}
+
+@media (min-width: 768px) {
+  .grey__background,
+  .jumbotron {
+    padding: 2.5rem 3.75rem;
+  }
+}
+
+.grey__background h1,
+.grey__background h2,
+.grey__background h3,
+.grey__background h4,
+.grey__background h5,
+.grey__background h6,
+.jumbotron h1,
+.jumbotron h2,
+.jumbotron h3,
+.jumbotron h4,
+.jumbotron h5,
+.jumbotron h6 {
+  margin-top: 0;
+  color: #666;
+}

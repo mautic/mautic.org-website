@@ -1,0 +1,97 @@
+.comment {
+  display: flex;
+
+  .comment--user {
+    max-width: 3.75rem;
+    margin-right: 0.75rem;
+
+    a {
+      display: block;
+    }
+
+    img {
+      border-radius: 0.1875rem;
+      min-width: 2.875rem;
+      margin-top: 0;
+    }
+  }
+
+  footer {
+    text-transform: none;
+    margin-bottom: 0;
+  }
+}
+
+.comment__meta {
+  p {
+    margin: 0;
+  }
+}
+
+.comment__date {
+  font-size: 0.875rem;
+}
+
+.comment--content {
+  border: 1px solid $gainsboro;
+  padding: 0.625rem;
+  margin-bottom: 1.25rem;
+  border-radius: 3px;
+  flex: 1;
+
+  .comment-title {
+    display: none;
+  }
+
+  .comment__submitted {
+    margin: 0;
+
+    a {
+      color: $grey;
+      font-size: 0.8125rem;
+      font-style: normal;
+      font-weight: 600;
+      text-transform: capitalize;
+    }
+  }
+
+  .field--name-comment-body {
+    margin-bottom: 0.5rem;
+    color: $brownish-grey;
+
+    p {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  .links {
+    @include clean-list;
+
+    display: flex;
+
+    li {
+      list-style: none;
+      margin-right: 0.625rem;
+    }
+
+    a {
+      color: $gray-silver;
+      font-size: 0.8125rem;
+
+      &:focus,
+      &:hover {
+        color: $grey;
+      }
+    }
+  }
+}
+
+mark {
+  background: $cornflower-blue;
+  color: $white;
+  text-transform: capitalize;
+  padding: 0 0.375rem;
+  font-size: 0.875rem;
+  margin-bottom: 0.125rem;
+  display: inline-block;
+}

@@ -1,0 +1,22 @@
+uuid: 7bf2c78f-bba9-49d9-acad-e55e8f74d8ce
+langcode: en
+status: false
+dependencies: {  }
+id: local
+label: Local
+description: ''
+weight: 0
+folder: ../config/splits/local
+module:
+  dblog: 0
+theme: {  }
+blacklist:
+  - system.logging
+  - system.performance
+  - search_api.server.acquia_search_server
+  - mautic.settings
+  - mauticorg_form.settings
+  - 'google_tag*'
+graylist: {  }
+graylist_dependents: true
+graylist_skip_equal: true

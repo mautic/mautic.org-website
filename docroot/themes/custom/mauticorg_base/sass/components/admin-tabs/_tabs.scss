@@ -1,0 +1,31 @@
+.block-local-tasks-block {
+  margin-bottom: 1rem;
+
+  & > ul {
+    @include clean-list;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    li {
+      a {
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.875rem;
+        padding: 0.25rem 0.375rem;
+        margin-right: 0.625rem;
+        border-bottom: 0.1875rem solid $gainsboro;
+        margin-bottom: 0.625rem;
+        display: block;
+
+        &:focus,
+        &:hover,
+        &.is-active {
+          color: $grey;
+          text-decoration: none;
+          border-bottom-color: $cornflower-blue;
+        }
+      }
+    }
+  }
+}

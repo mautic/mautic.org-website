@@ -1,0 +1,5 @@
+node_modules
+patternlab
+.idea
+.vscode
+vendor

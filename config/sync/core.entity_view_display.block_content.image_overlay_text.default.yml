@@ -1,0 +1,199 @@
+uuid: 792de105-1505-4629-a2d6-1c1f44566d2f
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.image_overlay_text
+    - field.field.block_content.image_overlay_text.body
+    - field.field.block_content.image_overlay_text.field_background_image
+    - field.field.block_content.image_overlay_text.field_block_1_title
+    - field.field.block_content.image_overlay_text.field_block_2_description
+    - field.field.block_content.image_overlay_text.field_block_2_title
+    - field.field.block_content.image_overlay_text.field_block_3_description
+    - field.field.block_content.image_overlay_text.field_block_3_title
+    - field.field.block_content.image_overlay_text.field_block_description
+    - field.field.block_content.image_overlay_text.field_full_width_block
+  module:
+    - field_group
+    - image
+    - layout_builder
+    - text
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+  field_group:
+    group_blocks:
+      children:
+        - group_block_1
+        - group_block_2
+        - group_block_3
+      label: Blocks
+      parent_name: group_ima
+      region: content
+      weight: 2
+      format_type: html_element
+      format_settings:
+        label: Blocks
+        classes: image--overlay-blocks
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+    group_block_1:
+      children:
+        - field_block_1_title
+        - field_block_description
+      label: 'Block 1'
+      parent_name: group_blocks
+      region: content
+      weight: 20
+      format_type: html_element
+      format_settings:
+        classes: image--overlay-block
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+    group_block_2:
+      children:
+        - field_block_2_title
+        - field_block_2_description
+      label: 'Block 2'
+      parent_name: group_blocks
+      region: content
+      weight: 21
+      format_type: html_element
+      format_settings:
+        classes: image--overlay-block
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+    group_block_3:
+      children:
+        - field_block_3_title
+        - field_block_3_description
+      label: 'Block 3'
+      parent_name: group_blocks
+      region: content
+      weight: 22
+      format_type: html_element
+      format_settings:
+        classes: image--overlay-block
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+    group_ima:
+      children:
+        - body
+        - group_blocks
+      label: 'Image overlay content'
+      parent_name: ''
+      region: content
+      weight: 2
+      format_type: html_element
+      format_settings:
+        classes: image--overlay-content
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+id: block_content.image_overlay_text.default
+targetEntityType: block_content
+bundle: image_overlay_text
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_background_image:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_block_1_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 21
+    region: content
+  field_block_2_description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_block_2_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_block_3_description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 24
+    region: content
+  field_block_3_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 23
+    region: content
+  field_block_description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 22
+    region: content
+  field_full_width_block:
+    type: boolean
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+hidden:
+  langcode: true
+  layout_builder__layout: true
+  search_api_excerpt: true

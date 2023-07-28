@@ -1,0 +1,61 @@
+.on-the-gray {
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.on-the-gray ul.quicktabs-tabs {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.on-the-gray ul.quicktabs-tabs li {
+  display: table-cell;
+  padding: unset;
+}
+.on-the-gray .quicktabs-tabs > li > a {
+  display: block;
+  padding: .5em;
+  background: #eee;
+  border-top-color: rgb(221, 221, 221);
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-right-color: rgb(221, 221, 221);
+  border-right-style: solid;
+  border-right-width: 1px;
+  border-bottom-color: transparent;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-left-color: rgb(221, 221, 221);
+  border-left-style: solid;
+  border-left-width: 1px;
+  border-image-repeat: stretch;
+  border-image-source: none;
+  text-align: center;
+  color: #000;
+  text-decoration: none;
+}
+.on-the-gray .quicktabs-tabs li:not(:first-child) a {
+  border-left: none;
+}
+.on-the-gray .quicktabs-tabs > li > a:hover,
+.on-the-gray .quicktabs-tabs > li.active > a {
+  border-bottom-color: transparent;
+  background: #fff;
+}
+.on-the-gray .quicktabs-tabs > li.active > a:hover,
+.on-the-gray .quicktabs-tabs > li.active > a:focus {
+
+}
+.on-the-gray .quicktabs-tabpage {
+  padding: .5em 2em 1em;
+  border: 1px solid #ddd;
+}
+/* For View All link at bottom of block. */
+.on-the-gray .block-quicktabs .view-footer {
+  position: relative;
+  top: -30px;
+  left: 12px;
+  font-weight: bold;
+}

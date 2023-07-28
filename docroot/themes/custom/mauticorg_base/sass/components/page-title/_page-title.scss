@@ -1,0 +1,97 @@
+.block-field-blocknodeeventtitle,
+.block-page-title-block h1 {
+  font-size: 1.375em;
+  line-height: 1.5em;
+  letter-spacing: 0;
+  color: $grey;
+  margin-top: 0;
+
+  @include breakpoint($tablet-devices) {
+    margin-bottom: 0.625rem;
+    font-size: 2.625rem;
+  }
+}
+
+.nodetype__blog {
+  .block-page-title-block h1 {
+    @include breakpoint($tablet-devices) {
+      letter-spacing: -1px;
+    }
+  }
+}
+
+.page--404,
+.page--403,
+.nodetype__landing_page,
+.page--blog,
+.view-acquia-search,
+body[class*="page--category-blog"],
+body[class*="page--author-"],
+body[class*="page--tag-"] {
+  .block-page-title-block h1 {
+    position: relative;
+    padding: 0 0.9375rem 0.75rem;
+    border-bottom: 1px solid $gainsboro-light;
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.5rem;
+    text-transform: uppercase;
+    margin: -0.1875rem -0.9375rem 0.9375rem;
+    color: $brownish-grey;
+
+    @include breakpoint($tablet-devices) {
+      font-size: 1rem;
+      padding: 0 1.875rem 1.0625rem;
+      margin: -0.75rem -1.875rem 1.875rem;
+    }
+  }
+}
+
+body[class*="page--category-blog"] {
+  .block-page-title-block h1 {
+    &::before {
+      @include font-icon;
+
+      content: "\f07c";
+      color: $brownish-grey;
+      margin-right: 0.5rem;
+    }
+  }
+}
+
+body[class*="page--tag-"] {
+  .block-page-title-block h1 {
+    &::before {
+      @include font-icon;
+
+      content: "\f02c";
+      color: $brownish-grey;
+      margin-right: 0.5rem;
+    }
+  }
+}
+
+body[class*="page--author-"] {
+  .block-page-title-block h1 {
+    &::before {
+      @include font-icon;
+
+      content: "\f007";
+      color: $brownish-grey;
+      margin-right: 0.5rem;
+    }
+  }
+}
+
+body[class*="-see-all"] {
+  .block-page-title-block h1 {
+    font-size: 1.5rem;
+    border-bottom: 1px solid $gainsboro;
+    padding: 0 1rem 1rem;
+    margin-bottom: 1.5rem;
+
+    @include breakpoint($tablet-devices) {
+      font-size: 2rem;
+    }
+  }
+}

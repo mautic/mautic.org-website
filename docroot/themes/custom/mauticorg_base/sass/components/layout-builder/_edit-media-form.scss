@@ -1,0 +1,41 @@
+.editor-media-dialog {
+  .description {
+    margin-top: 0.25rem;
+    color: $brownish-grey;
+    font-size: 0.75rem;
+    line-height: 1.7;
+  }
+
+  label,
+  legend {
+    color: $pantone;
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  legend,
+  fieldset,
+  .fieldset-wrapper {
+    margin-bottom: 0.625rem;
+  }
+
+  fieldset {
+    margin-top: 0.625rem;
+  }
+
+  .fieldset-wrapper {
+    label {
+      color: $brownish-grey;
+      font-weight: 300;
+    }
+  }
+
+  .option {
+    color: $brownish-grey;
+    font-weight: 300;
+  }
+
+  .js-form-type-radio {
+    margin-right: 0.635rem;
+  }
+}

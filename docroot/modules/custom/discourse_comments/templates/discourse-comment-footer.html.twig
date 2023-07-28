@@ -1,0 +1,14 @@
+{#
+/**
+* @file
+* Default theme implementation to display a footer html for discourse.
+*
+* @ingroup themeable
+*/
+#}
+<small dir="ltr">
+  {{ "This is a companion discussion topic for the original entry at "|t }}
+  <a href="{{ url }}" dir="ltr">
+    {{ url }}
+  </a>
+</small>

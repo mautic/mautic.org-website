@@ -1,0 +1,19 @@
+_core:
+  default_config_hash: MoIDT81wRK8LzAqRkc8yBE2Sv0aAZhzxWus0qtWww-8
+admin_css: true
+one_pixel: true
+placeholder: ''
+responsive_image: false
+blazy:
+  loadInvisible: false
+  offset: 100
+  saveViewportOffsetDelay: 50
+  validateDelay: 25
+io:
+  enabled: false
+  unblazy: false
+  rootMargin: 0px
+  threshold: '0'
+  disconnect: false
+extras: {  }
+unbreakpoints: false

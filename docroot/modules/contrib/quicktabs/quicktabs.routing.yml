@@ -1,0 +1,43 @@
+quicktabs.admin:
+  path: '/admin/structure/quicktabs'
+  defaults:
+    _title: 'Quick Tabs'
+    _entity_list: 'quicktabs_instance'
+  requirements:
+    _permission: 'administer quicktabs'
+  options:
+    _admin_route: TRUE
+quicktabs.ajax_content:
+  path: '/quicktabs/{js}/{instance}/{tab}'
+  defaults:
+    _controller: '\Drupal\quicktabs\Controller\QuickTabsController::ajaxContent'
+  requirements:
+    _permission: 'access content'
+entity.quicktabs_instance.add:
+  path: '/admin/structure/quicktabs/add'
+  defaults:
+    _title: 'Add QuickTabs Instance'
+    _entity_form: quicktabs_instance.add
+  requirements:
+    _permission: 'administer quicktabs'
+entity.quicktabs_instance.delete:
+ path: '/admin/structure/quicktabs/{quicktabs_instance}/delete'
+ defaults:
+   _title: 'Delete Quick Tab'
+   _entity_form: quicktabs_instance.delete
+ requirements:
+   _permission: 'administer quicktabs'
+entity.quicktabs_instance.edit:
+  path: '/admin/structure/quicktabs/{quicktabs_instance}/edit'
+  defaults:
+    _title: 'Edit Quick Tab'
+    _entity_form: quicktabs_instance.edit
+  requirements:
+    _permission: 'administer quicktabs'
+entity.quicktabs_instance.duplicate:
+  path: '/admin/structure/quicktabs/{quicktabs_instance}/duplicate'
+  defaults:
+    _title: 'Duplicate Quick Tab'
+    _entity_form: quicktabs_instance.duplicate
+  requirements:
+    _permission: 'administer quicktabs'

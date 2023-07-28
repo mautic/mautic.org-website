@@ -1,0 +1,26 @@
+uuid: 0fbc1555-1abf-4f39-98b5-82f0d16be861
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.mauticorg_form
+    - field.field.block_content.mauticorg_form.field_mautic_form
+  module:
+    - text
+_core:
+  default_config_hash: cmzfQTE79B4TQPo8PQN9gz4T7WtCxjgXUWmQOc2vbKc
+id: block_content.mauticorg_form.default
+targetEntityType: block_content
+bundle: mauticorg_form
+mode: default
+content:
+  field_mautic_form:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

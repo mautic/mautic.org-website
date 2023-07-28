@@ -1,0 +1,23 @@
+uuid: 8647ce0a-8ce0-42b6-81db-c11c7a19c9ff
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.mauticorg_form
+    - field.storage.block_content.field_mautic_form
+  module:
+    - text
+_core:
+  default_config_hash: 9gSa1ZFFOm8gYbDWlKwVL-S5gp20tE7694vvtEdbm_4
+id: block_content.mauticorg_form.field_mautic_form
+field_name: field_mautic_form
+entity_type: block_content
+bundle: mauticorg_form
+label: 'Mautic Form'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

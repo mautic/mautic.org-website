@@ -1,0 +1,102 @@
+.menu--social-follow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  h2 {
+    margin: 0;
+    margin-right: 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .menu {
+    @include clean-list;
+
+    display: flex;
+  }
+
+  .menu-item {
+    position: relative;
+
+    &:focus,
+    &:hover {
+      &::before {
+        top: -0.625rem;
+        right: 1.125rem;
+        border: solid;
+        border-color: $white transparent;
+        border-width: 0.3125rem 0.3125rem 0;
+        content: "";
+        display: block;
+        position: absolute;
+        z-index: 1;
+      }
+
+      a::after {
+        top: -2.1875rem;
+        background: $white;
+        font-size: 0.9375rem;
+        color: $brownish-grey;
+        content: attr(title);
+        display: block;
+        right: 0.625rem;
+        padding: 0.3125rem 0.9375rem;
+        position: absolute;
+        white-space: nowrap;
+        border-radius: 0.1875rem;
+        box-shadow: 0 0 0.125rem rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+
+  a {
+    font-size: 0;
+    margin-right: 0.725rem;
+    margin-top: 0.625rem;
+    display: block;
+    color: $white;
+    line-height: 1;
+    text-decoration: none;
+
+    @include breakpoint($tablet-devices) {
+      margin-top: 0;
+      margin-bottom: 0.125rem;
+    }
+
+    &:focus,
+    &:hover {
+      color: $white-translucent;
+    }
+
+    &::before {
+      @include font-icon;
+
+      font-size: 1.75rem;
+    }
+
+    &.twitter::before {
+      content: "\f081";
+    }
+
+    &.facebook::before {
+      content: "\f082";
+    }
+
+    &.youtube::before {
+      content: "\f166";
+    }
+
+    &.linkedin::before {
+      content: "\f08c";
+    }
+
+    &.googleplus::before {
+      content: "\f0d4";
+    }
+  }
+
+  li:last-child a {
+    margin-right: 0.125rem;
+  }
+}

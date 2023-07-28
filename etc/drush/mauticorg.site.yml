@@ -1,0 +1,36 @@
+dev:
+  host: web-012.dropsolid.com
+  options:
+    command-specific:
+      core-rsync: {mode: rlvz, perms: true}
+      rsync: {mode: rlvz, perms: true}
+    php: /opt/php/8.1/php
+    target-command-specific:
+      sql-sync: {no-ordered-dump: true}
+  paths: {dump: /tmp/sql-sync-dev-%s-local.sql}
+  root: /var/www/mauticorg/dev/application/docroot
+  user: mauticorg_dev
+live:
+  host: web-120.dropsolid.com
+  options:
+    command-specific:
+      core-rsync: {mode: rlvz, perms: true}
+      rsync: {mode: rlvz, perms: true}
+    php: /opt/php/8.1/php
+    target-command-specific:
+      sql-sync: {no-ordered-dump: true}
+  paths: {dump: /tmp/sql-sync-live-%s-local.sql}
+  root: /var/www/mauticorg/live/application/docroot
+  user: mauticorg_live
+staging:
+  host: web-012.dropsolid.com
+  options:
+    command-specific:
+      core-rsync: {mode: rlvz, perms: true}
+      rsync: {mode: rlvz, perms: true}
+    php: /opt/php/8.1/php
+    target-command-specific:
+      sql-sync: {no-ordered-dump: true}
+  paths: {dump: /tmp/sql-sync-staging-%s-local.sql}
+  root: /var/www/mauticorg/staging/application/docroot
+  user: mauticorg_staging

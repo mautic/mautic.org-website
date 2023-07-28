@@ -1,0 +1,31 @@
+uuid: 20dcea54-eacc-422d-82b1-4e634ca0ab1f
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:54abe157-9cb1-48d2-b91f-6431bbec5049'
+  module:
+    - block_content
+    - system
+  theme:
+    - mauticorg_base
+id: mauticauth0rightsidebar
+theme: mauticorg_base
+region: sidebar
+weight: -9
+provider: null
+plugin: 'block_content:54abe157-9cb1-48d2-b91f-6431bbec5049'
+settings:
+  id: 'block_content:54abe157-9cb1-48d2-b91f-6431bbec5049'
+  label: 'Mautic Auth0 Right sidebar'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    context_mapping: {  }
+    pages: "<front>\r\n/user/*\r\n/events\r\n/events/*"

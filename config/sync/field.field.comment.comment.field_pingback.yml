@@ -1,0 +1,23 @@
+uuid: 44240814-9b30-4e79-a69d-3105b0ca57c1
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.comment
+    - field.storage.comment.field_pingback
+id: comment.comment.field_pingback
+field_name: field_pingback
+entity_type: comment
+bundle: comment
+label: Pingback
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

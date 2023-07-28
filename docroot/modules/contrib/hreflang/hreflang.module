@@ -1,0 +1,60 @@
+<?php
+
+/**
+ * @file
+ * Adds hreflang link elements to the header of each page.
+ */
+
+use Drupal\Core\Language\LanguageInterface;
+use Drupal\Core\Url;
+
+/**
+ * Implements hook_module_implements_alter().
+ */
+function hreflang_module_implements_alter(&$implementations, $hook) {
+  // @fixme https://www.drupal.org/project/drupal/issues/1255092
+  // Content Translation module normally adds identical hreflang tags, so
+  // executing its hook_page_attachments() implementation would be harmless, but
+  // if an entity page is configured as the front page, it attaches extraneous
+  // hreflang tags using the entity URL.
+  if ($hook === 'page_attachments' && isset($implementations['content_translation'])) {
+    unset($implementations['content_translation']);
+  }
+}
+
+/**
+ * Implements hook_page_attachments().
+ */
+function hreflang_page_attachments(array &$page) {
+  // No need to add hreflang tags for 404/403 pages.
+  if (\Drupal::request()->attributes->has('exception')) {
+    return;
+  }
+  $language_manager = \Drupal::getContainer()->get('language_manager');
+  if (!$language_manager->isMultilingual()) {
+    return;
+  }
+  $route = \Drupal::service('path.matcher')->isFrontPage() ? '<front>' : '<current>';
+  $links = $language_manager->getLanguageSwitchLinks(LanguageInterface::TYPE_INTERFACE, Url::fromRoute($route));
+  if (empty($links->links)) {
+    return;
+  }
+  foreach ($links->links as $langcode => $link) {
+    if (!isset($link['query'])) {
+      $link['query'] = [];
+    }
+    $link['query'] += \Drupal::request()->query->all();
+    if (isset($link['url'])) {
+      $link['url']->setOptions($link);
+      $link['url']->setAbsolute();
+      $page['#attached']['html_head_link'][] = [
+        [
+          'rel' => 'alternate',
+          'hreflang' => $langcode,
+          'href' => $link['url']->toString(),
+        ],
+        TRUE,
+      ];
+    }
+  }
+}

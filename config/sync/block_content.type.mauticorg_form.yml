@@ -1,0 +1,10 @@
+uuid: 6d507037-f020-4e37-9e6d-4b31e254556e
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: Sqxab1ACfiEuvNbls-9-U6XZyI_kwpk0B4uMUE3P8IE
+id: mauticorg_form
+label: 'Mauticorg Form'
+revision: 0
+description: 'To create custom block form for mauticorg.'

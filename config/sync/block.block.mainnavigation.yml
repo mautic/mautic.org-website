@@ -1,0 +1,25 @@
+uuid: 76c4c5d5-def0-4cba-86dc-1d7024213d18
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - mauticorg_base
+id: mainnavigation
+theme: mauticorg_base
+region: primary_menu
+weight: -9
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

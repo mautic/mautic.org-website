@@ -1,0 +1,12 @@
+name: Moderation Scheduler
+type: module
+description: 'Moderation Scheduler is module to schedule content in moderation state to be published at certain date and time running cron job.'
+package: Schedule content moderation
+configure: moderation_scheduler.settings
+core_version_requirement: ^9
+
+dependencies:
+  - drupal:datetime
+  - drupal:field
+  - drupal:node
+  - drupal:views

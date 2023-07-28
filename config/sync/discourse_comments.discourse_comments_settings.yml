@@ -1,0 +1,11 @@
+base_url_of_discourse: 'https://forum.mautic.org'
+api_key: REDACTED
+api_user_name: REDACTED
+cache_lifetime: '15'
+default_category: '13'
+content_types_enabled_for_discourse:
+  blog: blog
+  event: 0
+  landing_page: 0
+forum_link: FORUM.MAUTIC.ORG
+forum_link_label: 'COMMENT ON THIS ARTICLE BY CLICKING HERE:'

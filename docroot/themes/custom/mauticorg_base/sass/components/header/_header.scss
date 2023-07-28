@@ -1,0 +1,121 @@
+.page__header {
+  background: url(../../images/header_banner.jpg);
+  background-size: contain;
+  min-height: 5.6875rem;
+  color: $white;
+
+  @include breakpoint($tablet-devices) {
+    min-height: 9.84rem;
+  }
+
+  a {
+    color: $white;
+    text-decoration: none;
+    display: block;
+    font-weight: 300;
+    line-height: 1.25rem;
+    padding: 0.75rem 0.8125rem;
+    border-top: 1px solid $white-transparent;
+
+    @include breakpoint($desktop-devices) {
+      padding: 0.9375rem 0.875rem;
+      border-top: 0;
+    }
+
+    &:hover {
+      text-decoration: underline;
+      color: $white;
+    }
+  }
+
+  .menu-item--expanded {
+    position: relative;
+
+    li {
+      box-shadow: 0 1px 0 $white-transparent;
+
+      &:last-child {
+        box-shadow: none;
+      }
+    }
+  }
+
+  nav {
+    .menu {
+      @include clean-list;
+
+      @include breakpoint($desktop-devices) {
+        display: flex;
+        flex-wrap: wrap;
+      }
+    }
+  }
+}
+
+.header--container {
+  background-color: $light-purple;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(255, 255, 255, 0.15);
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+}
+
+.header--inner {
+  @include container;
+
+  max-width: 71.875rem;
+  padding: 0;
+  position: relative;
+
+  @include breakpoint($desktop-devices) {
+    display: flex;
+    padding: 0 0.9375rem;
+    align-items: center;
+  }
+}
+
+.region-header {
+  width: 10rem;
+
+  @include breakpoint($desktop-devices) {
+    flex-basis: 8.75rem;
+    width: auto;
+  }
+}
+
+.header--menu {
+  opacity: 0;
+  max-height: 0;
+  transition: opacity 0.3s ease-in-out, max-height 0.3s ease-in-out;
+
+  @include breakpoint($desktop-devices) {
+    opacity: 1;
+    max-height: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex: 1;
+  }
+}
+
+.mobile--hamburger {
+  @include breakpoint($desktop-devices) {
+    display: none;
+  }
+}
+
+.page__header-opacity {
+  .header--container {
+    @include breakpoint($desktop-devices) {
+      background-color: rgba(66, 80, 144, 0.9);
+    }
+  }
+
+  .region-primary-menu {
+    .menu--level-0 .menu {
+      @include breakpoint($desktop-devices) {
+        background-color: rgba(59, 72, 130, 0.95);
+      }
+    }
+  }
+}

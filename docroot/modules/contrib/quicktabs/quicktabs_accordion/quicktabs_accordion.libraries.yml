@@ -1,0 +1,10 @@
+quicktabs.accordion:
+  version: VERSION
+  js:
+    js/qt_accordion.js: {}
+  dependencies:
+    - core/jquery
+    - jquery_ui_accordion/accordion
+    - core/jquery.once
+    - core/drupal
+    - core/drupalSettings

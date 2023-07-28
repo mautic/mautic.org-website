@@ -1,0 +1,25 @@
+uuid: b7144224-b6c0-42c2-bedb-68a7648230cb
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.footer-links
+  module:
+    - system
+  theme:
+    - mauticorg_base
+id: links
+theme: mauticorg_base
+region: post_content
+weight: -4
+provider: null
+plugin: 'system_menu_block:footer-links'
+settings:
+  id: 'system_menu_block:footer-links'
+  label: Links
+  label_display: visible
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

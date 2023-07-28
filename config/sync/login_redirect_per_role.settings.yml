@@ -1,0 +1,34 @@
+login:
+  authenticated:
+    redirect_url: /<front>
+    allow_destination: false
+    weight: 0
+  administrator:
+    redirect_url: /<front>
+    allow_destination: false
+    weight: 0
+  author:
+    redirect_url: /<front>
+    allow_destination: false
+    weight: 0
+  editor:
+    redirect_url: /<front>
+    allow_destination: false
+    weight: 0
+logout:
+  authenticated:
+    redirect_url: ''
+    allow_destination: false
+    weight: 0
+  administrator:
+    redirect_url: ''
+    allow_destination: false
+    weight: 0
+  author:
+    redirect_url: ''
+    allow_destination: false
+    weight: 0
+  editor:
+    redirect_url: ''
+    allow_destination: false
+    weight: 0

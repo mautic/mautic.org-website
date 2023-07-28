@@ -1,0 +1,73 @@
+<?php
+
+/**
+ * @file
+ * Installation file for Moderation Scheduler module.
+ */
+
+use Drupal\Core\Render\Markup;
+use Drupal\moderation_scheduler\ScheduledTimeDefinition;
+
+/**
+ * Implements hook_install().
+ *
+ * @see hook_install()
+ *
+ * @ingroup moderation_scheduler
+ */
+function moderation_scheduler_install() {
+  // Add node storage field for field_scheduled_time.
+  $bundle_of = 'node';
+
+  // If there is no data table defined then use the base table.
+  $definition_manager = \Drupal::entityDefinitionUpdateManager();
+
+  // Create a new field definition.
+  $moderation_scheduled_time = ScheduledTimeDefinition::create('datetime')
+    ->setLabel(t('Moderation Scheduled Publish Time'))
+    ->setName('field_scheduled_time')
+    ->setDescription(t('Moderation Scheduler Publish date input field'))
+    ->setRevisionable(TRUE)
+    ->setTranslatable(TRUE)
+    ->setInternal(FALSE)
+    ->setDefaultValue(FALSE)
+    ->setSettings([])
+    ->setDisplayOptions('form', [
+      'type' => 'datetime_default',
+        // Display before publish status or moderation status.
+      'weight' => 30,
+      'settings' => [],
+    ])
+    ->setDisplayConfigurable('form', TRUE);
+
+  $has_content_translation_status_field = \Drupal::moduleHandler()->moduleExists('content_translation');
+  if ($has_content_translation_status_field) {
+    // Fix the cases where node not have a content_translation_status.
+    $moderation_scheduled_time->setInitialValueFromField('content_translation_field_scheduled_time', FALSE);
+  }
+  else {
+    $moderation_scheduled_time->setInitialValue(TRUE);
+  }
+
+  // Install the new definition for all node types bundle.
+  $definition_manager->installFieldStorageDefinition('field_scheduled_time', $bundle_of, $bundle_of, $moderation_scheduled_time);
+
+  // Update entity storage.
+  \Drupal::entityTypeManager()->clearCachedDefinitions();
+
+  $definition_update_manager = \Drupal::entityDefinitionUpdateManager();
+  $entity_type = $definition_update_manager->getEntityType('node');
+  $definition_update_manager->updateEntityType($entity_type);
+
+  // Moderation Scheduler module install message.
+  $markup = '<div class="form-item-moderation-scheduler-install"><p>' .
+      t('Thanks for installing Moderation Scheduler module') .
+      '</p><ul><li>' .
+      t('Find and manage scheduled content in <a href="/admin/content/scheduled">scheduled content page</a>') .
+      '</li><li>' .
+      t('To get proper integration Moderation Scheduler add "field_scheduled_time" to all node types.') .
+      '</li><li>' .
+      t('You can run cron and configure Moderation Scheduler from <a href="/admin/moderation-scheduler">settings page</a>') .
+      '</li></ul></div>';
+  \Drupal::messenger()->addStatus(Markup::create($markup));
+}

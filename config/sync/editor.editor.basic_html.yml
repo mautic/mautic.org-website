@@ -1,0 +1,95 @@
+uuid: 5b2f6ec0-eb79-4f02-815a-701da0b2b997
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.basic_html
+  module:
+    - ckeditor
+_core:
+  default_config_hash: AqlPmO16LvJI4D0Ih6u4GFQIzqr5OnLgAUSjcUGWk2g
+format: basic_html
+editor: ckeditor
+settings:
+  toolbar:
+    rows:
+      -
+        -
+          name: Formatting
+          items:
+            - FontSize
+            - Bold
+            - Italic
+            - Underline
+        -
+          name: Linking
+          items:
+            - DrupalLink
+            - DrupalUnlink
+        -
+          name: Lists
+          items:
+            - BulletedList
+            - NumberedList
+        -
+          name: Media
+          items:
+            - Blockquote
+            - DrupalMediaLibrary
+        -
+          name: 'Block Formatting'
+          items:
+            - Format
+        -
+          name: Tools
+          items:
+            - Table
+            - Source
+            - Styles
+            - CreateDiv
+            - CodeSnippet
+  plugins:
+    stylescombo:
+      styles: "a.button--gold.button--main|Gold button\r\na.button--teal.button--main|Teal button\r\na.button--purple.button--main|Purple button\r\na.button__purple--border.button--main|Purple Bordered button\r\ndiv.purple__background| Purple Background block\r\ndiv.grey__background| Grey Background block\r\ndiv.purple__text-box| Text Box\r\ndiv.quote__wrapper| Quote\r\ndiv.quote__author| Quote Author\r\ntable.no__borders| No Border Table\r\ntd.purple__cell| Purple Background Cell"
+    codesnippet:
+      highlight_style: github
+      highlight_languages:
+        bash: bash
+        json: json
+        javascript: javascript
+        markdown: markdown
+        php: php
+        apache: 0
+        css: 0
+        coffeescript: 0
+        dart: 0
+        dockerfile: 0
+        dust: 0
+        gherkin: 0
+        go: 0
+        haml: 0
+        handlebars: 0
+        ini: 0
+        java: 0
+        less: 0
+        makefile: 0
+        nginx: 0
+        perl: 0
+        powershell: 0
+        puppet: 0
+        python: 0
+        ruby: 0
+        scss: 0
+        sql: 0
+        twig: 0
+        typescript: 0
+        xml: 0
+        yaml: 0
+image_upload:
+  status: true
+  scheme: public
+  directory: inline-images
+  max_size: ''
+  max_dimensions:
+    width: null
+    height: null

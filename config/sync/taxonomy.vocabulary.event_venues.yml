@@ -1,0 +1,8 @@
+uuid: 98b3b373-8b82-48f0-9203-bae92dfa9c4f
+langcode: en
+status: true
+dependencies: {  }
+name: 'Event Venues'
+vid: event_venues
+description: 'Event venues are used to store event locations.'
+weight: 0

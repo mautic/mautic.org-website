@@ -1,0 +1,13 @@
+{
+    "name": "drupal/config-import-single",
+    "description": "Used to import single files in the config",
+    "type": "drupal-module",
+    "license": "GPL-2.0-or-later",
+    "support": {
+      "issues": "http://drupal.org/project/config_import_single",
+      "source": "https://git.drupalcode.org/project/config_import_single"
+    },
+    "require": {
+        "drush/drush": ">= 9 < 11.3"
+    }
+}

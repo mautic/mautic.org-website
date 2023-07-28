@@ -1,0 +1,38 @@
+.field--name-field-tags,
+.field--name-field-event-tags {
+  display: flex;
+  margin-bottom: 2.5rem;
+  font-size: 0.75rem;
+
+  .field__label {
+    margin-right: 0.5rem;
+    color: $hexa;
+    font-size: 0.875rem;
+
+    &::after {
+      content: "\003A";
+    }
+  }
+
+  .field__items {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  a {
+    background: $white-smoke-lighter;
+    color: $hexa;
+    line-height: 1.666em;
+    white-space: nowrap;
+    padding: 0.1875rem 0.4375rem;
+    display: block;
+    margin: 0 0.3125rem 0.3125rem 0;
+    border-radius: 3px;
+
+    &:focus,
+    &:hover {
+      background-color: $cornflower-blue;
+      color: $white;
+    }
+  }
+}

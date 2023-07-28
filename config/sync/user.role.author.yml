@@ -1,0 +1,54 @@
+uuid: 67a4b146-4573-4274-a914-592951c9c7a5
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_display.node.blog.default
+    - core.entity_view_display.node.landing_page.default
+    - filter.format.full_html
+    - media.type.image
+    - media.type.remote_video
+    - node.type.blog
+    - node.type.event
+    - node.type.landing_page
+    - workflows.workflow.content_workflow
+  module:
+    - content_moderation
+    - filter
+    - layout_builder
+    - media
+    - node
+    - quickedit
+    - system
+    - toolbar
+id: author
+label: Author
+weight: -8
+is_admin: null
+permissions:
+  - 'access content overview'
+  - 'access in-place editing'
+  - 'access toolbar'
+  - 'configure editable blog node layout overrides'
+  - 'configure editable landing_page node layout overrides'
+  - 'create and edit custom blocks'
+  - 'create blog content'
+  - 'create event content'
+  - 'create image media'
+  - 'create landing_page content'
+  - 'create remote_video media'
+  - 'delete own image media'
+  - 'delete own remote_video media'
+  - 'edit own blog content'
+  - 'edit own event content'
+  - 'edit own image media'
+  - 'edit own landing_page content'
+  - 'edit own remote_video media'
+  - 'use content_workflow transition create_new_draft'
+  - 'use content_workflow transition send_to_review'
+  - 'use text format full_html'
+  - 'view any unpublished content'
+  - 'view latest version'
+  - 'view own unpublished content'
+  - 'view own unpublished media'
+  - 'view the administration theme'

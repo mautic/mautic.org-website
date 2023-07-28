@@ -1,0 +1,49 @@
+// Using ID to override the module css.
+#drupal-off-canvas {
+  .layout-builder-add-block {
+    .message {
+      padding: 0.625rem 0;
+      margin: 1.5rem 0;
+      color: $white;
+      background-image: none;
+      background-color: $selective-yellow;
+      border: 1px solid $sunglow;
+      border-radius: 3px;
+      font-size: 0.875rem;
+      text-align: left;
+      line-height: 1.7;
+
+      a {
+        color: $white;
+        text-decoration: underline;
+
+        &:focus,
+        &:hover {
+          text-decoration: none;
+        }
+      }
+
+      &.messages--status {
+        background-color: $cornflower-blue;
+        border: 1px solid $light-purple;
+      }
+
+      &.messages--error {
+        background-color: $rose;
+        border: 1px solid $rose;
+      }
+
+      * {
+        background-color: transparent;
+      }
+
+      ul {
+        margin-left: 1.25rem;
+      }
+
+      li {
+        display: list-item;
+      }
+    }
+  }
+}

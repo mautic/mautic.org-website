@@ -1,0 +1,12 @@
+name: No Request New Password
+type: module
+description: "Disable link to request a new password"
+package: user
+core: 8.x
+configure: noreqnewpass.settings_form
+core_version_requirement: ^8 || ^9
+
+# Information added by Drupal.org packaging script on 2020-08-08
+version: '8.x-1.2'
+project: 'noreqnewpass'
+datestamp: 1596909041

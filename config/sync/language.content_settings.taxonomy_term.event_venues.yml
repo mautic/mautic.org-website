@@ -1,0 +1,18 @@
+uuid: 44154ff0-530d-43cc-8789-7a78bf2e1c85
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.event_venues
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: taxonomy_term.event_venues
+target_entity_type_id: taxonomy_term
+target_bundle: event_venues
+default_langcode: site_default
+language_alterable: false

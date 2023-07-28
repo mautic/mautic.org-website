@@ -1,0 +1,21 @@
+uuid: 0e0e5918-2138-4598-8cad-b2da2a2aefc0
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.image_overlay_text
+    - field.storage.block_content.field_block_description
+  module:
+    - text
+id: block_content.image_overlay_text.field_block_description
+field_name: field_block_description
+entity_type: block_content
+bundle: image_overlay_text
+label: 'Block 1 Description'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

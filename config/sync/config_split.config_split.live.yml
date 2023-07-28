@@ -1,0 +1,29 @@
+uuid: d86307e6-4803-49a9-86a9-3bc5987352d6
+langcode: en
+status: false
+dependencies: {  }
+id: live
+label: Live
+description: ''
+weight: 0
+folder: ../config/splits/live
+module:
+  dropsolid_purge: 0
+  purge: 0
+  purge_drush: 0
+  purge_processor_cron: 0
+  purge_processor_lateruntime: 0
+  purge_queuer_coretags: 0
+  purge_tokens: 0
+  purge_ui: 0
+theme: {  }
+blacklist:
+  - system.logging
+  - system.performance
+  - search_api.server.acquia_search_server
+  - mautic.settings
+  - mauticorg_form.settings
+  - 'google_tag*'
+graylist: {  }
+graylist_dependents: true
+graylist_skip_equal: true

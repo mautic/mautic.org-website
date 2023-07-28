@@ -1,0 +1,6 @@
+quicktabs.admin:
+  title: 'Quick Tabs'
+  description: 'Configure and create QuickTabs instances'
+  parent: system.admin_structure
+  route_name: quicktabs.admin
+  weight: 100

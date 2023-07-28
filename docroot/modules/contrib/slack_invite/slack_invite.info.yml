@@ -1,0 +1,11 @@
+name: "Slack Invite"
+type: module
+description: "Invite your users to your slack team"
+# version: VERSION
+package: Other
+core_version_requirement: ^8.8 || ^9
+
+# Information added by Drupal.org packaging script on 2020-11-10
+version: '2.0.0'
+project: 'slack_invite'
+datestamp: 1605030285

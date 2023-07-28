@@ -1,0 +1,8 @@
+uuid: c05e5c31-4140-45ee-b27e-6e97a8650299
+langcode: en
+status: true
+dependencies: {  }
+id: mauticorg_date_time_format
+label: 'MauticOrg Date Time Format'
+locked: false
+pattern: 'F j, Y \a\t g:i a'

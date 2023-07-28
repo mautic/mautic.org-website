@@ -1,0 +1,7 @@
+moderation_scheduler.publish_form:
+  route_name: moderation_scheduler.publish_form
+  title: 'Publish Scheduled'
+  weight: 200
+  appears_on:
+    - view.moderation_scheduler_content.page_1
+    - system.admin_content

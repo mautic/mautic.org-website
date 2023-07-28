@@ -1,0 +1,20 @@
+uuid: cbe4949b-55c9-41f5-a72f-048dc1c7b3c7
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - mauticorg_base
+id: help
+theme: mauticorg_base
+region: content
+weight: -9
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

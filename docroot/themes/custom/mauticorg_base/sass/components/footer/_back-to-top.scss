@@ -1,0 +1,43 @@
+.back__to-top {
+  position: absolute;
+  left: 0;
+  right: 0;
+  background: $white-whisper;
+  text-align: center;
+  width: 3.75rem;
+  height: 1.875rem;
+  font-size: 2.375rem;
+  display: block;
+  margin: 0 auto -1.875rem;
+  border-radius: 0 0 0.1875rem 0.1875rem;
+  box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.05);
+}
+
+.back__to-top--button {
+  cursor: pointer;
+
+  svg {
+    height: 1.375rem;
+    display: block;
+  }
+
+  i {
+    position: relative;
+    top: -0.6rem;
+    height: 1.375rem;
+    display: block;
+  }
+
+  a {
+    line-height: 1;
+    padding: 0.25rem 1.125rem;
+    color: $space-grey;
+    display: block;
+    text-decoration: none;
+
+    &:focus,
+    &:hover {
+      color: $grey;
+    }
+  }
+}

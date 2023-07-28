@@ -1,0 +1,98 @@
+.image-overlay__full-width--block {
+  text-align: center;
+  color: $white;
+
+  .image-overlay--wrapper {
+    padding: 5rem 0.9375rem 2rem;
+    background-position: center top;
+    margin-bottom: 0.8rem;
+    background-size: cover;
+
+    @include breakpoint($tablet-devices) {
+      padding: 7rem 0 1rem 0;
+    }
+
+    @include breakpoint($desktop-devices) {
+      background-repeat: no-repeat;
+      background-size: 131.3%;
+    }
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    margin-top: 0;
+    color: $white;
+    font-weight: 600;
+    margin-bottom: 1.2rem;
+    line-height: 1.15;
+
+    @include breakpoint($tablet-devices) {
+      font-size: 4.5rem;
+    }
+  }
+
+  h3 {
+    color: $white;
+    font-size: 1.5rem;
+    margin: 0;
+    line-height: 2.1875rem;
+    font-weight: 400;
+  }
+
+  h4,
+  h5,
+  h6 {
+    color: $white;
+  }
+
+  .image--overlay-content {
+    max-width: 71.875rem;
+    margin: auto;
+  }
+
+  .image--overlay-blocks {
+    @include breakpoint($tablet-devices) {
+      padding-top: 2.75rem;
+    }
+  }
+
+  .image--overlay-block {
+    .field--name-field-block-1-title,
+    .field--name-field-block-2-title,
+    .field--name-field-block-3-title {
+      @include breakpoint($only-tablet) {
+        min-height: 3.125rem;
+      }
+    }
+
+    .field--type-text-long {
+      background-color: $white;
+      color: $nero;
+      padding: 3.25rem 1.5rem;
+      margin: 1rem 0 0;
+      border: 1px solid rgba(0, 0, 0, 0.125);
+      border-radius: 0.25rem;
+
+      h2 {
+        color: $nero;
+        font-weight: 600;
+        font-size: 2.25rem;
+        line-height: 2.25rem;
+        margin-bottom: 0.15rem;
+        font-family: $primary-font;
+      }
+
+      h3,
+      h4,
+      h5,
+      h6,
+      strong {
+        color: $nero;
+      }
+
+      p {
+        margin: 0;
+      }
+    }
+  }
+}

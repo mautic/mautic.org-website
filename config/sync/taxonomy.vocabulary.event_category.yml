@@ -1,0 +1,8 @@
+uuid: 9ae0237f-67da-4592-b837-bc656dbcce85
+langcode: en
+status: true
+dependencies: {  }
+name: 'Event Category'
+vid: event_category
+description: 'For adding event categories.'
+weight: 0

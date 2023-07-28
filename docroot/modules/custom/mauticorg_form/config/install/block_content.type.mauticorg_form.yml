@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: mauticorg_form
+label: 'Mauticorg Form'
+revision: 0
+description: 'To create custom block form for mauticorg.'

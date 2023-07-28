@@ -1,0 +1,5 @@
+name: MauticOrg Gravatar
+type: module
+description: 'Provides gravatar feature for the Mautic.org site.'
+package: MauticOrg
+core_version_requirement: ^8 || ^9

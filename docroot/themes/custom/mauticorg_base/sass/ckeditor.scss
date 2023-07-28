@@ -1,0 +1,292 @@
+@import "config/**/*";
+
+// Fontawesome.
+.fa,
+.fab,
+.fas {
+  @include font-icon;
+
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+}
+
+// Buttons.
+.btn,
+.button--main {
+  background-color: $cornflower-blue;
+  border: none;
+  border-radius: 0.25rem;
+  color: $white;
+  display: inline-block;
+  letter-spacing: 0.025rem;
+  font-size: 1rem;
+  line-height: 1;
+  font-weight: 900;
+  margin: 0;
+  padding: 0.75rem 1.25rem;
+  text-align: center;
+  text-decoration: none;
+  margin-right: 0.5rem;
+  margin-bottom: 0.25rem;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.button--gold {
+  background-color: $selective-yellow;
+  color: $grey;
+
+  &:hover {
+    background-color: $sunglow;
+  }
+}
+
+.button--teal {
+  background-color: $caribbean-green;
+  color: $pantone;
+
+  &:hover {
+    background: $turquoise-light;
+  }
+}
+
+.button--purple {
+  background-color: $cornflower-blue;
+
+  &:hover {
+    background: $light-purple;
+  }
+}
+
+.button__purple--border {
+  font-size: 0.8125rem;
+  font-weight: 300;
+  position: relative;
+  padding: 0.4rem 1rem 0.54rem;
+  border: 1px solid $tory-blue;
+  letter-spacing: 0;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 1.25rem;
+    border-radius: 0.3125rem;
+    border-top: 1px solid $purple-grey;
+  }
+
+  &::after {
+    bottom: 0;
+    top: 1.25rem;
+    border-top: 0;
+    border-bottom: 1px solid $purple-grey;
+  }
+}
+
+// Colored div.
+.purple__background {
+  background-color: $cornflower-blue;
+  color: $white;
+  padding: 0.9375rem 0.9375rem 1.5625rem;
+  font-size: 0.9375rem;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: $white;
+    font-weight: 600;
+    padding: 0.625rem 0 1.25rem;
+    margin: 0;
+    line-height: 1.1;
+  }
+
+  blockquote {
+    color: $white;
+  }
+
+  p {
+    margin-top: 0;
+  }
+
+  strong {
+    color: $caribbean-green;
+  }
+}
+
+// Quote.
+.quote__wrapper {
+  font-size: 1.5rem;
+  line-height: 2.1875rem;
+  font-family: $secondary-font;
+  margin: auto;
+  padding: 0 0.9375rem;
+
+  @include breakpoint($tablet-devices) {
+    max-width: 75%;
+  }
+
+  img {
+    border-radius: 100%;
+    width: 8.75rem;
+    height: 8.75rem;
+    display: inline-block;
+    margin: 0 0 1.5rem 0;
+  }
+
+  .field--name-field-media-image {
+    display: inline-block;
+    position: relative;
+    font-family: $primary-font;
+
+    &::before,
+    &::after {
+      font-size: 4.5rem;
+      color: $caribbean-green;
+      font-weight: 600;
+      position: absolute;
+      line-height: 3.5rem;
+      vertical-align: text-bottom;
+      top: 3.75rem;
+    }
+
+    &::before {
+      content: "“";
+      left: -3.75rem;
+    }
+
+    &::after {
+      content: "”";
+      right: -3.75rem;
+    }
+  }
+}
+
+.quote__author {
+  margin-top: 1rem;
+  font-family: $primary-font;
+  font-size: 1rem;
+  line-height: 1.4;
+  text-align: center;
+
+  &::before {
+    content: "▼";
+    display: block;
+    color: $caribbean-green;
+    transform: scaleX(1.8);
+    margin: 0 0 0.75rem 0;
+  }
+}
+
+// Text box.
+.purple__text-box {
+  border: 2px solid $free-speech-blue;
+  border-radius: 3px;
+  padding: 1.125rem;
+
+  p {
+    &:first-child {
+      background-color: $cornflower-blue;
+      color: $white;
+      display: block;
+      padding: 0.5em 1em;
+      font-weight: 700;
+      font-size: 1.125em;
+      margin: -1.125rem -1.125rem 1.125rem;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+figcaption {
+  color: $hexa;
+  font-size: 0.9375rem;
+  padding: 0.625rem;
+  background-color: $white-smoke-light;
+  font-style: italic;
+  text-align: center;
+}
+
+.cke_panel_listItem {
+  a {
+    font-size: 0.75rem;
+  }
+
+  div {
+    font-weight: normal;
+    font-size: 0.75rem;
+    color: $black;
+    padding: 0.3125rem;
+    line-height: 1;
+
+    &.quote__author {
+      text-align: left;
+      padding: 0.3125rem;
+
+      &::before {
+        display: none;
+      }
+    }
+  }
+}
+
+// No Border Table.
+.no__borders {
+  display: block;
+  border: none;
+
+  tr,
+  thead {
+    display: flex;
+  }
+
+  td,
+  th {
+    padding: 0.3125rem;
+    display: block;
+    flex: 1;
+    border: none;
+  }
+}
+
+// Purple Background Cell.
+.purple__cell {
+  background-color: $cornflower-blue;
+}
+
+// Grey Background block.
+.grey__background,
+.jumbotron {
+  padding: 1.875rem 0.9375rem;
+  background-color: $gainsboro-light;
+  border-radius: 0.375rem;
+  color: $brownish-grey;
+  margin-bottom: 1.875rem;
+
+  @include breakpoint($tablet-devices) {
+    padding: 2.5rem 3.75rem;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: 0;
+    color: $brownish-grey;
+  }
+}

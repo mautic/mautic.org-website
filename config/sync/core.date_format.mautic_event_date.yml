@@ -1,0 +1,8 @@
+uuid: 14a898a6-64c1-4944-abec-64802bc9969a
+langcode: en
+status: true
+dependencies: {  }
+id: mautic_event_date
+label: 'Mautic Event Date'
+locked: false
+pattern: 'F d @ h:i A T'

@@ -1,0 +1,46 @@
+.calendar-calendar {
+  .month-view {
+    .contents {
+      position: relative;
+    }
+
+    .events--popup {
+      position: absolute;
+      z-index: 9;
+      display: none;
+      width: 28.125rem;
+      bottom: 100%;
+      box-shadow: 0.1875rem 0.25rem 1.3125rem rgba(0, 0, 0, 0.38);
+
+      &::before {
+        content: "";
+        position: absolute;
+        border-left: 0.625rem solid transparent;
+        border-right: 0.625rem solid transparent;
+        border-top: 0.625rem solid $white;
+        bottom: -0.5625rem;
+        left: 0.9375rem;
+      }
+
+      &:hover {
+        @include breakpoint($desktop-devices) {
+          display: block;
+        }
+      }
+
+      .views-field-field-event-date-value {
+        margin-bottom: 0.5rem;
+      }
+
+      .views-field-body {
+        text-align: left;
+      }
+    }
+
+    .contents a:hover + .events--popup {
+      @include breakpoint($desktop-devices) {
+        display: block;
+      }
+    }
+  }
+}

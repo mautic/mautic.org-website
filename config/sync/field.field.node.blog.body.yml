@@ -1,0 +1,23 @@
+uuid: dcdeac58-38c8-4307-a8d6-f2c40cffd86f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.blog
+  module:
+    - text
+id: node.blog.body
+field_name: body
+entity_type: node
+bundle: blog
+label: Body
+description: "The body should have at least 20 characters else it may not be pushed as a discourse topic.\r\n<br>Adding 4 spaces before any line will be treated as a code block on discourse topic."
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: true
+field_type: text_with_summary

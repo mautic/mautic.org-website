@@ -1,0 +1,57 @@
+.view-recent-blog-sidebar {
+  .recent--blog-details {
+    flex: 2;
+    font-weight: 400;
+  }
+
+  .views-field-field-featured-image {
+    img {
+      max-width: 5rem;
+      margin-right: 0.875rem;
+    }
+  }
+
+  .blog--list-title {
+    line-height: 1.35;
+    margin-bottom: 0.2rem;
+
+    a {
+      color: $grey;
+    }
+  }
+
+  .blog--list-category,
+  .blog--list-date {
+    text-transform: uppercase;
+    font-size: 0.75rem;
+  }
+
+  .blog--list-category {
+    margin-bottom: 0.25rem;
+  }
+
+  .blog--list-date {
+    color: $brownish-grey;
+  }
+
+  .views-row {
+    display: flex;
+    padding: 0.625rem 0;
+    border-bottom: 1px solid $white-shadow;
+
+    &:focus,
+    &:hover {
+      img {
+        opacity: 0.9;
+      }
+
+      .blog--list-title a {
+        color: $cornflower-blue;
+      }
+    }
+
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+}

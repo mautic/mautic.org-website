@@ -1,0 +1,15 @@
+uuid: 33ec84e5-f6b9-499f-8958-ab7c12785e0a
+langcode: en
+status: true
+dependencies: {  }
+name: blog_teaser
+label: 'Blog Teaser 520x245'
+effects:
+  1a03456a-a11f-4368-a988-9ad71e1d5215:
+    uuid: 1a03456a-a11f-4368-a988-9ad71e1d5215
+    id: image_scale_and_crop
+    weight: 2
+    data:
+      width: 520
+      height: 245
+      anchor: center-center

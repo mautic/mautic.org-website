@@ -1,0 +1,6 @@
+noreqnewpass.settings_form:
+  title: 'No Request New Password'
+  parent: user.admin_index
+  description: "Manage password preferences"
+  weight: 10
+  route_name: noreqnewpass.settings_form

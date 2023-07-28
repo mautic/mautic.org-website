@@ -1,0 +1,19 @@
+uuid: 109cf810-d158-4956-8195-f78184415def
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.image_overlay_text
+    - field.storage.block_content.field_block_1_title
+id: block_content.image_overlay_text.field_block_1_title
+field_name: field_block_1_title
+entity_type: block_content
+bundle: image_overlay_text
+label: 'Block 1 Title'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

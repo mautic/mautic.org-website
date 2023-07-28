@@ -1,0 +1,20 @@
+uuid: 674b2a52-c33f-4ef6-b400-63195a53acf1
+langcode: en
+status: true
+dependencies:
+  theme:
+    - mauticorg_base
+id: tabs
+theme: mauticorg_base
+region: content
+weight: -8
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: true
+visibility: {  }

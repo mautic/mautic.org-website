@@ -1,0 +1,11 @@
+auth0.menu_basic_settings:
+  route_name: auth0.settings
+  title: 'Settings'
+  base_route: auth0.settings
+  weight: 0
+
+auth0.menu_advanced_settings:
+  route_name: auth0.advanced_settings
+  title: 'Advanced'
+  base_route: auth0.settings
+  weight: 1

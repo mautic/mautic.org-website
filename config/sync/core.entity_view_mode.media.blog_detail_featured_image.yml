@@ -1,0 +1,10 @@
+uuid: 33132b81-1706-4dfa-ba27-5e97bed1df76
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.blog_detail_featured_image
+label: 'Blog Detail Featured Image'
+targetEntityType: media
+cache: true

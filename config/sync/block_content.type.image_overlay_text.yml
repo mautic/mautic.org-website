@@ -1,0 +1,8 @@
+uuid: e0e8f656-ecb8-4f87-9e8e-783f2521b87e
+langcode: en
+status: true
+dependencies: {  }
+id: image_overlay_text
+label: 'Image overlay text'
+revision: 0
+description: 'Add content for image overlay with image and text and blocks'

@@ -1,0 +1,56 @@
+auth0.login:
+  path: '/user/login'
+  defaults:
+    _controller: '\Drupal\auth0\Controller\AuthController::login'
+    _title: 'Log in'
+  requirements:
+    _access: 'TRUE'
+  options:
+    _maintenance_access: TRUE
+
+auth0.legacy_login:
+  path: '/user/login/legacy'
+  defaults:
+    _form: '\Drupal\user\Form\UserLoginForm'
+    _title: 'Log in'
+  requirements:
+    _access: 'TRUE'
+  options:
+    _maintenance_access: TRUE
+
+auth0.callback:
+  path: '/auth0/callback'
+  defaults:
+    _controller: '\Drupal\auth0\Controller\AuthController::callback'
+  requirements:
+    _access: 'TRUE'
+
+auth0.logout:
+  path: '/user/logout'
+  defaults:
+    _controller: '\Drupal\auth0\Controller\AuthController::logout'
+  requirements:
+    _access: 'TRUE'
+
+auth0.verify_email:
+  path: '/auth0/verify_email'
+  defaults:
+    _controller: '\Drupal\auth0\Controller\AuthController::verify_email'
+  requirements:
+    _access: 'TRUE'
+
+auth0.settings:
+  path: '/admin/config/auth0'
+  defaults:
+    _form: '\Drupal\auth0\Form\BasicSettingsForm'
+    _title: 'Auth0 Login Settings'
+  requirements:
+    _permission: 'administer site configuration'
+
+auth0.advanced_settings:
+  path: '/admin/config/auth0/advanced'
+  defaults:
+    _form: '\Drupal\auth0\Form\BasicAdvancedForm'
+    _title: 'Configure your auth0 account and widget.'
+  requirements:
+    _permission: 'administer site configuration'

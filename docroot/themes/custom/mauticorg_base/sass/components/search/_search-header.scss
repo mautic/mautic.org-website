@@ -1,0 +1,73 @@
+header {
+  .block-views-exposed-filter-blockacquia-search-page-1 {
+    h2 {
+      margin: 0;
+
+      a {
+        font-size: 0;
+        cursor: pointer;
+        padding: 0.825rem 1.032rem 0.625rem;
+        display: block;
+        color: $white;
+        box-shadow: -1px 0 0 rgba(255, 255, 255, 0.1);
+        text-decoration: none;
+
+        @include breakpoint($tablet-devices) {
+          padding: 0.625rem 1.25rem;
+        }
+
+        &:focus,
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.1);
+          text-decoration: none;
+        }
+
+        &::before {
+          @include font-icon;
+
+          content: "\f002";
+          font-size: 1.125rem;
+          color: $white;
+        }
+      }
+    }
+
+    form {
+      display: flex;
+      position: absolute;
+      right: 0;
+      top: 3rem;
+      max-height: 0;
+      visibility: hidden;
+      background: $sapphire;
+      padding: 0.9375rem;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out, max-height 0.3s ease-in-out;
+
+      @include breakpoint($upto-desktop) {
+        position: fixed;
+        top: auto;
+        right: 0;
+        left: 0;
+      }
+
+      .form-text {
+        @include breakpoint($upto-desktop) {
+          width: 100%;
+        }
+      }
+    }
+
+    &.search--visible {
+      form {
+        opacity: 1;
+        visibility: visible;
+        max-height: 6.25rem;
+      }
+
+      h2 {
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+}

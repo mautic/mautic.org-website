@@ -1,0 +1,22 @@
+.purple__text-box {
+  border: 2px solid $free-speech-blue;
+  border-radius: 3px;
+  padding: 1.125rem;
+  margin-bottom: 0.625rem;
+
+  p {
+    &:first-child {
+      background-color: $cornflower-blue;
+      color: $white;
+      display: block;
+      padding: 0.5em 1em;
+      font-weight: 700;
+      font-size: 1.125em;
+      margin: -1.125rem -1.125rem 1.125rem;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

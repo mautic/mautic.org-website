@@ -1,0 +1,15 @@
+moderation_scheduler.settings:
+  path: '/admin/moderation-scheduler'
+  defaults:
+    _form: '\Drupal\moderation_scheduler\Form\ModerationScheduleForm'
+    _title: 'Moderation Scheduler'
+  requirements:
+    _permission: 'administer moderation_scheduler module'
+    
+moderation_scheduler.publish_form:
+  path: '/admin/content/scheduled/publish'
+  defaults:
+    _form: '\Drupal\moderation_scheduler\Form\ModerationSchedulePublishForm'
+    _title: 'Moderation Scheduler Publish'
+  requirements:
+    _permission: 'edit moderation scheduler field'

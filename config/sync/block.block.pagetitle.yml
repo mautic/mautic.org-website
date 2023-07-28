@@ -1,0 +1,25 @@
+uuid: a2439644-7453-443f-a3f0-f144f1d1191b
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - mauticorg_base
+id: pagetitle
+theme: mauticorg_base
+region: content
+weight: -6
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    context_mapping: {  }
+    pages: "<front>\r\n/search\r\n/event/*"

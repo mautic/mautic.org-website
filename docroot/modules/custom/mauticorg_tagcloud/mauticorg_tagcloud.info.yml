@@ -1,0 +1,8 @@
+name: MauticOrg Tag Cloud
+type: module
+description: Creates block "MauticOrg Tag Cloud".
+package: MauticOrg
+core_version_requirement: ^8 || ^9
+dependencies:
+- drupal:taxonomy
+- drupal:tagclouds

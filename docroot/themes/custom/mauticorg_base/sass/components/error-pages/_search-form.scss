@@ -1,0 +1,24 @@
+.page--403,
+.page--404 {
+  .region-content {
+    .views-exposed-form {
+      margin-bottom: 2rem;
+
+      form {
+        &::before {
+          content: "";
+          position: absolute;
+          border-left: 0.625rem solid transparent;
+          border-right: 0.625rem solid transparent;
+          border-bottom: 0.625rem solid $white-smoke-light;
+          top: -0.5625rem;
+          left: 0.9375rem;
+        }
+      }
+
+      input {
+        width: 100%;
+      }
+    }
+  }
+}

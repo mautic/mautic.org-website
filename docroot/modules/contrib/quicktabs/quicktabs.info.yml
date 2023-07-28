@@ -1,0 +1,12 @@
+name: Quick Tabs
+description: "Render content with tabs and other display styles"
+type: module
+core_version_requirement: ^8.8 || ^9
+configure: quicktabs.admin
+dependencies:
+  - drupal:block
+
+# Information added by Drupal.org packaging script on 2021-07-20
+version: '8.x-3.0-alpha5'
+project: 'quicktabs'
+datestamp: 1626816410

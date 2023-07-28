@@ -1,0 +1,60 @@
+.eu-cookie-compliance-banner {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 3px 7px 1px rgba(0, 0, 0, 0.8);
+}
+
+.eu-cookie-compliance-content {
+  max-width: 71.875rem;
+  padding: 1.25rem 0.9375rem;
+  display: block;
+
+  @include breakpoint($tablet-devices) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  p,
+  .find-more-button {
+    font-size: 0.875rem;
+    font-weight: normal;
+  }
+}
+
+.eu-cookie-compliance-message,
+.eu-cookie-compliance-buttons {
+  float: none;
+  margin: 0;
+}
+
+.eu-cookie-compliance-buttons {
+  margin-top: 1rem;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+
+  @include breakpoint($tablet-devices) {
+    margin-top: 0;
+    justify-content: right;
+  }
+
+  button {
+    margin-right: 0.5rem;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.eu-cookie-compliance-default-button,
+.eu-cookie-compliance-secondary-button {
+  background-image: none;
+  box-shadow: none;
+  text-shadow: none;
+
+  &:focus,
+  &:hover {
+    background-image: none;
+  }
+}

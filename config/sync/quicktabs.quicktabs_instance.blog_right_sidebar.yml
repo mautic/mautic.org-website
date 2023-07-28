@@ -1,0 +1,86 @@
+uuid: 91007010-33f4-4d02-914d-5ab987cb1679
+langcode: en
+status: true
+dependencies: {  }
+id: blog_right_sidebar
+label: 'Blog Right Sidebar'
+renderer: quick_tabs
+hide_empty_tabs: false
+default_tab: 0
+options:
+  accordion_tabs:
+    jquery_ui:
+      collapsible: false
+      heightStyle: auto
+  quick_tabs:
+    ajax: false
+configuration_data:
+  -
+    title: '<span title="Recent Posts" class="recent--tab-label">Recent Blog</span>'
+    weight: -10
+    type: block_content
+    content:
+      view_content:
+        options:
+          vid: banner_blog_carousel
+          display: default
+          args: ''
+      node_content:
+        options:
+          nid: ''
+          view_mode: full
+          hide_title: true
+      block_content:
+        options:
+          bid: 'views_block:recent_blog_sidebar-block_3'
+          block_title: ''
+          display_title: false
+      qtabs_content:
+        options:
+          machine_name: ''
+  -
+    title: '<span title="Recent Comments" class="recent--comments-label">Recent Comment</span>'
+    weight: -9
+    type: block_content
+    content:
+      view_content:
+        options:
+          vid: banner_blog_carousel
+          display: default
+          args: ''
+      node_content:
+        options:
+          nid: ''
+          view_mode: full
+          hide_title: true
+      block_content:
+        options:
+          bid: latest_comments_block
+          block_title: ''
+          display_title: false
+      qtabs_content:
+        options:
+          machine_name: ''
+  -
+    title: '<span title="Tags" class="tag--cloud-label">Tag Cloud</span>'
+    weight: -8
+    type: block_content
+    content:
+      view_content:
+        options:
+          vid: banner_blog_carousel
+          display: default
+          args: ''
+      node_content:
+        options:
+          nid: ''
+          view_mode: full
+          hide_title: true
+      block_content:
+        options:
+          bid: blog_tagclouds_block
+          block_title: ''
+          display_title: false
+      qtabs_content:
+        options:
+          machine_name: ''

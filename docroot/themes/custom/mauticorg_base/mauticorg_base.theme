@@ -1,0 +1,134 @@
+<?php
+
+/**
+ * @file
+ * Theme specific functionality.
+ */
+
+use Drupal\Component\Utility\Html;
+
+/**
+ * Implements hook_preprocess_html().
+ */
+function mauticorg_base_preprocess_html(&$variables) {
+  $path = \Drupal::service('path.current')->getPath();
+  $alias = trim(\Drupal::service('path_alias.manager')
+    ->getAliasByPath($path), '/');
+  // Alias path class.
+  $alias_class = preg_replace("/\//", '-', $alias);
+  if (!empty($alias_class) && strpos($alias_class, 'node') !== 0) {
+    $variables['attributes']['class'][] = Html::cleanCssIdentifier('page--' . $alias_class);
+  }
+  // If is homepage.
+  $variables['attributes']['class'][] = \Drupal::service('path.matcher')
+    ->isFrontPage() ? 'frontpage' : '';
+  // Node type class.
+  $variables['attributes']['class'][] = isset($variables['node_type']) ? 'nodetype__' . $variables['node_type'] : '';
+  // Logged in class.
+  $variables['attributes']['class'][] = $variables['logged_in'] ? 'logged--in' : 'logged--out';
+  // Role of user class.
+  foreach ($variables['user']->getRoles() as $role) {
+    $variables['attributes']['class'][] = 'role--' . $role;
+  }
+  // Add fb verification meta tag sitewide.
+  $fbverification = [
+    '#tag' => 'meta',
+    '#attributes' => [
+      'name' => 'facebook-domain-verification',
+      'content' => '9a5y25k46n62oc7ia8zn769y7mv0d0',
+    ],
+  ];
+  $variables['page']['#attached']['html_head'][] = [$fbverification,'fbverification'];
+}
+
+/**
+ * Implements hook_preprocess_flippy().
+ */
+function mauticorg_base_preprocess_flippy(&$vars) {
+  if (!empty($vars['prev'])) {
+    $vars['prev']['#title'] = Html::decodeEntities($vars['prev']['#title']);
+  }
+
+  if (!empty($vars['next'])) {
+    $vars['next']['#title'] = Html::decodeEntities($vars['next']['#title']);
+  }
+}
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function mauticorg_base_preprocess_page(&$variables) {
+
+  $disable_sidebar = FALSE;
+  $full_width_page = FALSE;
+  if (!empty($variables['node']) && is_object($variables['node'])) {
+    // Checking bundle of landing page.
+    if ($variables['node']->getType() == "landing_page") {
+      if (!empty($variables['node']->get('field_disable_sidebar')->getValue())) {
+        $field_disable_sidebar_arr = $variables['node']->get('field_disable_sidebar')->getValue();
+        if ($field_disable_sidebar_arr[0]['value'] == 1) {
+          $disable_sidebar = TRUE;
+        }
+      }
+
+      if (!empty($variables['node']->get('field_full_width_page')->getValue())) {
+        $field_full_width_page_arr = $variables['node']->get('field_full_width_page')->getValue();
+        if ($field_full_width_page_arr[0]['value'] == 1) {
+          $full_width_page = TRUE;
+        }
+      }
+    }
+  }
+  // Configure value of disable_sidebar.
+  $variables['disable_sidebar'] = $disable_sidebar;
+  $variables['full_width_page'] = $full_width_page;
+}
+
+/**
+ * Implements template_form_alter().
+ */
+function mauticorg_base_form_alter(&$form, &$form_state, $form_id) {
+  if ($form['#id'] == 'views-exposed-form-acquia-search-page' || $form['#id'] == 'views-exposed-form-acquia-search-page-1') {
+    $form['search']['#attributes']['placeholder'] = t('To search type and hit enter');
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function mauticorg_base_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+  $route_name = \Drupal::routeMatch()->getRouteName();
+
+  // Add twig suggestion for error pages.
+  switch ($route_name) {
+    case 'system.403':
+      // Access Denied.
+      $error = 403;
+      break;
+
+    case 'system.404':
+      // Page Not Found.
+      $error = 404;
+      break;
+  }
+
+  if (isset($error)) {
+    $suggestions[] = 'page__' . $error;
+  }
+}
+
+/**
+ * Implements template_preprocess_comment().
+ */
+function mauticorg_base_preprocess_comment(&$variables) {
+  $comment = $variables['elements']['#comment'];
+  $variables['created'] = \Drupal::service('date.formatter')->format($comment->getCreatedTime(), 'mauticorg_date_time_format');
+  $variables['submitted'] = t('Submitted by @username on @datetime', [
+    '@username' => $comment->getAuthorName(),
+    '@datetime' => $variables['created'],
+  ]);
+  // Get and set gravatar image of author.
+  $mauticorg_gravatar = \Drupal::service('mauticorg_gravatar_service.gravatar');
+  $variables['user_gravatar_image'] = $mauticorg_gravatar->getGravatarImageUrl($comment->getAuthorEmail());
+  $variables['user_gravatar_image_title'] = $comment->getAuthorName();
+}

@@ -1,0 +1,524 @@
+<?php
+
+/**
+ * @file
+ * Allows administrators to add previous/next pagers to any node type.
+ */
+
+use Drupal\Component\Utility\Html;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Core\Url;
+
+/**
+ * Implements hook_theme().
+ */
+function flippy_theme() {
+  return [
+    'flippy' => [
+      'variables' => [
+        'list' => [],
+        'node' => NULL,
+      ],
+      'template' => 'flippy',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_theme_suggestions().
+ */
+function flippy_theme_suggestions_flippy(array $variables) {
+  $suggestions = [];
+  $node = $variables['node'];
+
+  $suggestions[] = 'flippy__' . $node->bundle();
+  $suggestions[] = 'flippy__' . $node->bundle() . '__' . $node->id();
+
+  return $suggestions;
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function flippy_form_node_type_edit_form_alter(&$form, FormStateInterface $form_state) {
+  if (isset($form['type'])) {
+
+    // Flippy settings.
+    $flippy_settings = \Drupal::config('flippy.settings');
+    $flippy_node_type = $flippy_settings->get('flippy_' . $form['type']['#default_value']);
+    $flippy_head = $flippy_settings->get('flippy_head_' . $form['type']['#default_value']);
+    $flippy_show_empty = $flippy_settings->get('flippy_show_empty_' . $form['type']['#default_value']);
+    $flippy_prev_label = $flippy_settings->get('flippy_prev_label_' . $form['type']['#default_value']);
+    $flippy_next_label = $flippy_settings->get('flippy_next_label_' . $form['type']['#default_value']);
+    $flippy_first_last = $flippy_settings->get('flippy_first_last_' . $form['type']['#default_value']);
+    $flippy_first_label = $flippy_settings->get('flippy_first_label_' . $form['type']['#default_value']);
+    $flippy_last_label = $flippy_settings->get('flippy_last_label_' . $form['type']['#default_value']);
+    $flippy_loop = $flippy_settings->get('flippy_loop_' . $form['type']['#default_value']);
+    $flippy_random = $flippy_settings->get('flippy_random_' . $form['type']['#default_value']);
+    $flippy_random_label = $flippy_settings->get('flippy_random_label_' . $form['type']['#default_value']);
+    $flippy_truncate = $flippy_settings->get('flippy_truncate_' . $form['type']['#default_value']);
+    $flippy_ellipse = $flippy_settings->get('flippy_ellipse_' . $form['type']['#default_value']);
+    $flippy_swipe = $flippy_settings->get('flippy_press_swipe_' . $form['type']['#default_value']);
+    $flippy_custom_sorting = $flippy_settings->get('flippy_custom_sorting_' . $form['type']['#default_value']);
+    $flippy_sort = $flippy_settings->get('flippy_sort_' . $form['type']['#default_value']);
+    $flippy_order = $flippy_settings->get('flippy_order_' . $form['type']['#default_value']);
+
+    $form['flippy'] = [
+      '#type' => 'details',
+      '#title' => t('Flippy settings'),
+      '#collapsible' => TRUE,
+      '#collapsed' => TRUE,
+      '#group' => 'additional_settings',
+    ];
+
+    $form['flippy']['flippy'] = [
+      '#type' => 'checkbox',
+      '#title' => t('Build a pager for this content type'),
+      '#default_value' => isset($form['flippy']['flippy']) ? $form['flippy']['flippy'] : $flippy_node_type,
+    ];
+
+    $form['flippy']['flippy_head'] = [
+      '#type' => 'checkbox',
+      '#title' => t('Add semantic previous and next links to the document HEAD'),
+      '#default_value' => isset($form['flippy']['flippy_head']) ? $form['flippy']['flippy_head'] : $flippy_head,
+      '#states' => [
+        'visible' => [
+          ':input[name=flippy]' => ['checked' => TRUE],
+        ],
+      ],
+    ];
+
+    $form['flippy']['flippy_show_empty'] = [
+      '#type' => 'checkbox',
+      '#title' => t('Show empty links'),
+      '#default_value' => isset($form['flippy']['flippy_show_empty']) ? $form['flippy']['flippy_show_empty'] : $flippy_show_empty,
+      '#states' => [
+        'visible' => [
+          ':input[name=flippy]' => ['checked' => TRUE],
+        ],
+      ],
+      '#description' => t('If checked, empty links will be rendered even if there isn\'t a node in the sequence. For example, if there is no "next" node, the "next" label will be shown but without a link. If tokens are being used, it is recommended that this be unchecked.'),
+    ];
+
+    $form['flippy']['flippy_prev_label'] = [
+      '#type' => 'textfield',
+      '#title' => t('Label for "Previous" link'),
+      '#size' => 32,
+      '#default_value' => isset($form['flippy']['flippy_prev_label']) ? $form['flippy']['flippy_prev_label'] : $flippy_prev_label,
+      '#states' => [
+        'visible' => [
+          ':input[name=flippy]' => ['checked' => TRUE],
+        ],
+      ],
+    ];
+
+    $form['flippy']['flippy_next_label'] = [
+      '#type' => 'textfield',
+      '#title' => t('Label for "Next" link'),
+      '#size' => 32,
+      '#default_value' => isset($form['flippy']['flippy_next_label']) ? $form['flippy']['flippy_next_label'] : $flippy_next_label,
+      '#states' => [
+        'visible' => [
+          ':input[name=flippy]' => ['checked' => TRUE],
+        ],
+      ],
+    ];
+
+    $form['flippy']['flippy_firstlast'] = [
+      '#type' => 'checkbox',
+      '#title' => t('Show first/last links'),
+      '#default_value' => isset($form['flippy']['flippy_firstlast']) ? $form['flippy']['flippy_firstlast'] : $flippy_first_last,
+      '#states' => [
+        'visible' => [
+          ':input[name=flippy]' => ['checked' => TRUE],
+        ],
+      ],
+    ];
+
+    $form['flippy']['flippy_first_label'] = [
+      '#type' => 'textfield',
+      '#title' => t('Label for "First" link'),
+      '#size' => 32,
+      '#default_value' => isset($form['flippy']['flippy_first_label']) ? $form['flippy']['flippy_first_label'] : $flippy_first_label,
+      '#states' => [
+        'visible' => [
+          ':input[name=flippy_firstlast]' => ['checked' => TRUE],
+          ':input[name=flippy]' => ['checked' => TRUE],
+
+        ],
+      ],
+    ];
+
+    $form['flippy']['flippy_last_label'] = [
+      '#type' => 'textfield',
+      '#title' => t('Label for "Last" link'),
+      '#size' => 32,
+      '#default_value' => isset($form['flippy']['flippy_last_label']) ? $form['flippy']['flippy_last_label'] : $flippy_last_label,
+      '#states' => [
+        'visible' => [
+          ':input[name=flippy_firstlast]' => ['checked' => TRUE],
+          ':input[name=flippy]' => ['checked' => TRUE],
+        ],
+      ],
+    ];
+
+    $form['flippy']['flippy_loop'] = [
+      '#type' => 'checkbox',
+      '#title' => t('Loop through nodes'),
+      '#default_value' => isset($form['flippy']['flippy_loop']) ? $form['flippy']['flippy_loop'] : $flippy_loop,
+      '#states' => [
+        'visible' => [
+          ':input[name=flippy]' => ['checked' => TRUE],
+        ],
+      ],
+    ];
+
+    $form['flippy']['flippy_random'] = [
+      '#type' => 'checkbox',
+      '#title' => t('Show random link'),
+      '#default_value' => isset($form['flippy']['flippy_random']) ? $form['flippy']['flippy_random'] : $flippy_random,
+      '#states' => [
+        'visible' => [
+          ':input[name=flippy]' => ['checked' => TRUE],
+        ],
+      ],
+    ];
+
+    $form['flippy']['flippy_random_label'] = [
+      '#type' => 'textfield',
+      '#title' => t('Label for "Random" link'),
+      '#size' => 32,
+      '#default_value' => isset($form['flippy']['flippy_random_label']) ? $form['flippy']['flippy_random_label'] : $flippy_random_label,
+      '#states' => [
+        'visible' => [
+          ':input[name=flippy_random]' => ['checked' => TRUE],
+          ':input[name=flippy]' => ['checked' => TRUE],
+        ],
+      ],
+    ];
+
+    if (\Drupal::moduleHandler()->moduleExists('token')) {
+      $form['flippy']['flippy_token'] = [
+        '#type' => 'fieldset',
+        '#collapsible' => TRUE,
+        '#collapsed' => TRUE,
+        '#title' => t('Browse available tokens'),
+        '#states' => [
+          'visible' => [
+            ':input[name=flippy]' => ['checked' => TRUE],
+          ],
+        ],
+      ];
+
+      $form['flippy']['flippy_token']['flippy_token_browser'] = [
+        '#theme' => 'token_tree_link',
+        '#token_types' => ['node'],
+      ];
+    }
+
+    $form['flippy']['flippy_truncate'] = [
+      '#type' => 'textfield',
+      '#title' => t('Truncate label length'),
+      '#size' => 32,
+      '#default_value' => isset($form['flippy']['flippy_truncate']) ? $form['flippy']['flippy_truncate'] : $flippy_truncate,
+      '#description' => t('Optionally provide a maximum amount length that link labels can be. Labels will be shortened to this length if they exceed the amount of characters.'),
+      '#states' => [
+        'visible' => [
+          ':input[name=flippy]' => ['checked' => TRUE],
+        ],
+      ],
+    ];
+
+    $form['flippy']['flippy_ellipse'] = [
+      '#type' => 'textfield',
+      '#title' => t('Truncate ellipse'),
+      '#size' => 32,
+      '#default_value' => isset($form['flippy']['flippy_ellipse']) ? $form['flippy']['flippy_ellipse'] : $flippy_ellipse,
+      '#description' => t('If a maximum label length is set above, an ellipse can be provided here which will be appended to the label after it is shortened.'),
+      '#states' => [
+        'visible' => [
+          ':input[name=flippy]' => ['checked' => TRUE],
+        ],
+      ],
+    ];
+
+    if (\Drupal::moduleHandler()->moduleExists('hammerjs')) {
+      $form['flippy']['flippy_press_swipe'] = [
+        '#type' => 'checkbox',
+        '#title' => t('Support key press and swipe in mobile'),
+        '#default_value' => isset($form['flippy']['flippy_press_swipe']) ? $form['flippy']['flippy_press_swipe'] : $flippy_swipe,
+      ];
+    }
+
+    $form['flippy']['flippy_custom_sorting'] = [
+      '#type' => 'checkbox',
+      '#title' => t('Sort the pager by something other than ascending post date'),
+      '#default_value' => isset($form['flippy']['flippy_custom_sorting']) ? $form['flippy']['flippy_custom_sorting'] : $flippy_custom_sorting,
+      '#states' => [
+        'visible' => [
+          ':input[name=flippy]' => ['checked' => TRUE],
+        ],
+      ],
+    ];
+
+    // Allow certain base table properties for sorting
+    // $sort_options = _flippy_sorting_properties();
+    $sort_options = [];
+    // Also allow some entity fields.
+    $content_type_fields = \Drupal::service('entity_field.manager')
+      ->getFieldDefinitions('node', $form['type']['#default_value']);
+    foreach ($content_type_fields as $sort_field) {
+      if (get_class($sort_field) == 'Drupal\field\Entity\FieldConfig') {
+        // It is an additional field.
+        $itemDefinition = $sort_field->getFieldStorageDefinition();
+        $schema_info = $itemDefinition->getSchema();
+      }
+      else {
+        if (get_class($sort_field) == 'Drupal\Core\Field\BaseFieldDefinition') {
+          // It is a base field.
+          $schema_info = $sort_field->getSchema();
+        }
+      }
+      if (isset($schema_info['columns']['value']) && ($schema_info['columns']['value']['type'] == 'varchar' || $schema_info['columns']['value']['type'] == 'int' || $sort_field->getType() == 'datetime')) {
+        $sort_options[$sort_field->getName()] = $sort_field->getLabel();
+      }
+    }
+
+    $form['flippy']['flippy_sort'] = [
+      '#type' => 'select',
+      '#title' => t('Pager sort'),
+      '#options' => $sort_options,
+      '#default_value' => isset($form['flippy']['flippy_sort']) ? $form['flippy']['flippy_sort'] : $flippy_sort,
+      '#description' => t('Select a field for sorting the pager'),
+      '#states' => [
+        'visible' => [
+          ':input[name=flippy_custom_sorting]' => ['checked' => TRUE],
+        ],
+      ],
+    ];
+
+    $form['flippy']['flippy_order'] = [
+      '#type' => 'select',
+      '#title' => t('Pager order'),
+      '#options' => ['ASC' => t('Ascending'), 'DESC' => t('Descending')],
+      '#default_value' => isset($form['flippy']['flippy_order']) ? $form['flippy']['flippy_order'] : $flippy_order,
+      '#description' => t('Select a direction to order the pager'),
+      '#states' => [
+        'visible' => [
+          ':input[name=flippy_custom_sorting]' => ['checked' => TRUE],
+        ],
+      ],
+    ];
+
+    // Add a custom submit handler to save the array of types back to the config
+    // file.
+    $form['actions']['submit']['#submit'][] = '_flippy_node_type_form_submit';
+  }
+}
+
+/**
+ * Creating custom form submit handler to save the settings to config file.
+ */
+function _flippy_node_type_form_submit($form, FormStateInterface $form_state) {
+  \Drupal::configFactory()->getEditable('flippy.settings')
+    ->set('flippy_' . $form['type']['#default_value'], $form_state->getValue('flippy'))
+    ->set('flippy_head_' . $form['type']['#default_value'], $form_state->getValue('flippy_head'))
+    ->set('flippy_show_empty_' . $form['type']['#default_value'], $form_state->getValue('flippy_show_empty'))
+    ->set('flippy_prev_label_' . $form['type']['#default_value'], Html::escape($form_state->getValue('flippy_prev_label')))
+    ->set('flippy_next_label_' . $form['type']['#default_value'], Html::escape($form_state->getValue('flippy_next_label')))
+    ->set('flippy_first_last_' . $form['type']['#default_value'], $form_state->getValue('flippy_firstlast'))
+    ->set('flippy_first_label_' . $form['type']['#default_value'], Html::escape($form_state->getValue('flippy_first_label')))
+    ->set('flippy_last_label_' . $form['type']['#default_value'], Html::escape($form_state->getValue('flippy_last_label')))
+    ->set('flippy_loop_' . $form['type']['#default_value'], $form_state->getValue('flippy_loop'))
+    ->set('flippy_random_' . $form['type']['#default_value'], $form_state->getValue('flippy_random'))
+    ->set('flippy_random_label_' . $form['type']['#default_value'], Html::escape($form_state->getValue('flippy_random_label')))
+    ->set('flippy_truncate_' . $form['type']['#default_value'], $form_state->getValue('flippy_truncate'))
+    ->set('flippy_ellipse_' . $form['type']['#default_value'], $form_state->getValue('flippy_ellipse'))
+    ->set('flippy_press_swipe_' . $form['type']['#default_value'], $form_state->getValue('flippy_press_swipe'))
+    ->set('flippy_custom_sorting_' . $form['type']['#default_value'], $form_state->getValue('flippy_custom_sorting'))
+    ->set('flippy_sort_' . $form['type']['#default_value'], $form_state->getValue('flippy_sort'))
+    ->set('flippy_order_' . $form['type']['#default_value'], $form_state->getValue('flippy_order'))
+    ->save();
+}
+
+/**
+ * Implements hook_entity_extra_field_info().
+ */
+function flippy_entity_extra_field_info() {
+  $extra = [];
+  foreach (node_type_get_names() as $type => $name) {
+    $flippy_node_type = \Drupal::config('flippy.settings')
+      ->get('flippy_' . $type);
+    if ($flippy_node_type) {
+      $extra['node'][$type] = [
+        'display' => [
+          'flippy_pager' => [
+            'label' => t('Pager'),
+            'description' => t('Flippy module content pager.'),
+            'weight' => 5,
+            'visible' => TRUE,
+          ],
+        ],
+      ];
+    }
+  }
+
+  return $extra;
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_view() for node entities.
+ */
+function flippy_node_view(array &$build, EntityInterface $node, EntityViewDisplayInterface $display, $view_mode) {
+  // Only add the pager if it should be used for this node's content type.
+  if (\Drupal::service('flippy.pager')->flippy_use_pager($node) && $display->getComponent('flippy_pager')) {
+    $links = \Drupal::service('flippy.pager')->flippy_build_list($node);
+    $build['flippy_pager'] = [
+      '#theme' => 'flippy',
+      '#list' => $links,
+      '#node' => $node,
+      '#attached' => [
+        'library' => [
+          'flippy/drupal.flippy',
+        ],
+      ],
+      '#cache' => [
+        'tags'=> ['node_list'],
+      ],
+    ];
+
+    if (is_object($node)) {
+      // Check if we need to support HammerJS.
+      if (\Drupal::config('flippy.settings')->get('flippy_press_swipe_' . $node->getType())) {
+        $build['flippy_pager']['#attached']['library'][] = 'hammerjs/hammerjs';
+        $build['flippy_pager']['#attached']['library'][] = 'flippy/flippy.swipe';
+      }
+
+      // Add the previous/next elements to the page head, if enable for this
+      // content type.
+      if (\Drupal::config('flippy.settings')
+        ->get('flippy_head_' . $node->getType())
+      ) {
+        if (!empty($links['prev']['nid'])) {
+          $build['#attached']['html_head_link'][][] = [
+            'rel' => 'prev',
+            'href' => Url::fromRoute('entity.node.canonical', ['node' => $links['prev']['nid']])
+              ->toString(),
+          ];
+        }
+        if (!empty($links['next']['nid'])) {
+          $build['#attached']['html_head_link'][][] = [
+            'rel' => 'next',
+            'href' => Url::fromRoute('entity.node.canonical', ['node' => $links['next']['nid']])
+              ->toString(),
+          ];
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implements template_preprocess_hook().
+ */
+function template_preprocess_flippy(&$vars) {
+
+  // For getting node type.
+  if ($node = \Drupal::request()->attributes->get('node')) {
+    $vars['node'] = $node;
+  }
+
+  $flippy_settings = \Drupal::config('flippy.settings');
+
+  // Get all the labels.
+  $first_label = t($flippy_settings->get('flippy_first_label_' . $vars['node']->getType()));
+  $last_label = t($flippy_settings->get('flippy_last_label_' . $vars['node']->getType()));
+  $random_label = t($flippy_settings->get('flippy_random_label_' . $vars['node']->getType()));
+  $prev_label = t($flippy_settings->get('flippy_prev_label_' . $vars['node']->getType()));
+  $next_label = t($flippy_settings->get('flippy_next_label_' . $vars['node']->getType()));
+
+  $show_empty = $flippy_settings->get('flippy_show_empty_' . $vars['node']->getType());
+
+  // See if we need to truncate labels.
+  if ($truncate = $flippy_settings->get('flippy_truncate_' . $vars['node']->getType())) {
+    if (is_numeric($truncate)) {
+      $first_label = strlen($first_label) > $truncate ? $first_label : substr($first_label, 0, $truncate) . $flippy_settings->get('flippy_ellipse_' . $vars['node']->getType());
+      $last_label = strlen($last_label) > $truncate ? $last_label : substr($last_label, 0, $truncate) . $flippy_settings->get('flippy_ellipse_' . $vars['node']->getType());
+      $random_label = strlen($random_label) > $truncate ? $random_label : substr($random_label, 0, $truncate) . $flippy_settings->get('flippy_ellipse_' . $vars['node']->getType());
+      $prev_label = strlen($prev_label) > $truncate ? $prev_label : substr($prev_label, 0, $truncate) . $flippy_settings->get('flippy_ellipse_' . $vars['node']->getType());
+      $next_label = strlen($next_label) > $truncate ? $next_label : substr($next_label, 0, $truncate) . $flippy_settings->get('flippy_ellipse_' . $vars['node']->getType());
+    }
+  }
+
+  // See if we need to create the loop.
+  if ($flippy_settings->get('flippy_loop_' . $vars['node']->getType())) {
+    if (!isset($vars['list']['next']['nid']) && isset($vars['list']['first']['nid'])) {
+      $vars['list']['next']['nid'] = $vars['list']['first']['nid'];
+    }
+    if (!isset($vars['list']['prev']['nid']) && isset($vars['list']['last']['nid'])) {
+      $vars['list']['prev']['nid'] = $vars['list']['last']['nid'];
+    }
+  }
+
+  // Build the variables for twig.
+  if ($nav = $vars['list']) {
+
+    if ($flippy_settings->get('flippy_first_last_' . $vars['node']->getType()) != 0) {
+      if (isset($nav['first']) && $nav['first']['nid'] != FALSE) {
+        $vars['first'] = \Drupal::service('flippy.pager')->flippy_generate_link($nav['first']['nid'], $first_label);
+      }
+      elseif ($show_empty) {
+        $vars['first'] = [
+          '#type' => 'html_tag',
+          '#tag' => 'span',
+          '#attributes' => ['class' => ['empty']],
+          '#value' => $first_label,
+        ];
+      }
+
+      if (isset($nav['last']) && $nav['last']['nid'] != FALSE) {
+        $vars['last'] = \Drupal::service('flippy.pager')->flippy_generate_link($nav['last']['nid'], $last_label);
+      }
+      elseif ($show_empty) {
+        $vars['last'] = [
+          '#type' => 'html_tag',
+          '#tag' => 'span',
+          '#attributes' => ['class' => ['empty']],
+          '#value' => $last_label,
+        ];
+      }
+    }
+
+    if ($flippy_settings->get('flippy_random_' . $vars['node']->getType())) {
+      $vars['random'] = \Drupal::service('flippy.pager')->flippy_generate_link($nav['random']['nid'], $random_label);
+    }
+
+    if (isset($nav['prev']) && $nav['prev']['nid'] != FALSE) {
+      $vars['prev'] = \Drupal::service('flippy.pager')->flippy_generate_link($nav['prev']['nid'], $prev_label);
+    }
+    elseif ($show_empty) {
+      $vars['prev'] = [
+        '#type' => 'html_tag',
+        '#tag' => 'span',
+        '#attributes' => ['class' => ['empty']],
+        '#value' => $prev_label,
+      ];
+    }
+
+    if (isset($nav['next']) && $nav['next']['nid'] != FALSE) {
+      $vars['next'] = \Drupal::service('flippy.pager')->flippy_generate_link($nav['next']['nid'], $next_label);
+    }
+    elseif ($show_empty) {
+      $vars['next'] = [
+        '#type' => 'html_tag',
+        '#tag' => 'span',
+        '#attributes' => ['class' => ['empty']],
+        '#value' => $next_label,
+      ];
+    }
+  }
+
+  unset($vars['list']);
+}

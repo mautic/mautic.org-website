@@ -1,0 +1,45 @@
+{#
+/**
+* @file
+* Default theme implementation to display a block.
+*
+* @see template_preprocess_block()
+*
+* @ingroup themeable
+*/
+#}
+{% set classes = [
+    'clear-both',
+    'discourse__comments--wrapper'
+] %}
+<article{{ attributes.addClass(classes) }} {{ attributes.setAttribute('id', 'node-blog-comment--2') }}>
+  {% if content|length == 1 %}
+    <h2>{{ content|length }} {{ "Response"|t }}</h2>
+  {% elseif content|length > 1 %}
+    <h2>{{ content|length }} {{ "Responses"|t }}</h2>
+  {% endif %}
+  {% for key, post in content %}
+    <div class="comment discourse--comment">
+      <div class="comment--user">
+        <img src="{{ post.avatar_template }}" alt="{{ post.username ~ '\'s avatar' }}" title="{{ post.username ~ '\'s avatar' }}">
+      </div>
+      <div class="comment--content">
+        <footer class="comment__meta">
+          <p class="comment__username comment__submitted">
+            <a href="{{ topic_url }}" target="_blank">{{ post.username }}</a> {{ "says:"|t }}
+          </p>
+          <p class="comment__date">{{ post.created_at }}</p>
+        </footer>
+        <div class="field--name-comment-body">
+          {{ post.post_content|raw }}
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+  {% if forum_link|length %}
+    <h3 class="further--comments">
+      {{ forum_link_label|t }}
+      <a href="{{ topic_url }}" target="_blank">{{ forum_link|t }}</a>
+    </h3>
+  {% endif %}
+</article>

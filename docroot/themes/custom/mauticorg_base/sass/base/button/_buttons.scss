@@ -1,0 +1,115 @@
+.form-submit {
+  background: $cornflower-blue;
+  color: $white;
+  padding: 0.5rem 0.875rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+  border-radius: 0.1875rem;
+}
+
+.btn,
+.btn-cta,
+.views-display-link,
+.eu-cookie-compliance-secondary-button,
+.eu-cookie-compliance-default-button,
+.button--main {
+  background-color: $cornflower-blue;
+  border: none;
+  border-radius: 0.25rem;
+  color: $white;
+  display: inline-block;
+  letter-spacing: 0.025rem;
+  font-size: 1rem;
+  line-height: 1;
+  font-weight: 900;
+  margin: 0;
+  padding: 0.75rem 1.25rem;
+  text-align: center;
+  text-decoration: none;
+  margin-right: 0.5rem;
+  margin-bottom: 0.25rem;
+
+  &:focus,
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.agree-button,
+.button--gold {
+  background-color: $selective-yellow;
+  color: $grey;
+
+  &:focus,
+  &:hover {
+    background-color: $sunglow;
+  }
+}
+
+.decline-button {
+  background-color: $hexa;
+  color: $nero;
+
+  &:focus,
+  &:hover {
+    background-color: $hexa-light;
+  }
+}
+
+.btn-teal,
+.button--teal {
+  background-color: $caribbean-green;
+  color: $pantone;
+
+  &:focus,
+  &:hover {
+    background: $turquoise-light;
+  }
+}
+
+.btn-cta-primary,
+.button--purple {
+  color: $white;
+  background-color: $cornflower-blue;
+
+  &:focus,
+  &:hover {
+    background: $grey;
+  }
+}
+
+.button__purple--border {
+  font-size: 0.8125rem;
+  font-weight: 300;
+  position: relative;
+  padding: 0.4rem 1rem 0.54rem;
+  border: 1px solid $tory-blue;
+  letter-spacing: 0;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 1.25rem;
+    border-radius: 0.3125rem;
+    border-top: 1px solid $purple-grey;
+  }
+
+  &::after {
+    bottom: 0;
+    top: 1.25rem;
+    border-top: 0;
+    border-bottom: 1px solid $purple-grey;
+  }
+
+  &:focus,
+  &:hover {
+    opacity: 0.7;
+  }
+}

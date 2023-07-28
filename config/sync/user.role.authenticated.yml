@@ -1,0 +1,34 @@
+uuid: 6fd31a54-a84c-4083-b9b5-42db60084ef0
+langcode: en
+status: true
+dependencies:
+  config:
+    - rest.resource.mauticorg_blog_category
+    - rest.resource.mauticorg_blog_collection
+    - rest.resource.mauticorg_blog_tag
+  module:
+    - comment
+    - eu_cookie_compliance
+    - fontawesome
+    - media
+    - rest
+    - search_api_autocomplete
+    - system
+_core:
+  default_config_hash: btW6TFHajhy7Eo6YUvdFiPh4TcPggo8GBXYctjV6zag
+id: authenticated
+label: 'Authenticated user'
+weight: -9
+is_admin: false
+permissions:
+  - 'access comments'
+  - 'access content'
+  - 'access fontawesome additional settings'
+  - 'access user profiles'
+  - 'display eu cookie compliance popup'
+  - 'post comments'
+  - 'restful get mauticorg_blog_category'
+  - 'restful get mauticorg_blog_collection'
+  - 'restful get mauticorg_blog_tag'
+  - 'use search_api_autocomplete for acquia_search'
+  - 'view media'

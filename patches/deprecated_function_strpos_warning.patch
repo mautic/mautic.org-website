@@ -1,0 +1,13 @@
+diff --git a/acquia_connector.module b/acquia_connector.module
+index ec60a81..012149e 100644
+--- a/acquia_connector.module
++++ b/acquia_connector.module
+@@ -275,7 +275,7 @@ function acquia_connector_show_free_tier_promo() {
+ 
+   // Check that we're not serving a private file or image.
+   $controller_name = \Drupal::request()->attributes->get('_controller');
+-  if (strpos($controller_name, 'FileDownloadController') !== FALSE || strpos($controller_name, 'ImageStyleDownloadController') !== FALSE) {
++  if (!isset($controller_name) || strpos($controller_name, 'FileDownloadController') !== FALSE || strpos($controller_name, 'ImageStyleDownloadController') !== FALSE) {
+     return;
+   }
+ 

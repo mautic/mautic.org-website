@@ -1,0 +1,13 @@
+name: TagClouds
+type: module
+description : TagClouds makes weighted tag clouds from your taxonomy terms.
+core_version_requirement: ^8.8 || ^9
+package: Taxonomy
+configure: tagclouds.admin_page
+dependencies:
+  - drupal:taxonomy
+
+# Information added by Drupal.org packaging script on 2020-09-09
+version: '2.0.0'
+project: 'tagclouds'
+datestamp: 1599658832

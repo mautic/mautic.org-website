@@ -1,0 +1,5 @@
+name: MauticOrg Core
+type: module
+description: 'Provides core functionality and support for the Mautic.org site.'
+package: MauticOrg
+core_version_requirement: ^8 || ^9

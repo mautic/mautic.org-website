@@ -1,0 +1,4 @@
+services:
+  moderation_scheduler.services:
+    class: Drupal\moderation_scheduler\ModerationSchedulerService
+    arguments: ['@module_handler', '@config.factory', '@entity_type.manager', '@database', '@language_manager', '@event_dispatcher' ]

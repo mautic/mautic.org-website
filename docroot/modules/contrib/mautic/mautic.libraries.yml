@@ -1,0 +1,19 @@
+mautic-header:
+  header: true
+  version: 1.0
+  js:
+    js/mautic.js: {}
+  dependencies:
+    - core/drupalSettings
+mautic-footer:
+  version: 1.0
+  js:
+    js/mautic.js: {}
+  dependencies:
+    - core/drupalSettings
+customFields:
+  version: 1.0
+  js:
+    js/mautic.customFields.js: {}
+  dependencies:
+    - core/drupal

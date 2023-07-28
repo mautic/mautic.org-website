@@ -1,0 +1,5 @@
+name: Embed View Block
+type: module
+description: 'Provide a block that you could embed view.'
+core_version_requirement: ^9
+package: 'Custom'

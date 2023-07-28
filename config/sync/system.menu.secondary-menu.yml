@@ -1,0 +1,10 @@
+uuid: 01841ba5-dfe6-45a9-9464-c5e65110c75d
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 6IIAhXdIF-3lZ8C4_ycKE-rI-ZTq90KwoLjp4hK6Fec
+id: secondary-menu
+label: 'Secondary Menu'
+description: ''
+locked: false

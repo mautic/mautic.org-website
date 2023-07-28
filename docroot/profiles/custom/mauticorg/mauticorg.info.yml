@@ -1,0 +1,41 @@
+name: Mautic ORG
+type: profile
+description: 'Mautic Org profile'
+version: VERSION
+core_version_requirement: ^8 || ^9
+install:
+- block
+- block_content
+- breakpoint
+- ckeditor
+- color
+- comment
+- config
+- contact
+- contextual
+- datetime
+- dynamic_page_cache
+- editor
+- field_ui
+- file
+- help
+- history
+- image
+- layout_builder
+- media
+- media_library
+- menu_link_content
+- menu_ui
+- node
+- options
+- page_cache
+- path
+- quickedit
+- rdf
+- search
+- taxonomy
+- toolbar
+- views
+themes:
+- bartik
+- seven

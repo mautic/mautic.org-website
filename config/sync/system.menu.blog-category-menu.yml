@@ -1,0 +1,8 @@
+uuid: 25e61c08-8dc4-4fbb-b45c-8a339b66033e
+langcode: en
+status: true
+dependencies: {  }
+id: blog-category-menu
+label: 'Blog Category Menu'
+description: 'For managing the blog category menu on the blog page.'
+locked: false

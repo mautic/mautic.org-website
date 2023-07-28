@@ -1,0 +1,150 @@
+/**
+ * @file
+ * Provides CSS3 flex based on Flexbox layout.
+ */
+
+:root {
+  /* The gap 15px is to match CSS grid convention such as Bootstrap. Adjust it. */
+  --bfColGap: 15px;
+}
+
+/* csslint ignore:start */
+.block-flex,
+.blazy.block-flex,
+.item-list > .block-flex {
+  clear: both;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+  align-content: flex-start;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.block-flex > .grid,
+.item-list > .block-flex > .grid {
+  display: flex;
+  margin: 0;
+  min-height: 40px;
+  padding: 0;
+  flex-direction: column;
+  margin-right: var(--bfColGap);
+  margin-bottom: var(--bfColGap);
+  position: relative;
+  transition: height .3s, width .3s, top .3s;
+}
+
+.block-flex .grid__content {
+  position: relative;
+  overflow: visible;
+}
+
+.block-flex.is-b-loading {
+  opacity: 0;
+}
+
+/** 480px with 16px base font.*/
+@media only screen and (min-width: 30em) {
+  .blazy.small-block-flex-2 > .grid {
+    width: calc(33.3% - var(--bfColGap));
+  }
+}
+
+/** 641px with 16px base font. */
+@media only screen and (min-width: 40.063em) {
+  .blazy.medium-block-flex-2 > .grid {
+    width: calc(50% - var(--bfColGap));
+  }
+
+  .blazy.medium-block-flex-3 > .grid {
+    width: calc(33.3333333333% - var(--bfColGap));
+  }
+
+  .blazy.medium-block-flex-4 > .grid {
+    width: calc(25% - var(--bfColGap));
+  }
+
+  .blazy.medium-block-flex-5 > .grid {
+    width: calc(20% - var(--bfColGap));
+  }
+
+  .blazy.medium-block-flex-6 > .grid {
+    width: calc(16.6666666667% - var(--bfColGap));
+  }
+
+  .blazy.medium-block-flex-7 > .grid {
+    width: calc(14.2857142857% - var(--bfColGap));
+  }
+
+  .blazy.medium-block-flex-8 > .grid {
+    width: calc(12.5% - var(--bfColGap));
+  }
+
+  .blazy.medium-block-flex-9 > .grid {
+    width: calc(11.1111111111% - var(--bfColGap));
+  }
+
+  .blazy.medium-block-flex-10 > .grid {
+    width: calc(10% - var(--bfColGap));
+  }
+
+  .blazy.medium-block-flex-11 > .grid {
+    width: calc(9.0909090909% - var(--bfColGap));
+  }
+
+  .blazy.medium-block-flex-12 > .grid {
+    width: calc(8.3333333333% - var(--bfColGap));
+  }
+}
+
+/** 1025px with 16px base font.*/
+@media only screen and (min-width: 64.063em) {
+  .blazy.large-block-flex-2 > .grid {
+    width: calc(50% - var(--bfColGap));
+  }
+
+  .blazy.large-block-flex-3 > .grid {
+    width: calc(33.3333333333% - var(--bfColGap));
+  }
+
+  .blazy.large-block-flex-4 > .grid {
+    width: calc(25% - var(--bfColGap));
+  }
+
+  .blazy.large-block-flex-5 > .grid {
+    width: calc(20% - var(--bfColGap));
+  }
+
+  .blazy.large-block-flex-6 > .grid {
+    width: calc(16.6666666667% - var(--bfColGap));
+  }
+
+  .blazy.large-block-flex-7 > .grid {
+    width: calc(14.2857142857% - var(--bfColGap));
+  }
+
+  .blazy.large-block-flex-8 > .grid {
+    width: calc(12.5% - var(--bfColGap));
+  }
+
+  .blazy.large-block-flex-9 > .grid {
+    width: calc(11.1111111111% - var(--bfColGap));
+  }
+
+  .blazy.large-block-flex-10 > .grid {
+    width: calc(10% - var(--bfColGap));
+  }
+
+  .blazy.large-block-flex-11 > .grid {
+    width: calc(9.0909090909% - var(--bfColGap));
+  }
+
+  .blazy.large-block-flex-12 > .grid {
+    width: calc(8.3333333333% - var(--bfColGap));
+  }
+}
+/* csslint ignore:end */

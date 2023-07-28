@@ -1,0 +1,26 @@
+mautic.settings:
+  type: config_object
+  label: 'Mautic settings'
+  mapping:
+    visibility:
+      type: mapping
+      label: 'Visibility'
+      mapping:
+        request_path_mode:
+          type: integer
+          label: 'Request path mode'
+        request_path_pages:
+          type: text
+          label: 'Pages'
+    header:
+      type: boolean
+      label: 'Snippet in the header'
+    lift_enable:
+      type: boolean
+      label: 'Lift Integration'
+    mautic_enable:
+      type: boolean
+      label: 'Enable the module'
+    mautic_base_url:
+      type: text
+      label: 'URL'

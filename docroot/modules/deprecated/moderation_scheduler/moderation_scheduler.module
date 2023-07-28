@@ -1,0 +1,409 @@
+<?php
+
+/**
+ * @file
+ * Moderation Scheduler publishes nodes on datetime specified by the user.
+ */
+
+use Drupal\Core\Entity\EntityTypeInterface;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\datetime\Plugin\Field\FieldType\DateTimeItemInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\moderation_scheduler\ScheduledTimeDefinition;
+use Drupal\Core\Datetime\DrupalDateTime;
+use Drupal\Core\Render\Markup;
+use Drupal\Core\Language\LanguageInterface;
+
+/**
+ * Implements hook_help().
+ */
+function moderation_scheduler_help($route_name, RouteMatchInterface $route_match) {
+
+  switch ($route_name) {
+    case 'help.page.moderation_scheduler':
+      moderation_scheduler_return_help_view();
+      break;
+
+    case stristr($route_name, 'view.moderation_scheduler_content'):
+      moderation_scheduler_return_scheduled_view();
+      break;
+  }
+}
+
+/**
+ * Implements hook_menu().
+ */
+function moderation_scheduler_menu() {
+  $items['admin/moderation-scheduler'] = [
+    'title' => 'Moderation Scheduler',
+    'description' => 'Moderation Scheduler is module to schedule content in moderation state to be published at certain date and time running cron job.',
+    'route_name' => 'moderation_scheduler.settings',
+  ];
+  return $items;
+}
+
+/**
+ * Implements hook_entity_base_field_info().
+ */
+function moderation_scheduler_entity_base_field_info(EntityTypeInterface $entity_type) {
+
+  $fields = [];
+
+  // Add a 'Highlight' base field to all node types.
+  if ($entity_type->id() === 'node') {
+    $fields['field_scheduled_time'] = ScheduledTimeDefinition::create('datetime')
+      ->setLabel(t('Moderation Scheduled Publish Time'))
+      ->setName('field_scheduled_time')
+      ->setDescription(t('Moderation Scheduler Publish date input field'))
+      ->setRevisionable(TRUE)
+      ->setTranslatable(TRUE)
+      ->setInternal(FALSE)
+      ->setDefaultValue(FALSE)
+      ->setSettings([])
+      ->setDisplayOptions('form', [
+        'type' => 'datetime_default',
+          // Display before publish status or moderation status.
+        'weight' => 30,
+        'settings' => [],
+      ])
+      ->setDisplayConfigurable('form', TRUE);
+  }
+
+  return $fields;
+}
+
+/**
+ * Implements hook_cron().
+ *
+ * We implement hook_cron() to do "background" processing. It gets called every
+ * time the Drupal cron runs.
+ */
+function moderation_scheduler_cron() {
+  // We access our configuration.
+  $cron_config = \Drupal::configFactory()->getEditable('moderation_scheduler.settings');
+
+  // Default to an hourly interval. Of course, cron has to be running at least
+  // hourly for this to work.
+  $interval = $cron_config->get('interval');
+  $interval = !empty($interval) ? $interval : 3600;
+  $date = new DrupalDateTime();
+  $date->setTimezone(new \DateTimezone(DateTimeItemInterface::STORAGE_TIMEZONE));
+  $date = $date->format(DateTimeItemInterface::DATETIME_STORAGE_FORMAT);
+  $date_formatter = \Drupal::service('date.formatter');
+  // We usually don't want to act every time cron runs (which could be every
+  // minute) so keep a time for the next run in the site state.
+  $next_execution = \Drupal::state()->get('moderation_scheduler.next_execution');
+  $next_execution = !empty($next_execution) ? $next_execution : 0;
+  if (\Drupal::time()->getRequestTime() >= $next_execution) {
+
+    // Log moderartion_scheduler start.
+    \Drupal::logger('moderation_scheduler')->notice('moderation_scheduler ran');
+
+    $moderation_scheduler_interface = \Drupal::service('moderation_scheduler.services');
+
+    // Main function to check scheduled nodes and publish.
+    $result = $moderation_scheduler_interface->publishScheduled();
+
+    // Return message with results of scheduling.
+    if (\Drupal::state()->get('moderation_scheduler_show_status_message')) {
+      if (isset($result)) {
+        $moderation_scheduler_interface->cleanFieldScheduledTimeRevision('field_scheduled_time');
+
+        $resultMessage = moderation_scheduler_result_message($result);
+        $result = Markup::create($resultMessage);
+      }
+      \Drupal::messenger()->addMessage(
+        t('moderation_scheduler executed at %time with results: %results',
+          [
+            '%time' => $date_formatter->format($date, 'custom', 'd/m/Y - H:i:s'),
+            '%results' => $result,
+          ]
+          ));
+      \Drupal::state()->set('moderation_scheduler_show_status_message', FALSE);
+    }
+    \Drupal::state()->set('moderation_scheduler.next_execution', \Drupal::time()->getRequestTime() + $interval);
+  }
+}
+
+/**
+ * Implements hook_node_update().
+ */
+function moderation_scheduler_node_update(EntityInterface $node) {
+
+  $config = \Drupal::config('moderation_scheduler.settings');
+  $moderation_scheduler_interface = \Drupal::service('moderation_scheduler.services');
+  $lang_code = \Drupal::languageManager()->getCurrentLanguage(LanguageInterface::TYPE_CONTENT)->getId();
+
+  // Get node scheduled time field value on save.
+  if ($node->hasField('moderation_state')) {
+    $scheduled = $node->get('field_scheduled_time')->value;
+  }
+  else {
+    if ($scheduledNode = $moderation_scheduler_interface->fieldScheduledTimeRevision($node->id(), $lang_code)) {
+      $scheduled = $scheduledNode->get('field_scheduled_time')->value;
+    }
+    elseif ($scheduledForm = \Drupal::request()->request->get('field_scheduled_time')) {
+      $scheduled = $scheduledForm[0]["value"]["date"] . ' ' . $scheduledForm[0]["value"]["time"];
+    }
+    else {
+      $scheduled = NULL;
+    }
+  }
+  if ($node->hasField('moderation_state')) {
+    $old_state = "in sate " . $node->get('moderation_state')->value;
+  }
+  else {
+    $old_state = $node->status = 1 ? "published" : "unpublished";
+  }
+
+  if ($config->get('moderation_scheduler_enablemoderation') && $node->hasField('moderation_state')) {
+
+    if (strpos($config->get('moderation_scheduler_moderation_state_settings'), ',') !== FALSE) {
+      $allowed_states = explode(",", strtolower($config->get('moderation_scheduler_moderation_state_settings')));
+    }
+    else {
+      $allowed_states = [strtolower($config->get('moderation_scheduler_moderation_state_settings'))];
+    }
+
+    if (!in_array(strtolower(str_replace('_', ' ', $node->get('moderation_state')->value)), $allowed_states)) {
+
+      $node->set('field_scheduled_time', NULL);
+      $node->field_scheduled_time->value = NULL;
+      \Drupal::messenger()->addMessage(
+          t('This revision could not be scheduled becouse is in moderation state @state, check allowed states in @link.', ['@state' => $node->get('moderation_state')->value, '@link' => Markup::create('<a href="/admin/moderation-scheduler">moderation scheduler settings page</a>')])
+      );
+      $scheduled = NULL;
+    }
+  }
+
+  // Get a date string suitable for use with entity query.
+  $date = new DrupalDateTime();
+  $date->setTimezone(new \DateTimezone(DateTimeItemInterface::STORAGE_TIMEZONE));
+  $date = $date->format(DateTimeItemInterface::DATETIME_STORAGE_FORMAT);
+  $date_formatter = \Drupal::service('date.formatter');
+
+  if ($scheduled) {
+    if ($scheduled >= $date) {
+      \Drupal::messenger()->addMessage(
+          t('This revision is @status and will be published @publish_time', [
+            '@publish_time' => $date_formatter->format(strtotime($scheduled), 'custom', 'd/m/Y - H:i:s'),
+            '@status' => $old_state,
+          ])
+      );
+    }
+    else {
+      \Drupal::messenger()->addMessage(
+          t('This revision is scheduled in the past and will be published with next cron execution')
+      );
+    }
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter() for node_form().
+ */
+function moderation_scheduler_form_node_form_alter(&$form, FormStateInterface $form_state) {
+  /** @var \Drupal\node\NodeTypeInterface $type */
+  $config = \Drupal::config('moderation_scheduler.settings');
+  $type = $form_state->getFormObject()->getEntity()->type->entity;
+  $visibile = TRUE;
+
+  $edit_field_permission = \Drupal::currentUser()->hasPermission('edit moderation scheduler field');
+
+  /* @var $node \Drupal\node\NodeInterface */
+  $node = $form_state->getFormObject()->getEntity();
+
+  // Check for enabled content types or all enabled by default.
+  if (!empty($config->get('moderation_scheduler_content_types'))) {
+    $enabled = [];
+    foreach ($config->get('moderation_scheduler_content_types') as $content) {
+      if ($content >= 0) {
+        $enabled[] = $content;
+      }
+    }
+    if (!in_array($type->id(), $enabled)) {
+      $visibile = FALSE;
+    }
+  }
+
+  if ($config->get('moderation_scheduler_enablemoderation') && $node->hasField('moderation_state')) {
+
+    if (strpos($config->get('moderation_scheduler_moderation_state_settings'), ',') !== FALSE) {
+      $allowed_states = explode(",", strtolower($config->get('moderation_scheduler_moderation_state_settings')));
+    }
+    else {
+      $allowed_states = [strtolower($config->get('moderation_scheduler_moderation_state_settings'))];
+    }
+
+    if (!in_array(strtolower(str_replace('_', ' ', $node->get('moderation_state')->value)), $allowed_states)) {
+
+      $node->set('field_scheduled_time', NULL);
+      $node->field_scheduled_time->value = NULL;
+      $form['field_scheduled_time']['widget'][0]['value'] = NULL;
+      $form['field_scheduled_time']['widget'][0]['#description'] = t('To schedule this conent put in moderation state "@state"', ['@state' => $config->get('moderation_scheduler_moderation_state_settings')]);
+
+      // Do not show the scheduler fields for users who do not have permission.
+      // $form['field_scheduled_time']['#access'] = FALSE;.
+    }
+  }
+
+  // Node is being created or it currently has a scheduled publishing date.
+  $publishing_required = FALSE;
+
+  // Create a 'details' field group to wrap the scheduling fields
+  // expand it if publishing is required, if a date exists or the
+  // fieldset is configured to be always expanded.
+  $has_data = !empty($node->field_scheduled_time->value) || !empty($node->field_scheduled_time->value);
+  $always_expand = 'always';
+  $expand_details = $publishing_required || $has_data || $always_expand;
+
+  // Create the group for the fields.
+  $form['moderation_scheduler_settings'] = [
+    '#type' => 'details',
+    '#title' => t('Scheduling options'),
+    '#open' => $expand_details,
+    '#weight' => 35,
+    '#attributes' => ['class' => ['moderation-scheduler-form']],
+    '#optional' => TRUE,
+    '#states' => [
+      'visible' => [
+        [$visibile => $visibile],
+      ],
+      'required' => [
+        [$visibile => $visibile],
+      ],
+    ],
+  ];
+
+  // Attach the fields to group.
+  $form['field_scheduled_time']['#group'] = 'moderation_scheduler_settings';
+
+  // Define the descriptions depending on whether the time can be skipped.
+  $user = \Drupal::currentUser();
+  $date = new DrupalDateTime();
+  $date_formatter = \Drupal::service('date.formatter');
+  $d_timezone = \Drupal::config('system.date')->get('timezone.default');
+  $dt = new \DateTime($date, new \DateTimeZone($d_timezone));
+  $dt->setTimeZone(new \DateTimeZone($d_timezone));
+  $correct_date = $dt->format('d/m/Y - H:i:s');
+  $u_timezone = $user->getTimezone() ? $user->getTimezone() : $d_timezone;
+
+  $descriptions = [];
+  $descriptions['desc'] = t('Enter a date and time.');
+  $descriptions['user_time'] = Markup::create(t('User now time is: @date Time zone: @timezone',
+                                                [
+                                                  '@date' => Markup::create(
+                                                                '<strong>' .
+                                                                $date_formatter->format(
+                                                                    strtotime($date),
+                                                                    'custom',
+                                                                    'd/m/Y H:i:s'
+                                                                  )
+                                                                . '</strong>,'
+                                                  ),
+                                                  '@timezone' => Markup::create('"<strong>' . $u_timezone . '</strong>"'),
+                                                ]
+                                                ));
+  $descriptions['server_time'] = Markup::create(t('Server now time is: @date Time zone: @timezone',
+                                                  [
+                                                    '@date' => Markup::create('<strong>' . $correct_date . '</strong>,'),
+                                                    '@timezone' => Markup::create('"<strong>' . $d_timezone . '</strong>"'),
+                                                  ]
+                                                  ));
+  $descriptions['blank'] = '<strong>' . t("Leave the date blank to don't schedule content publishing") . '</strong>';
+
+  $form['scheduler_settings']['#access'] = $visibile;
+  $form['field_scheduled_time']['widget'][0]['value']['#required'] = FALSE;
+  $form['field_scheduled_time']['widget'][0]['value']['#description'] = Markup::create(implode('</br>', $descriptions));
+
+  if ($visibile === FALSE || !$edit_field_permission) {
+    $form['scheduler_settings']['#access'] = FALSE;
+    $form['field_scheduled_time']['#access'] = FALSE;
+  }
+}
+
+/**
+ * Implements hook_result_message().
+ */
+function moderation_scheduler_result_message($result) {
+  $resultMessage = "<ol>";
+  foreach ($result as $k => $r) {
+    if (isset($r["node id"])) {
+
+      $resultMessage .= '<li id="row-result-' . $k . '" >';
+      $resultMessage .= '<b>' . t('Node Type: @type ID:', ['@type' => Markup::create('</b>"' . $r["node type"] . '", <b>')]) . "</b> " . '"' . $r["node id"] . '"' . ", ";
+      $resultMessage .= '<b>' . t('Old State:') . "</b> " . '"' . $r["old state"] . '"' . ", ";
+      $resultMessage .= '<b>' . t('New State:') . "</b> " . '"' . $r["new state"] . '"' . ", ";
+      $resultMessage .= '<b>' . t('Title:') . "</b> " . '"' . $r["lang"] . '"' . "</br> ";
+
+      if (isset($r["translations"]) && is_array($r["translations"])) {
+        $resultMessage .= "<b>" . t("Tranlsations:") . "</b><ul>";
+        foreach ($r["translations"] as $t) {
+          if (isset($t["lang"]) && $t["lang"] != $r["lang"]) {
+            $resultMessage .= '<li id="translation-result-' . $k . '" ><b>' . t('Title:') . "</b> " . $t["lang"] . '</li>';
+          }
+        }
+        $resultMessage .= "</ul>";
+      }
+      $resultMessage .= "</li>";
+    }
+    else {
+      $resultMessage .= '<p>' . json_encode($r) . '</p>';
+    }
+  }
+  $resultMessage .= "</ol>";
+  return $resultMessage;
+}
+
+/**
+ * Return help page.
+ */
+function moderation_scheduler_return_help_view() {
+
+  $list[] = t('To get proper integration must add "field_scheduled_time" on node type where you want scheduling function');
+  $list[] = t('You can run cron from moderation scheduler <a href="/admin/moderation-scheduler">settings page</a>');
+
+  $render_array['arguments']['items'] = [
+    '#theme' => 'item_list',
+    '#title' => t('Moderation Scheduler Help tips'),
+    '#attributes' => ['style' => ['margin:20px auto;max-width: 80%;padding:30px;font-size:14px;border: 1px solid #e6e6e6;margin-left:0;line-height: 1.4;']],
+    '#items' => $list,
+  ];
+  return $render_array;
+}
+
+/**
+ * Return help page.
+ */
+function moderation_scheduler_return_scheduled_view() {
+
+  $user = \Drupal::currentUser();
+  $date = new DrupalDateTime();
+  $date_formatter = \Drupal::service('date.formatter');
+  $d_timezone = \Drupal::config('system.date')->get('timezone.default');
+  $dt = new \DateTime($date, new \DateTimeZone($d_timezone));
+  $dt->setTimeZone(new \DateTimeZone($d_timezone));
+  $correct_date = $dt->format('d/m/Y H:i:s');
+  $u_timezone = $user->getTimezone() ? $user->getTimezone() : $d_timezone;
+
+  $list[] = Markup::create(
+                  t('User now time is: @date Time zone: @timezone',
+                    [
+                      '@date' => Markup::create(
+                                  '<strong>' .
+                                  $date_formatter->format(strtotime($date), 'custom', 'd/m/Y H:i:s')
+                                  . '</strong>,'),
+                      '@timezone' => Markup::create(
+                                  '"<strong>' . $u_timezone . '</strong>"'),
+                    ]));
+  $list[] = Markup::create(t('Server now time is: @date Time zone: @timezone', ['@date' => Markup::create('<strong>' . $correct_date . '</strong>,'), '@timezone' => Markup::create('"<strong>' . $d_timezone . '</strong>"')]));
+
+  $render_array['arguments']['items'] = [
+    '#theme' => 'item_list',
+    '#title' => t('Time zone help'),
+    '#items' => $list,
+    '#weight' => 0,
+  ];
+  return $render_array;
+}

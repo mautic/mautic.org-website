@@ -1,0 +1,25 @@
+.region-primary-menu {
+  .menu--account {
+    @include breakpoint($desktop-devices) {
+      display: none;
+    }
+
+    .menu {
+      & > .menu-item:hover {
+        background-color: $sunglow;
+      }
+    }
+  }
+
+  .menu-item--expanded {
+    .menu:hover,
+    & > a:hover + ul {
+      @include breakpoint($desktop-devices) {
+        opacity: 1;
+        height: auto;
+        max-height: inherit;
+        visibility: visible;
+      }
+    }
+  }
+}

@@ -1,0 +1,50 @@
+.pamela .quicktabs-tabpage {
+  width: 95%;
+  background-color: #f5f5f5;
+  padding: 10px 10px 30px 10px;
+  border: 1px solid #ccc;
+  border-radius: 16px;
+}
+.pamela ul.quicktabs-tabs {
+  position: relative;
+  top: 5px;
+  z-index: 5;
+}
+.pamela ul.quicktabs-tabs li {
+  display: inline;
+}
+.pamela .quicktabs-tabs > li > a {
+  padding: 0.55em 0.5em 0.45em;
+  text-decoration: none;
+  background-color: #e2e2e2;
+  border: 1px solid #ccc;
+  border-radius: 11px 11px 0 0;
+  position: static;
+  font-weight: bold;
+}
+.pamela .quicktabs-tabs > li > a:hover {
+  color: #fff;
+  border: 1px solid black;
+  border-bottom: 0;
+  border-radius: 11px 11px 0 0;
+}
+.pamela .quicktabs-tabs > li.active > a {
+  background-color: #f5f5f5;
+  text-shadow: -1px 2px #ccc;
+  border: 1px solid #ccc;
+  border-radius: 11px 11px 0 0;
+  border-bottom: none;
+  z-index: -1297;
+}
+.pamela .quicktabs-tabs > li.active > a:hover,
+.pamela .quicktabs-tabs > li.active > a:focus {
+  background-color: #fff;
+  color: #333000;
+}
+/* For View All link at bottom of block. */
+.pamela .block-quicktabs .view-footer {
+  position: relative;
+  top: -30px;
+  left: 12px;
+  font-weight: bold;
+}

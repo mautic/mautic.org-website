@@ -1,0 +1,14 @@
+moderation_scheduler.admin:
+  title: 'Moderation Scheduler'
+  description: 'Content Moderation Scheduler'
+  parent: system.cron_settings
+  route_name: moderation_scheduler.settings
+  weight: 400
+  
+# Scheduled Content menu items definition.
+entity.moderation_scheduler.collection:
+  title: 'Scheduled content'
+  route_name: 'view.moderation_scheduler_content.page_1'
+  description: 'Find and manage scheduled content'
+  parent: system.admin_content
+  weight: 100

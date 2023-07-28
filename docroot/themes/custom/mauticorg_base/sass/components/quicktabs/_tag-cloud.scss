@@ -1,0 +1,71 @@
+.tagclouds-term {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 0.25rem;
+
+  .level1 {
+    font-size: 0.75rem;
+  }
+
+  .level2 {
+    font-size: 0.7775rem;
+  }
+
+  .level3 {
+    font-size: 0.875rem;
+  }
+
+  .level4 {
+    font-size: 0.944375rem;
+  }
+
+  .level5 {
+    font-size: 1.01375rem;
+  }
+
+  .level6 {
+    font-size: 1.083125rem;
+  }
+
+  .level7 {
+    font-size: 1.13875rem;
+  }
+
+  .level8 {
+    font-size: 1.194375rem;
+  }
+
+  .level9 {
+    font-size: 1.23625rem;
+  }
+
+  .level10 {
+    font-size: 1.291875rem;
+  }
+
+  .level11 {
+    font-size: 1.360625rem;
+  }
+
+  .level12 {
+    font-size: 1.583125rem;
+  }
+
+  .level13 {
+    font-size: 1.61125rem;
+  }
+
+  .level14 {
+    font-size: 1.833125;
+  }
+
+  a {
+    color: $space-grey;
+    font-weight: 400;
+
+    &:focus,
+    &:hover {
+      color: $grey;
+    }
+  }
+}

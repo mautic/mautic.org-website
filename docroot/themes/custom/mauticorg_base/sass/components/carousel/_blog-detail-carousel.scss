@@ -1,0 +1,80 @@
+.image--gallery {
+  .slick__slide {
+    padding: 1.25rem;
+
+    @include breakpoint($tablet-devices) {
+      padding: 1.25rem 2.5rem;
+    }
+  }
+
+  .slick-track {
+    background: $nero;
+  }
+
+  .slick-list {
+    border-radius: 0.625rem;
+  }
+
+  .slick__arrow {
+    position: absolute;
+    z-index: 10;
+    bottom: 2.75rem;
+    left: 0;
+    right: 0;
+    text-align: center;
+
+    @include breakpoint($tablet-devices) {
+      bottom: 3.75rem;
+    }
+  }
+
+  .slick-arrow {
+    background: transparent;
+    border: none;
+    color: $hexa-light;
+    font-size: 0;
+    padding: 0;
+    margin: 0 10px;
+    outline: 0;
+
+    &:focus,
+    &:hover {
+      color: $cornflower-blue;
+    }
+
+    &::before {
+      @include font-icon;
+
+      content: "\f177";
+      font-size: 1.25rem;
+      line-height: 1;
+      color: $white;
+      height: 2.5rem;
+      width: 2.5rem;
+      border-radius: 100%;
+      display: block;
+      padding: 0.5rem 0;
+      text-align: center;
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      background-color: rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  .slick {
+    position: relative;
+
+    &:hover {
+      .slick-arrow {
+        &::before {
+          background-color: rgba(0, 0, 0, 0.5);
+        }
+      }
+    }
+  }
+
+  .slick-next {
+    &::before {
+      content: "\f178";
+    }
+  }
+}

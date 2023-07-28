@@ -1,0 +1,10 @@
+#
+# no_robots.txt
+#
+# This file prevents indexing of domains in lower environments.
+#
+# See also: https://docs.acquia.com/cloud/configure/domains#robots
+#
+
+User-agent: *
+Disallow: /

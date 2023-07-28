@@ -1,0 +1,25 @@
+uuid: b7d6732e-b1cc-4b6c-8b49-caee03a45498
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:0ec505c6-0db1-4154-b1f1-97684ec38427'
+  module:
+    - block_content
+  theme:
+    - mauticorg_base
+id: 112020focusitem
+theme: mauticorg_base
+region: footer
+weight: 0
+provider: null
+plugin: 'block_content:0ec505c6-0db1-4154-b1f1-97684ec38427'
+settings:
+  id: 'block_content:0ec505c6-0db1-4154-b1f1-97684ec38427'
+  label: '11/2020 Focus Item'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

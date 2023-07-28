@@ -1,0 +1,8 @@
+uuid: 3d158916-a60e-478a-8108-2795cf5808dc
+langcode: en
+status: true
+dependencies: {  }
+id: social-follow
+label: Follow
+description: 'Social links menu'
+locked: false

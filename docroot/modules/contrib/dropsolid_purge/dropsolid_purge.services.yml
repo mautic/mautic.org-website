@@ -1,0 +1,12 @@
+services:
+  dropsolid_purge.hostinginfo:
+    class: Drupal\dropsolid_purge\HostingInfo
+    arguments: ['@request_stack', '@settings','@dropsolid_purge.hostinginfofactory']
+    public: true
+  dropsolid_purge.hostinginfofactory:
+    class: Drupal\dropsolid_purge\HostingInfoFactory
+    arguments: ['@config.factory']
+  http_client_middleware.dropsolid_purge:
+    class: Drupal\dropsolid_purge\Http\LoadBalancerMiddleware
+    tags:
+      - { name: http_client_middleware }

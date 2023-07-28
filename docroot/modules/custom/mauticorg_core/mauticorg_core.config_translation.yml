@@ -1,0 +1,5 @@
+mauticorg_core.site_settings:
+  title: 'MauticOrg Site Settings'
+  base_route_name: mauticorg_core.mauticorg_site_config
+  names:
+    - mauticorg_core.site_settings

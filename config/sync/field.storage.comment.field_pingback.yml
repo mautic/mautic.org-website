@@ -1,0 +1,18 @@
+uuid: 77c8ef2d-e196-45e4-99dd-675ae282ba99
+langcode: en
+status: true
+dependencies:
+  module:
+    - comment
+id: comment.field_pingback
+field_name: field_pingback
+entity_type: comment
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

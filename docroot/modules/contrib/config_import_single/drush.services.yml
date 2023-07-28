@@ -1,0 +1,6 @@
+services:
+  config_import_single.commands:
+    class: Drupal\config_import_single\Commands\ConfigImportSingleCommands
+    arguments: ['@config.storage', '@event_dispatcher', '@config.manager', '@lock', '@config.typed', '@module_handler', '@module_installer', '@theme_handler', '@string_translation', '@extension.list.module', '@config.factory']
+    tags:
+      - { name: drush.command }

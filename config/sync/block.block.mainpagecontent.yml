@@ -1,0 +1,20 @@
+uuid: d0df9a08-ea91-41d8-b509-47004c80b8ca
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - mauticorg_base
+id: mainpagecontent
+theme: mauticorg_base
+region: content
+weight: -4
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

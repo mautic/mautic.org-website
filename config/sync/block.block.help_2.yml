@@ -1,0 +1,25 @@
+uuid: b95412cc-052b-4625-b77e-0db6d1217916
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.footer-help
+  module:
+    - system
+  theme:
+    - mauticorg_base
+id: help_2
+theme: mauticorg_base
+region: post_content
+weight: -6
+provider: null
+plugin: 'system_menu_block:footer-help'
+settings:
+  id: 'system_menu_block:footer-help'
+  label: Help
+  label_display: visible
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

@@ -1,0 +1,20 @@
+uuid: 5a3d5729-b015-4dce-a337-974a7a3ede0f
+langcode: en
+status: true
+dependencies:
+  module:
+    - mauticorg_core
+  theme:
+    - mauticorg_base
+id: page404contentblock
+theme: mauticorg_base
+region: error_content
+weight: -11
+provider: null
+plugin: page_404_content_block
+settings:
+  id: page_404_content_block
+  label: 'Page 404 Content Block'
+  label_display: '0'
+  provider: mauticorg_core
+visibility: {  }

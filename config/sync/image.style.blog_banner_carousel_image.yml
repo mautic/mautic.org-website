@@ -1,0 +1,15 @@
+uuid: e0f4c332-5de7-4b3f-b52a-fa089dc44b52
+langcode: en
+status: true
+dependencies: {  }
+name: blog_banner_carousel_image
+label: 'Blog Banner Carousel Image 980×450'
+effects:
+  f9558b92-f70c-4097-a56b-6faeeafd8553:
+    uuid: f9558b92-f70c-4097-a56b-6faeeafd8553
+    id: image_scale_and_crop
+    weight: 2
+    data:
+      width: 980
+      height: 450
+      anchor: center-center

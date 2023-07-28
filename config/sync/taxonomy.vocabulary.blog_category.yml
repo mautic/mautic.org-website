@@ -1,0 +1,8 @@
+uuid: 6678c646-6eae-45cf-82f9-a793f48dbe65
+langcode: en
+status: true
+dependencies: {  }
+name: 'Blog Category'
+vid: blog_category
+description: 'Categorizing the Mautic Community blogs'
+weight: 0

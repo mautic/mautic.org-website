@@ -1,0 +1,9 @@
+mauticorg_gravatar.mauticorg_gravatar_config:
+  path: '/admin/config/mauticorg_gravatar/gravatar_settings'
+  defaults:
+    _form: '\Drupal\mauticorg_gravatar\Form\MauticorgGravatarSettings'
+    _title: 'Configuration of MauticOrg Gravatar Settings'
+  requirements:
+    _permission: 'mauticorg gravatar settings'
+  options:
+    _admin_route: TRUE

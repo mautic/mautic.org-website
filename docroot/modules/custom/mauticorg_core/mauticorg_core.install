@@ -1,0 +1,13 @@
+<?php
+
+/**
+ * @file
+ * Contains update hooks for Mauticorg site.
+ */
+
+/**
+ * Migrate config for mauticorg_core.site_settings.
+ */
+function mauticorg_core_update_8001() {
+  _mauticorg_core_import_config('mauticorg_core.site_settings');
+}

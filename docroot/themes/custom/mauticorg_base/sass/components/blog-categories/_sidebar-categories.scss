@@ -1,0 +1,56 @@
+.menu--blog-category-menu {
+  margin-top: 1.875rem;
+
+  h2 {
+    font-size: 0.9375rem;
+    text-transform: uppercase;
+    margin-bottom: 0.375rem;
+    margin-top: 0.5rem;
+  }
+
+  ul {
+    @include clean-list;
+
+    a {
+      color: $brownish-grey;
+      text-decoration: none;
+      padding: 0.625rem 0;
+      padding-left: 1.25rem;
+      border-bottom: 1px solid $white-shadow;
+      font-size: 0.9375rem;
+      font-weight: 300;
+      display: block;
+      position: relative;
+
+      &:focus,
+      &:hover {
+        text-decoration: underline;
+        color: $grey;
+      }
+
+      &::before {
+        @include dashed-link-icon;
+      }
+    }
+
+    .menu {
+      a {
+        padding-left: 2.4rem;
+
+        &::before {
+          left: 1.2rem;
+        }
+      }
+
+      .menu {
+        a {
+          padding-left: 3.6rem;
+
+          &::before {
+            left: 2.4rem;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+uuid: fe85667e-0213-411b-a2fd-e8a67417c3fd
+langcode: en
+status: true
+dependencies: {  }
+id: footer-help
+label: Help
+description: 'Footer Help menu links'
+locked: false

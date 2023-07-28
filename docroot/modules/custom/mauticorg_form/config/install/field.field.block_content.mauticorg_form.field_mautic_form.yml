@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.mauticorg_form
+    - field.storage.block_content.field_mautic_form
+  module:
+    - text
+id: block_content.mauticorg_form.field_mautic_form
+field_name: field_mautic_form
+entity_type: block_content
+bundle: mauticorg_form
+label: 'Mautic Form'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,10 @@
+quicktabs.ui:
+  version: VERSION
+  js:
+    js/qt_ui_tabs.js: {}
+  dependencies:
+    - core/jquery
+    - jquery_ui_tabs/tabs
+    - core/jquery.once
+    - core/drupal
+    - core/drupalSettings

@@ -1,0 +1,43 @@
+.region-sidebar-top {
+  .menu--social-follow {
+    background-color: $cornflower-blue;
+    padding: 1.03rem 1.875rem;
+
+    @include breakpoint($only-tablet) {
+      background-color: transparent;
+      border-bottom: 1px solid $gainsboro;
+    }
+
+    h2 {
+      text-transform: uppercase;
+      color: $white;
+      font-family: $primary-font;
+
+      @include breakpoint($only-tablet) {
+        color: $brownish-grey;
+      }
+
+      &::after {
+        content: "\003A";
+      }
+    }
+
+    a {
+      margin-top: 0;
+      margin-bottom: 0;
+
+      &::before {
+        font-size: 1.5rem;
+      }
+
+      @include breakpoint($only-tablet) {
+        color: $brownish-grey;
+
+        &:focus,
+        &:hover {
+          color: $grey;
+        }
+      }
+    }
+  }
+}

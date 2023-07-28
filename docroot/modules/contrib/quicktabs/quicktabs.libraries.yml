@@ -1,0 +1,48 @@
+quicktabs:
+  version: VERSION
+  css:
+    theme:
+      css/quicktabs.css: {}
+  js:
+    js/quicktabs.js: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.once
+    - core/drupal
+    - core/drupal.ajax
+    - core/drupalSettings
+    - core/jquery.cookie
+
+quicktabs.form:
+  version: VERSION
+  js:
+    js/quicktabs_form.js: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.once
+    - core/drupal
+    - core/drupalSettings
+
+pamela:
+  version: VERSION
+  css:
+    theme:
+      css/pamela.css: {}
+
+on-the-gray:
+  version: VERSION
+  css:
+    theme:
+      css/on-the-gray.css: {}
+
+tabsbar:
+  version: VERSION
+  css:
+    theme:
+      css/tabsbar.css: {}
+
+material-tabs:
+  version: VERSION
+  css:
+    theme:
+      css/material-tabs.css: {}

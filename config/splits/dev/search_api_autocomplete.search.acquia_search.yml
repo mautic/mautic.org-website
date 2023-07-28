@@ -1,0 +1,31 @@
+uuid: 17b6e09f-5b0c-4920-a7cf-b98ac29711eb
+langcode: en
+status: true
+dependencies:
+  config:
+    - search_api.index.acquia_search_index
+    - views.view.acquia_search
+  module:
+    - views
+    - search_api_autocomplete
+id: acquia_search
+label: 'Acquia Search'
+index_id: acquia_search_index
+suggester_settings:
+  server:
+    fields: {  }
+suggester_weights:
+  server: 0
+suggester_limits: {  }
+search_settings:
+  'views:acquia_search':
+    displays:
+      default: true
+      selected: {  }
+options:
+  limit: 10
+  min_length: 1
+  show_count: false
+  delay: null
+  submit_button_selector: ':submit'
+  autosubmit: true

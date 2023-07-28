@@ -1,0 +1,21 @@
+uuid: 9ddf8715-fa43-4a2d-98c0-7ea041371021
+langcode: en
+status: true
+dependencies:
+  module:
+    - dropdown_language
+  theme:
+    - mauticorg_base
+id: dropdownlanguage
+theme: mauticorg_base
+region: secondary_menu
+weight: -11
+provider: null
+plugin: 'dropdown_language:language_interface'
+settings:
+  id: 'dropdown_language:language_interface'
+  label: 'Dropdown Language'
+  label_display: '0'
+  provider: dropdown_language
+  labels: null
+visibility: {  }

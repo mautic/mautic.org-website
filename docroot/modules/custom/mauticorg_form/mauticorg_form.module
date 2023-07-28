@@ -1,0 +1,53 @@
+<?php
+
+/**
+ * @file
+ * The mauticorg_form module code.
+ */
+
+/**
+ * Implements hook_preprocess_block().
+ */
+function mauticorg_form_preprocess_block(&$vars) {
+  if (isset($vars['elements']['content']['#block_content']) && !empty($vars['elements']['content']['#block_content'])) {
+    // Adding inline js & css for custom block type mauticorg_form.
+    if ($vars['elements']['content']['#block_content']->bundle() == 'mauticorg_form') {
+      // $vars['#attached']['library'][] = 'mauticorg_form/mauticorg_form';
+      $js_code = \Drupal::config('mauticorg_form.settings')->get('js_code');
+      $css_code = \Drupal::config('mauticorg_form.settings')->get('css_code');
+
+      $vars['#attached']['html_head'][] = [
+        [
+          '#type' => 'html_tag',
+          // The HTML tag to add, in this case a  tag.
+          '#tag' => 'script',
+          // The value of the HTML tag, here we want to end up with
+          // alert("Hello world!");.
+          '#value' => $js_code,
+          // Set attributes like src to load a file.
+          '#attributes' => ['type' => 'text/javascript'],
+
+        ],
+        // A key, to make it possible
+        // to recognize this HTML element when altering.
+        'mauticorg-form-js',
+      ];
+
+      $vars['#attached']['html_head'][] = [
+        [
+          '#type' => 'html_tag',
+          // The HTML tag to add, in this case a  tag.
+          '#tag' => 'style',
+          // The value of the HTML tag, here we want to end up with
+          // alert("Hello world!");.
+          '#value' => $css_code,
+          // Set attributes like src to load a file.
+          '#attributes' => ['type' => 'text/css'],
+        ],
+        // A key, to make it possible
+        // to recognize this HTML  element when altering.
+        'mauticorg-form-css',
+      ];
+    }
+  }
+}

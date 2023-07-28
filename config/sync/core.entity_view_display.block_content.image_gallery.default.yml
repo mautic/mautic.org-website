@@ -1,0 +1,113 @@
+uuid: cab241fb-4bd8-4290-87fa-1a07e6c5e4c7
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.image_gallery
+    - field.field.block_content.image_gallery.field_image_gallery
+  module:
+    - field_group
+    - slick
+third_party_settings:
+  field_group:
+    group_image_gallery:
+      children:
+        - field_image_gallery
+      label: 'Image Gallery'
+      parent_name: ''
+      region: content
+      weight: 0
+      format_type: html_element
+      format_settings:
+        classes: image--gallery
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+id: block_content.image_gallery.default
+targetEntityType: block_content
+bundle: image_gallery
+mode: default
+content:
+  field_image_gallery:
+    type: slick_media
+    label: hidden
+    settings:
+      caption:
+        field_image_caption: '0'
+        field_media_image: '0'
+      optionset: default
+      class: ''
+      id: ''
+      image: ''
+      link: ''
+      overlay: ''
+      title: ''
+      vanilla: true
+      icon: ''
+      layout: ''
+      view_mode: default
+      cache: 0
+      current_view_mode: default
+      skin: ''
+      style: ''
+      background: true
+      box_caption: ''
+      box_caption_custom: ''
+      box_media_style: ''
+      responsive_image_style: ''
+      box_style: ''
+      image_style: ''
+      media_switch: ''
+      ratio: ''
+      thumbnail_style: ''
+      breakpoints:
+        xs:
+          width: ''
+          image_style: ''
+        sm:
+          width: ''
+          image_style: ''
+        md:
+          width: ''
+          image_style: ''
+        lg:
+          width: ''
+          image_style: ''
+        xl:
+          width: ''
+          image_style: ''
+      sizes: ''
+      grid_header: ''
+      grid: null
+      grid_medium: '1'
+      grid_small: '1'
+      overridables:
+        arrows: arrows
+        autoplay: autoplay
+        draggable: draggable
+        infinite: infinite
+        dots: '0'
+        mouseWheel: '0'
+        randomize: '0'
+        variableWidth: '0'
+      thumbnail: ''
+      optionset_thumbnail: ''
+      skin_thumbnail: ''
+      thumbnail_caption: ''
+      thumbnail_effect: ''
+      thumbnail_position: ''
+      override: true
+      skin_arrows: ''
+      skin_dots: ''
+      preserve_keys: false
+      visible_items: 1
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

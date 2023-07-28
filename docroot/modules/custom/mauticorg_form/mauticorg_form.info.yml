@@ -1,0 +1,5 @@
+name: MauticOrg Form
+type: module
+description: 'To create mautic form example download form.'
+package: MauticOrg
+core_version_requirement: ^8 || ^9

@@ -1,0 +1,8 @@
+uuid: a881cecd-9e35-4874-b7d7-8253c6228c5e
+langcode: en
+status: true
+dependencies: {  }
+id: mautic_org_date_format
+label: 'Mautic Org Date Format'
+locked: false
+pattern: 'F d, Y'

@@ -1,0 +1,68 @@
+.region-sidebar {
+  .quicktabs-tabs {
+    @include clean-list;
+
+    display: flex;
+    margin-bottom: 0.625rem;
+    margin-top: 1.875rem;
+
+    li {
+      flex: 1;
+      text-align: center;
+      padding: 0;
+    }
+
+    a {
+      font-size: 0;
+      display: block;
+      color: $pantone;
+      border-bottom: 0.1875rem solid $gainsboro;
+
+      span {
+        display: block;
+        padding: 0.5rem 0;
+
+        &::before {
+          @include font-icon;
+
+          font-size: 1rem;
+        }
+      }
+
+      &:focus,
+      &:hover {
+        text-decoration: none;
+        color: $grey;
+        border-bottom-color: $hexa-light;
+      }
+    }
+
+    .active {
+      a {
+        color: $grey;
+        border-bottom-color: $cornflower-blue;
+      }
+    }
+
+    .recent--tab-label::before {
+      content: "\f017";
+    }
+
+    .recent--comments-label::before {
+      content: "\f0e6";
+    }
+
+    .tag--cloud-label::before {
+      content: "\f02c";
+    }
+  }
+
+  .quicktabs-tabpage {
+    padding-bottom: 2rem;
+    border-bottom: 1px solid $white-shadow;
+  }
+
+  .no-comments {
+    padding-top: 1.5rem;
+  }
+}

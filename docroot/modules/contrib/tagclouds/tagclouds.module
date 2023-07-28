@@ -1,0 +1,54 @@
+<?php
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function tagclouds_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.tagclouds':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Tagclouds offers dynamic urls.') . '</p>';
+      $output .= '<p>' . t('Visit example.com/tagclouds/list/{Taxonomy Vocabulary name} (for example "Tags") to get the vocabulary name, description and all tags.') . '</p>';
+      $output .= '<p>' . t('Visit example.com/tagclouds/chunk/{Taxonomy Vocabulary name} (for example "Tags") to get a tag cloud of the terms for this vocabulary.') . '</p>';
+      return $output;
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function tagclouds_theme() {
+  return [
+    'tagclouds_list_box' => [
+      'variables' => [
+        'vocabulary' => NULL,
+        'children' => NULL
+      ]
+    ],
+    'tagclouds_weighted' => [
+      'variables' => [
+        'terms' => [],
+        'children' => NULL
+      ]
+    ]
+  ];
+}
+
+/**
+ * Get localized term description unfiltered.
+ * Adapted from i18n_taxonomy_term_name(). Should moved to i18n, issue http://drupal.org/node/1704658.
+ */
+function tagclouds_i18n_taxonomy_term_description($term, $langcode = NULL) {
+  return i18n_taxonomy_vocabulary_mode($term->vid, I18N_MODE_LOCALIZE) ? i18n_string(['taxonomy', 'term', $term->tid, 'description'], $term->description, ['langcode' => $langcode, 'sanitize' => FALSE]) : $term->description;
+}
+
+/**
+ * Get localized vocabulary description.
+ * Adapted from i18n_taxonomy_vocabulary_name(). Should moved to i18n, issue http://drupal.org/node/1704658.
+ */
+function tagclouds_i18n_taxonomy_vocabulary_description($vocabulary, $langcode = NULL) {
+  return i18n_object_langcode($vocabulary) ? $vocabulary->description : i18n_string(['taxonomy', 'vocabulary', $vocabulary->vid, 'description'], $vocabulary->description, ['langcode' => $langcode]);
+}

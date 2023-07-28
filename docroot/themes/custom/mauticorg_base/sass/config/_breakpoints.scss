@@ -1,0 +1,11 @@
+$screen: "only screen" !default;
+
+$tablet-devices: 768px !default;
+
+$desktop-devices: 1025px !default;
+
+$only-tablet: $tablet-devices $desktop-devices - 1;
+
+$upto-tablet: max-width $tablet-devices - 1;
+
+$upto-desktop: max-width $desktop-devices - 1;

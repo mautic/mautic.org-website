@@ -1,0 +1,24 @@
+services:
+  mauticorg_blog.repository:
+    class: Drupal\mauticorg_blog\Repository\BlogPostRepository
+    arguments: ['@entity_type.manager']
+
+  serializer.encoder.atom_xml:
+    class: Drupal\mauticorg_blog\Encoder\AtomXmlEncoder
+    arguments:
+      - '@config.factory'
+      - '@request_stack'
+    tags:
+      - name: encoder
+        priority: 10
+        format: atom_xml
+  serializer.normalizer.atom_xml:
+    class: Drupal\mauticorg_blog\Normalizer\AtomXmlNormalizer
+    arguments: ['@entity_type.manager']
+    tags:
+      - name: normalizer
+        priority: 100
+  mauticorg_blog.atom_xml_subscriber:
+    class: Drupal\mauticorg_blog\EventSubscriber\AtomXmlSubscriber
+    tags:
+      - name: event_subscriber

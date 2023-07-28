@@ -1,0 +1,66 @@
+.quote__wrapper {
+  font-size: 1.5rem;
+  line-height: 2.1875rem;
+  font-family: $secondary-font;
+  margin: auto;
+  padding: 0.9375rem 0.9375rem 0;
+  text-align: center;
+
+  @include breakpoint($tablet-devices) {
+    max-width: 75%;
+  }
+
+  img {
+    border-radius: 100%;
+    width: 8.75rem;
+    height: 8.75rem;
+    display: inline-block;
+    margin: 0 0 1.5rem 0;
+  }
+
+  .field--name-field-media-image {
+    display: inline-block;
+    position: relative;
+    font-family: $primary-font;
+
+    &::before,
+    &::after {
+      font-size: 4.5rem;
+      color: $caribbean-green;
+      font-weight: 600;
+      position: absolute;
+      line-height: 3.5rem;
+      vertical-align: text-bottom;
+      top: 3.75rem;
+    }
+
+    &::before {
+      content: "“";
+      left: -3.75rem;
+    }
+
+    &::after {
+      content: "”";
+      right: -3.75rem;
+    }
+  }
+
+  blockquote {
+    color: $white;
+  }
+}
+
+.quote__author {
+  margin-top: 1rem;
+  font-family: $primary-font;
+  font-size: 1rem;
+  line-height: 1.4;
+
+  &::before {
+    content: "▼";
+    display: block;
+    color: $caribbean-green;
+    transform: scaleX(1.8);
+    margin: 0 0 0.75rem 0;
+  }
+}

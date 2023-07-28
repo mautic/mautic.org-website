@@ -1,0 +1,6 @@
+name: Discourse comments
+type: module
+description: 'Provides discourse comments integration with drupal.'
+core_version_requirement: ^8 || ^9
+dependencies:
+  - drupal:field

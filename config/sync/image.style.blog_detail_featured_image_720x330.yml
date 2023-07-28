@@ -1,0 +1,15 @@
+uuid: 4756d90e-47d1-4862-8878-2b9794b466b8
+langcode: en
+status: true
+dependencies: {  }
+name: blog_detail_featured_image_720x330
+label: 'Blog Detail Featured Image 720x330'
+effects:
+  1245698c-54fe-409d-bde9-d8a76c39581b:
+    uuid: 1245698c-54fe-409d-bde9-d8a76c39581b
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 720
+      height: 330
+      anchor: center-center

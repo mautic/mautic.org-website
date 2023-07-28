@@ -1,0 +1,16 @@
+mauticorg_core.site_settings:
+  type: config_object
+  label: 'MauticOrg Site Settings'
+  mapping:
+    copyright_content:
+      type: text_format
+      label: 'Copyright Content'
+      translatable: TRUE
+    bottom_block_content_page_404:
+      type: text_format
+      label: 'Bottom Block Content of Page 404'
+      translatable: TRUE
+    bottom_block_content_page_403:
+      type: text_format
+      label: 'Bottom Block Content of Page 403'
+      translatable: TRUE

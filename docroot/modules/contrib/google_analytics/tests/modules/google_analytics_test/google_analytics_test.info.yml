@@ -1,0 +1,9 @@
+name: 'Google Analytics test'
+type: module
+description: 'Support module for Google Analytics testing.'
+package: Testing
+
+# Information added by Drupal.org packaging script on 2021-10-14
+version: '4.0.0'
+project: 'google_analytics'
+datestamp: 1634230241

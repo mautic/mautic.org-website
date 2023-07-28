@@ -1,0 +1,136 @@
+.view-acquia-search,
+.block-views-exposed-filter-blockacquia-search-page-1 {
+  .form-item-search {
+    width: 100%;
+  }
+
+  form {
+    background-color: $smoke;
+    position: relative;
+    padding: 0.75rem 0.9375rem;
+    color: $space-grey;
+    display: flex;
+  }
+
+  .form-text {
+    border: 2px solid $gainsboro;
+    padding: 0.532rem 1rem;
+    padding-left: 2rem;
+    font-size: 0.875rem;
+  }
+
+  .form-actions {
+    .form-submit {
+      font-size: 0;
+      padding: 1.15rem 1.1rem;
+      background: transparent;
+      border: 0;
+    }
+
+    .input--wrapper {
+      cursor: pointer;
+      display: block;
+      position: absolute;
+      left: 0.9375rem;
+
+      .input--icon::before {
+        @include font-icon;
+
+        content: "\f002";
+        font-size: 1rem;
+        color: $grey-ash;
+        position: absolute;
+        left: 0.6875rem;
+        top: 0.6875rem;
+      }
+    }
+  }
+}
+
+.view-filters {
+  form {
+    &::before {
+      content: "";
+      position: absolute;
+      border-left: 0.625rem solid transparent;
+      border-right: 0.625rem solid transparent;
+      border-bottom: 0.625rem solid $white-smoke-light;
+      top: -0.5625rem;
+      left: 0.9375rem;
+    }
+  }
+
+  .form-text {
+    width: 100%;
+  }
+}
+
+.search-api-autocomplete-suggestion {
+  padding: 0.48rem 1rem;
+}
+
+.search-api-autocomplete-search {
+  .ui-menu-item-wrapper.ui-state-active {
+    .search-api-autocomplete-suggestion {
+      background-color: $cornflower-blue;
+      color: $white;
+    }
+  }
+}
+
+.view-acquia-search {
+  .views-field-summary {
+    strong {
+      font-weight: 600;
+      padding: 0 0.2rem;
+    }
+  }
+
+  .attachment {
+    background-color: $smoke;
+    padding: 0.75rem 0.9375rem;
+  }
+
+  .view-content {
+    margin-top: 1.5rem;
+  }
+}
+
+.block-views-exposed-filter-blockacquia-search-page-1,
+.view-acquia-search .form-item-search {
+  label {
+    display: none;
+  }
+}
+
+.item-list__checkbox {
+  @include clean-list;
+
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.facets-widget-checkbox {
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+
+  .facets-checkbox {
+    margin-right: 0.325rem;
+  }
+
+  .facet-item {
+    margin-bottom: 0.75rem;
+    margin-right: 1.25rem;
+    display: flex;
+    align-items: center;
+    line-height: 1;
+  }
+}
+
+.sort--label {
+  display: block;
+  color: $hexa;
+  font-size: 0.8125rem;
+}

@@ -1,0 +1,62 @@
+.material-tabs.quicktabs-wrapper {
+  padding-bottom: 2rem;
+}
+.material-tabs ul.quicktabs-tabs {
+  position: relative;
+  z-index: 1;
+  padding: .7rem;
+  margin-right: 1rem;
+  margin-bottom: -20px;
+  margin-left: 1rem;
+  margin-top: 0;
+  background-color: #2bbbad;
+  border: 0;
+  border-radius: .25rem;
+  -webkit-box-shadow: 0 5px 11px 0 rgba(0,0,0,0.18),0 4px 15px 0 rgba(0,0,0,0.15);
+  box-shadow: 0 5px 11px 0 rgba(0,0,0,0.18),0 4px 15px 0 rgba(0,0,0,0.15);
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0;
+  list-style: none;
+}
+.material-tabs ul.quicktabs-tabs li {
+  margin-bottom: -1px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+
+}
+.material-tabs .quicktabs-tabs > li > a {
+  color: #fff;
+  border: 0;
+  border-top-left-radius: .25rem;
+  border-top-right-radius: .25rem;
+  display: block;
+  padding: .5rem 1rem;
+}
+.material-tabs .quicktabs-tabs > li.active > a,
+.material-tabs .quicktabs-tabs > li.active > a:hover,
+.material-tabs .quicktabs-tabs > li.active > a:focus {
+  background-color: rgba(0,0,0,0.2);
+  border-radius: .25rem;
+  border-color: #dee2e6 #dee2e6 #fff;
+}
+.material-tabs .quicktabs-main {
+  padding: 1rem;
+  padding-top: 3rem !important;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+  border: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border-radius: .25rem;
+}
+
+/* For View All link at bottom of block. */
+.material-tabs .block-quicktabs .view-footer {
+
+}

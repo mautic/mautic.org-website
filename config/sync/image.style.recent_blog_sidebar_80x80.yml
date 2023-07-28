@@ -1,0 +1,15 @@
+uuid: ebefd8a1-5651-4a7a-a6f0-d0502f4bb40a
+langcode: en
+status: true
+dependencies: {  }
+name: recent_blog_sidebar_80x80
+label: 'Recent Blog sidebar 80x80'
+effects:
+  2deb8f58-85be-425e-bdb4-ecbbd19edb4f:
+    uuid: 2deb8f58-85be-425e-bdb4-ecbbd19edb4f
+    id: image_scale_and_crop
+    weight: 2
+    data:
+      width: 80
+      height: 80
+      anchor: center-center

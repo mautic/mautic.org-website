@@ -1,0 +1,31 @@
+tagclouds.admin_page:
+  path: '/admin/config/content/tagclouds'
+  defaults:
+    _form: '\Drupal\tagclouds\Form\TagcloudsAdminPage'
+    _title: 'TagClouds configuration'
+  requirements:
+    _permission: 'administer taxonomy'
+
+tagclouds.page_chunk:
+  path: '/tagclouds'
+  defaults:
+    _controller: '\Drupal\tagclouds\Controller\TagcloudsPageChunk::chunk'
+    _title: 'Tags'
+  requirements:
+    _permission: 'access content'
+
+tagclouds.list_vocs:
+  path: '/tagclouds/list/{tagclouds_vocs_str}'
+  defaults:
+    _controller: '\Drupal\tagclouds\Controller\TagcloudsListVocs::listVocs'
+    _title: 'Tags'
+  requirements:
+    _permission: 'access content'
+
+tagclouds.chunk_vocs:
+  path: '/tagclouds/chunk/{tagclouds_vocs_str}'
+  defaults:
+    _controller: '\Drupal\tagclouds\Controller\TagcloudsPageChunk::chunk'
+    _title: 'Tags'
+  requirements:
+    _permission: 'access content'

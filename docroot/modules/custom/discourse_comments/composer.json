@@ -1,0 +1,17 @@
+{
+    "name": "drupal/discourse_comments",
+    "description": "Discourse ccomments module.",
+    "type": "drupal-module",
+    "autoload": {
+        "psr-4": {
+            "Drupal\\discourse_comments\\": "src/"
+        }
+    },
+    "extra": {
+        "drush": {
+            "services": {
+                "drush.services.yml": "^9"
+            }
+        }
+    }
+}

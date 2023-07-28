@@ -1,0 +1,25 @@
+uuid: 398618ad-f2dd-4b82-a24f-e75fe9b4c401
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.social-follow
+  module:
+    - system
+  theme:
+    - mauticorg_base
+id: follow
+theme: mauticorg_base
+region: footer
+weight: -8
+provider: null
+plugin: 'system_menu_block:social-follow'
+settings:
+  id: 'system_menu_block:social-follow'
+  label: Follow
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

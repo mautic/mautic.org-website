@@ -1,0 +1,245 @@
+<?php
+
+/**
+ * @file
+ * Mauticorg Core module.
+ */
+
+use Drupal\Core\Render\Markup;
+use Drupal\Core\Config\FileStorage;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Session\AccountInterface;
+use Drupal\block\Entity\Block;
+use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Site\Settings;
+use Drupal\views\ViewExecutable;
+use Drupal\user\Entity\User;
+use Drupal\comment\CommentInterface;
+use Drupal\Core\Url;
+
+/**
+ * Implements hook_block_access().
+ */
+function mauticorg_core_block_access(Block $block, $operation, AccountInterface $account) {
+  // Update your condition according to your requirement.
+  $page = \Drupal::request()->query->get('page');
+  if ($operation == 'view' && $block->getPluginId() == 'views_block:banner_blog_carousel-block_1' && $page > 0) {
+    return AccessResult::forbiddenIf(TRUE)->addCacheableDependency($block);
+  }
+  return AccessResult::neutral();
+
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function mauticorg_core_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+
+  if (isset($form['field_scheduled_time'])) {
+    // Restrict date range.
+    $form['field_scheduled_time']['widget'][0]['value']['#date_date_callbacks'][] = 'restrict_date';
+  }
+
+  if ($form_id == "workflow_state_edit_form") {
+    // Enable default revision.
+    $form['type_settings']['default_revision']['#disabled'] = FALSE;
+  }
+
+  if ($form_id == "comment_comment_form") {
+    if (isset($form['comment_body'])) {
+      // Changing format of comment body to plain text.
+      $form['comment_body']['widget'][0]['#format'] = 'plain_text';
+    }
+    if (isset($form['author']['homepage'])) {
+      // Changing title of homepage field to Website.
+      $form['author']['homepage']['#title'] = t('Website');
+    }
+  }
+}
+
+/**
+ * To get min date.
+ */
+function restrict_date(&$element, $form_state, $date) {
+  $element['date']['#attributes']['min'] = \Drupal::service('date.formatter')->format(\Drupal::time()->getRequestTime(), 'custom', 'Y-m-d');
+}
+
+/**
+ * Implements hook_views_pre_render().
+ */
+function mauticorg_core_views_pre_render(ViewExecutable $view) {
+  if ($view->id() == "acquia_search" && $view->current_display == 'page') {
+    $block_manager = \Drupal::service('plugin.manager.block');
+    $view->attachment_before['content_type'] = $block_manager->createInstance("facet_block:content_type")->build();
+  }
+}
+
+/**
+ * Implements hook_user_format_name_alter().
+ */
+function mauticorg_core_user_format_name_alter(&$name, $account) {
+
+  // Alter user display name.
+  if ($account->id()) {
+    $name = change_user_display_name($account->id());
+  }
+}
+
+/**
+ * Logic for displaying user display name.
+ */
+function change_user_display_name($uid) {
+  $account = User::load($uid);
+  if (!empty($account)) {
+
+    $display_name = '';
+    // If Display Name not empty.
+    if (!empty($account->get("field_display_name")->value)) {
+      $display_name = $account->get("field_display_name")->value;
+
+    }
+    // If First Name + Last Name not empty.
+    elseif (!empty(trim($account->get("field_first_name")->value . ' ' . $account->get("field_last_name")->value))) {
+      $display_name = trim($account->get("field_first_name")->value . ' ' . $account->get("field_last_name")->value);
+    }
+    // Get Username.
+    else {
+      $display_name = $account->get('name')->value;
+    }
+    return $display_name;
+  }
+  else {
+    return '';
+  }
+}
+
+/**
+ * Implements hook_field_widget_WIDGET_TYPE_form_alter().
+ */
+function mauticorg_core_field_widget_date_recur_modular_sierra_form_alter(&$element, FormStateInterface $form_state, $context) {
+  $element['#theme'] = 'mautic_date_recur_modular_sierra_widget';
+}
+
+/**
+ * Implements hook_theme().
+ */
+function mauticorg_core_theme(array $existing, string $type, string $theme, string $path): array {
+  return [
+    'mautic_date_recur_modular_sierra_widget' => [
+      'render element' => 'widget',
+    ],
+  ];
+}
+
+/**
+ * Implements template_preprocess_HOOK().
+ *
+ * HOOK: 'mautic_date_recur_modular_sierra_widget'.
+ */
+function template_preprocess_mautic_date_recur_modular_sierra_widget(array &$variables): void {
+  $variables['attributes']['class'][] = 'date-recur-modular-sierra-widget';
+  $variables['#attached']['library'][] = 'date_recur_modular/date_recur_modular_sierra_widget';
+  if ($variables['widget']['#required']) {
+    $variables['required'] = TRUE;
+  }
+}
+
+/**
+ * Helper function to import config from yml file.
+ */
+function _mauticorg_core_import_config($config_name, $config_path = '', $is_new = FALSE) {
+  if (empty($config_path)) {
+    // If config_path is empty, read config from sync directory.
+    $config_path = Settings::get('config_sync_directory');
+  }
+  $source = new FileStorage($config_path);
+  $config_storage = \Drupal::service('config.storage');
+  $return_value = FALSE;
+  if ($data = $source->read($config_name)) {
+    if ($is_new && !isset($data['uuid'])) {
+      $data['uuid'] = \Drupal::service('uuid')->generate();
+    }
+    $config_storage->write($config_name, $data);
+    $return_value = TRUE;
+  }
+  return $return_value;
+}
+
+/**
+ * Implements hook_page_attachments().
+ */
+function mauticorg_core_page_attachments(array &$attachments) {
+
+  // Adding JavaScript function getMauticorgCookie to get cookie by name.
+  $js_script = "function getMauticorgCookie(cname) {
+      var name = cname + \"=\";
+      var decodedCookie = decodeURIComponent(document.cookie);
+      var ca = decodedCookie.split(';');
+      for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+          c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+          return c.substring(name.length, c.length);
+        }
+      }
+      return \"\";
+   }";
+
+  $attachments['#attached']['html_head'][] = [
+    [
+      '#type' => 'html_tag',
+      // Add a <script> tag.
+      '#tag' => 'script',
+      // Add JavaScript to the <script> tag.
+      '#value' => Markup::create($js_script),
+      // Give weight so it appears after meta tags, etc.
+      '#weight' => -1,
+    ],
+    // A key, to recognize this HTML <HEAD> element when altering.
+    'mauticorg_core_get_cookie',
+  ];
+}
+
+/**
+ * Implements hook_page_attachments_alter().
+ */
+function mauticorg_core_page_attachments_alter(array &$attachments) {
+  $i = 0;
+  foreach ($attachments['#attached']['html_head'] as $html_head) {
+    // Changing mautic tracking script based on cookie agreed.
+    if ($html_head[1] == 'mautic_tracking_script') {
+      // Checking if eu_cookie_compliance module is enabled.
+      if (\Drupal::moduleHandler()->moduleExists('eu_cookie_compliance')) {
+        $config = \Drupal::config('mautic.settings');
+        // Build tracker code.
+        $script = "if(getMauticorgCookie('cookie-agreed') === '2'){(function(w,d,t,u,n,a,m){  w['MauticTrackingObject']=n;";
+        $script .= "w[n]=w[n]||function(){(w[n].q=w[n].q||[]).push(arguments)},a=d.createElement(t),";
+        $script .= "m=d.getElementsByTagName(t)[0];a.async=1;a.src=u;m.parentNode.insertBefore(a,m)";
+        $script .= "})(window,document,'script','" . $config->get('mautic_base_url') . "','mt'); ";
+        $script .= "mt('send', 'pageview');}";
+        $attachments['#attached']['html_head'][$i] = [
+          [
+            '#tag' => 'script',
+            '#value' => (string) $script,
+          ],
+          'mautic_tracking_script',
+        ];
+        break;
+      }
+    }
+    $i++;
+  }
+}
+
+/**
+ * Implements hook_comment_links_alter().
+ */
+function mauticorg_core_comment_links_alter(array &$links, CommentInterface $entity, array &$context) {
+  if (\Drupal::currentUser()->isAnonymous()) {
+    $links['comment']['#links']['comment-forbidden']['title'] = t('<a href=":login">Log in</a> to post comments', [
+      ':login' => Url::fromRoute('user.login', [], [])->toString(),
+    ]);
+  }
+}

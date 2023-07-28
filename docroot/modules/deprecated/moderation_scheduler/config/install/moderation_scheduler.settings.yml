@@ -1,0 +1,4 @@
+# Default form values for \Drupal\moderation_scheduler\Form\ModerationSchedulerForm.
+# @see examples/moderation_scheduler/config/schema/moderation_scheduler.schema.yml
+# @see \Drupal\moderation_scheduler\Form\ModerationSchedulerForm::getEditableConfigNames()
+interval: 3600

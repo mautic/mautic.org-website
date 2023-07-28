@@ -1,0 +1,61 @@
+uuid: 3a8e12b4-b29e-45c4-9e58-c837ce37b445
+langcode: en
+status: true
+dependencies: {  }
+id: node__landing_page
+label: 'Content: Landing Page'
+tags:
+  description: '[node:summary]'
+  title: '[node:title] - [site:name]'
+  article_modified_time: '[node:changed:html_datetime]'
+  article_published_time: '[node:created:html_datetime]'
+  article_publisher: 'http://facebook.com/MauticCommunity'
+  og_description: '[node:summary]'
+  og_image: '[node:field_featured_image:entity:field_media_image:large:url]'
+  og_image_height: '[node:field_featured_image:entity:field_media_image:large:height]'
+  og_image_secure_url: '[node:field_featured_image:entity:field_media_image:large:url]'
+  og_image_width: '[node:field_featured_image:entity:field_media_image:large:width]'
+  og_site_name: '[site:name]'
+  og_title: '[node:title]'
+  og_type: 'landing page'
+  og_updated_time: '[node:changed:html_datetime]'
+  og_url: '[node:url]'
+  twitter_cards_description: '[node:summary]'
+  twitter_cards_image: '[node:field_featured_image:entity:field_media_image:large:url]'
+  twitter_cards_page_url: '[node:url]'
+  twitter_cards_site: '@mauticCommunity'
+  twitter_cards_site_id: '3221069440'
+  twitter_cards_title: '[node:title]'
+  twitter_cards_type: summary_large_image
+  schema_article_author: 'a:3:{s:5:"@type";s:6:"Person";s:4:"name";s:32:"[node:author:field_display_name]";s:3:"url";s:17:"[node:author:url]";}'
+  schema_article_date_modified: '[node:changed:html_datetime]'
+  schema_article_date_published: '[node:created:html_datetime]'
+  schema_article_description: '[node:summary]'
+  schema_article_headline: '[node:title]'
+  schema_article_image: 'a:2:{s:5:"@type";s:11:"ImageObject";s:3:"url";s:24:"[node:url]/#primaryimage";}'
+  schema_article_main_entity_of_page: '[node:url]#webpage'
+  schema_article_name: '[node:title]'
+  schema_article_publisher: 'a:6:{s:5:"@type";s:12:"Organization";s:3:"@id";s:23:"[site:url]#organization";s:4:"name";s:11:"[site:name]";s:3:"url";s:10:"[site:url]";s:6:"sameAs";s:178:"http://facebook.com/MauticCommunity,https://www.linkedin.com/company/mautic-community,https://www.youtube.com/channel/UCcc9_x7_gNICPkrbG2NU9Xw,https://twitter.com/mauticcommunity";s:4:"logo";a:2:{s:5:"@type";s:11:"ImageObject";s:3:"url";s:47:"[site:url]themes/custom/mauticorg_base/logo.svg";}}'
+  schema_article_type: Article
+  schema_image_object_description: '[node:field_featured_image:entity:name]'
+  schema_image_object_height: '[node:field_featured_image:entity:field_media_image:large:height]'
+  schema_image_object_name: '[node:field_featured_image:entity:name]'
+  schema_image_object_type: ImageObject
+  schema_image_object_url: '[node:field_featured_image:entity:field_media_image:large:url]'
+  schema_image_object_width: '[node:field_featured_image:entity:field_media_image:large:width]'
+  schema_organization_id: '[site:url]#organization'
+  schema_organization_name: '[site:name]'
+  schema_organization_same_as: 'http://facebook.com/MauticCommunity,https://www.linkedin.com/company/mautic-community,https://www.youtube.com/channel/UCcc9_x7_gNICPkrbG2NU9Xw,https://twitter.com/mauticcommunity'
+  schema_organization_type: Organization
+  schema_organization_url: '[site:url]'
+  schema_person_image: 'a:2:{s:5:"@type";s:11:"ImageObject";s:3:"url";s:21:"[site:url]#authorlogo";}'
+  schema_person_name: '[node:author:field_display_name]'
+  schema_person_type: Person
+  schema_web_page_description: '[node:summary]'
+  schema_web_page_id: '[node:url]/#webpage'
+  schema_web_page_in_language: en-US
+  schema_web_page_type: WebPage
+  schema_web_site_id: '[site:url]/#website'
+  schema_web_site_name: '[site:name]'
+  schema_web_site_type: WebSite
+  schema_web_site_url: '[site:url]'

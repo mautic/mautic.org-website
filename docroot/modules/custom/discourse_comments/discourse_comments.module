@@ -1,0 +1,151 @@
+<?php
+
+/**
+ * @file
+ * The discourse_comments module code.
+ */
+
+use Drupal\Component\Serialization\Json;
+use Drupal\Core\Entity\EntityTypeInterface;
+use Drupal\Core\Field\BaseFieldDefinition;
+use Drupal\Core\Field\FieldFilteredMarkup;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\node\Entity\Node;
+
+/**
+ * Implements hook_theme().
+ */
+function discourse_comments_theme() {
+  return [
+    'discourse_comment_block' => [
+      'variables' => [
+        'content' => NULL,
+        'topic_url' => NULL,
+        'forum_link' => NULL,
+        'forum_link_label' => NULL,
+      ],
+      'render element' => 'children',
+    ],
+    'latest_comments_block' => [
+      'variables' => [
+        'content' => NULL,
+        'count' => NULL,
+      ],
+    ],
+    'discourse_comment_footer' => [
+      'variables' => [
+        'url' => NULL,
+      ],
+    ],
+  ];
+}
+
+/**
+ * Implements hook_entity_base_field_info().
+ */
+function discourse_comments_entity_base_field_info(EntityTypeInterface $entity_type) {
+  $fields = [];
+
+  // Add a 'discourse_field' base field to all node types.
+  if ($entity_type->id() === 'node') {
+    $fields['discourse_field'] = BaseFieldDefinition::create('discourse_field')
+      ->setLabel(t('Discourse Comments'))
+      ->setDescription(t('Discourse comment settings.'))
+      ->setRevisionable(TRUE)
+      ->setTranslatable(TRUE)
+      ->setDisplayOptions('form', [
+        'type' => 'discourse_widget',
+        'weight' => 100,
+      ])
+      ->setDisplayConfigurable('form', TRUE);
+  }
+
+  return $fields;
+}
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ */
+function discourse_comments_form_node_form_alter(&$form, &$form_state, $form_id) {
+  // If discourse enabled.
+  if (isset($form['discourse_field'])) {
+    $node = $form_state->getFormObject()->getEntity();
+    // Checking edit form.
+    if ($form_state->getFormObject()->getOperation() == 'edit') {
+      if ($node->get('discourse_field')->push_to_discourse != 1) {
+        // If push_to_discourse is not enabled.
+        $form['discourse_field']['widget'][0]['push_to_discourse']['#default_value'] = 0;
+      }
+    }
+    $form['actions']['submit']['#submit'][] = '_post_node_to_discourse';
+
+    // Set title field help text.
+    $config_factory = \Drupal::service('config.factory');
+    $discoursse_settings = $config_factory->get('discourse_comments.discourse_comments_settings');
+    $content_types_enabled_for_discourse = $discoursse_settings->get('content_types_enabled_for_discourse');
+    $node_type = $node->getType();
+    if (isset($content_types_enabled_for_discourse[$node_type]) && $content_types_enabled_for_discourse[$node_type]) {
+      $form['title']['widget'][0]['value']['#description'] = FieldFilteredMarkup::create(t('The title should have at least 15 characters else it may not be pushed as a discourse topic.'));
+    }
+  }
+}
+
+/**
+ * Post node to discourse.
+ */
+function _post_node_to_discourse($form, FormStateInterface &$form_state) {
+  $form_values = $form_state->getValues();
+  $node = $form_state->getFormObject()->getEntity();
+  $discourse_topic_id = $node->get('discourse_field')->topic_id;
+  $post_condition = $discourse_topic_id == NULL && $discourse_topic_id !== '' && $form_values['discourse_field'][0]['push_to_discourse'] == 1 && $node->isPublished();
+  if ($post_condition) {
+    $discourse_api_client = \Drupal::service('discourse_comments.discourse_api_client');
+    $footer_markup = _discourse_comments_footer_markup($node);
+
+    $body = $form_values['body'][0]['value'] . $footer_markup;
+    $response = $discourse_api_client->postTopic([
+      'title' => $form_values['title'][0]['value'],
+      'raw' => $body,
+      'category' => $form_values['discourse_field'][0]['category'],
+    ]);
+
+    $created_topic = Json::decode($response);
+
+    // Get topic details and save it in discourse field of the node.
+    $discourse_form_values = $form_values['discourse_field'];
+    $discourse_form_values[0]['topic_id'] = $created_topic['topic_id'];
+    $topic_url = sprintf('%s/t/%s/%s', $discourse_api_client->getBaseUrl(), $created_topic['topic_slug'], $created_topic['topic_id']);
+    $discourse_form_values[0]['topic_url'] = $topic_url;
+    $discourse_form_values[0]['comment_count'] = $created_topic['reply_count'];
+
+    // Change the discourse_field according to returned values.
+    $node->set('discourse_field', $discourse_form_values);
+    $node->save();
+  }
+
+}
+
+/**
+ * Get footer markup for discourse post.
+ *
+ * @param \Drupal\node\Entity\Node $node
+ *   Node object.
+ *
+ * @return mixed
+ *   Returns markup for footer in the discourse post.
+ *
+ * @throws \Drupal\Core\Entity\EntityMalformedException
+ */
+function _discourse_comments_footer_markup(Node $node) {
+  $host = \Drupal::request()->getSchemeAndHttpHost();
+  $node_url = $host . $node->toUrl()->toString();
+
+  $renderable = [
+    '#theme' => 'discourse_comment_footer',
+    '#url' => $node_url,
+    '#cache' => [
+      'tags' => $node->getCacheTags(),
+    ],
+  ];
+  return \Drupal::service('renderer')->render($renderable);
+}

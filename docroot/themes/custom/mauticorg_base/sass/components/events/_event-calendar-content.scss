@@ -1,0 +1,133 @@
+.view-event-calendar {
+  margin-bottom: 3rem;
+
+  .view-header {
+    h3 {
+      font-size: 2.375em;
+      letter-spacing: -1px;
+      text-align: center;
+      margin: 0 0 1rem;
+    }
+  }
+
+  .view-filters {
+    form {
+      &::before {
+        content: none;
+      }
+    }
+  }
+
+  .pager {
+    margin-bottom: 1rem;
+
+    ul {
+      @include clean-list;
+
+      display: flex;
+      justify-content: space-between;
+    }
+
+    a {
+      font-weight: 600;
+      font-size: 0.9375rem;
+    }
+  }
+
+  .views-exposed-form {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: $white-smoke;
+    padding: 0.325rem 1.25rem 0.9375rem;
+    margin-bottom: 1rem;
+    align-items: flex-end;
+    border-radius: 0.25rem;
+
+    .form-item {
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    label {
+      @include form-label;
+
+      display: block;
+    }
+
+    .button {
+      padding: 0.75rem 1.875rem;
+      background-color: $cornflower-blue;
+      border-radius: 0;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+
+      &:hover,
+      &:focus {
+        background-color: $light-purple;
+      }
+    }
+  }
+
+  .view-footer {
+    text-align: right;
+    margin-top: 2rem;
+
+    .views-display-link {
+      margin-right: 0;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      padding: 0.625rem 1.25rem;
+    }
+  }
+
+  .event__view {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    background-color: $white-smoke;
+    padding: 0.9375rem 1.25rem 0;
+
+    .event__view--label {
+      @include form-label;
+
+      margin-right: 0.5rem;
+      padding: 0 0 0.375rem;
+    }
+
+    ul {
+      @include clean-list;
+
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    a {
+      padding: 0.625rem 1.25rem;
+      margin-right: 0.5rem;
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: 0.75rem;
+      color: $white;
+    }
+
+    .active--link {
+      &:hover,
+      &:focus {
+        background-color: $light-purple;
+      }
+    }
+  }
+
+  .view-empty {
+    text-align: center;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-top: 2rem;
+  }
+}
+
+body[class*="page--events"] {
+  .block-page-title-block {
+    text-align: center;
+  }
+}

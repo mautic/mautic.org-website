@@ -1,0 +1,98 @@
+<h3>Blazy</h3>
+<p>Image or iframe is lazyloaded automatically unless
+disabled, no shortcodes required. Usages for shortcodes: grid, customizing
+settings, embedding a known entity. Pay attention to attributes,
+slashes, colons, single and double quotes:</p>
+<ol>
+  <li><b>Basic</b>, with inline HTML: <br><code>[blazy]...[item]...[/item]...
+  [/blazy]</code> <br>where <code>[blazy]</code> is like field container,
+  <code>[item]</code> like field item.</li>
+  <li><b>With self-closing
+  <code>data=ENTITY_TYPE:ID:FIELD_NAME:FIELD_IMAGE</code></b>, without inline
+  HTML: <br><code>[blazy data="node:44:field_media" /]</code><br>
+  <code>[blazy data="node:44:field_media:field_media_image" /]</code><br>
+  <em>Required</em>: <code>ENTITY_TYPE:ID:FIELD_NAME</code>, where
+  <code>ENTITY_TYPE</code> is <b>node</b> -- only tested with node,
+  <code>ID</code> is <b>node ID</b>, <code>FIELD_NAME</code> can be field Media,
+  Image, Text (long or with summary), must be multi-value, or unlimited. <br>
+  <em>Optional</em>: <code>FIELD_IMAGE</code> named
+  <code>field_media_image</code> as found at Media Image/ Video for hires poster
+  image, must be similar and single-value field image for all media entities
+  to have mixed media correctly. This is not field image at Node, it is at
+  Media.</li>
+  <li><b>With HTML settings</b>: any HTML settings relevant from
+  <code>BlazyDefault</code> methods as seen at Filter, Field or Views UI
+  forms:<br>
+     <code>[blazy settings="{'style': 'column', 'grid': 4}" /]</code>
+  </li>
+  <li>The <code>[item]</code> can have class and caption attributes, e.g.: <br>
+  <code>[item class="grid--card card"
+  caption='Read <a href="https://mysite.com">more</a>']</code>. <br>
+  The classes will be moved into grid__content to make it usable such
+  as for Bootstrap well/ card. The caption into regular blazy__caption.
+  <br>Use <b>single</b> quotes for HTML caption, else broken. The link is
+  normally converted automatically when using WYSIWYG. This will replace Filter
+  caption if they both exist.</li>
+  <li><b>Grid format</b>, a convenient shortcut for settings, hyphenated:
+  <code>STYLE:SMALL-MEDIUM-LARGE</code>. <br>
+    <code>STYLE</code> is one of space-delimited values: <code>column grid
+    flex nativegrid</code>.<br>
+    The rest refers to device sizes. Only <code>LARGE</code> with
+    <code>nativegrid</code>, no others, can be numeric, or string. The rest must
+    be numbers due to using no JS and or their contracts. The minimum is 1,
+    not 0.<br>
+    <code>[blazy grid="column:2-3-4" /]</code><br>
+    <code>[blazy grid="grid:2-3-4" /]</code><br>
+    <code>[blazy grid="flex:2-3-4" /]</code><br>
+    <code>[blazy grid="nativegrid:2-3-4" /]</code><br>, will be masonry
+    <code>[blazy grid="nativegrid:2-3-4x4" /]</code><br>, will repeat
+    <code>[blazy grid="nativegrid:2-3-4x4 4x3 2x2 2x4 2x2 2x3 2x3 4x2 4x2" /]
+    </code>
+    <br>is a shortcut for:<br>
+    <code>[blazy settings="{'style': 'nativegrid',
+    'grid': '4x4 4x3 2x2 2x4 2x2 2x3 2x3 4x2 4x2', 'grid_small': 2,
+    'grid_medium': 4}" /]</code><br>
+    <code>4x4</code> defines <code>WIDTHxHEIGHT</code> based on
+    <code>grid-row</code> CSS property, see and  override
+    <code>blazy/css/blazy.nativegrid.css</code>.
+  </li>
+  <li>To disable lazyload, add attribute <code>data-unblazy</code>:
+    <ul>
+      <li><code>&lt;img data-unblazy /&gt;</code></li>
+      <li><code>&lt;iframe data-unblazy /&gt;</code></li>
+    </ul>
+  </li>
+  <li><p><b>[DEPRECATED]</b>, cannot co-exist: To build a grid of images/
+  videos, add attribute <code>data-grid</code> or <code>data-column</code>
+  (only to the first item):</p>
+  <ul>
+      <li><code>&lt;img data-grid="1 3 4" /&gt;</code></li>
+      <li><code>&lt;iframe data-column="1 3 4" /&gt;</code></li>
+  </ul>
+  <p>The numbers represent the amount of grids/ columns for small, medium and
+  large devices respectively, space delimited. Be aware! All media items will
+  be grouped regardless of their placements.</p></li>
+</ol>
+<p><br><b>Tips</b>, if any issues:</p>
+<ul>
+  <li>To set and forget, do not use <code>[blazy]</code> shortcode. It is only
+  useful for grid, or customizing settings, or embedding a known entity.</li>
+  <li>Attributes <code>data, settings</code> can be put together into one
+  <code>[blazy]</code>.</li>
+  <li>If the enclosing quotes are single, the inner ones, if any, must be
+  double, and vice versa.</li>
+  <li>Except for self-closing one-liner <code>data</code> attribute, be sure
+  grid items are stacked, separated by line breaks, or any relevant HTML tags,
+  and wrapped each with <code>[item]</code>:<br>
+<code>
+[blazy]<br>
+&nbsp;&nbsp;[item]<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;IMG&gt;<br>&nbsp;&nbsp;[/item]<br>
+&nbsp;&nbsp;[item]<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;IFRAME&gt;<br>&nbsp;&nbsp;[/item]<br>
+&nbsp;&nbsp;[item]<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Any non-media HTML
+content&lt;/p&gt;<br>&nbsp;&nbsp;[/item]<br>
+[/blazy]
+</code><br>
+    <code>IMG/ IFRAME</code>, or other HTML as item contents can be wrapped with
+    any relevant tags, no problem.
+    </li>
+</ul>

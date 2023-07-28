@@ -1,0 +1,45 @@
+uuid: 565c7753-1490-48ee-a2c6-28a53421017e
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.mauticorg_form
+    - field.field.block_content.mauticorg_form.field_mautic_form
+  module:
+    - text
+_core:
+  default_config_hash: NCkFpfqcRrrnB25xxPuC3OMXcnF6weaGM1IitBHaK5k
+id: block_content.mauticorg_form.default
+targetEntityType: block_content
+bundle: mauticorg_form
+mode: default
+content:
+  field_mautic_form:
+    type: text_textarea
+    weight: 26
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  info:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

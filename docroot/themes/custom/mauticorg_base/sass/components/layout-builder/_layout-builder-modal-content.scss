@@ -1,0 +1,141 @@
+.view-media-library {
+  .views-display-link-widget,
+  .views-display-link-widget_table {
+    &::before {
+      @include font-icon;
+
+      margin-right: 0.5rem;
+      content: "\f009";
+    }
+  }
+
+  .views-display-link-widget_table {
+    &::before {
+      content: "\f0ca";
+    }
+  }
+
+  .view-header,
+  .view-filters,
+  .view-content {
+    margin-bottom: 1rem;
+  }
+
+  .view-header {
+    text-align: right;
+  }
+
+  .view-filters {
+    .views-exposed-form {
+      display: flex;
+      align-items: flex-end;
+
+      &::before {
+        content: none;
+      }
+    }
+
+    .form-item {
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .form-submit {
+      padding: 0.6875rem 0.875rem;
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  .view-content {
+    form {
+      display: flex;
+      flex-wrap: wrap;
+      flex-basis: 100%;
+      margin: 0 -0.5rem;
+    }
+
+    article {
+      font-size: 0.875rem;
+      text-align: center;
+    }
+
+    .views-row {
+      width: calc(50% - 0.5rem);
+      position: relative;
+      border: 3px solid transparent;
+      border-radius: 0.25rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin: 0 0.25rem;
+      margin-bottom: 1rem;
+      line-height: 2.5;
+
+      @include breakpoint($tablet-devices) {
+        width: calc(25% - 0.5rem);
+      }
+
+      &.checked {
+        border-color: $cornflower-blue;
+      }
+
+      &:hover {
+        border-color: $free-speech-blue;
+      }
+
+      .views-field-rendered-entity {
+        border: 1px solid $white-shadow;
+      }
+    }
+
+    .views-field-media-library-select-form {
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: 0.625rem;
+    }
+
+    table {
+      .views-field-media-library-select-form {
+        position: static;
+      }
+
+      th {
+        padding: 0.625rem 0;
+      }
+    }
+  }
+
+  nav {
+    ul {
+      @include clean-list;
+
+      display: flex;
+    }
+
+    li {
+      margin-right: 0.625rem;
+    }
+
+    a {
+      color: $cornflower-blue;
+    }
+  }
+
+  .field--type-image {
+    overflow: hidden;
+    text-align: center;
+    background-color: $grey-light;
+    height: 11.25rem;
+
+    img {
+      height: 11.25rem;
+      object-fit: contain;
+      object-position: center center;
+    }
+  }
+
+  .js-media-library-item-preview {
+    cursor: move;
+  }
+}

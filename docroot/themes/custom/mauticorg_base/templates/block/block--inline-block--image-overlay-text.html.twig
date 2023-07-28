@@ -1,0 +1,24 @@
+{%
+  set classes = [
+    'block',
+    'block-' ~ configuration.provider|clean_class,
+    'block-' ~ plugin_id|clean_class,
+    content.field_full_width_block['#items'].value == '1' ? 'image-overlay__full-width--block' : 'image-overlay__content--block',
+    content.field_block_description|render|striptags|trim ? 'image-overlay--blocks-present' : 'image-overlay--no-blocks',
+  ]
+%}
+
+{% set image_url = file_url(content.field_background_image['#items'].entity.uri.value) %}
+
+<div{{ attributes.addClass(classes) }}>
+  <div class="image-overlay--wrapper" style="background-image: url({{ image_url }})">
+    {{ title_prefix }}
+    {% if label %}
+      <h2{{ title_attributes }}>{{ label }}</h2>
+    {% endif %}
+    {{ title_suffix }}
+    {% block content %}
+      {{ content|without('field_full_width_block', 'field_background_image') }}
+    {% endblock %}
+  </div>
+</div>

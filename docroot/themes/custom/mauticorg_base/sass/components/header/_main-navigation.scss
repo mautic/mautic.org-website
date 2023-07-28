@@ -1,0 +1,89 @@
+.region-primary-menu {
+  .menu-item--expanded > a {
+    padding-right: 1.875rem;
+  }
+
+  .menu--level-0 {
+    .menu {
+      max-height: 0;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out, max-height 0.3s ease-in-out;
+      visibility: hidden;
+
+      @include breakpoint($desktop-devices) {
+        display: block;
+        height: 0;
+        visibility: hidden;
+        position: absolute;
+        left: 0;
+        top: 3.14rem;
+        width: 11.25rem;
+        padding: 0.625rem 0;
+        z-index: 2;
+        box-shadow: 0 0.125rem 0.125rem $black-transparent;
+        font-size: 0.875rem;
+        background-color: rgba(59, 72, 130, 0.95);
+
+        @include breakpoint($desktop-devices) {
+          background-color: $calypso;
+        }
+      }
+
+      a {
+        @include breakpoint($desktop-devices) {
+          padding: 0.625rem 1.25rem;
+        }
+      }
+    }
+
+    & > .menu-item:hover {
+      background-color: $black-transparent;
+    }
+
+    .menu-item--expanded::after {
+      @include font-icon;
+
+      content: "\f0d7";
+      font-size: 0.75rem;
+      position: absolute;
+      right: 1rem;
+      top: 1rem;
+      pointer-events: none;
+    }
+
+    .menu-item--expanded.show {
+      &::after {
+        @include breakpoint($upto-desktop) {
+          content: "\f0d8";
+        }
+      }
+
+      & > .menu {
+        @include breakpoint($upto-desktop) {
+          opacity: 1;
+          visibility: visible;
+          max-height: none;
+          height: auto;
+        }
+      }
+    }
+  }
+
+  .menu--level-1 {
+    .menu-item--expanded::after {
+      @include breakpoint($desktop-devices) {
+        content: "\f0da";
+        top: 0.75rem;
+      }
+    }
+  }
+
+  .menu--level-2 {
+    &.menu {
+      @include breakpoint($desktop-devices) {
+        left: 100%;
+        top: -0.625rem;
+      }
+    }
+  }
+}

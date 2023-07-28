@@ -1,0 +1,16 @@
+name: Slick Development
+type: module
+description: 'Provides Slick carousel development.'
+core_version_requirement: ^8 || ^9
+package: Slick
+configure: slick_devel.settings
+dependencies:
+  - slick:slick
+
+# Add a fake version so local drush and Git checkouts do not fail dependencies.
+# version: 8.x-1.x
+
+# Information added by Drupal.org packaging script on 2021-10-07
+version: '8.x-1.0-rc5'
+project: 'slick_extras'
+datestamp: 1633606498

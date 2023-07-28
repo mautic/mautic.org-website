@@ -1,0 +1,38 @@
+<?php
+
+/**
+ * @file
+ * Provides Slick carousel examples.
+ *
+ * Provides samples for Optionsets, Image styles, Views blocks and a few
+ * supported alters.
+ * Please do not use this module for your works, instead use it to learn how to
+ * make the most out of Slick module. This module will be updated at times to
+ * reflect the best shot Slick can give, so it may not keep your particular use.
+ */
+
+/**
+ * Implements hook_slick_skins_info().
+ *
+ * To provide own skins, simply provide the legit class namespace, and the class
+ * must implement \Drupal\slick\SlickSkinInterface.
+ * See slick.api.php for mode detailed instruction on this.
+ *
+ * @todo deprecate and remove at slick:9.x-1.0, not slick:8.x-3.0.
+ * @see https://www.drupal.org/node/3105648
+ * @see \Drupal\slick\SlickSkinInterface
+ */
+function slick_example_slick_skins_info() {
+  return '\Drupal\slick_example\SlickExampleSkin';
+}
+
+/**
+ * Implements hook_help().
+ */
+function slick_example_help($route_name) {
+  if ($route_name == 'help.page.slick_example') {
+    $output = file_get_contents(dirname(__FILE__) . '/README.md');
+    return function_exists('blazy_parse_markdown') ? blazy_parse_markdown($output) : '<pre>' . $output . '</pre>';
+  }
+  return '';
+}

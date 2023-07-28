@@ -1,0 +1,21 @@
+{#
+/**
+ * @file
+ * Default theme implementation to diplsay the terms of a vocabulary.
+ *
+ * The terms are presented with the voaculary name and description.
+ *
+ * Available variables:
+ * - vocabulary: The vocbulary object.
+ * - children: A list of terms
+ *
+ * @ingroup themeable
+ */
+#}
+<h2>{{vocabulary.label}}</h2>
+<div>
+  {% if vocabulary.description is defined %}
+    <div>{{vocabulary.description}}</div>
+  {% endif %}
+  {{children}}
+</div>

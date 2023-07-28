@@ -1,0 +1,8 @@
+administer moderation_scheduler module:
+  title: 'Administer Moderation Scheduler module'
+  description: 'Perform administration tasks for Moderation Scheduler module.'
+  restrict access: true
+  
+edit moderation scheduler field:
+  title: 'Edit field_scheduled_time'
+  description: 'Users with this permission can schedule content'

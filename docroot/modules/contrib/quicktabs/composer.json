@@ -1,0 +1,30 @@
+{
+  "name": "drupal/quicktabs",
+  "type": "drupal-module",
+  "description": "Render content with tabs and other display styles.",
+  "homepage": "http://drupal.org/project/quicktabs",
+  "license": "GPL-2.0-or-later",
+  "authors": [
+      {
+        "name": "Shelane French",
+        "homepage": "https://www.drupal.org/u/shelane",
+        "role": "Maintainer"
+      },
+      {
+        "name": "Mike Garthwaite",
+        "homepage": "https://www.drupal.org/u/systemick",
+        "role": "Maintainer"
+      }
+  ],
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/quicktabs",
+    "source": "https://git.drupalcode.org/project/quicktabs"
+  },
+  "require": {
+    "drupal/core": "^8.8 || ^9",
+    "drupal/jquery_ui_accordion": "^1.1",
+    "drupal/jquery_ui_tabs": "^1.1"
+  },
+  "require-dev": {},
+  "minimum-stability": "dev"
+}

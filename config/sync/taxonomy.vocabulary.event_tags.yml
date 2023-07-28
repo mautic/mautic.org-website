@@ -1,0 +1,8 @@
+uuid: 75b0cd01-a8a0-4ff7-905b-6226939fb687
+langcode: en
+status: true
+dependencies: {  }
+name: 'Event Tags'
+vid: event_tags
+description: 'Taxonomy is used for Event tags'
+weight: 0

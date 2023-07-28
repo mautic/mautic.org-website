@@ -1,0 +1,27 @@
+<div{{ attributes }}>
+  {%
+    set classes = [
+      'date-label-sierra'
+    ]
+  %}
+  {% if required %}
+    {% set classes = classes|merge(['js-form-required', 'form-required']) %}
+  {% endif %}
+  <label {{ attributes.addClass(classes) }}>{{ 'Event Date'|t }}</label>
+  <div class="date-recur-modular-sierra-widget-day">
+    {% spaceless %}
+    {{ 'From'|t }}
+    {{ widget.day_start }}
+    {{ widget.time_start }}
+    {{ ' to '|t }}
+    {{ widget.time_end }}
+    {{ widget.day_end }}
+    {{ widget.time_zone }}
+    {% endspaceless %}
+  </div>
+  <div class="date-recur-modular-sierra-widget-recurrences">
+    {{ widget.is_all_day }}
+    {{ widget.recurrence_option }}
+  </div>
+  {{ widget.buttons }}
+</div>

@@ -1,0 +1,26 @@
+uuid: 1035e856-60b9-4c4a-8fe3-156cad1ed471
+langcode: en
+status: true
+dependencies:
+  module:
+    - quicktabs
+    - system
+  theme:
+    - mauticorg_base
+id: quicktabsblogrightsidebar
+theme: mauticorg_base
+region: sidebar
+weight: -12
+provider: null
+plugin: 'quicktabs_block:blog_right_sidebar'
+settings:
+  id: 'quicktabs_block:blog_right_sidebar'
+  label: 'QuickTabs - Blog Right Sidebar'
+  label_display: '0'
+  provider: quicktabs
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    context_mapping: {  }
+    pages: "/blog\r\n/blog/*\r\n/category/*\r\n/resources/*\r\n/community-blog/*\r\n/tag/*\r\n/search/*\r\n/search"

@@ -1,0 +1,20 @@
+.latest__discourse--comment {
+  display: flex;
+  padding: 0.625rem 0;
+  border-bottom: 1px solid $white-shadow;
+
+  &:last-child {
+    border-bottom: 0;
+  }
+
+  &:focus,
+  &:hover {
+    img {
+      opacity: 0.9;
+    }
+
+    .recent--comment-text {
+      color: $cornflower-blue;
+    }
+  }
+}

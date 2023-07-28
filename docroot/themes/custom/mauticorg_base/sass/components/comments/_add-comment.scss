@@ -1,0 +1,100 @@
+.block-discourse-comment-block,
+.block-field-blocknodeblogcomment {
+  h2 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
+    padding-top: 0.625rem;
+  }
+}
+
+.comment-form {
+  background: $white-smoke-light;
+  padding: 0.625rem 1.25rem 1.25rem;
+  margin-bottom: 0.9375rem;
+  border-radius: 2px;
+
+  label {
+    @include form-label;
+  }
+
+  .description {
+    display: none;
+  }
+
+  .form-item-name,
+  .form-item-mail {
+    margin-bottom: 0.625rem;
+
+    @include breakpoint($tablet-devices) {
+      width: 49%;
+      float: left;
+    }
+  }
+
+  .form-item-mail {
+    @include breakpoint($tablet-devices) {
+      margin-left: 2%;
+    }
+
+    & + * {
+      clear: both;
+    }
+  }
+
+  textarea,
+  .form-text,
+  .form-email,
+  .form-url {
+    width: 100%;
+    background: $white;
+    border: 2px solid $gainsboro;
+    color: $space-grey;
+    display: block;
+    max-width: 100%;
+    padding: 0.4375rem 0.5rem;
+  }
+
+  .form-wrapper {
+    margin-top: 0.625rem;
+  }
+
+  .filter-wrapper {
+    display: none;
+  }
+}
+
+.further--comments {
+  margin-top: 0;
+  margin-bottom: 1.125rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0;
+  font-size: 1.125rem;
+}
+
+.comment--content {
+  .comment-forbidden {
+    font-size: 0.875rem;
+    font-weight: 400;
+    border-top: 1px solid $gainsboro;
+    margin-top: 0.3125rem;
+    padding-top: 0.3125rem;
+    color: $caribbean-green;
+
+    a {
+      color: $cornflower-blue;
+      font-weight: 600;
+    }
+  }
+
+  .links {
+    .comment-forbidden {
+      a {
+        color: $cornflower-blue;
+        font-weight: 600;
+      }
+    }
+  }
+}

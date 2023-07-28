@@ -1,0 +1,8 @@
+uuid: c632e456-7667-4821-9de5-f3e5da4bf10e
+langcode: en
+status: true
+dependencies: {  }
+id: image_gallery
+label: 'Image Gallery'
+revision: 1
+description: 'Block will be used to create an image gallery.'

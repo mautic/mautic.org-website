@@ -1,0 +1,44 @@
+<?php
+
+/**
+ * @file
+ * Render content with tabs and other display styles.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Url;
+
+// Store quicktabs preprocess theme functions in a separate .inc file.
+\Drupal::moduleHandler()->loadInclude('quicktabs', 'inc', 'quicktabs.theme');
+
+/**
+ * Implements hook_help().
+ */
+function quicktabs_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'quicktabs.admin':
+      return '<p>' . t('Each QuickTabs instance has a corresponding block that is managed on the <a href=":link">blocks administration page</a>.',
+          [':link' => Url::fromRoute('block.admin_display')->setAbsolute()->toString()]) . '</p>';
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function quicktabs_theme($existing, $type, $theme, $path) {
+  return [
+    'quicktabs_block_content' => [
+      'variables' => [
+        'title' => NULL,
+        'block' => NULL,
+        'classes' => NULL,
+        'id' => NULL,
+        'tabid' => NULL,
+      ],
+      'template' => 'quicktabs-block-content',
+    ],
+    'quicktabs_view_quicktabs' => [
+      'file' => 'quicktabs.theme.inc',
+    ],
+  ];
+}

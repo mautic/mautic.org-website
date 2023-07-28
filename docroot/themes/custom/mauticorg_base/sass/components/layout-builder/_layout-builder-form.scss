@@ -1,0 +1,52 @@
+.layout-builder-form {
+  .form-item {
+    margin: 1rem 0;
+  }
+
+  .form-submit {
+    margin-bottom: 0.5rem;
+  }
+
+  .field--name-moderation-state {
+    .form-wrapper {
+      @include breakpoint($tablet-devices) {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    label {
+      &::after {
+        content: "\003A";
+      }
+    }
+  }
+
+  .form-item-moderation-state-0-current {
+    font-weight: 600;
+    color: $nero;
+
+    label {
+      font-weight: 300;
+      color: $brownish-grey;
+    }
+  }
+
+  .form-item-toggle-content-preview {
+    margin-bottom: 0;
+
+    .form-checkbox {
+      vertical-align: top;
+    }
+  }
+
+  .form-item-revision {
+    margin-left: 1rem;
+
+    .description {
+      margin-top: 1rem;
+    }
+  }
+}

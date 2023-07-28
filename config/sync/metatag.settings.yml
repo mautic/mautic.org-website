@@ -1,0 +1,7 @@
+entity_type_groups:
+  taxonomy_term:
+    blog_category:
+      basic: basic
+      open_graph: open_graph
+      twitter_cards: twitter_cards
+      schema_web_page: schema_web_page

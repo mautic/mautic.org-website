@@ -1,0 +1,48 @@
+{#
+/**
+ * @file
+ * Theme override to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ */
+#}
+
+{{ attach_library('quicktabs/quicktabs') }}
+
+{% set last_index = total_rows - 1 %}
+
+{% if title %}
+  <h3>{{ title }}</h3>
+{% endif %}
+{% for key, row in rows %}
+  {% if key in rows_with_tabs %}
+    {{ tabs }}
+    <div class="quicktabs-main" id="quicktabs-container-{{ quicktab_id }}">
+  {% endif %}
+  {% if key in rows_with_page_starts %}
+    {% for page_key, page in rows_with_page_starts %}
+      {% if key == page %}
+        <div class="quicktabs-tabpage{{ page_key > 0 ? ' quicktabs-hide' : '' }}" id="quicktabs-tabpage-{{ quicktab_id }}-{{ page_key }}"> <!-- start of tbapage -->
+        {% set page_number = page_key %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+  {{ row.content }}
+  {% if key in rows_with_page_endings %}
+    {# close .quicktabs-tabpage #}
+    </div> 
+  {% endif %}
+  {% if key == last_index %}
+    {# close .quicktabs-main #}
+    </div> 
+  {% endif %}
+{% endfor %}

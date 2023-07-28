@@ -1,0 +1,123 @@
+.calendar-calendar {
+  th {
+    &.days {
+      color: $white;
+      padding: 0.625rem 0.3125rem;
+      background-color: $cornflower-blue;
+    }
+  }
+
+  .month-view {
+    @include breakpoint($upto-tablet) {
+      overflow: auto;
+    }
+
+    .contents {
+      font-size: 0;
+
+      & > a {
+        font-size: 0.75rem;
+      }
+
+      .views-field-body {
+        font-size: 0.875rem;
+      }
+    }
+
+    .full {
+      tr {
+        td {
+          background-color: $white-smoke-light;
+
+          &.date-box {
+            background-color: $white-smoke;
+            font-weight: 600;
+            text-align: center;
+            font-size: 0.75rem;
+
+            &.today {
+              color: $white;
+              border-color: $grey-ash;
+              border-width: 1px;
+              background-color: $cornflower-blue;
+            }
+
+            &.future {
+              color: $white;
+              background-color: $hexa-light;
+
+              &.empty {
+                background-color: $gainsboro;
+                color: $space-grey;
+              }
+            }
+          }
+
+          &.empty {
+            color: $space-grey;
+
+            &.past {
+              opacity: 0.5;
+            }
+          }
+
+          .day {
+            float: none;
+            margin: auto;
+          }
+
+          &.single-day {
+            &.today {
+              border-color: $grey-ash;
+              border-width: 1px;
+            }
+
+            .events--popup {
+              background: $white;
+              padding: 0.625rem 0.75rem;
+            }
+          }
+
+          &.multi-day,
+          &.single-day {
+            height: 9.0625rem !important;
+
+            &.empty {
+              opacity: 0.5;
+            }
+          }
+        }
+
+        &.single-day .no-entry {
+          height: 9.0625rem !important;
+
+          .inner {
+            min-width: 6rem;
+          }
+        }
+
+        .calendar {
+          margin: 0 0.5rem;
+          font-weight: normal;
+          font-size: 0.75rem;
+          float: none;
+          border-bottom: 1px solid $gainsboro;
+          line-height: 1.3;
+          text-align: center;
+
+          a {
+            padding: 0.375rem 0.25rem;
+            font-weight: normal;
+            display: block;
+          }
+        }
+
+        .item:last-child {
+          .calendar {
+            border-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+}

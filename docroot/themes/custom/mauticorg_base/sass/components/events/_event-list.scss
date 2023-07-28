@@ -1,0 +1,173 @@
+.view--events--list,
+.view-sell-all-events,
+.events--popup {
+  .view-content,
+  .pager {
+    max-width: 43.75rem;
+    margin: 2rem auto;
+  }
+
+  .view-header {
+    .pager {
+      max-width: none;
+    }
+  }
+
+  .views-row {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid $white-whisper;
+    clear: both;
+    overflow: hidden;
+
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+
+  .views-field-title {
+    font-size: 1.75rem;
+    font-family: $secondary-font;
+  }
+
+  .views-field-field-featured-image {
+    a {
+      display: block;
+    }
+
+    img {
+      margin-bottom: 0.5rem;
+      vertical-align: middle;
+
+      @include breakpoint($upto-tablet) {
+        width: 100%;
+      }
+
+      @include breakpoint($tablet-devices) {
+        margin-right: 1rem;
+        float: left;
+      }
+    }
+  }
+
+  .views-field-field-event-date-value,
+  .views-field-recurring-event {
+    font-size: 0;
+    display: inline-block;
+    margin-right: 0.25rem;
+    margin-bottom: 0.5rem;
+
+    .field-content,
+    span {
+      font-weight: bold;
+      font-size: 0.8125rem;
+    }
+  }
+}
+
+.view-sell-all-events,
+.events--popup {
+  .view-content {
+    margin: 0 auto 1rem;
+  }
+}
+
+.view-sell-all-events {
+  .view-header {
+    max-width: 43.75rem;
+    margin: 1rem auto;
+  }
+
+  .views-field-field-event-date-value {
+    margin-bottom: 1rem;
+
+    .field-content {
+      font-size: 1rem;
+
+      &::before {
+        @include font-icon;
+
+        content: "\f073";
+        margin-right: 0.5rem;
+      }
+    }
+  }
+
+  .views-field-field-event-category,
+  .views-field-field-event-website,
+  .views-field-field-event-tags {
+    display: flex;
+    font-size: 0.875rem;
+    margin-right: 0.5rem;
+    margin-bottom: 1rem;
+
+    .views-label {
+      font-weight: 600;
+      color: $brownish-grey;
+      margin-right: 0.5rem;
+    }
+
+    a {
+      font-weight: 600;
+    }
+  }
+
+  .views-field-field-event-category {
+    border-bottom: 1px solid $gainsboro-light;
+    padding-bottom: 1.0625rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    font-family: $secondary-font;
+    text-transform: uppercase;
+    color: $brownish-grey;
+    margin-bottom: 1.25rem;
+
+    @include breakpoint($tablet-devices) {
+      font-size: 1rem;
+    }
+  }
+
+  .views-field-field-event-venue {
+    display: flex;
+    font-size: 0.875rem;
+
+    .views-label-field-event-venue {
+      font-weight: bold;
+      margin-right: 0.5rem;
+
+      &::before {
+        @include font-icon;
+
+        content: "\f041";
+        margin-right: 0.5rem;
+      }
+    }
+
+    .field-content {
+      font-weight: bold;
+    }
+  }
+
+  .views-field-field-event-tags {
+    .field-content {
+      background: $white-smoke-lighter;
+      color: $hexa;
+      line-height: 1.666em;
+      white-space: nowrap;
+      padding: 0.1875rem 0.4375rem;
+      display: block;
+      margin: 0 0.3125rem 0.3125rem 0;
+      border-radius: 3px;
+
+      &:focus,
+      &:hover {
+        background-color: $cornflower-blue;
+        color: $white;
+      }
+    }
+  }
+
+  .field--name-field-media-image {
+    margin: 1rem 0;
+  }
+}

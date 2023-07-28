@@ -1,0 +1,7 @@
+noreqnewpass.settings_form:
+  path: '/admin/config/people/noreqnewpass'
+  defaults:
+    _form: '\Drupal\noreqnewpass\Form\NoReqNewPassSettingsForm'
+    _title: 'No Request New Password'
+  requirements:
+    _permission: 'administer noreqnewpass'

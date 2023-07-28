@@ -1,0 +1,22 @@
+{
+  "name": "drupal/dropsolid_purge",
+  "type": "drupal-module",
+  "description": "Dropsolid purge module let's you purge varnish",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "http://drupal.org/project/dropsolid_purge",
+  "authors": [
+    {
+      "name": "Niels Aers",
+      "role": "Maintainer"
+    }
+  ],
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "http://drupal.org/project/issues/dropsolid_purge",
+    "source": "http://cgit.drupalcode.org/dropsolid_purge"
+  },
+  "require": {
+    "drupal/purge": "^3.0"
+  }
+}

@@ -1,0 +1,88 @@
+.media-library-widget-modal {
+  max-width: 90%;
+
+  @include breakpoint($tablet-devices) {
+    max-width: 80%;
+  }
+
+  @include breakpoint($desktop-devices) {
+    max-width: 60rem;
+  }
+
+  label {
+    display: block;
+    margin: 0 0 0.25rem;
+    font-weight: 600;
+    font-size: 0.875rem;
+  }
+
+  .form-file {
+    max-width: 100%;
+    padding: 0.5325rem;
+    border: 0.125rem solid $white-shadow;
+    color: $brownish-grey;
+    background-color: $white;
+  }
+
+  .js-media-library-menu {
+    @include clean-list;
+
+    display: flex;
+    background: $cornflower-blue;
+    margin: 1rem 0;
+
+    li {
+      margin: 0 3px;
+    }
+
+    a {
+      padding: 0.4375rem 0.625rem;
+      display: block;
+      border: 3px solid transparent;
+      border-bottom-width: 0;
+      color: $white;
+      font-size: 0.875rem;
+      border-radius: 0.25rem 0.25rem 0 0;
+
+      &.active {
+        border-color: $cornflower-blue;
+        background-color: $white;
+        color: $cornflower-blue;
+        font-weight: 600;
+      }
+    }
+  }
+
+  .js-media-library-add-form {
+    .form-wrapper {
+      padding: 1rem;
+      border: 1px solid $white-shadow;
+      border-radius: 0.125rem;
+      background-color: $grey-light;
+      margin: 1rem 0;
+
+      .description {
+        margin-top: 0.25rem;
+        color: $brownish-grey;
+        font-size: 0.75rem;
+        line-height: 1.7;
+      }
+    }
+
+    ul {
+      @include clean-list;
+    }
+
+    p {
+      font-size: 0.875rem;
+    }
+
+    .form-actions {
+      display: none;
+    }
+  }
+
+  .media-library-selected-count {
+    padding: 0 0.625rem;
+  }
+}

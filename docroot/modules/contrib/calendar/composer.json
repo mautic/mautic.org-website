@@ -1,0 +1,27 @@
+{
+  "name": "drupal/calendar",
+  "description": "Provides a Views plugin to display views containing dates as Calendars.",
+  "type": "drupal-module",
+  "license": "GPL-2.0-or-later",
+  "homepage": "https://www.drupal.org/project/calendar",
+  "authors": [
+    {
+       "name": "Neslee Canil Pinto",
+       "homepage": "https://www.drupal.org/u/neslee-canil-pinto",
+        "role": "Maintainer"
+    },
+    {
+       "name": "Eric Sol",
+       "homepage": "https://www.drupal.org/u/solide-echt",
+       "role": "Maintainer"
+    }
+  ],
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/calendar",
+    "source": "https://git.drupalcode.org/project/calendar"
+  },
+  "require": {
+    "drupal/core": "^8 || ^9",
+    "drupal/views_templates": "^1.1"
+  }
+}

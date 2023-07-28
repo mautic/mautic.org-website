@@ -1,0 +1,6 @@
+mauticorg_form.mauticorg_form_config:
+  title: 'Configuration of Mauticorg Form'
+  route_name: mauticorg_form.mauticorg_form_config
+  description: 'Configuration of Mauticorg Form'
+  parent: system.admin_config_system
+  weight: 99

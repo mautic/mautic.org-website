@@ -1,0 +1,15 @@
+uuid: 7b448eca-e4dc-4b5d-a436-9b9bbca2ad74
+langcode: en
+status: true
+dependencies: {  }
+id: whitelist
+label: Whitelist
+description: ''
+weight: -99
+folder: ../config/splits/whitelist
+module: {  }
+theme: {  }
+blacklist: {  }
+graylist: {  }
+graylist_dependents: true
+graylist_skip_equal: true

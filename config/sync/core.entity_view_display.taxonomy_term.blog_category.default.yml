@@ -1,0 +1,32 @@
+uuid: c8b9aba5-61f7-4c80-861b-1e3f174d60a0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.blog_category.field_nicename
+    - taxonomy.vocabulary.blog_category
+  module:
+    - text
+id: taxonomy_term.blog_category.default
+targetEntityType: taxonomy_term
+bundle: blog_category
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_nicename:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

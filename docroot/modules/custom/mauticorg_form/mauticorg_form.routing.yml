@@ -1,0 +1,9 @@
+mauticorg_form.mauticorg_form_config:
+  path: '/admin/config/mauticorg_form/settings'
+  defaults:
+    _form: '\Drupal\mauticorg_form\Form\MauticorgFormSettings'
+    _title: 'Configuration of Mauticorg Form'
+  requirements:
+    _permission: 'mauticorg form settings'
+  options:
+    _admin_route: TRUE

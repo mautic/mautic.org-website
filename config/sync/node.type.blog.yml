@@ -1,0 +1,18 @@
+uuid: dbb50998-ba32-4746-bb53-eea411e43bce
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: Blog
+type: blog
+description: 'Used for adding mautic.org community blog.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

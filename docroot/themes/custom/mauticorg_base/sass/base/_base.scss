@@ -1,0 +1,103 @@
+body {
+  font-size: 16px;
+  font-family: $primary-font;
+  background-color: $white-whisper;
+  line-height: 1.6;
+  color: $brownish-grey;
+  font-weight: 300;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  ::selection {
+    background: $light-purple;
+    color: $white;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 400;
+  font-family: $secondary-font;
+  color: $grey;
+}
+
+.node {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    span {
+      color: $hexa-light;
+    }
+  }
+
+  h1 {
+    font-size: 1.75rem;
+    letter-spacing: -0.7px;
+    line-height: 1.3;
+
+    @include breakpoint($tablet-devices) {
+      font-size: 2.6875rem;
+      letter-spacing: -1px;
+    }
+  }
+}
+
+p {
+  margin-top: 0;
+}
+
+a {
+  text-decoration: none;
+  color: $cornflower-blue;
+  transition: all 0.2s ease;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+}
+
+img {
+  transition: all 0.3s ease-in-out;
+}
+
+strong {
+  font-weight: 600;
+}
+
+.fa,
+.fab,
+.fas {
+  @include font-icon;
+
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+}
+
+code {
+  background: $gainsboro-light;
+  padding: 0 0.1875rem;
+  font-size: 0.75rem;
+  color: $rose;
+  font-family: $tertiary-font;
+}
+
+u {
+  text-decoration: none;
+  border-bottom: 1px solid $gainsboro;
+}
+
+.purple__cell {
+  background-color: $cornflower-blue;
+}

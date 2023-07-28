@@ -1,0 +1,102 @@
+.image--overlay-block {
+  margin: 1rem 0 2.5rem 0;
+
+  @include breakpoint($tablet-devices) {
+    margin: 0 0.9375rem;
+    width: 33.33%;
+  }
+
+  i {
+    font-size: 1.5rem;
+    color: $caribbean-green;
+    margin-top: 0.25rem;
+    margin-bottom: 1.55rem;
+  }
+}
+
+.image--overlay-content {
+  color: $white;
+  text-align: center;
+
+  .field--name-body {
+    .field--name-field-media-image {
+      line-height: 1;
+    }
+
+    img {
+      max-width: 11.25rem;
+      margin-bottom: 1.1rem;
+      vertical-align: middle;
+    }
+  }
+}
+
+.image--overlay-blocks {
+  @include breakpoint($tablet-devices) {
+    display: flex;
+  }
+}
+
+.frontpage {
+  .main {
+    max-width: none;
+    padding: 0;
+    margin-top: 0;
+    overflow-x: hidden;
+
+    @include breakpoint($tablet-devices) {
+      overflow: auto;
+    }
+  }
+
+  .message {
+    margin-top: 3.125rem;
+    margin-bottom: 0;
+    border-radius: 0;
+  }
+
+  .main__content {
+    box-shadow: none;
+    background: transparent;
+  }
+
+  .region-content {
+    padding: 0;
+  }
+
+  .page__header {
+    min-height: 0;
+    background: none;
+  }
+
+  &.toolbar-horizontal {
+    .page__header {
+      min-height: 3.125rem;
+    }
+  }
+
+  .block-inline-blockbasic {
+    max-width: 70rem;
+    padding: 3rem 1.875rem 3.75rem;
+    margin: 0 auto;
+    text-align: center;
+    background: $white;
+    color: $nero;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  .image-overlay__content--block {
+    margin-bottom: 0;
+  }
+
+  .image-overlay--no-blocks {
+    padding: 0 0.9375rem 0.9375rem;
+
+    @include breakpoint($tablet-devices) {
+      padding: 0 3.75rem 3.75rem 3.75rem;
+    }
+  }
+}

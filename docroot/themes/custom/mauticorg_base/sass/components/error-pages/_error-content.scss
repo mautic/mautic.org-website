@@ -1,0 +1,28 @@
+.page--403,
+.page--404 {
+  .block-page-title-block {
+    span {
+      color: $hexa-light;
+    }
+  }
+
+  .region-content {
+    min-height: 25rem;
+
+    @include breakpoint($tablet-devices) {
+      min-height: 37.5rem;
+    }
+  }
+}
+
+.page--403 {
+  .block-page-404-content-block {
+    display: none;
+  }
+}
+
+.page--404 {
+  .block-page-403-content-block {
+    display: none;
+  }
+}

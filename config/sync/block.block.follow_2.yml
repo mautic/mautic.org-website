@@ -1,0 +1,30 @@
+uuid: 4136fa99-4992-4867-9618-93de0974b3a9
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.social-follow
+  module:
+    - system
+  theme:
+    - mauticorg_base
+id: follow_2
+theme: mauticorg_base
+region: sidebar_top
+weight: -8
+provider: null
+plugin: 'system_menu_block:social-follow'
+settings:
+  id: 'system_menu_block:social-follow'
+  label: Follow
+  label_display: visible
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    context_mapping: {  }
+    pages: "<front>\r\n/user/*\r\n/events\r\n/events/*"

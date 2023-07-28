@@ -1,0 +1,20 @@
+auth0_form_title: 'Sign In'
+auth0_allow_signup: 1
+auth0_allow_offline_access: 0
+auth0_redirect_for_sso: 1
+auth0_widget_cdn: //cdn.auth0.com/js/lock/11.22/lock.min.js
+auth0_requires_verified_email: 1
+auth0_join_user_by_mail_enabled: 1
+auth0_username_claim: preferred_username
+auth0_login_css: "#a0-widget .a0-panel {\r\n    min-width: 90%;\r\n    padding: 5%;\r\n    box-shadow: none;\r\n    -webkit-box-shadow: none;\r\n}\r\n#a0-widget .a0-panel {\r\n    background-color: #f6f6f2;\r\n    border-color: #f9f9f9;\r\n}"
+auth0_auto_register: 0
+auth0_lock_extra_settings: ''
+auth0_claim_mapping: name|field_display_name
+auth0_claim_to_use_for_role: ''
+auth0_role_mapping: ''
+auth0_client_id: REDACTED
+auth0_client_secret: REDACTED
+auth0_domain: REDACTED
+auth0_custom_domain: ''
+auth0_jwt_signature_alg: RS256
+auth0_secret_base64_encoded: 0

@@ -1,0 +1,23 @@
+# Set configuration defaults. This schema describes the moderation_scheduler.settings
+# config. The defaults for this config are set in
+# config/install/moderation_scheduler.settings.yml and then used by
+# \Drupal\moderation_scheduler\Form\ModerationSchedulerForm.
+# @see https://www.drupal.org/node/1905070
+moderation_scheduler.settings:
+  type: config_object
+  label: 'Cron Settings'
+  mapping:
+    interval:
+      type: integer
+      label: 'Period between cron runs'
+    moderation_scheduler_content_types:
+      type: sequence
+      label: 'Enabled Content types'
+      sequence:
+        type: string
+    moderation_scheduler_enablemoderation:
+      type: boolean
+      label: 'Content Moderation Control'
+    moderation_scheduler_moderation_state_settings:  
+      type: varchar
+      label: 'States elegible to publish'

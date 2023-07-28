@@ -1,0 +1,14 @@
+uuid: 8cec478e-5b7c-4e6e-b766-cd85095443f3
+langcode: en
+status: true
+dependencies: {  }
+id: file
+label: File
+description: 'Media type to include files, such as PDF.'
+source: file
+queue_thumbnail_downloads: false
+new_revision: false
+source_configuration:
+  source_field: field_media_file
+field_map:
+  name: name

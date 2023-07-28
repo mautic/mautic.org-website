@@ -1,0 +1,17 @@
+uuid: 301ade4e-0a39-4f04-81f9-77515d75e756
+langcode: en
+status: true
+dependencies:
+  module:
+    - mauticorg_blog
+    - user
+id: mauticorg_blog_tag
+plugin_id: mauticorg_blog_tag
+granularity: resource
+configuration:
+  methods:
+    - GET
+  formats:
+    - atom_xml
+  authentication:
+    - cookie

@@ -1,0 +1,30 @@
+uuid: 0a0d3378-69bd-4166-a979-1d1f4fcec723
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.blog-category-menu
+  module:
+    - system
+  theme:
+    - mauticorg_base
+id: blogcategorymenu
+theme: mauticorg_base
+region: sidebar
+weight: -11
+provider: null
+plugin: 'system_menu_block:blog-category-menu'
+settings:
+  id: 'system_menu_block:blog-category-menu'
+  label: 'BLOG CATEGORIES'
+  label_display: visible
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    context_mapping: {  }
+    pages: "/blog\r\n/blog/*\r\n/category/*\r\n/resources/*\r\n/community-blog/*\r\n/tag/*\r\n/search/*\r\n/search"

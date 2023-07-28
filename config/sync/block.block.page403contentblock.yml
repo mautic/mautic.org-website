@@ -1,0 +1,20 @@
+uuid: 70164754-b0b6-42f1-9d62-00835bc31eb3
+langcode: en
+status: true
+dependencies:
+  module:
+    - mauticorg_core
+  theme:
+    - mauticorg_base
+id: page403contentblock
+theme: mauticorg_base
+region: error_content
+weight: -10
+provider: null
+plugin: page_403_content_block
+settings:
+  id: page_403_content_block
+  label: 'Page 403 Content Block'
+  label_display: '0'
+  provider: mauticorg_core
+visibility: {  }

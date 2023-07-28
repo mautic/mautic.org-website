@@ -1,0 +1,59 @@
+{
+  "name": "mautic",
+  "version": "1.0.0",
+  "description": "A Drupal theme with modern tooling.",
+  "private": true,
+  "dependencies": {
+    "@types/youtube": "0.0.38",
+    "@typescript-eslint/eslint-plugin": "1.11.0",
+    "@typescript-eslint/parser": "1.11.0",
+    "autoprefixer": "9.6.0",
+    "breakpoint-sass": "2.7.1",
+    "browser-sync": "2.26.7",
+    "eslint": "6.0.1",
+    "eslint-config-prettier": "5.0.0",
+    "eslint-plugin-prettier": "3.1.0",
+    "gulp": "^4.0.2",
+    "gulp-eslint": "5.0.0",
+    "gulp-if": "2.0.2",
+    "gulp-plumber": "1.2.1",
+    "gulp-postcss": "8.0.0",
+    "gulp-sass": "4.0.2",
+    "gulp-sass-glob": "1.0.9",
+    "gulp-stylelint": "9.0.0",
+    "gulp-svgstore": "7.0.1",
+    "gulp-typescript": "5.0.1",
+    "gulp-util": "3.0.8",
+    "husky": "2.4.1",
+    "normalize.scss": "0.1.0",
+    "prettier": "1.18.2",
+    "sass-toolkit": "2.10.2",
+    "select2": "^4.0.8",
+    "stylelint": "10.1.0",
+    "stylelint-config-standard": "18.3.0",
+    "typescript": "3.5.2"
+  },
+  "scripts": {
+    "postinstall": "find node_modules/ -name '*.info' -type f -delete",
+    "install-tools": "npm ci",
+    "uninstall-tools": "rm -r node_modules;",
+    "build": "gulp",
+    "build:dev": "gulp build:dev",
+    "serve": "gulp serve",
+    "watch": "gulp watch"
+  },
+  "hooks": {
+    "pre-commit": "gulp lint"
+  },
+  "license": "MIT",
+  "husky": {
+    "hooks": {
+      "pre-commit": "gulp lint --type production"
+    }
+  },
+  "devDependencies": {
+    "@types/jquery": "^3.3.30",
+    "@types/jquery.ui.datetimepicker": "^0.3.29",
+    "@types/slick-carousel": "^1.6.33"
+  }
+}

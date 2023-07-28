@@ -1,0 +1,13 @@
+name: 'Layout Builder Asymmetric Translation'
+description: 'Allows to have separate layout overrides per translation.'
+type: module
+core: 8.x
+core_version_requirement: ^8 || ^9
+package: 'Layout Builder'
+dependencies:
+  - drupal:layout_builder
+
+# Information added by Drupal.org packaging script on 2021-04-25
+version: '8.x-2.12'
+project: 'layout_builder_at'
+datestamp: 1619341273

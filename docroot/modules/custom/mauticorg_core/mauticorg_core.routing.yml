@@ -1,0 +1,9 @@
+mauticorg_core.mauticorg_site_config:
+  path: '/admin/config/mauticorg_core/site_settings'
+  defaults:
+    _form: '\Drupal\mauticorg_core\Form\MauticorgSiteSettings'
+    _title: 'Configuration of MauticOrg Site Settings'
+  requirements:
+    _permission: 'mauticorg site settings'
+  options:
+    _admin_route: TRUE

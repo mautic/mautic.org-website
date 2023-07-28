@@ -1,0 +1,24 @@
+uuid: c0ef0f64-56b2-4eca-a1d9-11e36e151ac0
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.blog_listing
+  module:
+    - views
+  theme:
+    - mauticorg_base
+id: views_block__blog_listing_block_2
+theme: mauticorg_base
+region: post_content
+weight: -5
+provider: null
+plugin: 'views_block:blog_listing-block_2'
+settings:
+  id: 'views_block:blog_listing-block_2'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility: {  }

@@ -1,0 +1,13 @@
+@font-face {
+  font-family: "monaco";
+  src:
+    url("../../fonts/Monaco.ttf?2pxs5l") format("truetype"),
+    url("../../fonts/Monaco.woff?2pxs5l") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+$primary-font: "Roboto", sans-serif;
+$secondary-font: "Titillium Web", sans-serif;
+$tertiary-font: "monaco", sans-serif;
+$icon-font: FontAwesome;

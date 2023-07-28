@@ -1,0 +1,22 @@
+.layout--twocol-section,
+.layout--threecol-section,
+.layout--fourcol-section {
+  table {
+    td {
+      border: 1px solid $gainsboro;
+      padding: 10px 15px;
+    }
+
+    tr {
+      background-color: transparent;
+    }
+
+    a {
+      color: $brownish-grey;
+    }
+
+    .purple__cell {
+      background-color: $cornflower-blue;
+    }
+  }
+}

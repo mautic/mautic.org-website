@@ -1,0 +1,9 @@
+_core:
+  default_config_hash: T9UgNR14EkD5nfkxL4twmsHpaC4HLX_RHyfhQgl99qA
+interval: 300
+moderation_scheduler_content_types:
+  blog: blog
+  event: event
+  landing_page: landing_page
+moderation_scheduler_enablemoderation: false
+moderation_scheduler_moderation_state_settings: ''

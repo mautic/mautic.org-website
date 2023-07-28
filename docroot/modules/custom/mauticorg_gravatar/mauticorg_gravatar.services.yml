@@ -1,0 +1,4 @@
+services:
+  mauticorg_gravatar_service.gravatar:
+    class: Drupal\mauticorg_gravatar\Services\Gravatar
+    arguments: ['@http_client_factory', '@config.factory']

@@ -1,0 +1,20 @@
+tagclouds.settings:
+  type: mapping
+  label: Settings
+  mapping:
+    sort_order:
+      type: string
+    display_type:
+      type: string
+    display_node_link:
+      type: boolean
+    display_more_link:
+      type: boolean
+    page_amount:
+      type: string
+    levels:
+      type: integer
+    language_separation:
+      type: integer
+    language_separation_radios:
+      type: integer

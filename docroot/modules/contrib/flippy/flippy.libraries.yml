@@ -1,0 +1,20 @@
+drupal.flippy:
+  remote: https://drupal.org/project/flippy
+  version: 8.x-1.x
+  license:
+      name: GNU
+      url: https://www.drupal.org/licensing
+      gpl-compatible: true
+  css:
+    component:
+      css/flippy.css: {}
+
+flippy.swipe:
+  remote: https://drupal.org/project/flippy
+  version: 8.x-1.x
+  license:
+      name: GNU
+      url: https://www.drupal.org/licensing
+      gpl-compatible: true
+  js:
+    js/flippy.js: {}
