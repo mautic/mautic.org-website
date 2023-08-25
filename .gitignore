@@ -6,14 +6,14 @@
 # Once this workflow changes, these lines can be uncommented or moved to a
 # separate file / logic.
 
-#/drush/contrib/
-#/vendor/
-#/docroot/core/
-#/docroot/modules/contrib/
+/drush/contrib/
+/vendor/
+/docroot/core/
+/docroot/modules/contrib/
 #/docroot/modules/custom/
-#/docroot/themes/contrib/
+/docroot/themes/contrib/
 #/docroot/themes/custom/
-#/docroot/profiles/contrib/
+/docroot/profiles/contrib/
 #/docroot/profiles/dropsolid_rocketship_profile/
 #/docroot/libraries/
 
