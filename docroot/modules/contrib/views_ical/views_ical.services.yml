@@ -1,3 +1,0 @@
-services:
-  views_ical.helper:
-    class: \Drupal\views_ical\ViewsIcalHelper

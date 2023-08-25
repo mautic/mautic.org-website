@@ -1,4 +1,0 @@
----
-drupal/acquia_connector:
-  version: ~3.0
-  version_dev: 3.x-dev
