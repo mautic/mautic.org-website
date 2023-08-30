@@ -73,7 +73,7 @@ class DiscourseCommentBlock extends BlockBase implements ContainerFactoryPluginI
         // Save topic count.
         $post_count = ($topic['posts_count'] > 0) ? ($topic['posts_count'] - 1) : 0;
         $field_discourse[0]['comment_count'] = $post_count;
-        $node->set('discourse_field', $field_discourse)->save();
+        //$node->set('discourse_field', $field_discourse)->save();
         $comments = [];
         $default_avatar_image = $this->discourseApiClient->getDefaultAvatar();
         if (isset($topic['post_stream']) && isset($topic['post_stream']['posts'])) {
