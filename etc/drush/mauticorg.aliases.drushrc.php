@@ -244,3 +244,41 @@ if (TRUE) {
     $aliases[$project . '.qa3']['remote-host'] = $env_qa3;
     $aliases[$project . '.qa3']['remote-user'] = $remote_user_qa3;
 }
+// qa4
+// Server
+$env_qa4     = 'web-012.dropsolid.com';
+// User
+$remote_user_qa4     = 'mauticorg_qa4';
+
+// Alias
+$aliases[$project . '.qa4'] = array(
+    'root'                    => '/var/www/mauticorg/qa4/application/docroot',
+    'php' => '/opt/php/8.1/php', //ansible generated for qa4, do not remove
+    'path-aliases'            => array(
+        '%dump' => sprintf('/tmp/sql-sync-qa4-%s-local.sql', $project),
+    ),
+    'ssh-options' => '-o StrictHostKeyChecking=no',
+    'command-specific'        => array(
+        'core-rsync' => array(
+            'mode' => 'rlvz',
+            'perms' => TRUE
+        ),
+        'rsync'      => array(
+            'mode' => 'rlvz',
+            'perms' => TRUE
+        ),
+    ),
+    'target-command-specific' => array(
+        'sql-sync' => array(
+            'no-ordered-dump' => true,
+        ),
+    ),
+);
+// When the project is not hosted on the same server where this script is
+// running on, add the remote host parameters for the respective environment.
+// This is located after the include to allow developers to overwrite 
+// remote-host and remote-user with their own values.
+if (TRUE) {
+    $aliases[$project . '.qa4']['remote-host'] = $env_qa4;
+    $aliases[$project . '.qa4']['remote-user'] = $remote_user_qa4;
+}

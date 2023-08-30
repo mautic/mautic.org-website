@@ -58,6 +58,18 @@ qa3:
   paths: {dump: /tmp/sql-sync-qa3-%s-local.sql}
   root: /var/www/mauticorg/qa3/application/docroot
   user: mauticorg_qa3
+qa4:
+  host: web-012.dropsolid.com
+  options:
+    command-specific:
+      core-rsync: {mode: rlvz, perms: true}
+      rsync: {mode: rlvz, perms: true}
+    php: /opt/php/8.1/php
+    target-command-specific:
+      sql-sync: {no-ordered-dump: true}
+  paths: {dump: /tmp/sql-sync-qa4-%s-local.sql}
+  root: /var/www/mauticorg/qa4/application/docroot
+  user: mauticorg_qa4
 staging:
   host: web-012.dropsolid.com
   options:
