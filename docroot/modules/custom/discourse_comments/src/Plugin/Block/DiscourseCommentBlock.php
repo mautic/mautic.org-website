@@ -70,46 +70,48 @@ class DiscourseCommentBlock extends BlockBase implements ContainerFactoryPluginI
       $field_discourse = $node->get('discourse_field')->getValue();
       if (isset($field_discourse[0]['topic_id']) && is_numeric($field_discourse[0]['topic_id'])) {
         $topic = Json::decode($this->discourseApiClient->getTopic($field_discourse[0]['topic_id']));
-        // Save topic count.
-        $post_count = ($topic['posts_count'] > 0) ? ($topic['posts_count'] - 1) : 0;
-        $field_discourse[0]['comment_count'] = $post_count;
-        //$node->set('discourse_field', $field_discourse)->save();
-        $comments = [];
-        $default_avatar_image = $this->discourseApiClient->getDefaultAvatar();
-        if (isset($topic['post_stream']) && isset($topic['post_stream']['posts'])) {
-          foreach ($topic['post_stream']['posts'] as $key => $post) {
-            if ($key > 0) {
-              if ($post['user_deleted']) {
-                continue;
-              }
-              $comments[$key]['username'] = $post['username'];
-              // Appending base url if https:// does not exist in image path.
-              if (strpos($post['avatar_template'], "https://") === FALSE) {
-                $avatar_image = sprintf('%s%s', $this->discourseApiClient->getBaseUrl(), str_replace('{size}', '90', $post['avatar_template']));
-              }
-              else {
-                $avatar_image = str_replace('{size}', '90', $post['avatar_template']);
-              }
-              // Placing default avatar image if avatar image does not exist.
-              if (@getimagesize($avatar_image)) {
-                $comments[$key]['avatar_template'] = $avatar_image;
-              }
-              else {
-                $comments[$key]['avatar_template'] = $default_avatar_image;
-              }
 
-              $date = $this->dateFormatter->format(strtotime($post['created_at']), 'custom', 'F d, Y');
-              $comments[$key]['created_at'] = $date;
-              $comments[$key]['post_content'] = preg_replace('/<\/?a[^>]*>/', '', $post['cooked']);
+        if ($topic) {
+          // Save topic count.
+          $post_count = ($topic['posts_count'] > 0) ? ($topic['posts_count'] - 1) : 0;
+          $field_discourse[0]['comment_count'] = $post_count;
+          //$node->set('discourse_field', $field_discourse)->save();
+          $comments = [];
+          $default_avatar_image = $this->discourseApiClient->getDefaultAvatar();
+          if (isset($topic['post_stream']) && isset($topic['post_stream']['posts'])) {
+            foreach ($topic['post_stream']['posts'] as $key => $post) {
+              if ($key > 0) {
+                if ($post['user_deleted']) {
+                  continue;
+                }
+                $comments[$key]['username'] = $post['username'];
+                // Appending base url if https:// does not exist in image path.
+                if (strpos($post['avatar_template'], "https://") === FALSE) {
+                  $avatar_image = sprintf('%s%s', $this->discourseApiClient->getBaseUrl(), str_replace('{size}', '90', $post['avatar_template']));
+                }
+                else {
+                  $avatar_image = str_replace('{size}', '90', $post['avatar_template']);
+                }
+                // Placing default avatar image if avatar image does not exist.
+                if (@getimagesize($avatar_image)) {
+                  $comments[$key]['avatar_template'] = $avatar_image;
+                }
+                else {
+                  $comments[$key]['avatar_template'] = $default_avatar_image;
+                }
+
+                $date = $this->dateFormatter->format(strtotime($post['created_at']), 'custom', 'F d, Y');
+                $comments[$key]['created_at'] = $date;
+                $comments[$key]['post_content'] = preg_replace('/<\/?a[^>]*>/', '', $post['cooked']);
+              }
             }
           }
+          $build['#theme'] = 'discourse_comment_block';
+          $build['#content'] = $comments;
+          $build['#topic_url'] = $field_discourse[0]['topic_url'];
+          $build['#forum_link'] = $discourse_settings->get('forum_link');
+          $build['#forum_link_label'] = $discourse_settings->get('forum_link_label');
         }
-
-        $build['#theme'] = 'discourse_comment_block';
-        $build['#content'] = $comments;
-        $build['#topic_url'] = $field_discourse[0]['topic_url'];
-        $build['#forum_link'] = $discourse_settings->get('forum_link');
-        $build['#forum_link_label'] = $discourse_settings->get('forum_link_label');
       }
     }
 
