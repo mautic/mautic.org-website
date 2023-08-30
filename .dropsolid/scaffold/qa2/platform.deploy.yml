@@ -1,0 +1,12 @@
+sync:
+  exclude:
+    - docroot/sites/default/files
+    - tmp
+    - private/files
+    - secrets
+tasks:
+  before_sync: []
+  after_sync:
+    -
+      type: shell
+      script: "deploy.sh"
