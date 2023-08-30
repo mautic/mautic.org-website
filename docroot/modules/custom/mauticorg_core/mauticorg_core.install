@@ -5,9 +5,84 @@
  * Contains update hooks for Mauticorg site.
  */
 
+use Drupal\Core\Entity\EntityStorageException;
+
 /**
  * Migrate config for mauticorg_core.site_settings.
  */
 function mauticorg_core_update_8001() {
   _mauticorg_core_import_config('mauticorg_core.site_settings');
+}
+
+/**
+ * Remove obsolete revisions and set correct changed dates.
+ */
+function mauticorg_core_update_8002() {
+
+  // Ensure we can handle massive group contacts
+  \Drupal::database()->query("SET @@group_concat_max_len = 10000000000;")->execute();
+
+  \Drupal::logger('mauticorg_core')->notice("starting cleanup");
+
+  $query = "
+    select
+        r.nid,
+        r.revision_timestamp,
+        group_concat(r.vid) as 'vids',
+        max(r.vid) as 'max_vid',
+        n.vid as 'node_vid',
+        count(*) as 'no_of_revs'
+    from node_revision r
+    join node n on r.nid = n.nid
+    group by nid, revision_timestamp
+    having count(*) > 1
+    order by count(*) desc;
+    ";
+
+  $revisionInfo = \Drupal::database()->query($query)->fetchAll();
+  $storageManager = \Drupal::entityTypeManager()->getStorage('node');
+
+  foreach ($revisionInfo as $row) {
+
+    \Drupal::logger('mauticorg_core')->notice("processing nid {$row->nid} (timestamp: {$row->revision_timestamp}): {$row->no_of_revs} items to check");
+    $revIds = explode(',', $row->vids);
+    foreach ($revIds as $id) {
+      // only delete the revision if it's not the max revision of the group, or it is the default revision of the node.
+      if ($id && $id != $row->max_vid && $id != $row->node_vid) {
+        try {
+          $storageManager->deleteRevision($id);
+        } catch (EntityStorageException $e) {
+          // Nothing to do here
+        }
+      }
+    }
+  }
+
+  // ensure all revisions are shown in the revision overview
+  \Drupal::database()->query("
+    update node_field_revision set revision_translation_affected = 1 where revision_translation_affected is NULL;
+   ")->execute();
+
+  // Update the timestamps of the revisions, so correct change dates can be shown,
+  // both for changed date on the node and date of the revision.
+  \Drupal::database()->query("
+    update node_field_revision fr
+    join node_revision r on fr.vid = r.vid
+    set fr.changed = r.revision_timestamp
+    where r.revision_timestamp < fr.changed;
+  ")->execute();
+
+  \Drupal::database()->query("
+    update node_field_revision fr
+    join node_revision r on fr.vid = r.vid
+    set r.revision_timestamp = fr.changed
+    where r.revision_timestamp > fr.changed;
+  ")->execute();
+
+  \Drupal::database()->query("
+    update node_field_data dr
+    join node_field_revision fr on fr.vid = dr.vid
+    set dr.changed = fr.changed
+    where dr.changed > fr.changed;
+  ")->execute();
 }
