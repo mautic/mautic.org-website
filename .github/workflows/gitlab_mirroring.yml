@@ -1,6 +1,6 @@
 name: Gitlab Mirroring
 
-on: [ push, pull_request, create, delete ]
+on: [ push, pull_request, create, delete, workflow_dispatch ]
 
 jobs:
   sync:
