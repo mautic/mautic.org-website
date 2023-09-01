@@ -1,0 +1,16 @@
+name: Teardown all QA environments for PR
+on:
+  pull_request_target:
+    types: [ locked, closed ]
+jobs:
+  teardown_all_PR_qa_branches:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+        with:
+          ref: main
+
+      - name: Delete all QA branches for this PR
+        run: ./.github/scripts/delete_qa_branch_for_pr.sh "[1-4]" ${{ github.event.number }}
+        shell: bash

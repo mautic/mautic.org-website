@@ -1,0 +1,84 @@
+name: Setup QA environment for PR
+on:
+  pull_request_target:
+    types: [ labeled, synchronize, unlocked, opened, reopened ]
+jobs:
+  setup_qa1_branch:
+    if: contains(github.event.pull_request.labels.*.name, 'qa-1')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main branch
+        uses: actions/checkout@v3
+        with:
+          ref: main
+          path: main
+
+      - name: Checkout head of PR
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          path: pr
+
+      - name: Create QA branch
+        run: ./main/.github/scripts/create_qa_branch_for_pr.sh 1 ${{ github.event.number }}
+        shell: bash
+
+  setup_qa2_branch:
+    if: contains(github.event.pull_request.labels.*.name, 'qa-2')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main branch
+        uses: actions/checkout@v3
+        with:
+          ref: main
+          path: main
+
+      - name: Checkout head of PR
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          path: pr
+
+      - name: Create QA branch
+        run: ./main/.github/scripts/create_qa_branch_for_pr.sh 2 ${{ github.event.number }}
+        shell: bash
+
+  setup_qa3_branch:
+    if: contains(github.event.pull_request.labels.*.name, 'qa-3')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main branch
+        uses: actions/checkout@v3
+        with:
+          ref: main
+          path: main
+
+      - name: Checkout head of PR
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          path: pr
+
+      - name: Create QA branch
+        run: ./main/.github/scripts/create_qa_branch_for_pr.sh 3 ${{ github.event.number }}
+        shell: bash
+
+  setup_qa4_branch:
+    if: contains(github.event.pull_request.labels.*.name, 'qa-4')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main branch
+        uses: actions/checkout@v3
+        with:
+          ref: main
+          path: main
+
+      - name: Checkout head of PR
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          path: pr
+
+      - name: Create QA branch
+        run: ./main/.github/scripts/create_qa_branch_for_pr.sh 4 ${{ github.event.number }}
+        shell: bash
