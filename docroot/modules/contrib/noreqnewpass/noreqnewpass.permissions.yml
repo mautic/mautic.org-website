@@ -1,6 +1,0 @@
-administer noreqnewpass:
-  title: Administer No Request New Password
-  restrict access: true
-can change your own password:
-  title: Can change your own password
-  restrict access: true

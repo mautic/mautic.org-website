@@ -1,5 +1,0 @@
-clouds:
-  version: VERSION
-  css:
-    theme:
-      css/tagclouds.css: {}
