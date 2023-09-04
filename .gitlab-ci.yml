@@ -15,7 +15,7 @@ deploy_to_qa_1:
       --data audience='api.dropsolid.com' | jq '.access_token' | tr -d '"')
     - >-
       curl
-      --url 'https://admin.platform.dropsolid.com/project/mauticorg/environment/qa1/action.build'
+      --url 'https://admin.platform.dropsolid.com/project/mauticorg/environment/qa1/action.build?_format=json'
       --data '{"branch":"${CI_COMMIT_REF_NAME}"}'
       --header 'Content-type:application/json'
       --header "Authorization:Bearer ${GITLAB_API_TOKEN}"
