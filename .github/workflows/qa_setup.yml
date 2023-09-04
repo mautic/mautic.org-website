@@ -10,6 +10,7 @@ jobs:
       - name: Checkout main branch
         uses: actions/checkout@v3
         with:
+          token: ${{ secrets.MIRROR_GITHUB_PAT }}
           ref: main
           path: main
 
@@ -30,6 +31,7 @@ jobs:
       - name: Checkout main branch
         uses: actions/checkout@v3
         with:
+          token: ${{ secrets.MIRROR_GITHUB_PAT }}
           ref: main
           path: main
 
@@ -50,6 +52,7 @@ jobs:
       - name: Checkout main branch
         uses: actions/checkout@v3
         with:
+          token: ${{ secrets.MIRROR_GITHUB_PAT }}
           ref: main
           path: main
 
@@ -70,6 +73,7 @@ jobs:
       - name: Checkout main branch
         uses: actions/checkout@v3
         with:
+          token: ${{ secrets.MIRROR_GITHUB_PAT }}
           ref: main
           path: main
 

@@ -9,6 +9,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
         with:
+          token: ${{ secrets.MIRROR_GITHUB_PAT }}
           ref: main
 
       - name: Delete all QA branches for this PR

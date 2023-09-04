@@ -11,6 +11,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
         with:
+          token: ${{ secrets.MIRROR_GITHUB_PAT }}
           ref: main
 
       - name: Delete QA-1 branch for this PR
@@ -23,6 +24,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
         with:
+          token: ${{ secrets.MIRROR_GITHUB_PAT }}
           ref: main
 
       - name: Delete QA-2 branch for this PR
@@ -35,6 +37,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
         with:
+          token: ${{ secrets.MIRROR_GITHUB_PAT }}
           ref: main
 
       - name: Delete QA-3 branch for this PR
@@ -47,6 +50,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
         with:
+          token: ${{ secrets.MIRROR_GITHUB_PAT }}
           ref: main
 
       - name: Delete QA-4 branch for this PR
