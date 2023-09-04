@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'mautic/mautic-org-website',
-        'pretty_version' => 'dev-master',
-        'version' => 'dev-master',
-        'reference' => '0aec6fb8da48951cd5c12fc539396c3c68d3c6fa',
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => '3c5a0cfbce1c0f9b2ef62c5548547d79d1b12009',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -1174,9 +1174,9 @@
             'dev_requirement' => false,
         ),
         'mautic/mautic-org-website' => array(
-            'pretty_version' => 'dev-master',
-            'version' => 'dev-master',
-            'reference' => '0aec6fb8da48951cd5c12fc539396c3c68d3c6fa',
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '3c5a0cfbce1c0f9b2ef62c5548547d79d1b12009',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -1320,8 +1320,8 @@
         'psr/container-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '^1.0',
-                1 => '1.0',
+                0 => '1.0',
+                1 => '^1.0',
             ),
         ),
         'psr/event-dispatcher' => array(
@@ -1366,8 +1366,8 @@
         'psr/http-factory-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '^1.0',
-                1 => '1.0',
+                0 => '1.0',
+                1 => '^1.0',
             ),
         ),
         'psr/http-message' => array(
