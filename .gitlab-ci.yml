@@ -16,8 +16,71 @@ deploy_to_qa_1:
     - >-
       curl
       --url 'https://admin.platform.dropsolid.com/project/mauticorg/environment/qa1/action.build?_format=json'
-      --data '{"branch":"${CI_COMMIT_REF_NAME}"}'
+      --data '{"branch":"'"${CI_COMMIT_REF_NAME}"'"}'
       --header 'Content-type:application/json'
       --header "Authorization:Bearer ${GITLAB_API_TOKEN}"
   only:
     - /^internal\/qa-1\/PR-[0-9]*\/.*$/
+
+deploy_to_qa_2:
+  stage: deploy
+  image: alpine:3.13
+  script:
+    - apk --no-cache add bash curl jq grep
+    - >-
+      GITLAB_API_TOKEN=$(curl --request POST
+      --url 'https://admin.platform.dropsolid.com/oauth/token'
+      --data grant_type=client_credentials
+      --data client_id="${DXP_CLIENT_ID}"
+      --data client_secret="${DXP_CLIENT_CREDENTIALS}"
+      --data audience='api.dropsolid.com' | jq '.access_token' | tr -d '"')
+    - >-
+      curl
+      --url 'https://admin.platform.dropsolid.com/project/mauticorg/environment/qa2/action.build?_format=json'
+      --data '{"branch":"'"${CI_COMMIT_REF_NAME}"'"}'
+      --header 'Content-type:application/json'
+      --header "Authorization:Bearer ${GITLAB_API_TOKEN}"
+  only:
+    - /^internal\/qa-2\/PR-[0-9]*\/.*$/
+
+deploy_to_qa_3:
+  stage: deploy
+  image: alpine:3.13
+  script:
+    - apk --no-cache add bash curl jq grep
+    - >-
+      GITLAB_API_TOKEN=$(curl --request POST
+      --url 'https://admin.platform.dropsolid.com/oauth/token'
+      --data grant_type=client_credentials
+      --data client_id="${DXP_CLIENT_ID}"
+      --data client_secret="${DXP_CLIENT_CREDENTIALS}"
+      --data audience='api.dropsolid.com' | jq '.access_token' | tr -d '"')
+    - >-
+      curl
+      --url 'https://admin.platform.dropsolid.com/project/mauticorg/environment/qa3/action.build?_format=json'
+      --data '{"branch":"'"${CI_COMMIT_REF_NAME}"'"}'
+      --header 'Content-type:application/json'
+      --header "Authorization:Bearer ${GITLAB_API_TOKEN}"
+  only:
+    - /^internal\/qa-3\/PR-[0-9]*\/.*$/
+
+deploy_to_qa_4:
+  stage: deploy
+  image: alpine:3.13
+  script:
+    - apk --no-cache add bash curl jq grep
+    - >-
+      GITLAB_API_TOKEN=$(curl --request POST
+      --url 'https://admin.platform.dropsolid.com/oauth/token'
+      --data grant_type=client_credentials
+      --data client_id="${DXP_CLIENT_ID}"
+      --data client_secret="${DXP_CLIENT_CREDENTIALS}"
+      --data audience='api.dropsolid.com' | jq '.access_token' | tr -d '"')
+    - >-
+      curl
+      --url 'https://admin.platform.dropsolid.com/project/mauticorg/environment/qa4/action.build?_format=json'
+      --data '{"branch":"'"${CI_COMMIT_REF_NAME}"'"}'
+      --header 'Content-type:application/json'
+      --header "Authorization:Bearer ${GITLAB_API_TOKEN}"
+  only:
+    - /^internal\/qa-4\/PR-[0-9]*\/.*$/
