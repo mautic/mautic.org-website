@@ -1,0 +1,30 @@
+uuid: 096ee369-e66b-4399-8eec-19cca417d3f8
+langcode: en
+status: false
+dependencies: {  }
+id: qa4
+label: QA-4
+description: ''
+weight: 0
+folder: ../config/splits/qa4
+module:
+  dropsolid_purge: 0
+  dblog: 0
+  purge: 0
+  purge_drush: 0
+  purge_processor_cron: 0
+  purge_processor_lateruntime: 0
+  purge_queuer_coretags: 0
+  purge_tokens: 0
+  purge_ui: 0
+theme: {  }
+blacklist:
+  - system.logging
+  - system.performance
+  - search_api.server.acquia_search_server
+  - mautic.settings
+  - mauticorg_form.settings
+  - 'google_tag*'
+graylist: {  }
+graylist_dependents: true
+graylist_skip_equal: true

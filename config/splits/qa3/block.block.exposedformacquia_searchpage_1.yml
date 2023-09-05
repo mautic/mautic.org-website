@@ -1,0 +1,23 @@
+uuid: e2459d7a-ef87-4235-b181-2a9c20e2c3cd
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.acquia_search
+  module:
+    - views
+  theme:
+    - mauticorg_base
+id: exposedformacquia_searchpage_1
+theme: mauticorg_base
+region: secondary_menu
+weight: -9
+provider: null
+plugin: 'views_exposed_filter_block:acquia_search-page_1'
+settings:
+  id: 'views_exposed_filter_block:acquia_search-page_1'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+visibility: {  }
