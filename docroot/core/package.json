@@ -95,7 +95,7 @@
     "nightwatch": "^1.6.3",
     "normalize.css": "8.0.x",
     "picturefill": "3.0.x",
-    "postcss": "^7.0.18",
+    "postcss": "^8.4.31",
     "postcss-calc": "^7.0.1",
     "postcss-header": "^2.0.0",
     "postcss-import": "^12.0.1",
