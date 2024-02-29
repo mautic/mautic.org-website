@@ -1,7 +1,7 @@
 .localized-container-fluid {
   margin: auto;
-  max-width: 1490px;
-  padding: 0;
+  max-width: 1460px;
+  padding: 0 15px;
 
   @include breakpoint($only-tablet) {
     padding-inline: 5.125rem;

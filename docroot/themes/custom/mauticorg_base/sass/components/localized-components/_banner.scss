@@ -1,3 +1,24 @@
+.nodetype__localized_landing_pages {
+  &.modal-open {
+    overflow: hidden;
+
+    .header--container {
+      z-index: -1;
+    }
+
+    * {
+      &::before,
+      &::after {
+        z-index: -1 !important;
+      }
+    }
+
+    .back__to-top {
+      display: none;
+    }
+  }
+}
+
 .localized-page {
   .hero-banner {
     min-height: 38.75rem;
@@ -28,6 +49,10 @@
       margin: 0;
       max-width: 80%;
 
+      @include breakpoint($upto-desktop) {
+        text-align: center;
+      }
+
       @include breakpoint($upto-tablet) {
         font: normal normal normal 32px/40px $secondary-font;
       }
@@ -39,6 +64,10 @@
       color: #fdb933;
       margin: 0;
       max-width: 80%;
+
+      @include breakpoint($upto-desktop) {
+        text-align: center;
+      }
 
       @include breakpoint($upto-tablet) {
         font: normal normal bold 32px/40px $secondary-font;
@@ -101,6 +130,7 @@
         }
 
         .citation-button {
+          border: none;
           background: #fdb933 0% 0% no-repeat padding-box;
           border-radius: 0.5rem;
           text-align: center;
@@ -112,6 +142,144 @@
           width: 100%;
           display: block;
           text-decoration: none;
+        }
+
+        .citation-modal {
+          display: none;
+
+          &.active {
+            display: block;
+            position: fixed;
+            max-width: 1110px;
+            margin: auto;
+            inset-block: 0;
+            inset-inline: 0;
+            z-index: 999;
+            max-height: 700px;
+
+            @include breakpoint($upto-desktop) {
+              max-width: calc(100% - 20px);
+              left: 10px;
+              right: 10px;
+              max-height: calc(100% - 128px);
+              top: 64px;
+              bottom: 64px;
+            }
+
+            &::after {
+              background: #4e5e9e 0% 0% no-repeat padding-box;
+              opacity: 0.8;
+              content: "";
+              position: fixed;
+              height: 100%;
+              width: 100%;
+              left: 0;
+              right: 0;
+              top: 0;
+              bottom: 0;
+            }
+
+            .sr-only {
+              position: absolute;
+              width: 1px;
+              height: 1px;
+              padding: 0;
+              margin: -1px;
+              overflow: hidden;
+              clip: rect(0, 0, 0, 0);
+              border: 0;
+            }
+
+            .citation-modal__header {
+              padding: 18px 22px;
+              display: flex;
+              justify-content: flex-end;
+              border-bottom: 1px solid #ccc;
+
+              @include breakpoint($upto-desktop) {
+                padding: 16px 20px;
+              }
+            }
+
+            .citation-modal__body {
+              padding: 36px 95px 66px 95px;
+              background: #eff2fb 0% 0% no-repeat padding-box;
+              max-height: 624px;
+              overflow-y: auto;
+
+              @include breakpoint($upto-desktop) {
+                padding: 38px 20px;
+                height: 100%;
+                max-height: calc(100% - 73px);
+              }
+
+              h5 {
+                margin: 0 0 20px 0;
+                letter-spacing: 0;
+                color: #333;
+                font: normal normal normal 20px/34px $secondary-font;
+
+                @include breakpoint($upto-desktop) {
+                  font: normal normal normal 18px/28px $secondary-font;
+                  text-align: center;
+                }
+              }
+
+              h2 {
+                font: normal normal bold 40px/48px $secondary-font;
+                letter-spacing: 0;
+                color: #4e5e9e;
+                margin: 0 0 20px 0;
+
+                @include breakpoint($upto-desktop) {
+                  font: normal normal bold 36px/44px $secondary-font;
+                  text-align: center;
+                }
+              }
+
+              p,
+              li,
+              a {
+                font: normal normal normal 24px/34px $secondary-font;
+                letter-spacing: 0;
+                color: #4e5e9e;
+
+                @include breakpoint($upto-desktop) {
+                  font: normal normal normal 20px/24px $secondary-font;
+                }
+              }
+
+              ul {
+                li {
+                  list-style-type: disc;
+                }
+              }
+            }
+
+            .citation-modal__close {
+              background-color: unset;
+              border: unset;
+              padding: 0;
+              margin: 0;
+              border-radius: 50%;
+              display: flex;
+
+              svg {
+                height: 40px;
+                width: 40px;
+                fill: #ccc;
+              }
+            }
+
+            .modal-content {
+              position: relative;
+              z-index: 999;
+              background-color: $white;
+              border-radius: 1rem;
+              height: 100%;
+              overflow: hidden;
+            }
+          }
         }
 
         .field__items {

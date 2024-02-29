@@ -41,7 +41,7 @@
 {%
   set classes = [
     'paragraph',
-    'paragraph-citation',
+    'paragraph-contact-form',
     'paragraph--type--' ~ paragraph.bundle|clean_class,
     view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
     not paragraph.isPublished() ? 'paragraph--unpublished'
@@ -50,26 +50,17 @@
 {% block paragraph %}
   <div{{ attributes.addClass(classes) }}>
     {% block content %}
-      <h4 class="citation-title">{{ content.field_title.0 }}</h4>
-      {% if content.field_button_text.0 %}
-        <button type="button" class="citation-button" title="{{ content.field_button_text.0 }}" data-toggle="modal">
-        {{ content.field_button_text.0 }}</button>
-        <div class="modal citation-modal" role="dialog">
-          <div class="modal-content">
-            <div class="citation-modal__header">
-              <button class="citation-modal__close" tabindex="-1" aria-label="Close Modal">
-                <span class="sr-only">Close Modal</span>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                  <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"/>
-                </svg>
-              </button>
-            </div>
-            <div class="citation-modal__body">
-              {{ content.field_modal_popup.0|raw }}
-            </div>
-          </div>
+      <div class="localized-container contact-form__wrappar">
+        <div class="contact-form__content">
+          <h5>{{ content.field_subtitle.0 }}</h5>
+          <h2>{{ content.field_link_list_title.0 }}</h2>
+          <div>{{ content.field_body.0|raw }}</div>
         </div>
-      {% endif %}
+
+        <div class="contact-form__mautic">
+          <script type="text/javascript" src="//m.mautic.org/form/generate.js?id=28"></script>
+        </div>
+      </div>
     {% endblock %}
   </div>
 {% endblock paragraph %}

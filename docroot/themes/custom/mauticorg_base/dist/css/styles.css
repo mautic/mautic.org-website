@@ -4517,6 +4517,22 @@ hr {
   padding: 0 0.625rem;
 }
 
+.nodetype__localized_landing_pages.modal-open {
+  overflow: hidden;
+}
+
+.nodetype__localized_landing_pages.modal-open .header--container {
+  z-index: -1;
+}
+
+.nodetype__localized_landing_pages.modal-open *::before, .nodetype__localized_landing_pages.modal-open *::after {
+  z-index: -1 !important;
+}
+
+.nodetype__localized_landing_pages.modal-open .back__to-top {
+  display: none;
+}
+
 .localized-page .hero-banner {
   min-height: 38.75rem;
   background-repeat: no-repeat;
@@ -4554,6 +4570,12 @@ hr {
   max-width: 80%;
 }
 
+@media (max-width: 1024px) {
+  .localized-page .hero-banner__title {
+    text-align: center;
+  }
+}
+
 @media (max-width: 767px) {
   .localized-page .hero-banner__title {
     font: normal normal normal 32px/40px "Titillium Web", sans-serif;
@@ -4566,6 +4588,12 @@ hr {
   color: #fdb933;
   margin: 0;
   max-width: 80%;
+}
+
+@media (max-width: 1024px) {
+  .localized-page .hero-banner__subtitle {
+    text-align: center;
+  }
 }
 
 @media (max-width: 767px) {
@@ -4635,6 +4663,7 @@ hr {
 }
 
 .localized-page .hero-banner__citation .field--name-field-citation-box .citation-button {
+  border: none;
   background: #fdb933 0% 0% no-repeat padding-box;
   border-radius: 0.5rem;
   text-align: center;
@@ -4646,6 +4675,159 @@ hr {
   width: 100%;
   display: block;
   text-decoration: none;
+}
+
+.localized-page .hero-banner__citation .field--name-field-citation-box .citation-modal {
+  display: none;
+}
+
+.localized-page .hero-banner__citation .field--name-field-citation-box .citation-modal.active {
+  display: block;
+  position: fixed;
+  max-width: 1110px;
+  margin: auto;
+  inset-block: 0;
+  inset-inline: 0;
+  z-index: 999;
+  max-height: 700px;
+}
+
+@media (max-width: 1024px) {
+  .localized-page .hero-banner__citation .field--name-field-citation-box .citation-modal.active {
+    max-width: calc(100% - 20px);
+    left: 10px;
+    right: 10px;
+    max-height: calc(100% - 128px);
+    top: 64px;
+    bottom: 64px;
+  }
+}
+
+.localized-page .hero-banner__citation .field--name-field-citation-box .citation-modal.active::after {
+  background: #4e5e9e 0% 0% no-repeat padding-box;
+  opacity: 0.8;
+  content: "";
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.localized-page .hero-banner__citation .field--name-field-citation-box .citation-modal.active .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.localized-page .hero-banner__citation .field--name-field-citation-box .citation-modal.active .citation-modal__header {
+  padding: 18px 22px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: end;
+          justify-content: flex-end;
+  border-bottom: 1px solid #ccc;
+}
+
+@media (max-width: 1024px) {
+  .localized-page .hero-banner__citation .field--name-field-citation-box .citation-modal.active .citation-modal__header {
+    padding: 16px 20px;
+  }
+}
+
+.localized-page .hero-banner__citation .field--name-field-citation-box .citation-modal.active .citation-modal__body {
+  padding: 36px 95px 66px 95px;
+  background: #eff2fb 0% 0% no-repeat padding-box;
+  max-height: 624px;
+  overflow-y: auto;
+}
+
+@media (max-width: 1024px) {
+  .localized-page .hero-banner__citation .field--name-field-citation-box .citation-modal.active .citation-modal__body {
+    padding: 38px 20px;
+    height: 100%;
+    max-height: calc(100% - 73px);
+  }
+}
+
+.localized-page .hero-banner__citation .field--name-field-citation-box .citation-modal.active .citation-modal__body h5 {
+  margin: 0 0 20px 0;
+  letter-spacing: 0;
+  color: #333;
+  font: normal normal normal 20px/34px "Titillium Web", sans-serif;
+}
+
+@media (max-width: 1024px) {
+  .localized-page .hero-banner__citation .field--name-field-citation-box .citation-modal.active .citation-modal__body h5 {
+    font: normal normal normal 18px/28px "Titillium Web", sans-serif;
+    text-align: center;
+  }
+}
+
+.localized-page .hero-banner__citation .field--name-field-citation-box .citation-modal.active .citation-modal__body h2 {
+  font: normal normal bold 40px/48px "Titillium Web", sans-serif;
+  letter-spacing: 0;
+  color: #4e5e9e;
+  margin: 0 0 20px 0;
+}
+
+@media (max-width: 1024px) {
+  .localized-page .hero-banner__citation .field--name-field-citation-box .citation-modal.active .citation-modal__body h2 {
+    font: normal normal bold 36px/44px "Titillium Web", sans-serif;
+    text-align: center;
+  }
+}
+
+.localized-page .hero-banner__citation .field--name-field-citation-box .citation-modal.active .citation-modal__body p,
+.localized-page .hero-banner__citation .field--name-field-citation-box .citation-modal.active .citation-modal__body li,
+.localized-page .hero-banner__citation .field--name-field-citation-box .citation-modal.active .citation-modal__body a {
+  font: normal normal normal 24px/34px "Titillium Web", sans-serif;
+  letter-spacing: 0;
+  color: #4e5e9e;
+}
+
+@media (max-width: 1024px) {
+  .localized-page .hero-banner__citation .field--name-field-citation-box .citation-modal.active .citation-modal__body p,
+  .localized-page .hero-banner__citation .field--name-field-citation-box .citation-modal.active .citation-modal__body li,
+  .localized-page .hero-banner__citation .field--name-field-citation-box .citation-modal.active .citation-modal__body a {
+    font: normal normal normal 20px/24px "Titillium Web", sans-serif;
+  }
+}
+
+.localized-page .hero-banner__citation .field--name-field-citation-box .citation-modal.active .citation-modal__body ul li {
+  list-style-type: disc;
+}
+
+.localized-page .hero-banner__citation .field--name-field-citation-box .citation-modal.active .citation-modal__close {
+  background-color: unset;
+  border: unset;
+  padding: 0;
+  margin: 0;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: flex;
+}
+
+.localized-page .hero-banner__citation .field--name-field-citation-box .citation-modal.active .citation-modal__close svg {
+  height: 40px;
+  width: 40px;
+  fill: #ccc;
+}
+
+.localized-page .hero-banner__citation .field--name-field-citation-box .citation-modal.active .modal-content {
+  position: relative;
+  z-index: 999;
+  background-color: #fff;
+  border-radius: 1rem;
+  height: 100%;
+  overflow: hidden;
 }
 
 .localized-page .hero-banner__citation .field--name-field-citation-box .field__items {
@@ -4783,6 +4965,185 @@ hr {
     max-width: 230px;
     margin: 1.75rem 1.375rem 0 0;
   }
+}
+
+.localized-page .paragraph-contact-form {
+  background-color: #eff2fb;
+}
+
+.localized-page .localized-container.contact-form__wrappar {
+  padding-block: 140px 100px;
+  display: -webkit-box;
+  display: flex;
+  gap: 30px;
+}
+
+@media (max-width: 1024px) {
+  .localized-page .localized-container.contact-form__wrappar {
+    padding-block: 116px 74px;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 767px) {
+  .localized-page .localized-container.contact-form__wrappar {
+    padding-block: 127px 55px;
+  }
+}
+
+.localized-page .localized-container.contact-form__wrappar .contact-form__content,
+.localized-page .localized-container.contact-form__wrappar .contact-form__mautic {
+  -webkit-box-flex: 0;
+          flex: 0 50%;
+}
+
+@media (max-width: 1024px) {
+  .localized-page .localized-container.contact-form__wrappar .contact-form__content,
+  .localized-page .localized-container.contact-form__wrappar .contact-form__mautic {
+    -webkit-box-flex: 0;
+            flex: 0 100%;
+  }
+}
+
+.localized-page .localized-container.contact-form__wrappar .contact-form__mautic {
+  align-self: flex-end;
+}
+
+.localized-page .localized-container.contact-form__wrappar .contact-form__mautic .mauticform_wrapper {
+  max-width: 100%;
+  margin: 0;
+}
+
+.localized-page .localized-container.contact-form__wrappar .mauticform-innerform {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.localized-page .localized-container.contact-form__wrappar .mauticform-innerform .mauticform-required {
+  margin-bottom: 18px;
+}
+
+.localized-page .localized-container.contact-form__wrappar .mauticform-innerform input,
+.localized-page .localized-container.contact-form__wrappar .mauticform-innerform textarea {
+  font: normal normal normal 18px/23px "Titillium Web", sans-serif;
+  letter-spacing: 0;
+  color: #afafaf;
+  border: 1px solid #4e5e9e80;
+  border-radius: 0.5rem;
+  padding: 18px 26px 17px 26px;
+}
+
+.localized-page .localized-container.contact-form__wrappar .mauticform-innerform textarea {
+  min-height: 152px;
+  resize: none;
+}
+
+.localized-page .localized-container.contact-form__wrappar .mauticform-innerform p,
+.localized-page .localized-container.contact-form__wrappar .mauticform-innerform label {
+  font: normal normal normal 20px/28px "Titillium Web", sans-serif;
+  letter-spacing: 0;
+  color: #4e5e9e;
+}
+
+.localized-page .localized-container.contact-form__wrappar .mauticform-innerform .mauticform-button-wrapper {
+  margin-bottom: 0;
+}
+
+.localized-page .localized-container.contact-form__wrappar .mauticform-innerform .mauticform-button {
+  width: 100%;
+  margin: 0;
+  background: #fdb933 0% 0% no-repeat padding-box;
+  border-radius: 8px;
+  font: normal normal 600 18px/23px "Titillium Web", sans-serif;
+  letter-spacing: 0;
+  color: #4e5e9e;
+  padding: 17px 20px 18px 20px;
+}
+
+.localized-page .localized-container.contact-form__wrappar .mauticform-innerform .mauticform-button:focus, .localized-page .localized-container.contact-form__wrappar .mauticform-innerform .mauticform-button:active {
+  outline: 2px solid #fdb933;
+  outline-offset: 2px;
+}
+
+.localized-page .localized-container.contact-form__wrappar .mauticform-innerform .mauticform-checkboxgrp-row {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  gap: 10px;
+}
+
+.localized-page .localized-container.contact-form__wrappar .mauticform-innerform .mauticform-checkboxgrp-row input {
+  width: 20px;
+  height: 20px;
+}
+
+.localized-page .localized-container.contact-form__wrappar .contact-form__content h5 {
+  margin: 0 0 18px 0;
+  font: normal normal normal 20px/34px "Titillium Web", sans-serif;
+  letter-spacing: 0;
+  color: #333;
+}
+
+@media (max-width: 1024px) {
+  .localized-page .localized-container.contact-form__wrappar .contact-form__content h5 {
+    font: normal normal normal 20px/20px "Titillium Web", sans-serif;
+  }
+}
+
+@media (max-width: 767px) {
+  .localized-page .localized-container.contact-form__wrappar .contact-form__content h5 {
+    text-align: center;
+    font: normal normal normal 20px/34px "Titillium Web", sans-serif;
+  }
+}
+
+.localized-page .localized-container.contact-form__wrappar .contact-form__content h2 {
+  font: normal normal bold 48px/48px "Titillium Web", sans-serif;
+  letter-spacing: 0;
+  color: #4e5e9e;
+  margin: 0 0 18px 0;
+}
+
+@media (max-width: 1024px) {
+  .localized-page .localized-container.contact-form__wrappar .contact-form__content h2 {
+    font: normal normal bold 48px/48px "Titillium Web", sans-serif;
+  }
+}
+
+@media (max-width: 767px) {
+  .localized-page .localized-container.contact-form__wrappar .contact-form__content h2 {
+    text-align: center;
+    font: normal normal bold 36px/44px "Titillium Web", sans-serif;
+  }
+}
+
+.localized-page .localized-container.contact-form__wrappar .contact-form__content p,
+.localized-page .localized-container.contact-form__wrappar .contact-form__content li {
+  color: #4e5e9e;
+  font: normal normal normal 24px/34px "Titillium Web", sans-serif;
+}
+
+@media (max-width: 1024px) {
+  .localized-page .localized-container.contact-form__wrappar .contact-form__content p,
+  .localized-page .localized-container.contact-form__wrappar .contact-form__content li {
+    font: normal normal normal 24px/34px "Titillium Web", sans-serif;
+  }
+}
+
+@media (max-width: 767px) {
+  .localized-page .localized-container.contact-form__wrappar .contact-form__content p,
+  .localized-page .localized-container.contact-form__wrappar .contact-form__content li {
+    font: normal normal normal 20px/24px "Titillium Web", sans-serif;
+  }
+}
+
+.localized-page .localized-container.contact-form__wrappar .contact-form__content p span {
+  font: normal normal normal 20px/28px "Titillium Web", sans-serif;
+  letter-spacing: 0;
 }
 
 .localized-page .layout-container {
@@ -5025,6 +5386,182 @@ hr {
 }
 
 .localized-page .region-localized-footer-bottom .field--name-field-social-follow .field__items .fab:hover::before {
+  color: #fdb933;
+}
+
+.localized-page .message.messages--error {
+  display: none;
+}
+
+.localized-page .newsletter-form {
+  background-color: #4e5e9e;
+}
+
+.localized-page .newsletter-form__container {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: end;
+          align-items: flex-end;
+  padding: 76px 96px;
+  gap: 100px;
+}
+
+@media (max-width: 1024px) {
+  .localized-page .newsletter-form__container {
+    gap: 33px;
+    flex-wrap: wrap;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+            flex-direction: column-reverse;
+    -webkit-box-align: center;
+            align-items: center;
+    padding: 79px 82px;
+  }
+}
+
+@media (max-width: 767px) {
+  .localized-page .newsletter-form__container {
+    padding: 47px 30px;
+  }
+}
+
+.localized-page .newsletter-form__container .left-container {
+  -webkit-box-flex: 0;
+          flex: 0 215px;
+  position: relative;
+  min-width: 215px;
+}
+
+@media (max-width: 1024px) {
+  .localized-page .newsletter-form__container .left-container {
+    -webkit-box-flex: 0;
+            flex: 0 193px;
+    min-width: 193px;
+  }
+}
+
+.localized-page .newsletter-form__container .left-container img {
+  position: absolute;
+  bottom: -174px;
+}
+
+@media (max-width: 1024px) {
+  .localized-page .newsletter-form__container .left-container img {
+    bottom: -167px;
+  }
+}
+
+@media (max-width: 767px) {
+  .localized-page .newsletter-form__container .left-container img {
+    bottom: -135px;
+  }
+}
+
+.localized-page .newsletter-form__container .right-container {
+  -webkit-box-flex: 0;
+          flex: 0 calc(100% - 215px);
+}
+
+.localized-page .newsletter-form__container .mauticform_wrapper {
+  margin: 0;
+  max-width: 630px;
+}
+
+.localized-page .newsletter-form__container .mauticform_wrapper .mauticform-row {
+  margin-bottom: 0;
+}
+
+.localized-page .newsletter-form__container .mauticform_wrapper .mauticform-innerform {
+  padding: 0;
+  background-color: unset;
+  border: none;
+  box-shadow: none;
+  margin-bottom: 0;
+}
+
+.localized-page .newsletter-form__container .mauticform_wrapper .mauticform-innerform .mauticform-page-wrapper {
+  display: -webkit-box !important;
+  display: flex !important;
+}
+
+@media (max-width: 767px) {
+  .localized-page .newsletter-form__container .mauticform_wrapper .mauticform-innerform .mauticform-page-wrapper {
+    display: block !important;
+  }
+}
+
+.localized-page .newsletter-form__container .mauticform_wrapper .mauticform-innerform .mauticform-email input {
+  width: 459px;
+  padding: 17px 28px 18px 28px;
+  font: normal normal normal 20px/25px "Titillium Web", sans-serif;
+  letter-spacing: 0;
+  color: #afafaf;
+  border: none;
+  border-radius: 0.5rem 0 0 0.5rem;
+}
+
+@media screen and (max-width: 1100px) {
+  .localized-page .newsletter-form__container .mauticform_wrapper .mauticform-innerform .mauticform-email input {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .localized-page .newsletter-form__container .mauticform_wrapper .mauticform-innerform .mauticform-email input {
+    width: 329px;
+  }
+}
+
+@media (max-width: 767px) {
+  .localized-page .newsletter-form__container .mauticform_wrapper .mauticform-innerform .mauticform-email input {
+    width: 100%;
+    border-radius: 0.5rem;
+  }
+}
+
+.localized-page .newsletter-form__container .mauticform_wrapper .mauticform-innerform .mauticform-button-wrapper button {
+  width: 170px;
+  margin: 0;
+  padding: 17px 39px 18px 39px;
+  font: normal normal 600 20px/25px "Titillium Web", sans-serif;
+  letter-spacing: 0;
+  color: #4e5e9e;
+  border: 0;
+  border-radius: 0 0.5rem 0.5rem 0;
+  background-color: #fdb933;
+}
+
+@media (max-width: 767px) {
+  .localized-page .newsletter-form__container .mauticform_wrapper .mauticform-innerform .mauticform-button-wrapper button {
+    width: 100%;
+    margin: 13px 0 0 0;
+    border-radius: 0.5rem;
+  }
+}
+
+.localized-page .newsletter-form__title {
+  font: normal normal 600 36px/50px "Titillium Web", sans-serif;
+  letter-spacing: 0;
+  color: #fff;
+  margin: 0 0 18px 0;
+}
+
+.localized-page .newsletter-form__body {
+  font: normal normal normal 20px/24px "Titillium Web", sans-serif;
+  letter-spacing: 0;
+  color: #fff;
+  margin: 0 0 42px 0;
+}
+
+@media (max-width: 1024px) {
+  .localized-page .newsletter-form__body {
+    margin: 0 0 33px 0;
+  }
+}
+
+.localized-page .newsletter-form__body a {
+  font: normal normal normal 20px/24px "Titillium Web", sans-serif;
+  letter-spacing: 0;
   color: #fdb933;
 }
 
@@ -5683,8 +6220,8 @@ hr {
 
 .localized-container-fluid {
   margin: auto;
-  max-width: 1490px;
-  padding: 0;
+  max-width: 1460px;
+  padding: 0 15px;
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
