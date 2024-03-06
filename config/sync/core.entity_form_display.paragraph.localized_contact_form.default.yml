@@ -1,0 +1,48 @@
+uuid: 9f5ebd60-3ec6-441a-baf6-91b007caa9c7
+langcode: hi
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.localized_contact_form.field_body
+    - field.field.paragraph.localized_contact_form.field_link_list_title
+    - field.field.paragraph.localized_contact_form.field_subtitle
+    - paragraphs.paragraphs_type.localized_contact_form
+  module:
+    - text
+id: paragraph.localized_contact_form.default
+targetEntityType: paragraph
+bundle: localized_contact_form
+mode: default
+content:
+  field_body:
+    type: text_textarea
+    weight: 12
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_link_list_title:
+    type: string_textfield
+    weight: 11
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_subtitle:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

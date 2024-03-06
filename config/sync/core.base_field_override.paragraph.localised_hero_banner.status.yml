@@ -1,0 +1,22 @@
+uuid: e80b29a0-2818-48c0-98a9-8d12cf6f6527
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.localised_hero_banner
+id: paragraph.localised_hero_banner.status
+field_name: status
+entity_type: paragraph
+bundle: localised_hero_banner
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

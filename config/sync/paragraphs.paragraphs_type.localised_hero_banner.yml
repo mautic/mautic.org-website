@@ -1,0 +1,10 @@
+uuid: 3ab720a0-4dc2-4f98-a646-fe393ac1f349
+langcode: en
+status: true
+dependencies: {  }
+id: localised_hero_banner
+label: 'Localised Hero Banner With Cut-Out Citation Boxes'
+icon_uuid: null
+icon_default: null
+description: 'Localised hero Image with cut-out citation boxes.'
+behavior_plugins: {  }

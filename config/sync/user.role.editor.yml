@@ -11,14 +11,20 @@ dependencies:
     - node.type.blog
     - node.type.event
     - node.type.landing_page
+    - node.type.localized_landing_pages
     - workflows.workflow.content_workflow
   module:
+    - block_content
     - content_moderation
+    - content_translation
+    - field_ui
     - filter
     - layout_builder
     - media
+    - menu_link_content
     - moderation_scheduler
     - node
+    - paragraphs
     - quickedit
     - system
     - toolbar
@@ -31,13 +37,16 @@ permissions:
   - 'access in-place editing'
   - 'access media overview'
   - 'access toolbar'
+  - 'administer display modes'
   - 'configure editable blog node layout overrides'
   - 'configure editable landing_page node layout overrides'
   - 'create and edit custom blocks'
   - 'create blog content'
+  - 'create content translations'
   - 'create event content'
   - 'create image media'
   - 'create landing_page content'
+  - 'create localized_landing_pages content'
   - 'create remote_video media'
   - 'delete all revisions'
   - 'delete any blog content'
@@ -52,22 +61,32 @@ permissions:
   - 'delete own event content'
   - 'delete own image media'
   - 'delete own landing_page content'
+  - 'delete own localized_landing_pages content'
   - 'delete own remote_video media'
   - 'edit any blog content'
   - 'edit any event content'
   - 'edit any image media'
   - 'edit any landing_page content'
+  - 'edit any localized_landing_pages content'
   - 'edit any remote_video media'
   - 'edit moderation scheduler field'
   - 'edit own blog content'
   - 'edit own event content'
   - 'edit own image media'
   - 'edit own landing_page content'
+  - 'edit own localized_landing_pages content'
   - 'edit own remote_video media'
   - 'revert all revisions'
   - 'revert blog revisions'
   - 'revert event revisions'
   - 'revert landing_page revisions'
+  - 'revert localized_landing_pages revisions'
+  - 'translate any entity'
+  - 'translate block_content'
+  - 'translate localized_landing_pages node'
+  - 'translate menu_link_content'
+  - 'translate paragraph'
+  - 'update content translations'
   - 'use content_workflow transition create_new_draft'
   - 'use content_workflow transition send_to_draft'
   - 'use content_workflow transition send_to_publish'
@@ -81,6 +100,7 @@ permissions:
   - 'view event revisions'
   - 'view landing_page revisions'
   - 'view latest version'
+  - 'view localized_landing_pages revisions'
   - 'view own unpublished content'
   - 'view own unpublished media'
   - 'view the administration theme'

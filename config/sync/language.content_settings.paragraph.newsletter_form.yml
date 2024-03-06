@@ -1,0 +1,18 @@
+uuid: 51c8d339-f1db-4322-a0ad-ac57cf28ff16
+langcode: hi
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.newsletter_form
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: paragraph.newsletter_form
+target_entity_type_id: paragraph
+target_bundle: newsletter_form
+default_langcode: site_default
+language_alterable: true

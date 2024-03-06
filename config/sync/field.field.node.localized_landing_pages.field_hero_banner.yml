@@ -1,0 +1,46 @@
+uuid: 252cc67e-9c34-4e06-8ff7-2cc924d310e5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hero_banner
+    - node.type.localized_landing_pages
+    - paragraphs.paragraphs_type.localised_hero_banner
+  module:
+    - entity_reference_revisions
+id: node.localized_landing_pages.field_hero_banner
+field_name: field_hero_banner
+entity_type: node
+bundle: localized_landing_pages
+label: 'Localised hero banner with cut-out citation boxes'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      localised_hero_banner: localised_hero_banner
+    negate: 0
+    target_bundles_drag_drop:
+      link_list_box_type_1:
+        weight: 8
+        enabled: false
+      link_list_box_type_2:
+        weight: 9
+        enabled: false
+      localised_hero_banner:
+        weight: 10
+        enabled: true
+      rich_text_1_column:
+        weight: 11
+        enabled: false
+      rich_text_2_column:
+        weight: 7
+        enabled: false
+      teaser_tiles:
+        weight: 12
+        enabled: false
+field_type: entity_reference_revisions

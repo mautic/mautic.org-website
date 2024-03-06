@@ -1,0 +1,22 @@
+uuid: c70889d4-6536-4a5f-b6d9-afd6275ea4c9
+langcode: hi
+status: true
+dependencies:
+  config:
+    - node.type.localized_landing_pages
+id: node.localized_landing_pages.promote
+field_name: promote
+entity_type: node
+bundle: localized_landing_pages
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

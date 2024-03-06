@@ -1,0 +1,57 @@
+uuid: 4f66da3f-a6d9-4c2d-b6cc-fa33b2e11958
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.rich_text_2_column.field_body
+    - field.field.paragraph.rich_text_2_column.field_body_2
+    - field.field.paragraph.rich_text_2_column.field_description
+    - field.field.paragraph.rich_text_2_column.field_subtitle
+    - field.field.paragraph.rich_text_2_column.field_title
+    - paragraphs.paragraphs_type.rich_text_2_column
+  module:
+    - text
+id: paragraph.rich_text_2_column.default
+targetEntityType: paragraph
+bundle: rich_text_2_column
+mode: default
+content:
+  field_body:
+    type: text_default
+    label: visually_hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_body_2:
+    type: text_default
+    label: visually_hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_description:
+    type: basic_string
+    label: visually_hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_subtitle:
+    type: string
+    label: visually_hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_title:
+    type: string
+    label: visually_hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true
