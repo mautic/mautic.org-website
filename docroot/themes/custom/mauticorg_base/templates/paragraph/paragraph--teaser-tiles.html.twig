@@ -47,19 +47,27 @@
   ]
 %}
 {% block paragraph %}
-  <div{{ attributes.addClass(classes) }}>
-    {% block content %}
-      <img class="banner-image" src="{{ file_url(content.field_teaser_tile_image['#items'].entity.uri.value) }}" />
+  {% if content.field_title.0 or content.field_description.0 %}
+    <div{{ attributes.addClass(classes) }}>
+      {% block content %}
+        <img class="banner-image" src="{{ file_url(content.field_teaser_tile_image['#items'].entity.uri.value) }}" />
 
-      <div class="teaser-tiles__content">
-        <a href="{{ content.field_citation_box_cta[0]['#url'] }}" title="{{ "Read more"|t }}">
-          <h2>{{ content.field_title.0 }}</h2>
-          <div class="teaser-tiles__footer">
-            <p>{{ content.field_description.0 }}</p>
-            <img class="read-more" src="/themes/custom/mauticorg_base/images/arrow-right-solid.svg" alt="{{ 'Arrow right'|t }}">
-          </div>
-        </a>
-      </div>
-    {% endblock %}
-  </div>
+        <div class="teaser-tiles__content">
+          <a href="{{ content.field_citation_box_cta[0]['#url'] ? content.field_citation_box_cta[0]['#url'] : '#'  }}" title="{{ "Read more"|t }}">
+
+          {% if content.field_title.0 %}
+            <h2>{{ content.field_title.0 }}</h2>
+          {% endif %}
+
+          {% if content.field_description.0 %}
+            <div class="teaser-tiles__footer">
+              <p>{{ content.field_description.0 }}</p>
+              <img class="read-more" src="/themes/custom/mauticorg_base/images/arrow-right-solid.svg" alt="{{ 'Arrow right'|t }}">
+            </div>
+          {% endif %}
+          </a>
+        </div>
+      {% endblock %}
+    </div>
+  {% endif %}
 {% endblock paragraph %}

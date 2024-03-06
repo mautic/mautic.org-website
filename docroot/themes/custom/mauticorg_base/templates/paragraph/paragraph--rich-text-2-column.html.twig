@@ -50,15 +50,28 @@
   ]
 %}
 {% block paragraph %}
-  <div{{ attributes.addClass(classes) }}>
-    {% block content %}
-      <h5 class="rich-text__subtitle">{{ content.field_subtitle.0 }}</h5>
-      <h2 class="rich-text__title">{{ content.field_title.0 }}</h2>
-      <p class="rich-text__description">{{ content.field_description.0 }}</p>
-      <div class="rich-text__columns">
-        <div class="rich-text__body">{{ content.field_body.0 }}</div>
-        <div class="rich-text__body">{{ content.field_body_2.0 }}</div>
-      </div>
-    {% endblock %}
-  </div>
+  {% if content.field_body.0 or content.field_body_2.0 or content.field_title.0 or content.field_description.0 %}
+    <div{{ attributes.addClass(classes) }}>
+      {% block content %}
+        {% if content.field_subtitle.0 %}
+          <h5 class="rich-text__subtitle">{{ content.field_subtitle.0 }}</h5>
+        {% endif %}
+
+        {% if content.field_title.0 %}
+          <h2 class="rich-text__title">{{ content.field_title.0 }}</h2>
+        {% endif %}
+
+        {% if content.field_description.0 %}      
+          <p class="rich-text__description">{{ content.field_description.0 }}</p>
+        {% endif %}
+
+        {% if content.field_body.0 or content.field_body_2.0 %}
+          <div class="rich-text__columns">
+            <div class="rich-text__body">{{ content.field_body.0 }}</div>
+            <div class="rich-text__body">{{ content.field_body_2.0 }}</div>
+          </div>
+        {% endif %}
+      {% endblock %}
+    </div>
+  {% endif %}
 {% endblock paragraph %}

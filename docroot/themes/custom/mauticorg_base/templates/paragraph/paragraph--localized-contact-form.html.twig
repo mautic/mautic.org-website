@@ -48,19 +48,21 @@
   ]
 %}
 {% block paragraph %}
-  <div{{ attributes.addClass(classes) }}>
-    {% block content %}
-      <div class="localized-container contact-form__wrappar">
-        <div class="contact-form__content">
-          <h5>{{ content.field_subtitle.0 }}</h5>
-          <h2>{{ content.field_link_list_title.0 }}</h2>
-          <div>{{ content.field_body.0|raw }}</div>
-        </div>
+  {% if content.field_subtitle.0 or content.field_link_list_title.0 or content.field_body.0 %}
+    <div{{ attributes.addClass(classes) }}>
+      {% block content %}
+        <div class="localized-container contact-form__wrappar">
+          <div class="contact-form__content">
+            <h5>{{ content.field_subtitle.0 }}</h5>
+            <h2>{{ content.field_link_list_title.0 }}</h2>
+            <div>{{ content.field_body.0|raw }}</div>
+          </div>
 
-        <div class="contact-form__mautic">
-          <script type="text/javascript" src="//m.mautic.org/form/generate.js?id=28"></script>
+          <div class="contact-form__mautic">
+            <script type="text/javascript" src="//m.mautic.org/form/generate.js?id=28"></script>
+          </div>
         </div>
-      </div>
-    {% endblock %}
-  </div>
+      {% endblock %}
+    </div>
+  {% endif %}
 {% endblock paragraph %}

@@ -48,6 +48,7 @@
   ]
 %}
 {% block paragraph %}
+{% if content.field_link_list_title.0 or content.field_newsletter_body.0 %}
   <div{{ attributes.addClass(classes) }}>
     {% block content %}
       <div class="localized-container newsletter-form__container">
@@ -63,4 +64,5 @@
       </div>
     {% endblock %}
   </div>
+{% endif %}
 {% endblock paragraph %}

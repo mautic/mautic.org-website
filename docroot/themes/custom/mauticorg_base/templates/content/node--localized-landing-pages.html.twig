@@ -89,7 +89,9 @@
   {% endif %}
   {{ title_suffix }}
   <div{{ content_attributes }}>
-    {{ content }}
+    {% if content %}
+      {{ content }}
+    {% endif %}
   </div>
 
 </article>

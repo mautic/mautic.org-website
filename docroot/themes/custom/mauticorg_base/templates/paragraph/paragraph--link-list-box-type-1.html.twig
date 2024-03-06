@@ -49,42 +49,57 @@
   ]
 %}
 {% block paragraph %}
-  <div{{ attributes.addClass(classes) }}>
-    {% block content %}
-    <div class="link-list__one-left">
-      <h5>{{ content.field_subtitle.0 }}</h5>
-      <h2>{{ content.field_title.0 }}</h2>
-      <p>{{ content.field_description.0 }}</p>
-    </div>
+  {% if content.field_subtitle.0 or content.field_title.0 or content.field_description.0 or content.field_link_list_cta[0]['#title'] %}
+    <div{{ attributes.addClass(classes) }}>
+      {% block content %}
+      <div class="link-list__one-left">
+        {% if content.field_subtitle.0 %}
+          <h5>{{ content.field_subtitle.0 }}</h5>
+        {% endif %}
 
-    <div class="link-list__one-right">
-      <div class="link-list__one-right-header">
-        <h3>{{ content.field_link_list_title.0 }}</h3>
-        <a class="link-list__one-right-header-cta" href="{{ content.field_link_list_cta[0]['#url'] }}" title="{{ content.field_link_list_cta[0]['#title'] }}">
-          <svg xmlns="http://www.w3.org/2000/svg" width="15.402" height="15.402" viewBox="0 0 15.402 15.402">
-            <path id="arrow-up-right-from-square-solid" d="M9.626,0a.963.963,0,0,0,0,1.925h2.488L6.059,7.984A.964.964,0,0,0,7.421,9.347l6.056-6.059V5.776a.963.963,0,0,0,1.925,0V.963A.962.962,0,0,0,14.44,0ZM2.407.963A2.406,2.406,0,0,0,0,3.369V13A2.406,2.406,0,0,0,2.407,15.4h9.626A2.406,2.406,0,0,0,14.44,13V9.626a.963.963,0,0,0-1.925,0V13a.483.483,0,0,1-.481.481H2.407A.483.483,0,0,1,1.925,13V3.369a.483.483,0,0,1,.481-.481H5.776a.963.963,0,0,0,0-1.925Z" fill="#4e5e9e"/>
-          </svg>
-          {{ content.field_link_list_cta[0]['#title'] }}
-        </a>
+        {% if content.field_title.0 %}
+          <h2>{{ content.field_title.0 }}</h2>
+        {% endif %}
+
+        {% if content.field_description.0 %}
+          <p>{{ content.field_description.0 }}</p>
+        {% endif %}
       </div>
 
+      <div class="link-list__one-right">
+        <div class="link-list__one-right-header">
+          {% if content.field_link_list_title.0 %}
+            <h3>{{ content.field_link_list_title.0 }}</h3>
+          {% endif %}
+
+          {% if content.field_link_list_cta[0]['#title'] %}
+            <a class="link-list__one-right-header-cta" href="{{ content.field_link_list_cta[0]['#url'] }}" title="{{ content.field_link_list_cta[0]['#title'] }}">
+              <svg xmlns="http://www.w3.org/2000/svg" width="15.402" height="15.402" viewBox="0 0 15.402 15.402">
+                <path id="arrow-up-right-from-square-solid" d="M9.626,0a.963.963,0,0,0,0,1.925h2.488L6.059,7.984A.964.964,0,0,0,7.421,9.347l6.056-6.059V5.776a.963.963,0,0,0,1.925,0V.963A.962.962,0,0,0,14.44,0ZM2.407.963A2.406,2.406,0,0,0,0,3.369V13A2.406,2.406,0,0,0,2.407,15.4h9.626A2.406,2.406,0,0,0,14.44,13V9.626a.963.963,0,0,0-1.925,0V13a.483.483,0,0,1-.481.481H2.407A.483.483,0,0,1,1.925,13V3.369a.483.483,0,0,1,.481-.481H5.776a.963.963,0,0,0,0-1.925Z" fill="#4e5e9e"/>
+              </svg>
+              {{ content.field_link_list_cta[0]['#title'] }}
+            </a>
+          {% endif %}
+        </div>
 
 
-      <div class="link-list__one-right-links">
-        <ul>
-          {% for item in content.field_link_item %}
-            {% if item['#url'] and item['#title'] %}
-              <li>
-                <a class="link-list__one-right-link" href="{{ item['#url'] }}" title="{{ item['#title'] }}">
-                  {{ item['#title'] }}
-                </a>
-              </li>
-            {% endif %}
-          {% endfor %}
-        </ul>
+
+        <div class="link-list__one-right-links">
+          <ul>
+            {% for item in content.field_link_item %}
+              {% if item['#url'] and item['#title'] %}
+                <li>
+                  <a class="link-list__one-right-link" href="{{ item['#url'] }}" title="{{ item['#title'] }}">
+                    {{ item['#title'] }}
+                  </a>
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+
       </div>
-
+      {% endblock %}
     </div>
-    {% endblock %}
-  </div>
+  {% endif %}
 {% endblock paragraph %}

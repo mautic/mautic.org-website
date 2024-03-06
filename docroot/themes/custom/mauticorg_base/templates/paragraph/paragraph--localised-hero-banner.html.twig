@@ -49,19 +49,28 @@
 %}
 {% block paragraph %}
 {% set background_image = file_url(content.field_hero_banner_background_ima['#items'].entity.uri.value) %}
-  <div{{ attributes.addClass(classes) }} style="background-image: url('{{ background_image }}')">
-    {% block content %}
-      <div class="hero-banner__content localized-container">
-        <div class="left-content">
-          <img src="/themes/custom/mauticorg_base/images/astromaut--on-rocket.png" alt="Banner icon" />
-        </div>
-        <div class="right-image">
-          <h3 class="hero-banner__title">{{ content.field_hero_banner_title.0 }}</h3>
-          <h5 class="hero-banner__subtitle">{{ content.field_title.0 }}</h5>
-        </div>
-      </div>
-    {% endblock %}
-  </div>
+  {% if content.field_title.0 or content.field_hero_banner_title.0 %}
+    <div{{ attributes.addClass(classes) }} style="background-image: url('{{ background_image }}')">
+      {% block content %}
+        <div class="hero-banner__content localized-container">
+          <div class="left-content">
+            <img src="/themes/custom/mauticorg_base/images/astromaut--on-rocket.png" alt="Banner icon" />
+          </div>
+          <div class="right-image">
+            {% if content.field_hero_banner_title.0 %}
+            <h3 class="hero-banner__title">{{ content.field_hero_banner_title.0 }}</h3>
+            {% endif %}
 
-  <div class="hero-banner__citation localized-container">{{ content.field_citation_box }}</div>
+            {% if content.field_title.0 %}
+              <h5 class="hero-banner__subtitle">{{ content.field_title.0 }}</h5>
+            {% endif %}
+          </div>
+        </div>
+      {% endblock %}
+    </div>
+
+    {% if content.field_citation_box %}
+      <div class="hero-banner__citation localized-container">{{ content.field_citation_box }}</div>
+    {% endif %}
+  {% endif %}
 {% endblock paragraph %}

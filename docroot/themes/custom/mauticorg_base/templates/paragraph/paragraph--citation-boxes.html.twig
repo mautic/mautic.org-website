@@ -48,9 +48,12 @@
   ]
 %}
 {% block paragraph %}
+  {% if content.field_title.0 %}
   <div{{ attributes.addClass(classes) }}>
     {% block content %}
-      <h4 class="citation-title">{{ content.field_title.0 }}</h4>
+      {% if content.field_title.0 %}
+        <h4 class="citation-title">{{ content.field_title.0 }}</h4>
+      {% endif %}
       {% if content.field_button_text.0 %}
         <button type="button" class="citation-button" title="{{ content.field_button_text.0 }}" data-toggle="modal">
         {{ content.field_button_text.0 }}</button>
@@ -72,4 +75,5 @@
       {% endif %}
     {% endblock %}
   </div>
+  {% endif %}
 {% endblock paragraph %}
