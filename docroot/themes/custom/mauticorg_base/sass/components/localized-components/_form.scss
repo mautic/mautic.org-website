@@ -1,0 +1,150 @@
+.localized-page {
+  .message.messages--error {
+    display: none;
+  }
+
+  .newsletter-form {
+    background-color: #4e5e9e;
+
+    &__container {
+      display: flex;
+      align-items: flex-end;
+      padding: 76px 96px;
+      gap: 100px;
+
+      @include breakpoint($upto-desktop) {
+        gap: 33px;
+        flex-wrap: wrap;
+        flex-direction: column-reverse;
+        align-items: center;
+        padding: 79px 82px;
+      }
+
+      @include breakpoint($upto-tablet) {
+        padding: 47px 30px;
+      }
+
+      .left-container {
+        flex: 0 215px;
+        position: relative;
+        min-width: 215px;
+
+        @include breakpoint($upto-desktop) {
+          flex: 0 193px;
+          min-width: 193px;
+        }
+
+        img {
+          position: absolute;
+          bottom: -174px;
+
+          @include breakpoint($upto-desktop) {
+            bottom: -167px;
+          }
+
+          @include breakpoint($upto-tablet) {
+            bottom: -135px;
+          }
+        }
+      }
+
+      .right-container {
+        flex: 0 calc(100% - 215px);
+      }
+
+      .mauticform_wrapper {
+        margin: 0;
+        max-width: 630px;
+
+        .mauticform-row {
+          margin-bottom: 0;
+        }
+
+        .mauticform-innerform {
+          padding: 0;
+          background-color: unset;
+          border: none;
+          box-shadow: none;
+          margin-bottom: 0;
+
+          .mauticform-page-wrapper {
+            display: flex !important; // Overridding JS display block of mautic form
+
+            @include breakpoint($upto-tablet) {
+              display: block !important;
+            }
+          }
+
+          .mauticform-email {
+            input {
+              width: 459px;
+              padding: 17px 28px 18px 28px;
+              font: normal normal normal 20px/25px $secondary-font;
+              letter-spacing: 0;
+              color: #afafaf;
+              border: none;
+              border-radius: 0.5rem 0 0 0.5rem;
+
+              @media screen and (max-width: 1100px) {
+                width: 100%;
+              }
+
+              @include breakpoint($upto-desktop) {
+                width: 329px;
+              }
+
+              @include breakpoint($upto-tablet) {
+                width: 100%;
+                border-radius: 0.5rem;
+              }
+            }
+          }
+
+          .mauticform-button-wrapper {
+            button {
+              width: 170px;
+              margin: 0;
+              padding: 17px 39px 18px 39px;
+              font: normal normal 600 20px/25px $secondary-font;
+              letter-spacing: 0;
+              color: #4e5e9e;
+              border: 0;
+              border-radius: 0 0.5rem 0.5rem 0;
+              background-color: #fdb933;
+
+              @include breakpoint($upto-tablet) {
+                width: 100%;
+                margin: 13px 0 0 0;
+                border-radius: 0.5rem;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &__title {
+      font: normal normal 600 36px/50px $secondary-font;
+      letter-spacing: 0;
+      color: $white;
+      margin: 0 0 18px 0;
+    }
+
+    &__body {
+      font: normal normal normal 20px/24px $secondary-font;
+      letter-spacing: 0;
+      color: $white;
+      margin: 0 0 42px 0;
+
+      @include breakpoint($upto-desktop) {
+        margin: 0 0 33px 0;
+      }
+
+      a {
+        font: normal normal normal 20px/24px $secondary-font;
+        letter-spacing: 0;
+        color: #fdb933;
+      }
+    }
+  }
+}

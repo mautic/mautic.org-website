@@ -1,0 +1,41 @@
+uuid: 8df47f0f-50ad-4a24-ab9c-c84fda4c3e99
+langcode: hi
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.localized_contact_form.field_body
+    - field.field.paragraph.localized_contact_form.field_link_list_title
+    - field.field.paragraph.localized_contact_form.field_subtitle
+    - paragraphs.paragraphs_type.localized_contact_form
+  module:
+    - text
+id: paragraph.localized_contact_form.default
+targetEntityType: paragraph
+bundle: localized_contact_form
+mode: default
+content:
+  field_body:
+    type: text_default
+    label: visually_hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_link_list_title:
+    type: string
+    label: visually_hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_subtitle:
+    type: string
+    label: visually_hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

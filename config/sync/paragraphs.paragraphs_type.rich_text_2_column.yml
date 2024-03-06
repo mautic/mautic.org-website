@@ -1,0 +1,10 @@
+uuid: cbafe21b-7c94-40c1-8aa9-91fc67c70b95
+langcode: en
+status: true
+dependencies: {  }
+id: rich_text_2_column
+label: 'Rich Text 2-Column'
+icon_uuid: null
+icon_default: null
+description: 'Use rich text 2-column for a two-column rich text layout.'
+behavior_plugins: {  }

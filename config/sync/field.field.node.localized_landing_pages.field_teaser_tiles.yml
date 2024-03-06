@@ -1,0 +1,46 @@
+uuid: ac22004d-db75-4905-b72a-be0e9471c4ff
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_teaser_tiles
+    - node.type.localized_landing_pages
+    - paragraphs.paragraphs_type.teaser_tiles
+  module:
+    - entity_reference_revisions
+id: node.localized_landing_pages.field_teaser_tiles
+field_name: field_teaser_tiles
+entity_type: node
+bundle: localized_landing_pages
+label: 'Teaser Tiles'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      teaser_tiles: teaser_tiles
+    negate: 0
+    target_bundles_drag_drop:
+      link_list_box_type_1:
+        weight: 8
+        enabled: false
+      link_list_box_type_2:
+        weight: 9
+        enabled: false
+      localised_hero_banner:
+        weight: 10
+        enabled: false
+      rich_text_1_column:
+        weight: 11
+        enabled: false
+      rich_text_2_column:
+        weight: 7
+        enabled: false
+      teaser_tiles:
+        weight: 12
+        enabled: true
+field_type: entity_reference_revisions

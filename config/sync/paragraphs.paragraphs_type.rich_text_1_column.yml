@@ -1,0 +1,10 @@
+uuid: 9753620f-21ce-4dc5-bd98-4f60baf7bfb2
+langcode: en
+status: true
+dependencies: {  }
+id: rich_text_1_column
+label: 'Rich Text 1-Column'
+icon_uuid: null
+icon_default: null
+description: 'Use rich text 1-column for a one-column rich text layout.'
+behavior_plugins: {  }

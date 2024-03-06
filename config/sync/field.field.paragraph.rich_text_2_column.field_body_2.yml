@@ -1,0 +1,21 @@
+uuid: 887826d6-8300-4a68-8abf-e7a5ece83402
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_body_2
+    - paragraphs.paragraphs_type.rich_text_2_column
+  module:
+    - text
+id: paragraph.rich_text_2_column.field_body_2
+field_name: field_body_2
+entity_type: paragraph
+bundle: rich_text_2_column
+label: 'body 2'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

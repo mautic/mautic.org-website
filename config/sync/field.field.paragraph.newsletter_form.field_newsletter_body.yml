@@ -1,0 +1,21 @@
+uuid: 063062b9-0bde-4893-94a5-eacec108cddc
+langcode: hi
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_newsletter_body
+    - paragraphs.paragraphs_type.newsletter_form
+  module:
+    - text
+id: paragraph.newsletter_form.field_newsletter_body
+field_name: field_newsletter_body
+entity_type: paragraph
+bundle: newsletter_form
+label: 'Newsletter Body'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

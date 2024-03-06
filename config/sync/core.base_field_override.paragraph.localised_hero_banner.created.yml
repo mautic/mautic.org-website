@@ -1,0 +1,18 @@
+uuid: a53cc1aa-fa40-4603-81c0-574843513113
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.localised_hero_banner
+id: paragraph.localised_hero_banner.created
+field_name: created
+entity_type: paragraph
+bundle: localised_hero_banner
+label: 'Authored on'
+description: 'The time that the Paragraph was created.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

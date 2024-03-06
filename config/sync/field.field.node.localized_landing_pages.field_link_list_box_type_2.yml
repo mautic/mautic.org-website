@@ -1,0 +1,46 @@
+uuid: 585d97b5-0c94-43f6-9a45-7d9ff119b65b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_link_list_box_type_2
+    - node.type.localized_landing_pages
+    - paragraphs.paragraphs_type.link_list_box_type_2
+  module:
+    - entity_reference_revisions
+id: node.localized_landing_pages.field_link_list_box_type_2
+field_name: field_link_list_box_type_2
+entity_type: node
+bundle: localized_landing_pages
+label: 'Link List Box Type 2'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      link_list_box_type_2: link_list_box_type_2
+    negate: 0
+    target_bundles_drag_drop:
+      link_list_box_type_1:
+        weight: 8
+        enabled: false
+      link_list_box_type_2:
+        weight: 9
+        enabled: true
+      localised_hero_banner:
+        weight: 10
+        enabled: false
+      rich_text_1_column:
+        weight: 11
+        enabled: false
+      rich_text_2_column:
+        weight: 7
+        enabled: false
+      teaser_tiles:
+        weight: 12
+        enabled: false
+field_type: entity_reference_revisions

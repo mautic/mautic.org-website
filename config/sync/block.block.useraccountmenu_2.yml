@@ -11,7 +11,7 @@ dependencies:
 id: useraccountmenu_2
 theme: mauticorg_base
 region: primary_menu
-weight: -10
+weight: -13
 provider: null
 plugin: 'system_menu_block:account'
 settings:

@@ -1,0 +1,23 @@
+uuid: 6d99e762-1fa1-4f6a-9180-232cf35fcfaa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_social_link
+    - paragraphs.paragraphs_type.localized_social_follow
+  module:
+    - link
+id: paragraph.localized_social_follow.field_social_link
+field_name: field_social_link
+entity_type: paragraph
+bundle: localized_social_follow
+label: 'Social Link'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 0
+  link_type: 17
+field_type: link

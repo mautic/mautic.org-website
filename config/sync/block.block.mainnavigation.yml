@@ -11,7 +11,7 @@ dependencies:
 id: mainnavigation
 theme: mauticorg_base
 region: primary_menu
-weight: -9
+weight: -12
 provider: null
 plugin: 'system_menu_block:main'
 settings:

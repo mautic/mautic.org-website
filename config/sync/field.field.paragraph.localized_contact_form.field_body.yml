@@ -1,0 +1,21 @@
+uuid: 5ab02d7d-9333-4b22-9d1e-a80dee9dc446
+langcode: hi
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_body
+    - paragraphs.paragraphs_type.localized_contact_form
+  module:
+    - text
+id: paragraph.localized_contact_form.field_body
+field_name: field_body
+entity_type: paragraph
+bundle: localized_contact_form
+label: body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

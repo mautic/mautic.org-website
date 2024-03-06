@@ -1,0 +1,33 @@
+uuid: d91d94a7-5d2e-4f47-8733-bfc70b7237ba
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.localized-footer-links
+  module:
+    - node
+    - system
+  theme:
+    - mauticorg_base
+id: localizedfooterlinks
+theme: mauticorg_base
+region: localized_footer
+weight: -13
+provider: null
+plugin: 'system_menu_block:localized-footer-links'
+settings:
+  id: 'system_menu_block:localized-footer-links'
+  label: 'D/A/CH Links'
+  label_display: visible
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      localized_landing_pages: localized_landing_pages

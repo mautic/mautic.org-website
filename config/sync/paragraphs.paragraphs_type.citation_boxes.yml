@@ -1,0 +1,10 @@
+uuid: 99ae3798-80bc-488b-986e-a2e8eca15ccf
+langcode: en
+status: true
+dependencies: {  }
+id: citation_boxes
+label: 'Citation Boxes'
+icon_uuid: null
+icon_default: null
+description: 'Citation Boxes with title and CTA For Localised Hero Banner.'
+behavior_plugins: {  }
