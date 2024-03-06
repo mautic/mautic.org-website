@@ -1,0 +1,18 @@
+uuid: 18f9f8d5-59c6-4502-af54-17e08702000e
+langcode: hi
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.localized_contact_form
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: paragraph.localized_contact_form
+target_entity_type_id: paragraph
+target_bundle: localized_contact_form
+default_langcode: site_default
+language_alterable: true

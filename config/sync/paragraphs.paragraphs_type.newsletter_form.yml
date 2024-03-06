@@ -1,0 +1,10 @@
+uuid: 1fe28522-2801-43da-af2d-2708b4df9c2d
+langcode: hi
+status: true
+dependencies: {  }
+id: newsletter_form
+label: 'Newsletter form'
+icon_uuid: null
+icon_default: null
+description: 'Use Newsletter form for adding Newsletter form content'
+behavior_plugins: {  }

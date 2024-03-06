@@ -1,0 +1,33 @@
+uuid: c8e0671e-e6b3-4707-beda-a8391adbf37c
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:localized_social_follow:5ce760d7-3a7b-4e3a-94af-cf818803fd05'
+  module:
+    - block_content
+    - node
+  theme:
+    - mauticorg_base
+id: localizedsocialfollow
+theme: mauticorg_base
+region: localized_footer_bottom
+weight: -14
+provider: null
+plugin: 'block_content:5ce760d7-3a7b-4e3a-94af-cf818803fd05'
+settings:
+  id: 'block_content:5ce760d7-3a7b-4e3a-94af-cf818803fd05'
+  label: 'Localized Social Follow'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      localized_landing_pages: localized_landing_pages

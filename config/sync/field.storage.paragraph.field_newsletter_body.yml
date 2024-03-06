@@ -1,0 +1,19 @@
+uuid: eed03e3d-6d2b-48ac-9d64-a2c9997a02f7
+langcode: hi
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - text
+id: paragraph.field_newsletter_body
+field_name: field_newsletter_body
+entity_type: paragraph
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

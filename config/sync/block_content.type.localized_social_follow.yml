@@ -1,0 +1,8 @@
+uuid: 222174ec-9094-4279-8b76-b85409cba67a
+langcode: en
+status: true
+dependencies: {  }
+id: localized_social_follow
+label: 'Localized Social Follow'
+revision: 0
+description: 'Use Localized Social Follow block to add social icons with link'

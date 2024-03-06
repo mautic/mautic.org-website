@@ -1,0 +1,10 @@
+uuid: fd6ec4b4-caf5-4e3e-a7ce-22108197d6c1
+langcode: hi
+status: true
+dependencies: {  }
+id: localized_contact_form
+label: 'Localized contact form'
+icon_uuid: null
+icon_default: null
+description: 'Use this form to add Localized contact form'
+behavior_plugins: {  }

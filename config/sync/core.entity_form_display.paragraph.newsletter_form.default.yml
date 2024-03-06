@@ -1,0 +1,39 @@
+uuid: de6eb8e6-6577-4b9e-a37b-aaf063e2413b
+langcode: hi
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.newsletter_form.field_link_list_title
+    - field.field.paragraph.newsletter_form.field_newsletter_body
+    - paragraphs.paragraphs_type.newsletter_form
+  module:
+    - text
+id: paragraph.newsletter_form.default
+targetEntityType: paragraph
+bundle: newsletter_form
+mode: default
+content:
+  field_link_list_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_newsletter_body:
+    type: text_textarea
+    weight: 11
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

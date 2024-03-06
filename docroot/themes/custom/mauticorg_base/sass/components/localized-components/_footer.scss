@@ -1,0 +1,221 @@
+.localized-page {
+  .layout-container {
+    position: relative;
+  }
+
+  .localized-container {
+    max-width: 1140px;
+    margin: auto;
+    padding: 0 30px;
+
+    @include breakpoint($only-tablet) {
+      padding-inline: 5.125rem;
+    }
+  }
+
+  .localized-page__footer {
+    background-color: $cornflower-blue;
+  }
+
+  .menu--localized-footer-links {
+    @include breakpoint($upto-desktop) {
+      display: none;
+    }
+  }
+
+  .back__to-top {
+    background-color: #6474b7;
+    right: 6rem;
+    bottom: 7rem;
+    left: unset;
+    margin-bottom: 0;
+    position: fixed;
+    border: 2px solid $white;
+    height: 4.6875rem;
+    width: 4.6875rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.2s all ease-in-out;
+    z-index: 9;
+
+    @include breakpoint($upto-tablet) {
+      right: 32px;
+      bottom: 106px;
+    }
+
+    a {
+      width: 100%;
+      height: 100%;
+    }
+
+    &:hover {
+      background: #4e5e9e 0% 0% no-repeat padding-box;
+    }
+
+    i {
+      top: 0.5rem;
+      display: block;
+      width: 40px;
+      left: -3px;
+
+      @include breakpoint($upto-desktop) {
+        top: 0;
+      }
+    }
+
+    .fa-angle-up::before {
+      color: $white;
+      font-size: 40px;
+
+      @include breakpoint($upto-desktop) {
+        font-size: 55px;
+      }
+    }
+  }
+
+  .region-localized {
+    &__footer {
+      background-color: #4e5e9e;
+
+      .localized-footer__wrappar {
+        display: flex;
+        justify-content: space-between;
+        padding-block: 3.75rem;
+
+        @include breakpoint($upto-desktop) {
+          padding-inline: 82px;
+          gap: 146px;
+          justify-content: flex-start;
+        }
+
+        @include breakpoint($upto-tablet) {
+          padding-inline: 30px;
+          gap: 40px;
+          justify-content: center;
+          flex-wrap: wrap;
+          padding-block: 46px 70px;
+        }
+      }
+
+      .site--logo {
+        @include breakpoint($upto-tablet) {
+          display: flex;
+        }
+      }
+
+      .site--logo-wrap img {
+        max-width: 11.875rem;
+        width: 100%;
+
+        @include breakpoint($upto-tablet) {
+          max-width: 164px;
+        }
+      }
+
+      nav {
+        h2 {
+          font: normal normal 600 30px/43px $secondary-font;
+          letter-spacing: 0;
+          color: $white;
+          margin: 0 0 1.875rem 0;
+
+          @include breakpoint($upto-tablet) {
+            margin-bottom: 10px;
+            font: normal normal 600 24px/34px $secondary-font;
+          }
+        }
+
+        ul {
+          margin: 0;
+          list-style: none;
+          padding: 0;
+
+          li {
+            padding-left: 1.75rem;
+
+            a {
+              color: $white;
+              font: normal normal normal 20px/44px $secondary-font;
+              letter-spacing: 0;
+              position: relative;
+
+              &::before {
+                content: "";
+                background-image: url(../../images/next-arrow.svg);
+                width: 1.25rem;
+                height: 1.25rem;
+                position: absolute;
+                background-size: 100%;
+                background-repeat: no-repeat;
+                left: -1.6rem;
+                top: 1px;
+                bottom: 0;
+                margin: auto;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &-footer-bottom {
+      background-color: #3d4c89;
+
+      .localized-footer__wrappar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-block: 3.75rem;
+
+        @include breakpoint($upto-desktop) {
+          flex-wrap: wrap;
+          flex-direction: column-reverse;
+          padding-block: 2.625rem 2.125rem;
+          gap: 1rem;
+
+          .block {
+            width: 100%;
+          }
+        }
+      }
+
+      .block-localized__copyright {
+        p {
+          margin: 0;
+          font: normal normal normal 16px/22px $secondary-font;
+          letter-spacing: 0;
+          color: #eff2fb;
+
+          @include breakpoint($upto-desktop) {
+            text-align: center;
+          }
+        }
+      }
+
+      .field--name-field-social-follow {
+        .field__items {
+          display: flex;
+          gap: 1.875rem;
+
+          @include breakpoint($upto-desktop) {
+            justify-content: center;
+          }
+
+          .fab {
+            &::before {
+              color: #94a6ef;
+              transition: all 0.2s ease-in-out;
+              font-size: 1.5rem;
+            }
+
+            &:hover {
+              &::before {
+                color: #fdb933;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

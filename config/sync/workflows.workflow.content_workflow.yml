@@ -6,6 +6,7 @@ dependencies:
     - node.type.blog
     - node.type.event
     - node.type.landing_page
+    - node.type.localized_landing_pages
   module:
     - content_moderation
 id: content_workflow
@@ -77,4 +78,5 @@ type_settings:
       - blog
       - event
       - landing_page
+      - localized_landing_pages
   default_moderation_state: draft

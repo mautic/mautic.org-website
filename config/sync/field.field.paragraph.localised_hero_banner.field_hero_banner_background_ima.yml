@@ -1,0 +1,45 @@
+uuid: 1231f74f-dbc3-4584-868a-6e29355f2a69
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_hero_banner_background_ima
+    - paragraphs.paragraphs_type.localised_hero_banner
+  module:
+    - content_translation
+    - image
+third_party_settings:
+  content_translation:
+    translation_sync:
+      alt: alt
+      title: title
+      file: '0'
+id: paragraph.localised_hero_banner.field_hero_banner_background_ima
+field_name: field_hero_banner_background_ima
+entity_type: paragraph
+bundle: localised_hero_banner
+label: 'Hero banner background image'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png gif jpg jpeg webp'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: true
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+field_type: image

@@ -1,0 +1,39 @@
+uuid: dde02870-48be-4427-94c8-6bc87334e527
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.link_list_box_type_2.field_link_item
+    - field.field.paragraph.link_list_box_type_2.field_title
+    - paragraphs.paragraphs_type.link_list_box_type_2
+  module:
+    - link
+id: paragraph.link_list_box_type_2.default
+targetEntityType: paragraph
+bundle: link_list_box_type_2
+mode: default
+content:
+  field_link_item:
+    type: link_default
+    weight: 3
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  translation:
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

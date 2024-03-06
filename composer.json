@@ -75,6 +75,7 @@
         "drupal/menu_link_attributes": "^1.0",
         "drupal/metatag": "^1.11",
         "drupal/noreqnewpass": "^1.1",
+        "drupal/paragraphs": "^1.17",
         "drupal/path_redirect_import": "^1.0",
         "drupal/pathauto": "^1.6",
         "drupal/quicktabs": "^3.0@alpha",
@@ -169,6 +170,9 @@
             "drupal/core": "-p2"
         },
         "patches": {
+            "drupal/core": {
+                "Error after saving node drupal 8.7 issue": "https://www.drupal.org/files/issues/2019-02-11/ignore_width_height_on_untranslatable_field_comparision_2941092_8.patch"
+            },
             "drupal/migrate_plus": {
                 "XML Parser item_selector does not work properly with predicate": "https://www.drupal.org/files/issues/fix-ignored-predicate-2891964-2.patch"
             },

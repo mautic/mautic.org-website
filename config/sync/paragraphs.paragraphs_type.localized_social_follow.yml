@@ -1,0 +1,10 @@
+uuid: 28a6a383-1357-43b3-b547-b388d69df7b3
+langcode: en
+status: true
+dependencies: {  }
+id: localized_social_follow
+label: 'Localized social follow'
+icon_uuid: null
+icon_default: null
+description: 'Localized social follow with social media icons and links'
+behavior_plugins: {  }

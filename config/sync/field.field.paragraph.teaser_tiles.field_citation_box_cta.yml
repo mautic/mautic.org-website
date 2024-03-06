@@ -1,0 +1,23 @@
+uuid: a48363f1-1709-47d9-820f-a89d15862357
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_citation_box_cta
+    - paragraphs.paragraphs_type.teaser_tiles
+  module:
+    - link
+id: paragraph.teaser_tiles.field_citation_box_cta
+field_name: field_citation_box_cta
+entity_type: paragraph
+bundle: teaser_tiles
+label: 'Teaser Tile Link'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 0
+  link_type: 17
+field_type: link

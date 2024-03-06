@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   module:
+    - node
     - system
   theme:
     - mauticorg_base
@@ -23,3 +24,12 @@ visibility:
     negate: true
     context_mapping: {  }
     pages: "<front>\r\n/search\r\n/event/*"
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      blog: blog
+      event: event
+      landing_page: landing_page

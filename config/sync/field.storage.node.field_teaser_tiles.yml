@@ -1,0 +1,21 @@
+uuid: 29199d16-c4d1-4fd9-a91c-31947f1bcbb4
+langcode: en
+status: true
+dependencies:
+  module:
+    - entity_reference_revisions
+    - node
+    - paragraphs
+id: node.field_teaser_tiles
+field_name: field_teaser_tiles
+entity_type: node
+type: entity_reference_revisions
+settings:
+  target_type: paragraph
+module: entity_reference_revisions
+locked: false
+cardinality: 4
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

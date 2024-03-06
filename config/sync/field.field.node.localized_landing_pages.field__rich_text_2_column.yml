@@ -1,0 +1,46 @@
+uuid: f94bb461-94c8-48b8-b8d4-1b7aa7719039
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field__rich_text_2_column
+    - node.type.localized_landing_pages
+    - paragraphs.paragraphs_type.rich_text_2_column
+  module:
+    - entity_reference_revisions
+id: node.localized_landing_pages.field__rich_text_2_column
+field_name: field__rich_text_2_column
+entity_type: node
+bundle: localized_landing_pages
+label: 'Rich text 2-column'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      rich_text_2_column: rich_text_2_column
+    negate: 0
+    target_bundles_drag_drop:
+      link_list_box_type_1:
+        weight: 8
+        enabled: false
+      link_list_box_type_2:
+        weight: 9
+        enabled: false
+      localised_hero_banner:
+        weight: 10
+        enabled: false
+      rich_text_1_column:
+        weight: 11
+        enabled: false
+      rich_text_2_column:
+        weight: 7
+        enabled: true
+      teaser_tiles:
+        weight: 12
+        enabled: false
+field_type: entity_reference_revisions

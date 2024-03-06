@@ -1,0 +1,10 @@
+uuid: 35a87cc0-91da-4149-8a42-42ff2c51b58d
+langcode: en
+status: true
+dependencies: {  }
+id: teaser_tiles
+label: 'Teaser Tiles'
+icon_uuid: null
+icon_default: null
+description: 'Use teaser tiles to show tiles with image, title, and CTA.'
+behavior_plugins: {  }
