@@ -11,7 +11,7 @@ id: paragraph.citation_boxes.field_modal_popup
 field_name: field_modal_popup
 entity_type: paragraph
 bundle: citation_boxes
-label: 'Modal popup'
+label: 'Modal popup Content'
 description: ''
 required: false
 translatable: true

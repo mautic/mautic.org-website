@@ -1,0 +1,19 @@
+uuid: a1c8a798-9cf3-4635-8873-1fefe002a5c0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title
+    - paragraphs.paragraphs_type.newsletter_form
+id: paragraph.newsletter_form.field_title
+field_name: field_title
+entity_type: paragraph
+bundle: newsletter_form
+label: 'Form URL'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -6,6 +6,7 @@ dependencies:
     - field.field.paragraph.localized_contact_form.field_body
     - field.field.paragraph.localized_contact_form.field_link_list_title
     - field.field.paragraph.localized_contact_form.field_subtitle
+    - field.field.paragraph.localized_contact_form.field_title
     - paragraphs.paragraphs_type.localized_contact_form
   module:
     - text
@@ -33,6 +34,14 @@ content:
   field_subtitle:
     type: string_textfield
     weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_title:
+    type: string_textfield
+    weight: 13
     region: content
     settings:
       size: 60
