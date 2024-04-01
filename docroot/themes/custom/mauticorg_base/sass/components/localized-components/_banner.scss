@@ -37,9 +37,13 @@
     }
 
     .right-image {
-      justify-content: center;
+      justify-content: flex-start;
       display: flex;
       flex-wrap: wrap;
+
+      @include breakpoint($upto-desktop) {
+        justify-content: center;
+      }
     }
 
     &__title {
@@ -146,6 +150,10 @@
 
         .citation-modal {
           display: none;
+
+          a {
+            text-decoration: underline;
+          }
 
           &.active {
             display: block;
@@ -302,9 +310,11 @@
             background: #4e5e9e 0% 0% no-repeat padding-box;
             border-radius: 0.5rem;
             padding: 1.875rem;
+            flex: 0 33.3%;
 
             @include breakpoint($upto-tablet) {
               width: 100%;
+              flex: 0 100%;
             }
 
             .paragraph-citation {
@@ -354,6 +364,10 @@
       &.localized-container {
         padding-top: 6.375rem;
         justify-content: flex-start;
+
+        @include breakpoint($upto-desktop) {
+          justify-content: center;
+        }
 
         @include breakpoint($upto-tablet) {
           padding-top: 6.875rem;

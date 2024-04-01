@@ -26,6 +26,7 @@
           letter-spacing: 0;
           color: #333;
           margin: 0 0 1rem 0;
+          text-transform: uppercase;
 
           @include breakpoint($upto-desktop) {
             text-align: center;
@@ -96,6 +97,7 @@
             font: normal normal normal 20px/34px $secondary-font;
             letter-spacing: 0;
             color: #333;
+            text-transform: uppercase;
 
             @include breakpoint($upto-desktop) {
               width: 100%;
