@@ -112,6 +112,12 @@ function mauticorg_base_theme_suggestions_page_alter(array &$suggestions, array 
       break;
   }
 
+  // Check for node bundle and add suggestion.
+  if ($node = \Drupal::routeMatch()->getParameter('node')) {
+    $content_type = $node->bundle();
+    $suggestions[] = 'page__' . $content_type;
+  }
+
   if (isset($error)) {
     $suggestions[] = 'page__' . $error;
   }

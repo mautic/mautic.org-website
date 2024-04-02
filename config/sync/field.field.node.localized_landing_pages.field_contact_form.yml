@@ -1,0 +1,58 @@
+uuid: 46a5267e-2246-45d6-aabf-6199e1378142
+langcode: hi
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_contact_form
+    - node.type.localized_landing_pages
+    - paragraphs.paragraphs_type.localized_contact_form
+  module:
+    - entity_reference_revisions
+id: node.localized_landing_pages.field_contact_form
+field_name: field_contact_form
+entity_type: node
+bundle: localized_landing_pages
+label: 'Contact form'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      localized_contact_form: localized_contact_form
+    negate: 0
+    target_bundles_drag_drop:
+      citation_boxes:
+        weight: 12
+        enabled: false
+      link_list_box_type_1:
+        weight: 13
+        enabled: false
+      link_list_box_type_2:
+        weight: 14
+        enabled: false
+      localised_hero_banner:
+        weight: 15
+        enabled: false
+      localized_contact_form:
+        weight: 11
+        enabled: true
+      localized_social_follow:
+        weight: 16
+        enabled: false
+      newsletter_form:
+        weight: 17
+        enabled: false
+      rich_text_1_column:
+        weight: 18
+        enabled: false
+      rich_text_2_column:
+        weight: 19
+        enabled: false
+      teaser_tiles:
+        weight: 20
+        enabled: false
+field_type: entity_reference_revisions

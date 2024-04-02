@@ -1,0 +1,18 @@
+uuid: 41ff3d74-3ff0-4c51-a8ed-1249559f148c
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.localized_social_follow
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: paragraph.localized_social_follow
+target_entity_type_id: paragraph
+target_bundle: localized_social_follow
+default_langcode: site_default
+language_alterable: true

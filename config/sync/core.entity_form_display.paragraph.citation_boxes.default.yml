@@ -1,0 +1,48 @@
+uuid: d606ab26-2ed4-41b7-b2c5-2cd1308af61c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.citation_boxes.field_button_text
+    - field.field.paragraph.citation_boxes.field_modal_popup
+    - field.field.paragraph.citation_boxes.field_title
+    - paragraphs.paragraphs_type.citation_boxes
+  module:
+    - text
+id: paragraph.citation_boxes.default
+targetEntityType: paragraph
+bundle: citation_boxes
+mode: default
+content:
+  field_button_text:
+    type: string_textfield
+    weight: 11
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_modal_popup:
+    type: text_textarea
+    weight: 12
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

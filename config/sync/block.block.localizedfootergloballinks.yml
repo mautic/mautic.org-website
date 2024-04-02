@@ -1,0 +1,33 @@
+uuid: bdd7db74-14f2-4638-b6b8-3ab82fb30f3a
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.localized-footer-global-links
+  module:
+    - node
+    - system
+  theme:
+    - mauticorg_base
+id: localizedfootergloballinks
+theme: mauticorg_base
+region: localized_footer
+weight: -12
+provider: null
+plugin: 'system_menu_block:localized-footer-global-links'
+settings:
+  id: 'system_menu_block:localized-footer-global-links'
+  label: 'Globale Links'
+  label_display: visible
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      localized_landing_pages: localized_landing_pages

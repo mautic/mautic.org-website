@@ -1,0 +1,31 @@
+uuid: d706a43e-2d0a-4111-b06f-f7fabb2446f2
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - system
+  theme:
+    - mauticorg_base
+id: sitebranding_2
+theme: mauticorg_base
+region: localized_footer
+weight: -14
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: false
+  use_site_slogan: false
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      localized_landing_pages: localized_landing_pages

@@ -1,0 +1,49 @@
+uuid: 69e6ef14-f65a-4910-a8ae-d22b2c6b72f5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_citation_box
+    - paragraphs.paragraphs_type.citation_boxes
+    - paragraphs.paragraphs_type.localised_hero_banner
+  module:
+    - entity_reference_revisions
+id: paragraph.localised_hero_banner.field_citation_box
+field_name: field_citation_box
+entity_type: paragraph
+bundle: localised_hero_banner
+label: 'Citation Box'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      citation_boxes: citation_boxes
+    negate: 0
+    target_bundles_drag_drop:
+      citation_boxes:
+        weight: 8
+        enabled: true
+      link_list_box_type_1:
+        weight: 9
+        enabled: false
+      link_list_box_type_2:
+        weight: 10
+        enabled: false
+      localised_hero_banner:
+        weight: 11
+        enabled: false
+      rich_text_1_column:
+        weight: 12
+        enabled: false
+      rich_text_2_column:
+        weight: 13
+        enabled: false
+      teaser_tiles:
+        weight: 14
+        enabled: false
+field_type: entity_reference_revisions

@@ -12,12 +12,15 @@ regions:
   header: Header
   primary_menu: "Primary menu"
   secondary_menu: "Secondary menu"
+  localized_menu: "Localized menu"
   error_content: "Error page content"
   content: Content
   sidebar_top: "Sidebar Top"
   sidebar: "Sidebar"
   post_content: "Post content"
   footer: Footer
+  localized_footer: "Localized footer"
+  localized_footer_bottom: "Localized footer bottom"
 
 ckeditor_stylesheets:
   - dist/css/ckeditor.css

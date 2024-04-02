@@ -1,0 +1,19 @@
+uuid: 9581151a-da83-4836-9584-0f0e840bdbab
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title
+    - paragraphs.paragraphs_type.localized_contact_form
+id: paragraph.localized_contact_form.field_title
+field_name: field_title
+entity_type: paragraph
+bundle: localized_contact_form
+label: 'Form URL'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

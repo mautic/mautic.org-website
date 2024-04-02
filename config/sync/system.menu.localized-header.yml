@@ -1,0 +1,8 @@
+uuid: da87e2a3-05c3-4384-8509-276872c8ccc2
+langcode: en
+status: true
+dependencies: {  }
+id: localized-header
+label: 'Localized header'
+description: 'Localized header links'
+locked: false

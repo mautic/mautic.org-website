@@ -1,0 +1,33 @@
+uuid: 15b8e2dd-a569-435d-af8f-57ec62ac690d
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:2da9225f-3b94-4717-aeab-e1e04840ecc2'
+  module:
+    - block_content
+    - node
+  theme:
+    - mauticorg_base
+id: localizedcopyrighttext
+theme: mauticorg_base
+region: localized_footer_bottom
+weight: -15
+provider: null
+plugin: 'block_content:2da9225f-3b94-4717-aeab-e1e04840ecc2'
+settings:
+  id: 'block_content:2da9225f-3b94-4717-aeab-e1e04840ecc2'
+  label: 'Localized copyright text'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      localized_landing_pages: localized_landing_pages

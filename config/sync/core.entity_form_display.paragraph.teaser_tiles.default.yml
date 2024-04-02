@@ -1,0 +1,59 @@
+uuid: 7e4a3b6e-acb9-4c08-8998-bfcbbf4d0fea
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.teaser_tiles.field_citation_box_cta
+    - field.field.paragraph.teaser_tiles.field_description
+    - field.field.paragraph.teaser_tiles.field_teaser_tile_image
+    - field.field.paragraph.teaser_tiles.field_title
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.teaser_tiles
+  module:
+    - image
+    - link
+id: paragraph.teaser_tiles.default
+targetEntityType: paragraph
+bundle: teaser_tiles
+mode: default
+content:
+  field_citation_box_cta:
+    type: link_default
+    weight: 13
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_description:
+    type: string_textarea
+    weight: 12
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_teaser_tile_image:
+    type: image_image
+    weight: 0
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_title:
+    type: string_textfield
+    weight: 11
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

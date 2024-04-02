@@ -1,0 +1,37 @@
+uuid: 5eb5a83f-6637-4d40-a373-c375edc5af82
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.link_list_box_type_2.field_link_item
+    - field.field.paragraph.link_list_box_type_2.field_title
+    - paragraphs.paragraphs_type.link_list_box_type_2
+  module:
+    - link
+id: paragraph.link_list_box_type_2.default
+targetEntityType: paragraph
+bundle: link_list_box_type_2
+mode: default
+content:
+  field_link_item:
+    type: link
+    label: visually_hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_title:
+    type: string
+    label: visually_hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

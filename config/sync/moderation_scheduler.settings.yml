@@ -5,5 +5,6 @@ moderation_scheduler_content_types:
   blog: blog
   event: event
   landing_page: landing_page
+  localized_landing_pages: localized_landing_pages
 moderation_scheduler_enablemoderation: false
 moderation_scheduler_moderation_state_settings: ''

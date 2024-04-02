@@ -6,6 +6,8 @@ url:
   source: path_prefix
   prefixes:
     en: ''
+    hi: hi
   domains:
     en: ''
+    hi: ''
 selected_langcode: site_default

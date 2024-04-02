@@ -1,0 +1,18 @@
+uuid: 796b16bd-9e70-4a5f-8fb4-3b24c7f5bf77
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Localized Landing Pages'
+type: localized_landing_pages
+description: 'For adding localized landing pages.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true
