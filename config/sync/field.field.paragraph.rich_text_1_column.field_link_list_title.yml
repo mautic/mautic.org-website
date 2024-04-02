@@ -1,0 +1,19 @@
+uuid: 7138bec5-0e70-4b9f-9585-7fb7dc1dedc1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_link_list_title
+    - paragraphs.paragraphs_type.rich_text_1_column
+id: paragraph.rich_text_1_column.field_link_list_title
+field_name: field_link_list_title
+entity_type: paragraph
+bundle: rich_text_1_column
+label: Subtitle
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

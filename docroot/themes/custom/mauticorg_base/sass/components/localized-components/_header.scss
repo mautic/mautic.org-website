@@ -1,0 +1,165 @@
+.nodetype__localized_landing_pages {
+  background-color: #4e5e9e;
+}
+
+.localized-page {
+  position: relative;
+
+  .main {
+    margin: 0 auto;
+    padding: 0;
+    max-width: 100%;
+
+    &__content {
+      background-color: #eff2fb;
+      box-shadow: unset;
+    }
+
+    .region-content {
+      padding: 0;
+      width: 100%;
+    }
+  }
+
+  .header--container {
+    background-color: #4e5e9e;
+    top: 0;
+  }
+
+  .region-header {
+    width: 15.125rem;
+    flex-basis: 15.125rem;
+
+    .site--logo {
+      margin: 0;
+      padding: 0;
+      border: none;
+
+      @include breakpoint($upto-tablet) {
+        display: flex;
+      }
+
+      img {
+        width: 100%;
+        max-width: 15.125rem;
+        height: auto;
+        max-height: unset;
+
+        @include breakpoint($upto-tablet) {
+          max-width: 162px;
+        }
+      }
+    }
+  }
+
+  .page__header {
+    background: unset;
+    min-height: 7.1875rem;
+    height: auto;
+
+    @include breakpoint($upto-tablet) {
+      min-height: 6.875rem;
+    }
+  }
+
+  .navigation {
+    position: relative;
+  }
+
+  .localized-header {
+    &__wrappar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-block: 1.6rem;
+
+      @include breakpoint($upto-tablet) {
+        padding-block: 1rem;
+        padding-inline-start: 82px;
+        min-height: 75px;
+      }
+
+      .header--menu {
+        justify-content: flex-end;
+        opacity: 1;
+        max-height: unset;
+
+        h2 {
+          margin: 0;
+          text-align: right;
+          font: normal normal bold 20px/28px $secondary-font;
+          letter-spacing: 0;
+          color: $white;
+
+          @include breakpoint($upto-desktop) {
+            font: normal normal bold 16px/22px $secondary-font;
+          }
+
+          @include breakpoint($upto-tablet) {
+            display: none;
+          }
+        }
+
+        .menu-item {
+          text-align: right;
+
+          @include breakpoint($upto-tablet) {
+            position: fixed;
+            background-color: #2c3d80;
+            text-align: center;
+            padding: 5px;
+            left: 0;
+            right: 0;
+            top: 75px;
+          }
+
+          span {
+            text-align: right;
+            font: normal normal normal 20px/28px $secondary-font;
+            letter-spacing: 0;
+            color: $white;
+
+            @include breakpoint($upto-desktop) {
+              font: normal normal normal 16px/22px $secondary-font;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .page__header-opacity {
+    .header--container {
+      background-color: #4e5e9e;
+    }
+
+    .localized-header__wrappar {
+      gap: 1rem;
+      padding-block: 1.875rem;
+
+      @include breakpoint($upto-tablet) {
+        padding-block: 1rem;
+      }
+
+      .site--logo img {
+        max-width: 9.625rem;
+
+        @include breakpoint($upto-tablet) {
+          max-width: 162px;
+        }
+      }
+
+      .menu-item {
+        @include breakpoint($upto-tablet) {
+          transform: translateY(-40px);
+          z-index: -7;
+          opacity: 0;
+        }
+      }
+
+      h2 {
+        display: none;
+      }
+    }
+  }
+}

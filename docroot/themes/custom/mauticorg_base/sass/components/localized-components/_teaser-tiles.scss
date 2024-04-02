@@ -1,0 +1,149 @@
+.localized-container-fluid {
+  margin: auto;
+  max-width: 1460px;
+  padding: 0 15px;
+
+  @include breakpoint($only-tablet) {
+    padding-inline: 5.125rem;
+  }
+
+  @include breakpoint($upto-tablet) {
+    padding-inline: 1.875rem;
+  }
+}
+
+.teaser-tiles {
+  margin-top: 5rem;
+
+  @include breakpoint($upto-desktop) {
+    margin-top: 1.25rem;
+  }
+
+  @include breakpoint($upto-tablet) {
+    margin-top: 1rem;
+  }
+
+  &__items {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-bottom: 5.625rem;
+  }
+
+  &__item {
+    flex: 0 calc(50% - 15px);
+
+    @include breakpoint($upto-desktop) {
+      flex: 0 100%;
+    }
+
+    .paragraph--type--teaser-tiles {
+      max-width: 100%;
+      position: relative;
+      display: flex;
+
+      @include breakpoint($upto-desktop) {
+        min-height: 450px;
+      }
+
+      &::before {
+        content: "";
+        background-image: url(../../images/teaser-gradient.svg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        border-radius: 0.5rem;
+      }
+
+      .banner-image {
+        width: 100%;
+        border-radius: 0.5rem;
+        object-fit: cover;
+        aspect-ratio: 1.622;
+
+        @include breakpoint($only-tablet) {
+          aspect-ratio: 1.64;
+        }
+
+        @include breakpoint($upto-tablet) {
+          aspect-ratio: 0.78;
+        }
+      }
+    }
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100%;
+
+    @include breakpoint($upto-tablet) {
+      flex: 0 36px;
+    }
+
+    .read-more {
+      padding: 0.5rem;
+      background-color: #fdb933;
+      min-width: 2.25rem;
+      height: 2.25rem;
+      border-radius: 50%;
+    }
+  }
+
+  &__content {
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    left: 2.5rem;
+    bottom: 2.25rem;
+    right: 1.875rem;
+    text-decoration: none;
+
+    a {
+      text-decoration: none;
+
+      @include breakpoint($upto-tablet) {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+      }
+    }
+
+    h2 {
+      display: block;
+      width: 100%;
+      font: normal normal bold 40px/48px $secondary-font;
+      letter-spacing: 0;
+      color: $white;
+      margin: 0 0 1rem 0;
+
+      @include breakpoint($upto-tablet) {
+        flex: 0 calc(100% - 56px);
+        margin-bottom: 0;
+        font: normal normal bold 32px/40px $secondary-font;
+      }
+    }
+
+    p {
+      display: block;
+      font: normal normal normal 24px/34px $secondary-font;
+      letter-spacing: 0;
+      color: $white;
+      margin: 0;
+
+      @include breakpoint($upto-tablet) {
+        display: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,56 @@
+uuid: 7178af7b-9370-4a84-b15d-171bc9b71e70
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.localised_hero_banner.field_citation_box
+    - field.field.paragraph.localised_hero_banner.field_hero_banner_background_ima
+    - field.field.paragraph.localised_hero_banner.field_hero_banner_title
+    - field.field.paragraph.localised_hero_banner.field_title
+    - paragraphs.paragraphs_type.localised_hero_banner
+  module:
+    - entity_reference_revisions
+    - image
+id: paragraph.localised_hero_banner.default
+targetEntityType: paragraph
+bundle: localised_hero_banner
+mode: default
+content:
+  field_citation_box:
+    type: entity_reference_revisions_entity_view
+    label: visually_hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_hero_banner_background_ima:
+    type: image
+    label: visually_hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_hero_banner_title:
+    type: string
+    label: visually_hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_title:
+    type: string
+    label: visually_hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  search_api_excerpt: true

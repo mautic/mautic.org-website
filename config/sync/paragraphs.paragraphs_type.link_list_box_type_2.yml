@@ -1,0 +1,10 @@
+uuid: 030fb802-fa25-43bf-818a-93e3d61e5769
+langcode: en
+status: true
+dependencies: {  }
+id: link_list_box_type_2
+label: 'Link List Box Type 2'
+icon_uuid: null
+icon_default: null
+description: 'Use link list box type 2 to display three link lists.'
+behavior_plugins: {  }

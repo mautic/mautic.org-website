@@ -16,6 +16,7 @@ use Drupal\views\ViewExecutable;
 use Drupal\user\Entity\User;
 use Drupal\comment\CommentInterface;
 use Drupal\Core\Url;
+use Drupal\Core\Entity\EntityInterface;
 
 /**
  * Implements hook_block_access().
@@ -34,6 +35,10 @@ function mauticorg_core_block_access(Block $block, $operation, AccountInterface 
  * Implements hook_form_alter().
  */
 function mauticorg_core_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+
+  if ($form_id == 'node_localized_landing_pages_form' || $form_id == 'node_localized_landing_pages_edit_form') {
+    $form['#after_build'][] = 'mauticorg_core_node_form_after_build_handler';
+  }
 
   if (isset($form['field_scheduled_time'])) {
     // Restrict date range.
@@ -55,6 +60,26 @@ function mauticorg_core_form_alter(&$form, FormStateInterface $form_state, $form
       $form['author']['homepage']['#title'] = t('Website');
     }
   }
+}
+
+/**
+ * Afterbuild to alter language options for node edit forms.
+ */
+function mauticorg_core_node_form_after_build_handler($form, &$form_state) {
+  if(isset($form['langcode']['widget'][0]['value']['#options'])){
+    // alter options here
+    $options = $form['langcode']['widget'][0]['value']['#options'];
+    $new_options = [];
+    $account = \Drupal::currentUser();
+    $preferred_language = $account->getPreferredLangcode();
+    foreach ($options as $key => $value) {
+      if ($key == $preferred_language || $key == 'und' || $key == 'zxx') {
+        $new_options[$key] = $value;
+      }
+    }
+    $form['langcode']['widget'][0]['value']['#options'] = $new_options;
+  }
+  return $form;
 }
 
 /**
@@ -142,6 +167,24 @@ function template_preprocess_mautic_date_recur_modular_sierra_widget(array &$var
   if ($variables['widget']['#required']) {
     $variables['required'] = TRUE;
   }
+}
+
+/**
+ * Implements hook_entity_access().
+ */
+function mauticorg_core_entity_access(EntityInterface $entity, $operation, $account) {
+  if (in_array($operation, ['update', 'delete']) && $entity->getEntityTypeId() == 'node' && $entity->bundle() == 'localized_landing_pages') {
+    $preferred_language = $account->getPreferredLangcode();
+    $roles = $account->getRoles();
+
+    if (!empty($preferred_language && (in_array('editor', $roles) || (!in_array('administrator', $roles)) )) ) {
+      $entity_langcode = $entity->language()->getId();
+      if ($entity_langcode != $preferred_language) {
+        return AccessResult::forbidden();
+      }
+    }
+  }
+  return AccessResult::neutral();
 }
 
 /**

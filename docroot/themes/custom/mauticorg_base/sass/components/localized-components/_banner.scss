@@ -1,0 +1,424 @@
+.nodetype__localized_landing_pages {
+  &.modal-open {
+    overflow: hidden;
+
+    .header--container {
+      z-index: -1;
+    }
+
+    * {
+      &::before,
+      &::after {
+        z-index: -1 !important;
+      }
+    }
+
+    .back__to-top {
+      display: none;
+    }
+  }
+}
+
+.localized-page {
+  .hero-banner {
+    min-height: 38.75rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    overflow-y: visible;
+
+    @include breakpoint($upto-desktop) {
+      min-height: 57.625rem;
+    }
+
+    @include breakpoint($upto-tablet) {
+      min-height: 31.875rem;
+      padding-bottom: 4.375rem;
+    }
+
+    .right-image {
+      justify-content: flex-start;
+      display: flex;
+      flex-wrap: wrap;
+
+      @include breakpoint($upto-desktop) {
+        justify-content: center;
+      }
+    }
+
+    &__title {
+      font: normal normal normal 48px/56px $secondary-font;
+      letter-spacing: 0;
+      color: $white;
+      margin: 0;
+      max-width: 80%;
+
+      @include breakpoint($upto-desktop) {
+        text-align: center;
+      }
+
+      @include breakpoint($upto-tablet) {
+        font: normal normal normal 32px/40px $secondary-font;
+      }
+    }
+
+    &__subtitle {
+      font: normal normal bold 48px/56px $secondary-font;
+      letter-spacing: 0;
+      color: #fdb933;
+      margin: 0;
+      max-width: 80%;
+
+      @include breakpoint($upto-desktop) {
+        text-align: center;
+      }
+
+      @include breakpoint($upto-tablet) {
+        font: normal normal bold 32px/40px $secondary-font;
+      }
+    }
+
+    &__citation {
+      padding: 0;
+      background: #eff2fb 0% 0% no-repeat padding-box;
+      border-radius: 1rem 1rem 0 0;
+      z-index: 1;
+      position: relative;
+
+      &.localized-container {
+        margin-top: -8.25rem;
+        max-width: 1170px;
+
+        @include breakpoint($upto-desktop) {
+          padding-inline: 30px;
+          max-width: 716px;
+        }
+
+        @include breakpoint($upto-tablet) {
+          margin-top: -1.375rem;
+          max-width: 100%;
+        }
+      }
+
+      .field--name-field-citation-box {
+        .paragraph-citation {
+          display: flex;
+          height: 100%;
+          flex-wrap: wrap;
+        }
+
+        .citation-title {
+          text-align: center;
+          font: italic normal normal 24px/30px $secondary-font;
+          letter-spacing: 0;
+          color: #fff;
+          margin: 0 0 1.5rem 0;
+          position: relative;
+          width: 100%;
+
+          &::before {
+            content: "";
+            background-image: url(../../images/quote.svg);
+            width: 1.5rem;
+            height: 1.125rem;
+            background-repeat: no-repeat;
+            margin-right: 0.375rem;
+            background-size: contain;
+            transform: rotate(180deg);
+            display: inline-block;
+          }
+
+          &::after {
+            content: "";
+            background-image: url(../../images/quote.svg);
+            width: 1.5rem;
+            height: 1.125rem;
+            background-repeat: no-repeat;
+            background-size: contain;
+            margin-left: 0.375rem;
+            display: inline-block;
+          }
+        }
+
+        .citation-button {
+          border: none;
+          background: #fdb933 0% 0% no-repeat padding-box;
+          border-radius: 0.5rem;
+          text-align: center;
+          font: normal normal 600 18px/22px $secondary-font;
+          letter-spacing: 0;
+          color: #4e5e9e;
+          margin: 0;
+          padding: 0.5rem;
+          width: 100%;
+          display: block;
+          text-decoration: none;
+          align-self: flex-end;
+        }
+
+        .citation-modal {
+          display: none;
+
+          a {
+            text-decoration: underline;
+          }
+
+          &.active {
+            display: block;
+            position: fixed;
+            max-width: 1110px;
+            margin: auto;
+            inset-block: 0;
+            inset-inline: 0;
+            z-index: 999;
+            max-height: 700px;
+
+            @include breakpoint($upto-desktop) {
+              max-width: calc(100% - 20px);
+              left: 10px;
+              right: 10px;
+              max-height: calc(100% - 128px);
+              top: 64px;
+              bottom: 64px;
+            }
+
+            &::after {
+              background: #4e5e9e 0% 0% no-repeat padding-box;
+              opacity: 0.8;
+              content: "";
+              position: fixed;
+              height: 100%;
+              width: 100%;
+              left: 0;
+              right: 0;
+              top: 0;
+              bottom: 0;
+            }
+
+            .sr-only {
+              position: absolute;
+              width: 1px;
+              height: 1px;
+              padding: 0;
+              margin: -1px;
+              overflow: hidden;
+              clip: rect(0, 0, 0, 0);
+              border: 0;
+            }
+
+            .citation-modal__header {
+              padding: 18px 22px;
+              display: flex;
+              justify-content: flex-end;
+              border-bottom: 1px solid #ccc;
+
+              @include breakpoint($upto-desktop) {
+                padding: 16px 20px;
+              }
+            }
+
+            .citation-modal__body {
+              padding: 36px 95px 66px 95px;
+              background: #eff2fb 0% 0% no-repeat padding-box;
+              max-height: 624px;
+              overflow-y: auto;
+
+              @include breakpoint($upto-desktop) {
+                padding: 38px 20px;
+                height: 100%;
+                max-height: calc(100% - 73px);
+              }
+
+              h5 {
+                margin: 0 0 20px 0;
+                letter-spacing: 0;
+                color: #333;
+                font: normal normal normal 20px/34px $secondary-font;
+
+                @include breakpoint($upto-desktop) {
+                  font: normal normal normal 18px/28px $secondary-font;
+                  text-align: center;
+                }
+              }
+
+              h2 {
+                font: normal normal bold 40px/48px $secondary-font;
+                letter-spacing: 0;
+                color: #4e5e9e;
+                margin: 0 0 20px 0;
+
+                @include breakpoint($upto-desktop) {
+                  font: normal normal bold 36px/44px $secondary-font;
+                  text-align: center;
+                }
+              }
+
+              p,
+              li,
+              a {
+                font: normal normal normal 24px/34px $secondary-font;
+                letter-spacing: 0;
+                color: #4e5e9e;
+
+                @include breakpoint($upto-desktop) {
+                  font: normal normal normal 20px/24px $secondary-font;
+                }
+              }
+
+              ul {
+                li {
+                  list-style-type: disc;
+                }
+              }
+            }
+
+            .citation-modal__close {
+              background-color: unset;
+              border: unset;
+              padding: 0;
+              margin: 0;
+              border-radius: 50%;
+              display: flex;
+
+              svg {
+                height: 40px;
+                width: 40px;
+                fill: #ccc;
+              }
+            }
+
+            .modal-content {
+              position: relative;
+              z-index: 999;
+              background-color: $white;
+              border-radius: 1rem;
+              height: 100%;
+              overflow: hidden;
+            }
+          }
+        }
+
+        .field__items {
+          display: flex;
+          gap: 1.875rem;
+          padding: 1.875rem 0;
+
+          @include breakpoint($upto-desktop) {
+            max-width: 100%;
+            gap: 1.25rem;
+          }
+
+          @include breakpoint($upto-tablet) {
+            flex-wrap: wrap;
+            gap: 1.875rem;
+            padding-inline: 0;
+          }
+
+          .field__item {
+            background: #4e5e9e 0% 0% no-repeat padding-box;
+            border-radius: 0.5rem;
+            padding: 1.875rem;
+            flex: 0 33.3%;
+
+            @include breakpoint($upto-tablet) {
+              width: 100%;
+              flex: 0 100%;
+            }
+
+            .paragraph-citation {
+              @include breakpoint($upto-desktop) {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                height: 100%;
+              }
+
+              .citation-title {
+                @include breakpoint($upto-desktop) {
+                  align-self: flex-start;
+                }
+              }
+
+              .citation-button {
+                @include breakpoint($upto-desktop) {
+                  align-self: flex-end;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    * {
+      z-index: 1;
+      position: relative;
+    }
+
+    &::before {
+      content: "";
+      background: #4e5e9e 0% 0% no-repeat padding-box;
+      opacity: 0.73;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+
+    &__content {
+      display: flex;
+      align-items: center;
+      gap: 4.625rem;
+
+      &.localized-container {
+        padding-top: 6.375rem;
+        justify-content: flex-start;
+
+        @include breakpoint($upto-desktop) {
+          justify-content: center;
+        }
+
+        @include breakpoint($upto-tablet) {
+          padding-top: 6.875rem;
+          justify-content: center;
+          flex-wrap: wrap;
+          gap: 1.5rem;
+        }
+      }
+
+      @include breakpoint($upto-desktop) {
+        padding-top: 14rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 2.25rem;
+      }
+
+      .left-content {
+        background-image: url(../../images/ellipse.png);
+        background-size: 20.125rem;
+        background-repeat: no-repeat;
+        min-height: 20.125rem;
+        min-width: 23.25rem;
+        background-position: right;
+
+        @include breakpoint($upto-tablet) {
+          min-width: 214px;
+          min-height: 214px;
+          background-size: contain;
+        }
+
+        img {
+          max-width: 21.5625rem;
+          height: auto;
+          margin: 2.625rem 2.625rem 0 0;
+
+          @include breakpoint($upto-tablet) {
+            min-width: 230px;
+            min-height: 169px;
+            max-width: 230px;
+            margin: 1.75rem 1.375rem 0 0;
+          }
+        }
+      }
+    }
+  }
+}

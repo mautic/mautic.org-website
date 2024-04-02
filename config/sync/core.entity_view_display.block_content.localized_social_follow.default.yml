@@ -1,0 +1,26 @@
+uuid: ac1ffc2f-483e-41db-9e12-0f9f463b73da
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.localized_social_follow
+    - field.field.block_content.localized_social_follow.field_social_follow
+  module:
+    - entity_reference_revisions
+id: block_content.localized_social_follow.default
+targetEntityType: block_content
+bundle: localized_social_follow
+mode: default
+content:
+  field_social_follow:
+    type: entity_reference_revisions_entity_view
+    label: visually_hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

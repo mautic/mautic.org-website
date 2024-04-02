@@ -1,0 +1,23 @@
+uuid: a77ba4e1-37e4-4f1b-a479-371c2bf535b6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_link_list_cta
+    - paragraphs.paragraphs_type.link_list_box_type_1
+  module:
+    - link
+id: paragraph.link_list_box_type_1.field_link_list_cta
+field_name: field_link_list_cta
+entity_type: paragraph
+bundle: link_list_box_type_1
+label: 'Header CTA'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

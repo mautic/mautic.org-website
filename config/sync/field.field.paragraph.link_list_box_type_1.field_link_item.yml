@@ -1,0 +1,23 @@
+uuid: df85671a-59b4-4af9-9447-c59f930f6b79
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_link_item
+    - paragraphs.paragraphs_type.link_list_box_type_1
+  module:
+    - link
+id: paragraph.link_list_box_type_1.field_link_item
+field_name: field_link_item
+entity_type: paragraph
+bundle: link_list_box_type_1
+label: 'Link items'
+description: 'List the link item here.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

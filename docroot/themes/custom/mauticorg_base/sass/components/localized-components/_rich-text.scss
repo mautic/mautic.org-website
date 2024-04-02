@@ -1,0 +1,113 @@
+.field--name-field-rich-text-1-column {
+  background-color: $white;
+}
+
+.field--name-field__rich-text-2-column {
+  background-color: $white;
+}
+
+.rich-text {
+  img {
+    margin-bottom: 1rem;
+  }
+
+  &__one {
+    max-width: 730px;
+    margin: 0 auto;
+    padding-block: 5.875rem;
+
+    @include breakpoint($upto-desktop) {
+      max-width: 100%;
+      padding-inline: 82px;
+    }
+
+    @include breakpoint($upto-tablet) {
+      flex-wrap: wrap;
+      gap: 0;
+      padding-inline: 30px;
+    }
+  }
+
+  &__two.localized-container {
+    padding-block: 5.3125rem 3.75rem;
+    border-bottom: 1px solid #4e5e9e;
+  }
+
+  &__body {
+    margin: 3.125rem 0 0 0;
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: #4e5e9e;
+      font-weight: bold;
+      margin: 0 0 1.1875rem 0;
+    }
+
+    p,
+    li,
+    a,
+    span {
+      font: normal normal normal 20px/28px $secondary-font;
+      letter-spacing: 0;
+      color: #4e5e9e;
+    }
+
+    ul {
+      li {
+        list-style: disc;
+      }
+    }
+  }
+
+  &__columns {
+    display: flex;
+    gap: 1.875rem;
+
+    @include breakpoint($upto-tablet) {
+      flex-wrap: wrap;
+      gap: 0;
+    }
+
+    .rich-text__body {
+      flex: 1 1 0;
+
+      @include breakpoint($upto-tablet) {
+        flex: 0 100%;
+      }
+
+      &:nth-child(2) {
+        @include breakpoint($upto-tablet) {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+
+  &__subtitle {
+    text-align: center;
+    font: normal normal normal 20px/34px $secondary-font;
+    letter-spacing: 0;
+    color: #333;
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  &__title {
+    text-align: center;
+    font: normal normal bold 48px/48px $secondary-font;
+    letter-spacing: 0;
+    color: #4e5e9e;
+    margin: 1.1875rem 0 0 0;
+  }
+
+  &__description {
+    text-align: center;
+    font: normal normal normal 24px/34px $secondary-font;
+    letter-spacing: 0;
+    color: #4e5e9e;
+    margin: 1.1875rem 0 0 0;
+  }
+}

@@ -1,0 +1,8 @@
+uuid: 9449f8f2-ed70-43b3-ba04-300fa0ac4d34
+langcode: en
+status: true
+dependencies: {  }
+id: localized-footer-links
+label: 'Localized footer links'
+description: 'Localized footer links'
+locked: false

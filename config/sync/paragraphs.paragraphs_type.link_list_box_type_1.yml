@@ -1,0 +1,10 @@
+uuid: c7b84f26-0318-40fa-a787-a4410242f89a
+langcode: en
+status: true
+dependencies: {  }
+id: link_list_box_type_1
+label: 'Link List Box Type 1'
+icon_uuid: null
+icon_default: null
+description: 'Use list box type 1 to display a title description on the left side and a corresponding link list on the right side.'
+behavior_plugins: {  }

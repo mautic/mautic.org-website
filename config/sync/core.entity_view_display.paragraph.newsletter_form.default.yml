@@ -1,0 +1,41 @@
+uuid: b9b4b287-8ff9-40d9-a84c-141f55bc0cf4
+langcode: hi
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.newsletter_form.field_link_list_title
+    - field.field.paragraph.newsletter_form.field_newsletter_body
+    - field.field.paragraph.newsletter_form.field_title
+    - paragraphs.paragraphs_type.newsletter_form
+  module:
+    - text
+id: paragraph.newsletter_form.default
+targetEntityType: paragraph
+bundle: newsletter_form
+mode: default
+content:
+  field_link_list_title:
+    type: string
+    label: visually_hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_newsletter_body:
+    type: text_default
+    label: visually_hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  search_api_excerpt: true

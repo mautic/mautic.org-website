@@ -148,6 +148,12 @@ class ContentTranslationSynchronizedFieldsConstraintValidator extends Constraint
           return TRUE;
         }
         foreach ($items as $delta => $item) {
+          // The width & height properties on image fields should get recomputed
+          // on save when they are empty so can be ignored.
+          if (empty($items[$delta][$property]) && in_array($property, ['width', 'height'], TRUE) && $entity->getFieldDefinition($field_name)->getType() === 'image') {
+            continue;
+          }
+
           // @todo This loose comparison is not fully reliable. Revisit this
           //   after https://www.drupal.org/project/drupal/issues/2941092.
           if ($items[$delta][$property] != $original_items[$delta][$property]) {

@@ -1,0 +1,21 @@
+uuid: 6cd161cc-2ecf-4fb6-acb6-72d6e12c702b
+langcode: hi
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_modal_popup
+    - paragraphs.paragraphs_type.citation_boxes
+  module:
+    - text
+id: paragraph.citation_boxes.field_modal_popup
+field_name: field_modal_popup
+entity_type: paragraph
+bundle: citation_boxes
+label: 'Modal popup Content'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long
