@@ -66,9 +66,11 @@
           border: none;
           box-shadow: none;
           margin-bottom: 0;
+          width: 100%;
 
           .mauticform-page-wrapper {
             display: flex !important; // Overridding JS display block of mautic form
+            width: 100%;
 
             @include breakpoint($upto-tablet) {
               display: block !important;

@@ -47,6 +47,11 @@
         border: 0;
         background-color: transparent;
         box-shadow: none;
+        width: 100%;
+
+        .mauticform-page-wrapper {
+          width: 100%;
+        }
 
         .mauticform-required {
           margin-bottom: 18px;

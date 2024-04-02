@@ -5058,6 +5058,11 @@ hr {
   border: 0;
   background-color: transparent;
   box-shadow: none;
+  width: 100%;
+}
+
+.localized-page .localized-container.contact-form__wrappar .mauticform-innerform .mauticform-page-wrapper {
+  width: 100%;
 }
 
 .localized-page .localized-container.contact-form__wrappar .mauticform-innerform .mauticform-required {
@@ -5516,11 +5521,13 @@ hr {
   border: none;
   box-shadow: none;
   margin-bottom: 0;
+  width: 100%;
 }
 
 .localized-page .newsletter-form__container .mauticform_wrapper .mauticform-innerform .mauticform-page-wrapper {
   display: -webkit-box !important;
   display: flex !important;
+  width: 100%;
 }
 
 @media (max-width: 767px) {
