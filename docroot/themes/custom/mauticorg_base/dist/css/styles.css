@@ -4636,6 +4636,13 @@ hr {
   }
 }
 
+.localized-page .hero-banner__citation .field--name-field-citation-box .paragraph-citation {
+  display: -webkit-box;
+  display: flex;
+  height: 100%;
+  flex-wrap: wrap;
+}
+
 .localized-page .hero-banner__citation .field--name-field-citation-box .citation-title {
   text-align: center;
   font: italic normal normal 24px/30px "Titillium Web", sans-serif;
@@ -4643,6 +4650,7 @@ hr {
   color: #fff;
   margin: 0 0 1.5rem 0;
   position: relative;
+  width: 100%;
 }
 
 .localized-page .hero-banner__citation .field--name-field-citation-box .citation-title::before {
@@ -4682,6 +4690,7 @@ hr {
   width: 100%;
   display: block;
   text-decoration: none;
+  align-self: flex-end;
 }
 
 .localized-page .hero-banner__citation .field--name-field-citation-box .citation-modal {
@@ -5059,7 +5068,7 @@ hr {
 .localized-page .localized-container.contact-form__wrappar .mauticform-innerform textarea {
   font: normal normal normal 18px/23px "Titillium Web", sans-serif;
   letter-spacing: 0;
-  color: #afafaf;
+  color: #000;
   border: 1px solid #4e5e9e80;
   border-radius: 0.5rem;
   padding: 18px 26px 17px 26px;
@@ -5525,7 +5534,7 @@ hr {
   padding: 17px 28px 18px 28px;
   font: normal normal normal 20px/25px "Titillium Web", sans-serif;
   letter-spacing: 0;
-  color: #afafaf;
+  color: #000;
   border: none;
   border-radius: 0.5rem 0 0 0.5rem;
   height: 60px;
@@ -5958,7 +5967,7 @@ hr {
 
 .localized-page .link-list__one-right-links ul li {
   list-style: none;
-  padding: 1rem 1rem 0.625rem 2.8125rem;
+  padding: 0.625rem 1rem 0.625rem 2.8125rem;
   margin: 0;
   background: #fff 0% 0% no-repeat padding-box;
   margin-bottom: 1px;
@@ -6076,7 +6085,7 @@ hr {
 
 .localized-page .link-list__two ul li {
   list-style: none;
-  padding: 1rem 1rem 0.625rem 2.8125rem;
+  padding: 0.625rem 1rem 0.625rem 2.8125rem;
   margin: 0;
   background: #eff2fb 0% 0% no-repeat padding-box;
   margin-bottom: 1px;

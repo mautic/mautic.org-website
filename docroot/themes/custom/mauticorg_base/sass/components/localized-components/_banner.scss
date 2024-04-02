@@ -101,6 +101,12 @@
       }
 
       .field--name-field-citation-box {
+        .paragraph-citation {
+          display: flex;
+          height: 100%;
+          flex-wrap: wrap;
+        }
+
         .citation-title {
           text-align: center;
           font: italic normal normal 24px/30px $secondary-font;
@@ -108,6 +114,7 @@
           color: #fff;
           margin: 0 0 1.5rem 0;
           position: relative;
+          width: 100%;
 
           &::before {
             content: "";
@@ -146,6 +153,7 @@
           width: 100%;
           display: block;
           text-decoration: none;
+          align-self: flex-end;
         }
 
         .citation-modal {
