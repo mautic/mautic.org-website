@@ -39,8 +39,8 @@ class UrlResolverTest extends MediaFunctionalTestBase {
   public function providerEndpointMatching() {
     return [
       'match by endpoint: Twitter' => [
-        'https://twitter.com/Dries/status/999985431595880448',
-        'https://publish.twitter.com/oembed?url=https://twitter.com/Dries/status/999985431595880448',
+        'https://x.com/Dries/status/999985431595880448',
+        'https://publish.x.com/oembed?url=https://x.com/Dries/status/999985431595880448',
       ],
       'match by endpoint: Vimeo' => [
         'https://vimeo.com/14782834',

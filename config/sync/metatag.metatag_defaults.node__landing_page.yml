@@ -35,7 +35,7 @@ tags:
   schema_article_image: 'a:2:{s:5:"@type";s:11:"ImageObject";s:3:"url";s:24:"[node:url]/#primaryimage";}'
   schema_article_main_entity_of_page: '[node:url]#webpage'
   schema_article_name: '[node:title]'
-  schema_article_publisher: 'a:6:{s:5:"@type";s:12:"Organization";s:3:"@id";s:23:"[site:url]#organization";s:4:"name";s:11:"[site:name]";s:3:"url";s:10:"[site:url]";s:6:"sameAs";s:178:"http://facebook.com/MauticCommunity,https://www.linkedin.com/company/mautic-community,https://www.youtube.com/channel/UCcc9_x7_gNICPkrbG2NU9Xw,https://twitter.com/mauticcommunity";s:4:"logo";a:2:{s:5:"@type";s:11:"ImageObject";s:3:"url";s:47:"[site:url]themes/custom/mauticorg_base/logo.svg";}}'
+  schema_article_publisher: 'a:6:{s:5:"@type";s:12:"Organization";s:3:"@id";s:23:"[site:url]#organization";s:4:"name";s:11:"[site:name]";s:3:"url";s:10:"[site:url]";s:6:"sameAs";s:178:"http://facebook.com/MauticCommunity,https://www.linkedin.com/company/mautic-community,https://www.youtube.com/channel/UCcc9_x7_gNICPkrbG2NU9Xw,https://x.com/mauticcommunity";s:4:"logo";a:2:{s:5:"@type";s:11:"ImageObject";s:3:"url";s:47:"[site:url]themes/custom/mauticorg_base/logo.svg";}}'
   schema_article_type: Article
   schema_image_object_description: '[node:field_featured_image:entity:name]'
   schema_image_object_height: '[node:field_featured_image:entity:field_media_image:large:height]'
@@ -45,7 +45,7 @@ tags:
   schema_image_object_width: '[node:field_featured_image:entity:field_media_image:large:width]'
   schema_organization_id: '[site:url]#organization'
   schema_organization_name: '[site:name]'
-  schema_organization_same_as: 'http://facebook.com/MauticCommunity,https://www.linkedin.com/company/mautic-community,https://www.youtube.com/channel/UCcc9_x7_gNICPkrbG2NU9Xw,https://twitter.com/mauticcommunity'
+  schema_organization_same_as: 'http://facebook.com/MauticCommunity,https://www.linkedin.com/company/mautic-community,https://www.youtube.com/channel/UCcc9_x7_gNICPkrbG2NU9Xw,https://x.com/mauticcommunity'
   schema_organization_type: Organization
   schema_organization_url: '[site:url]'
   schema_person_image: 'a:2:{s:5:"@type";s:11:"ImageObject";s:3:"url";s:21:"[site:url]#authorlogo";}'

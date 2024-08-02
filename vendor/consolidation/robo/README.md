@@ -184,7 +184,7 @@ Create your own tasks and send them as Pull Requests or create packages [with `"
 
 ## Credits
 
-Follow [@robo_php](http://twitter.com/robo_php) for updates.
+Follow [@robo_php](http://x.com/robo_php) for updates.
 
 Brought to you by [Consolidation Team](https://github.com/orgs/consolidation/people) and our [awesome contributors](https://github.com/consolidation/Robo/graphs/contributors).
 

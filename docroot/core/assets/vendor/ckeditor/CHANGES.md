@@ -80,7 +80,7 @@ Fixed issues:
 
 	Issue summary: The vulnerability allowed to inject malformed comments HTML bypassing content sanitization, which could result in executing JavaScript code. See [CVE-2021-41165](https://github.com/ckeditor/ckeditor4/security/advisories/GHSA-7h26-63m7-qhf2) for more details.
 
-* Fixed XSS vulnerability in the core module reported by [Maurice Dauer](https://twitter.com/laytonctf).
+* Fixed XSS vulnerability in the core module reported by [Maurice Dauer](https://x.com/laytonctf).
 
 	Issue summary: The vulnerability allowed to inject malformed HTML bypassing content sanitization, which could result in executing JavaScript code. See [CVE-2021-41164](https://github.com/ckeditor/ckeditor4/security/advisories/GHSA-pvmx-g8h5-cprj) for more details.
 
@@ -308,11 +308,11 @@ Other Changes:
 
 **Security Updates:**
 
-* Fixed XSS vulnerability in the HTML data processor reported by [Michał Bentkowski](https://twitter.com/securitymb) of Securitum.
+* Fixed XSS vulnerability in the HTML data processor reported by [Michał Bentkowski](https://x.com/securitymb) of Securitum.
 
 	Issue summary: It was possible to execute XSS inside CKEditor after persuading the victim to: (i) switch CKEditor to source mode, then (ii) paste a specially crafted HTML code, prepared by the attacker, into the opened CKEditor source area, and (iii) switch back to WYSIWYG mode or (i) copy the specially crafted HTML code, prepared by the attacker and (ii) paste it into CKEditor in WYSIWYG mode.
 
-* Fixed XSS vulnerability in the WebSpellChecker Dialog plugin reported by [Pham Van Khanh](https://twitter.com/rskvp93) from Viettel Cyber Security.
+* Fixed XSS vulnerability in the WebSpellChecker Dialog plugin reported by [Pham Van Khanh](https://x.com/rskvp93) from Viettel Cyber Security.
 
 	Issue summary: It was possible to execute XSS using CKEditor after persuading the victim to: (i) switch CKEditor to source mode, then (ii) paste a specially crafted HTML code, prepared by the attacker, into the opened CKEditor source area, then (iii) switch back to WYSIWYG mode, and (iv) preview CKEditor content outside CKEditor editable area.
 
@@ -701,7 +701,7 @@ Other Changes:
 
 **Security Updates:**
 
-* Fixed XSS vulnerability in the [Enhanced Image](https://ckeditor.com/cke4/addon/image2) (`image2`) plugin reported by [Kyaw Min Thein](https://twitter.com/kyawminthein99).
+* Fixed XSS vulnerability in the [Enhanced Image](https://ckeditor.com/cke4/addon/image2) (`image2`) plugin reported by [Kyaw Min Thein](https://x.com/kyawminthein99).
 
 	Issue summary: It was possible to execute XSS inside CKEditor using the `<img>` tag and specially crafted HTML. Please note that the default presets (Basic/Standard/Full) do not include this plugin, so you are only at risk if you made a custom build and enabled this plugin.
 
@@ -953,7 +953,7 @@ Fixed Issues:
 * [#16920](https://dev.ckeditor.com/ticket/16920): Fixed: Several plugins not using the [Dialog](https://ckeditor.com/cke4/addon/dialog) plugin as a direct dependency.
 * [PR#336](https://github.com/ckeditor/ckeditor4/pull/336): Fixed: Typo in [`CKEDITOR.getCss()`](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR.html#method-getCss) API documentation. Thanks to [knusperpixel](https://github.com/knusperpixel)!
 * [#17027](https://dev.ckeditor.com/ticket/17027): Fixed: Command event data should be initialized as an empty object.
-* Fixed the behavior of HTML parser when parsing `src`/`srcdoc` attributes of the `<iframe>` element in a CKEditor setup with ACF turned off and without the [Iframe Dialog](https://ckeditor.com/cke4/addon/iframe) plugin. The issue was originally reported as a security issue by [Sriramk21](https://twitter.com/sriramk21) from Pegasystems and was later downgraded by the security team into a normal issue due to the requirement of having ACF turned off. Disabling [Advanced Content Filter](https://ckeditor.com/docs/ckeditor4/latest/guide/dev_advanced_content_filter.html) is against [security best practices](https://ckeditor.com/docs/ckeditor4/latest/guide/dev_best_practices.html#security), so the problem described above has not been considered a security issue as such.
+* Fixed the behavior of HTML parser when parsing `src`/`srcdoc` attributes of the `<iframe>` element in a CKEditor setup with ACF turned off and without the [Iframe Dialog](https://ckeditor.com/cke4/addon/iframe) plugin. The issue was originally reported as a security issue by [Sriramk21](https://x.com/sriramk21) from Pegasystems and was later downgraded by the security team into a normal issue due to the requirement of having ACF turned off. Disabling [Advanced Content Filter](https://ckeditor.com/docs/ckeditor4/latest/guide/dev_advanced_content_filter.html) is against [security best practices](https://ckeditor.com/docs/ckeditor4/latest/guide/dev_best_practices.html#security), so the problem described above has not been considered a security issue as such.
 
 Other Changes:
 
@@ -1134,7 +1134,7 @@ Fixed Issues:
 
 New Features:
 
-* [#14327](https://dev.ckeditor.com/ticket/14327): Added Swiss German localization. Thanks to [Miro Grenda](https://twitter.com/mirogrenda)!
+* [#14327](https://dev.ckeditor.com/ticket/14327): Added Swiss German localization. Thanks to [Miro Grenda](https://x.com/mirogrenda)!
 
 Fixed Issues:
 
@@ -1426,7 +1426,7 @@ Fixed issues:
 
 **Security Updates:**
 
-* Fixed XSS vulnerability in the HTML parser reported by [Dheeraj Joshi](https://twitter.com/dheerajhere) and [Prem Kumar](https://twitter.com/iAmPr3m).
+* Fixed XSS vulnerability in the HTML parser reported by [Dheeraj Joshi](https://x.com/dheerajhere) and [Prem Kumar](https://x.com/iAmPr3m).
 
 	Issue summary: It was possible to execute XSS inside CKEditor after persuading the victim to: (i) switch CKEditor to source mode, then (ii) paste a specially crafted HTML code, prepared by the attacker, into the opened CKEditor source area, and (iii) switch back to WYSIWYG mode.
 

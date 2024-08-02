@@ -1,6 +1,6 @@
 # Container (Dependency Injection)
 
-[![Author](http://img.shields.io/badge/author-@philipobenito-blue.svg?style=for-the-badge)](https://twitter.com/philipobenito)
+[![Author](http://img.shields.io/badge/author-@philipobenito-blue.svg?style=for-the-badge)](https://x.com/philipobenito)
 [![Latest Version](https://img.shields.io/github/release/thephpleague/container.svg?style=for-the-badge)](https://github.com/thephpleague/container/releases)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=for-the-badge)](LICENSE.md)
 [![Build Status](https://img.shields.io/github/workflow/status/thephpleague/container/Tests/3.x?style=for-the-badge)](https://github.com/thephpleague/container/actions)

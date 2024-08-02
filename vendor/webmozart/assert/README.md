@@ -282,6 +282,6 @@ All contents of this package are licensed under the [MIT license].
 [The Community Contributors]: https://github.com/webmozart/assert/graphs/contributors
 [issue tracker]: https://github.com/webmozart/assert/issues
 [Git repository]: https://github.com/webmozart/assert
-[@webmozart]: https://twitter.com/webmozart
+[@webmozart]: https://x.com/webmozart
 [MIT license]: LICENSE
 [`Assert`]: src/Assert.php
