@@ -96,7 +96,7 @@ class OEmbedFormatterTest extends MediaFunctionalTestBase {
         ],
       ],
       'tweet' => [
-        'https://twitter.com/drupaldevdays/status/935643039741202432',
+        'https://x.com/drupaldevdays/status/935643039741202432',
         'rich_twitter.json',
         [
           // The tweet resource does not specify a height, so the formatter
@@ -105,7 +105,7 @@ class OEmbedFormatterTest extends MediaFunctionalTestBase {
         ],
         [
           'iframe' => [
-            'src' => '/media/oembed?url=https%3A//twitter.com/drupaldevdays/status/935643039741202432',
+            'src' => '/media/oembed?url=https%3A//x.com/drupaldevdays/status/935643039741202432',
             'width' => '550',
             'height' => '360',
           ],

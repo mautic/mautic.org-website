@@ -590,7 +590,7 @@ person@example.com or mailto:person2@example.com or ' . $email_with_plus_sign . 
       '
 http://trailingslash.com/ or www.trailingslash.com/
 http://host.com/some/path?query=foo&bar[baz]=beer#fragment or www.host.com/some/path?query=foo&bar[baz]=beer#fragment
-http://twitter.com/#!/example/status/22376963142324226
+http://x.com/#!/example/status/22376963142324226
 http://example.com/@user/
 ftp://user:pass@ftp.example.com/~home/dir1
 sftp://user@nonstandardport:222/dir
@@ -600,7 +600,7 @@ ssh://192.168.0.100/srv/git/drupal.git
         '<a href="http://www.trailingslash.com/">www.trailingslash.com/</a>' => TRUE,
         '<a href="http://host.com/some/path?query=foo&amp;bar[baz]=beer#fragment">http://host.com/some/path?query=foo&amp;bar[baz]=beer#fragment</a>' => TRUE,
         '<a href="http://www.host.com/some/path?query=foo&amp;bar[baz]=beer#fragment">www.host.com/some/path?query=foo&amp;bar[baz]=beer#fragment</a>' => TRUE,
-        '<a href="http://twitter.com/#!/example/status/22376963142324226">http://twitter.com/#!/example/status/22376963142324226</a>' => TRUE,
+        '<a href="http://x.com/#!/example/status/22376963142324226">http://x.com/#!/example/status/22376963142324226</a>' => TRUE,
         '<a href="http://example.com/@user/">http://example.com/@user/</a>' => TRUE,
         '<a href="ftp://user:pass@ftp.example.com/~home/dir1">ftp://user:pass@ftp.example.com/~home/dir1</a>' => TRUE,
         '<a href="sftp://user@nonstandardport:222/dir">sftp://user@nonstandardport:222/dir</a>' => TRUE,

@@ -22,5 +22,5 @@ tags:
   schema_web_page_description: '[term:description]'
   schema_web_page_id: '[current-page:url]#webpage'
   schema_web_page_in_language: en-US
-  schema_web_page_publisher: 'a:4:{s:5:"@type";s:12:"Organization";s:3:"@id";s:27:"site[site:url]#organization";s:4:"name";s:11:"[site:name]";s:6:"sameAs";s:178:"http://facebook.com/MauticCommunity,https://www.linkedin.com/company/mautic-community,https://www.youtube.com/channel/UCcc9_x7_gNICPkrbG2NU9Xw,https://twitter.com/mauticcommunity";}'
+  schema_web_page_publisher: 'a:4:{s:5:"@type";s:12:"Organization";s:3:"@id";s:27:"site[site:url]#organization";s:4:"name";s:11:"[site:name]";s:6:"sameAs";s:178:"http://facebook.com/MauticCommunity,https://www.linkedin.com/company/mautic-community,https://www.youtube.com/channel/UCcc9_x7_gNICPkrbG2NU9Xw,https://x.com/mauticcommunity";}'
   schema_web_page_type: CollectionPage

@@ -26,7 +26,7 @@ plugins:
 extra:
   social:
     - icon: fontawesome/brands/twitter
-      link: https://twitter.com/drushcli
+      link: https://x.com/drushcli
     - icon: fontawesome/brands/github
       link: https://github.com/drush-ops/drush
     - icon: fontawesome/brands/slack
