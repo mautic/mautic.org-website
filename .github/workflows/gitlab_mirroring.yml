@@ -6,6 +6,9 @@ jobs:
   sync:
     name: Gitlab Mirroring
     runs-on: ubuntu-latest
+    concurrency:
+      group: globally-unique-mirroring
+      cancel-in-progress: false
     steps:
       - uses: actions/checkout@v2
         with:
