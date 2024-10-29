@@ -4,17 +4,12 @@ on: [ push, create, delete ]
 
 jobs:
   sync:
-    name: Gitlab Mirroring
     runs-on: ubuntu-latest
-    concurrency:
-      group: globally-unique-mirroring
-      cancel-in-progress: false
     steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - uses: action-pack/gitlab-sync@v3
-        with:
-          username: ${{ github.actor }}
-          url: https://gitlab.dropsolid.com/project/mauticorg.git
-          token: ${{ secrets.GITLAB_MIRRORING_TOKEN }}
+      - uses: actions/checkout@v1
+      - name: Mirror
+        uses: xometry/gitlab-mirror-action
+        env:
+          GITLAB_REPOSITORY: "https://gitlab.dropsolid.com/project/mauticorg.git"
+          GITLAB_USERNAME: ${{ github.actor }}
+          GITLAB_PASSWORD: ${{ secrets.GITLAB_MIRRORING_TOKEN }}
