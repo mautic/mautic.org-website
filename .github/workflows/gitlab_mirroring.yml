@@ -6,10 +6,11 @@ jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v4
       - name: Mirror
-        uses: xometry/gitlab-mirror-action
+        run: ./scripts/mirroring.sh
+        shell: bash
         env:
           GITLAB_REPOSITORY: "https://gitlab.dropsolid.com/project/mauticorg.git"
           GITLAB_USERNAME: ${{ github.actor }}
-          GITLAB_PASSWORD: ${{ secrets.GITLAB_MIRRORING_TOKEN }}
+          GITLAB_TOKEN: ${{ secrets.GITLAB_MIRRORING_TOKEN }}
