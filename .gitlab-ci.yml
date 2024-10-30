@@ -16,7 +16,7 @@ deploy_to_qa_1:
     - >-
       curl
       --url 'https://admin.platform.dropsolid.com/project/mauticorg/environment/qa1/action.build?_format=json'
-      --data '{"branch":"'"${CI_COMMIT_REF_NAME}"'", "plugin_id": "git_reference"}'
+      --data '{"git_reference":"'"${CI_COMMIT_REF_NAME}"'", "plugin_id": "git_reference", "run_after_sync_tasks": true}'
       --header 'Content-type:application/json'
       --header "Authorization:Bearer ${GITLAB_API_TOKEN}"
   only:
@@ -37,7 +37,7 @@ deploy_to_qa_2:
     - >-
       curl
       --url 'https://admin.platform.dropsolid.com/project/mauticorg/environment/qa2/action.build?_format=json'
-      --data '{"branch":"'"${CI_COMMIT_REF_NAME}"'", "plugin_id": "git_reference"}'
+      --data '{"git_reference":"'"${CI_COMMIT_REF_NAME}"'", "plugin_id": "git_reference", "run_after_sync_tasks": true}'
       --header 'Content-type:application/json'
       --header "Authorization:Bearer ${GITLAB_API_TOKEN}"
   only:
@@ -58,7 +58,7 @@ deploy_to_qa_3:
     - >-
       curl
       --url 'https://admin.platform.dropsolid.com/project/mauticorg/environment/qa3/action.build?_format=json'
-      --data '{"branch":"'"${CI_COMMIT_REF_NAME}"'", "plugin_id": "git_reference"}'
+      --data '{"git_reference":"'"${CI_COMMIT_REF_NAME}"'", "plugin_id": "git_reference", "run_after_sync_tasks": true}'
       --header 'Content-type:application/json'
       --header "Authorization:Bearer ${GITLAB_API_TOKEN}"
   only:
@@ -79,7 +79,7 @@ deploy_to_qa_4:
     - >-
       curl
       --url 'https://admin.platform.dropsolid.com/project/mauticorg/environment/qa4/action.build?_format=json'
-      --data '{"branch":"'"${CI_COMMIT_REF_NAME}"'", "plugin_id": "git_reference"}'
+      --data '{"git_reference":"'"${CI_COMMIT_REF_NAME}"'", "plugin_id": "git_reference", "run_after_sync_tasks": true}'
       --header 'Content-type:application/json'
       --header "Authorization:Bearer ${GITLAB_API_TOKEN}"
   only:
