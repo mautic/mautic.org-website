@@ -7,7 +7,6 @@ echo "Triggering git reference: ${GITHUB_REF}"
 echo "Triggering git reference for push events: ${GH_REF}"
 echo "Triggering git reference type: ${GH_REF_TYPE}"
 
-
 function git-setup() {
   printf -v url "https://%s:%s@%s" \
     "${GITLAB_USERNAME}" \
@@ -18,6 +17,7 @@ function git-setup() {
   set -x
 }
 
+# @see https://github.com/xometry/gitlab-mirror-action/tree/master
 if test "$GITHUB_EVENT_NAME" == "create"; then
     # Do nothing. Every "create" event *also* publishes a *push* event, even tags/branches created from github UI.
     # Duplicate events would race and sometimes cause spurious errors.
