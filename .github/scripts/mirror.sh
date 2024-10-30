@@ -3,6 +3,8 @@
 set -euo pipefail
 
 echo "${GITHUB_EVENT_NAME}"
+echo "${GITHUB_REF}"
+echo "Triggers: ${{ github.event.ref }} - ${{ github.event.ref_type }}"
 
 function git-setup() {
   printf -v url "https://%s:%s@%s" \
