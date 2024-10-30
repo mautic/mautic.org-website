@@ -3,6 +3,10 @@
 set -euo pipefail
 
 echo "${GITHUB_EVENT_NAME}"
+echo "${GITHUB_REF}"
+echo "github.event.ref: $GH_EV_RF"
+echo "github.event.ref_type: $GH_EV_RF_T"
+
 
 function git-setup() {
   printf -v url "https://%s:%s@%s" \
