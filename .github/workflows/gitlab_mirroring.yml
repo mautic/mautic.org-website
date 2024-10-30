@@ -4,14 +4,15 @@ on: [ push, create, delete ]
 
 jobs:
   sync:
-    name: Gitlab Mirroring
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - uses: action-pack/gitlab-sync@v3
-        with:
-          username: ${{ github.actor }}
-          url: https://gitlab.dropsolid.com/project/mauticorg.git
-          token: ${{ secrets.GITLAB_MIRRORING_TOKEN }}
+      - name: Mirror
+        run: .github/scripts/mirror.sh
+        shell: bash
+        env:
+          GITLAB_REPOSITORY: "https://gitlab.dropsolid.com/project/mauticorg.git"
+          GITLAB_USERNAME: ${{ github.actor }}
+          GITLAB_TOKEN: ${{ secrets.GITLAB_MIRRORING_TOKEN }}
