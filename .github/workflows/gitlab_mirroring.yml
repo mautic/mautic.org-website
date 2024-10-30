@@ -16,5 +16,5 @@ jobs:
           GITLAB_REPOSITORY: "https://gitlab.dropsolid.com/project/mauticorg.git"
           GITLAB_USERNAME: ${{ github.actor }}
           GITLAB_TOKEN: ${{ secrets.GITLAB_MIRRORING_TOKEN }}
-          GH_EV_RF: ${{ github.event.ref }}
-          GH_EV_RF_T: ${{ github.event.ref_type }}
+          GH_REF: ${{ github.event.ref }}
+          GH_REF_TYPE: ${{ github.event.ref_type }}
