@@ -8,7 +8,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Mirror
-        run: ls -lah
+        run: .github/scripts/mirror.sh
         shell: bash
         env:
           GITLAB_REPOSITORY: "https://gitlab.dropsolid.com/project/mauticorg.git"
